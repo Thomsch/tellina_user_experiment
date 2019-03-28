@@ -109,6 +109,7 @@ The app will handle the following requests from the client:
     current distribution of task set ordering.
   - We will have 4 task orderings, with `s1, s2` as task set 1 and 2, and `T,
     NT` for Tellina and No Tellina
+
     ||1st|2nd|
     |-|-|-|
     |1|`s1 T`|`s2 NT`|
