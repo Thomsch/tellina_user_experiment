@@ -39,11 +39,6 @@ The experiment infrastructure will be consisted of several components:
     server is responding.
   - Scripts that will send data to the server.
   - The directory with which the user will perform tasks on.
-  - Tasks directory:
-    - For each task, a corresponding expected output file is kept as well.
-    - Each task and it's expected output (for both `stdout` and `fs` structure)
-      will be kept in their respective task sets in folders `tasks` and
-      `expected`.
 - Tasks:
   - We will have `N` tasks for each user:
   - The first `N/2` tasks will be logged as `1_n` where `n` is the task number
@@ -233,15 +228,18 @@ accessed by the user and writing it to the `browser_hist.txt` file.
   - The files used for the file system will be distributed in a TAR file. The
     initial configuration of the interface and subsequent resets will extract
     the TAR into a specified directory.
+  - Tasks directory:
+    - For each task, a corresponding expected output file is kept as well.
+    - Each task and it's expected output (for both `stdout` and `fs` structure)
+      will be kept in their respective task sets in folders `tasks` and
+      `expected`.
   - Output verification:
-    - For ease of output verification, a verification directory will hold all
-      normalized outputs of every task named `taskS_n.out`.
-    - Output verification will be done using a python script called
+    - Verification will be done using a python script called
       `verify_output.py`:
       - Parameters: `<task_no> <time_elapsed> [command...]`
       - Return: `1` if the task passed, `0` if it did not.
       - The script will get the current state of the file system, normalize it,
-        and compare it with the corresponding task expected output.
+        and compare it with the corresponding task's expected output.
       - The script will also check the `stdout` of the user command on the
         corresponding expected output as well.
     - If the verification passes, the interface will reset the mock file system,
