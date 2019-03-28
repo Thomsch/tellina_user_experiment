@@ -1,15 +1,15 @@
 # Tellina User Study Design Doc
 
-# Overview
+## Overview
 
-# Implementation
-## Server
-## Client
-### Setting Up
-### Communication With Server
-### Tracking Browsing History
-### Tracking Bash History
-### Task Interface
+## Implementation
+### Server
+### Client
+#### Setting Up
+#### Communication With Server
+#### Tracking Browsing History
+#### Tracking Bash History
+#### Task Interface
 - Mock File System
   - Reset
   - Output verification
@@ -18,6 +18,6 @@
 - Abandon
 - Command limits
 
-# Risks and Concerns
-## Scalability
-## User File System Safety
+## Risks and Concerns
+### Scalability
+### User File System Safety
