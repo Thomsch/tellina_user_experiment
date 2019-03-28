@@ -226,6 +226,7 @@ accessed by the user and writing it to the `browser_hist.txt` file.
 
 #### Task Interface
 - Mock File System
+  - The files used for the file system
   - Reset
   - Output verification
 - Tutorial
@@ -236,6 +237,12 @@ accessed by the user and writing it to the `browser_hist.txt` file.
 ## Risks and Concerns
 - Scalability.
 - User file system safety.
+  - **The client task interface does not guarantee that the user's file system
+      will be safe from misused commands. The only directory that can be rolled
+      back using the interface will be the mock file system directory as well as
+      the interface directory itself.**
+    - For example, the interface does not prevent or protect the user from
+      running `rm -rf $HOME`.
 - Enforcement of logging tool (specifically browser history logging).
 
 ## Acknowledgements
