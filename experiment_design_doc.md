@@ -226,13 +226,41 @@ accessed by the user and writing it to the `browser_hist.txt` file.
 
 #### Task Interface
 - Mock File System
-  - The files used for the file system
-  - Reset
-  - Output verification
+  - The files used for the file system will be distributed in a TAR file. The
+    initial configuration of the interface and subsequent resets will extract
+    the TAR into a specified directory.
+  - Output verification:
+    - For ease of output verification, a verification directory will hold all
+      normalized outputs of every task named `taskS_n.out`.
+    - Output verification will be done using a python script called
+      `verify_output.py`:
+      - Parameters: `<task_no> <time_elapsed> [command...]`
+      - Return: `1` if the task passed, `0` if it did not.
+      - The script will get the current state of the file system, normalize it,
+        and compare it with the corresponding task expected output.
+      - The script will also check the `stdout` of the user command on the
+        corresponding expected output as well.
+    - If the verification passes, the interface will reset the mock file system,
+      send a `1` to the log file, and move on to the next task.
 - Tutorial
-- Time limit
-- Abandon
-- Command limits
+  - 2 simple tasks will be displayed to the user in the beginning of the
+    experiment to introduce them to Tellina and how the system works.
+- Time limit:
+  - Each task will have up to **5** minutes to be completed.
+  - Currently, the time limit will be checked once the user has entered a
+    command.
+  - This will reset the timer, the mock file system, send a `2` status to the
+    server, and move on to the next task.
+- Custom commands:
+  - `reset`:
+    - Reset the file system and increment the number of resets in the log file.
+  - `abandon`:
+    - Abandoning a task will reset the timer, the mock file system, and send a `0`
+      status to the log file.
+  - `help`:
+    - Prints out the two custom commands
+  - `task`:
+    - Prints out the current task description.
 
 ## Risks and Concerns
 - Scalability.
@@ -244,6 +272,7 @@ accessed by the user and writing it to the `browser_hist.txt` file.
     - For example, the interface does not prevent or protect the user from
       running `rm -rf $HOME`.
 - Enforcement of logging tool (specifically browser history logging).
+- Should we limit the number of resets and commands?
 
 ## Acknowledgements
 - Some of the code used for the infrastructure was imported and modified from
