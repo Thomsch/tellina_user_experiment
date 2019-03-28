@@ -118,7 +118,7 @@ The app will handle the following requests from the client:
   - The method will choose the task ordering with the lowest number of samples,
     and at random if there are ties.
 - `write_log(user_id)`:
-  - Route: `/user/<user_id>`, methods: `POST`
+  - Route: `/user/<user_id>/log`, methods: `POST`
   - Expected request:
     ```
     POST /user/<user_id>
@@ -131,6 +131,18 @@ The app will handle the following requests from the client:
   - The keys that are accepted are: `task_no`, `treatment`, `command`, `time`,
     `status`.
   - The method will update each field accordingly in the user's CSV file.
+- `write_browser_hist(user_id)`:
+  - Route: `/user/<user_id>/browser`, methods: `POST`
+  - Expected request:
+    ```
+    POST /user/<user_id>
+    Host: host
+    Content-Type: multipart/form-data
+    Content-Length: ...
+
+    data
+    ```
+  - This method takes in a file with the user's browsing history
 
 ### Client side
 #### Setting Up
