@@ -73,6 +73,7 @@ It will have a rough structure of:
 - time (seconds): time in seconds the user took on a task
 - status: `1` if the user succeeded, `2` if the user ran out of time, `0` if the
   user abandoned the task.
+- resets: the number of times the user reset the file system.
 
 `browser_hist.txt` will be a plain text file with links of all websites accessed
 by the user during the experiment.
@@ -112,10 +113,10 @@ The app will handle the following requests from the client:
 
     ||1st|2nd|
     |-|-|-|
-    |1|`s1 T`|`s2 NT`|
-    |2|`s2 T`|`s1 NT`|
-    |3|`s1 NT`|`s2 T`|
-    |4|`s2 NT`|`s1 T`|
+    |0|`s1 T`|`s2 NT`|
+    |1|`s2 T`|`s1 NT`|
+    |2|`s1 NT`|`s2 T`|
+    |3|`s2 NT`|`s1 T`|
   - The method will choose the task ordering with the lowest number of samples,
     and at random if there are ties.
 - `write_log(user_id)`:
@@ -130,8 +131,14 @@ The app will handle the following requests from the client:
     key1=value1&key2=value2&...
     ```
   - The keys that are accepted are: `task_no`, `treatment`, `command`, `time`,
-    `status`.
+    `status`, `resets`.
   - The method will update each field accordingly in the user's CSV file.
+    - If the field is not provided or empty, then the corresponding column in
+      the CSV file will not be changed.
+    - If the `command` field is not empty, then the column will be checked. If
+      the column is empty then the command will be added, otherwise, it will be
+      appended to the existing command, separated by a `;`.
+
 - `write_browser_hist(user_id)`:
   - Route: `/user/<user_id>/browser`, methods: `POST`
   - Expected request:
@@ -147,9 +154,76 @@ The app will handle the following requests from the client:
 
 ### Client side
 #### Setting Up
+To set up the client side for experimentation, a `configure` bash script will be
+run by the user.
+
+The script will do the following:
+- Set up necessary environment variables.
+- Set up necessary aliases for `reset`, `abandon`.
+- Install [Bash-Preexec](https://github.com/rcaloras/bash-preexec).
+- Prompt the user to install the Chrome history tracking extension
+  - Check if the extension is installed?
+- Collect user information:
+  - Machine name
+  - User name
+- Send user information to the server and get the user URL for the experiment.
+- Set up the task set ordering:
+  - Get the ordering from the server
+  - Set up the experiment prompts to follow that order.
+
+For Bash-Preexec, the following configurations will be implemented:
+- `preexec`:
+  - Send command to the server
+- `precmd`:
+  - Check for specific commands:
+    - `abandon`: reset the timer and go on to next task
+    - `reset`: reset the file system and increment `resets` count in log file
+  - Check if the previous command's output is correct. If it is then move on to
+    the next task, if not then display a diff of the file system and let the
+    user continue.
+  - Determine if the user ran out of time or abandoned the task.
+  - Keep track of the time limit for the user (using the `$SECONDS` environment
+    variable).
+  - Check if all the tasks are complete.
+    - Remind them to uninstall the extension.
+    - Remind them to do the survey.
+  - Send user's data to the server:
+    - Task number
+    - Treatment.
+    - Command(s) used.
+    - Time taken.
+    - Status.
+    - Resets.
+
 #### Communication With Server
+Communication with the server will be done through simple bash functions that
+act as wrappers around `curl` to send HTTP requests.
+
+The functions are:
+- `create_user()`:
+  - Parameters: machine_name, user_name
+  - Sends `POST` request to the server to create a user directory.
+  - Sends `GET` request to the server to get the user's URL and save it into an
+    environment variable.
+
+- `get_task_order()`:
+  - Sends `GET` request to get the task ordering for the current user.
+  - Returns a number from [0-3] that determines the ordering.
+
+- `write_log()`:
+  - Parameters: `task_no`, `treatment`, `command`, `time` (optional),
+    `status` (optional), `resets`.
+    - Some parameters are optional depending on what situation the user is
+      currently in (not finished, reset, abandoned).
+  - Sends a `POST` request to the server with the specified parameters.
+
 #### Tracking Browsing History
-#### Tracking Bash History
+Browsing history will be tracked by a Chrome extension that the user will have
+to install.
+
+The extension will communicate directly with the server, sending webpages
+accessed by the user and writing it to the `browser_hist.txt` file.
+
 #### Task Interface
 - Mock File System
   - Reset
