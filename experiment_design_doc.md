@@ -39,13 +39,17 @@ The experiment infrastructure will be consisted of several components:
     server is responding.
   - Scripts that will send data to the server.
   - The directory with which the user will perform tasks on.
-- Task sets
+  - Tasks directory:
+    - For each task, a corresponding expected output file is kept as well.
+    - Each task and it's expected output (for both `stdout` and `fs` structure)
+      will be kept in their respective task sets in folders `tasks` and
+      `expected`.
+- Tasks:
   - We will have `N` tasks for each user:
   - The first `N/2` tasks will be logged as `1_n` where `n` is the task number
     in the set.
   - The second `N/2` tasks will be logged as `2_n` where `n` is the task number
     in the set.
-  - The client will decide how the tasks will be ordered.
 
 ## Implementation
 ### Server side
