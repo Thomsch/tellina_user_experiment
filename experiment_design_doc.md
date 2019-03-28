@@ -152,6 +152,11 @@ The app will handle the following requests from the client:
   - This method takes in a file with the user's browsing history
 
 ### Client side
+The client side will use common bash commands along with the help of several
+python scripts to run the experiments. It is expected that the client side can
+run on the CSE Linux VM without issue, and could potentially work on Attu as
+well.
+
 #### Setting Up
 To set up the client side for experimentation, a `configure` bash script will be
 run by the user.
@@ -266,6 +271,10 @@ accessed by the user and writing it to the `browser_hist.txt` file.
 
 ## Risks and Concerns
 - Scalability.
+  - Is using Flask the right approach for the server side?
+  - Hosting flask on the dev server will not scale well, will have to host on a
+    WSGI server.
+  - Have to ensure good runtime for logging code and verification code.
 - User file system safety.
   - **The client task interface does not guarantee that the user's file system
       will be safe from misused commands. The only directory that can be rolled
@@ -273,8 +282,10 @@ accessed by the user and writing it to the `browser_hist.txt` file.
       the interface directory itself.**
     - For example, the interface does not prevent or protect the user from
       running `rm -rf $HOME`.
-- Enforcement of logging tool (specifically browser history logging).
+- How to enforce logging tool (specifically browser history logging)?
+  - Should the tutorial check that? Should the initial config check that?
 - Should we limit the number of resets and commands?
+  - Why? How many?
 
 ## Acknowledgements
 - Some of the code used for the infrastructure was imported and modified from
