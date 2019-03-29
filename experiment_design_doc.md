@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Tellina is a natural language -> command translation tool, which accepts a
+Tellina is a natural language -> command translation tool.  Tellina accepts a
 natural language description of file system operations, and displays a ranked
 list of bash one-liner suggestions made by the model. The user can scroll down
 the web page to explore more suggestions.
@@ -28,12 +28,12 @@ previous one was buggy.
 
 ## Overview
 
-The experiment infrastructure will be consisted of several components:
+The experiment infrastructure consists of several components:
 - Server side: The server's main purpose is to collect and store data from all
   experiments. This includes information about users, issued commands, time
   spent on tasks, browsing history, etc.
 - Client side: the client side consists of the following components
-  - A slightly modified bash interface for the user to interact with.
+  - A slightly modified bash interface [TODO: be more specific] for the user to interact with.
   - Scripts that verify the output of a command and displays a diff.
   - Initial configuration script to set up the user and make sure that the
     server is responding.
@@ -189,8 +189,8 @@ For Bash-Preexec, the following configurations will be implemented:
   - Keep track of the time limit for the user (using the `$SECONDS` environment
     variable).
   - Check if all the tasks are complete.
-    - Remind them to uninstall the extension.
     - Remind them to do the survey.
+    - Remind them to uninstall the extension. [TODO: How will they do this?]
   - Send user's data to the server:
     - Task number
     - Treatment.
@@ -235,7 +235,7 @@ accessed by the user and writing it to the `browser_hist.txt` file.
     the TAR into a specified directory.
   - Tasks directory:
     - For each task, a corresponding expected output file is kept as well.
-    - Each task and it's expected output (for both `stdout` and `fs` structure)
+    - Each task and its expected output (for both `stdout` and `fs` structure)
       will be kept in their respective task sets in folders `tasks` and
       `expected`.
   - Output verification:
