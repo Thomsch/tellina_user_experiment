@@ -33,59 +33,96 @@ The experiment infrastructure consists of several components:
   experiments. This includes information about users, issued commands, time
   spent on tasks, browsing history, etc.
 - Client side: the client side consists of the following components
-  - A slightly modified bash interface [TODO: be more specific] for the user to interact with.
-  - Scripts that verify the output of a command and displays a diff.
+  - A slightly modified bash interface for the user to interact with.
+    Modifications include (see [Client Side](#client-side) for more details):
+    - Bash-preexec: runs extra code before the entered command is executed and
+      before the prompt is displayed after execution.
+    - Helpful user functions: `reset`, `abandon`, etc. to allow the user to work
+      with the tasks more smoothly.
+    - Infrastructure functions: functions set up to administer and manage the
+      experiment as well as communicate with the server.
+  - Python scripts that verify the output of a command and displays a diff.
   - Initial configuration script to set up the user and make sure that the
     server is responding.
-  - Scripts that will send data to the server.
   - The directory with which the user will perform tasks on.
+  - "Pure" version of the mock file system.
+- Post-processor: the post-processor's main purpose is to parse, organize, and
+  sort the data that was recorded for the experiments (the log files created by
+  the server). It will be able to do the following to a user log files:
+  - Group tasks by name and treatment:
+    - Because each task can have multiple lines in the log file (due to multiple
+      commands being logged).
+  - Get (average) number of reset(s) for a specified task and treatment.
+  - Get (average) time(s) for a specific task and treatment.
+  - Get (average) success rates for a specific task and treatment.
 - Tasks:
   - We will have `N` tasks for each user:
-  - The first `N/2` tasks will be logged as `1_n` where `n` is the task number
-    in the set.
-  - The second `N/2` tasks will be logged as `2_n` where `n` is the task number
-    in the set.
+  - The tasks will be labeled sequentially.
+  - Each task will have a corresponding expected output file for both file
+    system output and standard output.
 
 ## Implementation
 ### Server side
-### Experiment data directory
+#### Experiment data directory
 This directory will hold all data collected from each experiment that was run.
 It will have a rough structure of:
 ```
 /
 |__user1
 |  |__log.csv
-|  |__browser_hist.txt
+|  |__tellina_used.csv
 |__user2k
 |  |__log.csv
-|  |__browser_hist.txt
+|  |__tellina_used.csv
 |__user3
 |__...
 
 ```
 
 `log.csv` will have the following columns:
+- time_stamp: the current time that the command was entered.
 - task_no: the set_task number.
-- treatment: T/NT for Tellina/No Tellina
-- command: the command or a list of commands (separated with `;`) issued by
-  the user.
-- time (seconds): time in seconds the user took on a task
+- treatment: T/NT for Tellina/No Tellina.
+- command: the command that the user entered.
+- time (seconds): time in seconds the user took to formulate the command.
 - status: `1` if the user succeeded, `2` if the user ran out of time, `0` if the
-  user abandoned the task.
-- resets: the number of times the user reset the file system.
+  user abandoned the task, and `3` if the task is incomplete but the user still
+  has time.
 
-`browser_hist.txt` will be a plain text file with links of all websites accessed
-by the user during the experiment.
+Example content of what `log.csv` could look like:
 
-### Server application
+|time_stamp|task_no|treatment|command|time|status|
+|-|-|-|-|-|-|
+|18:12:00|1|T|find . -name "*.txt" -delete|33|3|
+|18:12:04|1|T|reset|37|3|
+|18:12:07|1|T|find . -name "*.txt"|40|1|
+|...|...|...|...|...|...|
+|18:42:10|22|NT|find . -name "*.test"|10|3|
+|...|...|...|...|...|...|
+|18:48:02|22|NT|...|300|2|
+
+`tellina_used.csv` is simple:
+- half: the 1st or 2nd half of the experiment
+- used: Y/N for Yes/No
+
+Example:
+
+|half|used|
+|-|-|
+|1st|No|
+|2nd|Yes|
+
+#### Server application
 There will be a simple Flask application managing the data directory.
+The will be hosted on a CSE department managed machine using the CSE Homes WSGI
+server.
 
 The app will handle the following requests from the client:
 - `create_user()`:
-  - Route: `/methods/create_user`, methods: `POST`
+  - Route: `/create_user`, methods: `POST`
   - Expected request:
     ```
-    POST /methods/create_user
+    POST /create_user
     Host: host
     Content-Type: application/x-www-form-urlencoded
     Content-Length: ...
@@ -95,61 +132,24 @@ The app will handle the following requests from the client:
   - Creates a new user directory `user_id` and the CSV file associated to the
     user.
   - Respond with the `user_id` and the success code.
-- `get_user_route(user_id)`
-  - Route: `/methods/get_user_route`, methods: `GET`
+- `write_log(user_id, file)`:
+  - Route: `/<user_id>/<file>`, methods: `POST`
   - Expected request:
     ```
-    GET /methods/get_user_route?user_id=user_id
-    ```
-  - Returns the route for `user_id`.
-  - If route not found then return a 404.
-- `task_order()`
-  - Route: `/methods/task_order`, methods: `POST`
-  - Identify which task set ordering needs to be attributed to a user based on
-    current distribution of task set ordering.
-  - We will have 4 task orderings, with `s1, s2` as task set 1 and 2, and `T,
-    NT` for Tellina and No Tellina
-
-    ||1st|2nd|
-    |-|-|-|
-    |0|`s1 T`|`s2 NT`|
-    |1|`s2 T`|`s1 NT`|
-    |2|`s1 NT`|`s2 T`|
-    |3|`s2 NT`|`s1 T`|
-  - The method will choose the task ordering with the lowest number of samples,
-    and at random if there are ties.
-- `write_log(user_id)`:
-  - Route: `/user/<user_id>/log`, methods: `POST`
-  - Expected request:
-    ```
-    POST /user/<user_id>
+    POST /<user_id>
     Host: host
     Content-Type: application/x-www-form-urlencoded
     Content-Length: ...
 
     key1=value1&key2=value2&...
     ```
-  - The keys that are accepted are: `task_no`, `treatment`, `command`, `time`,
-    `status`, `resets`.
-  - The method will update each field accordingly in the user's CSV file.
-    - If the field is not provided or empty, then the corresponding column in
-      the CSV file will not be changed.
-    - If the `command` field is not empty, then the column will be checked. If
-      the column is empty then the command will be added, otherwise, it will be
-      appended to the existing command, separated by a `;`.
-
-- `write_browser_hist(user_id)`:
-  - Route: `/user/<user_id>/browser`, methods: `POST`
-  - Expected request:
-    ```
-    POST /user/<user_id>
-    Host: host
-    Content-Type: multipart/form-data
-    Content-Length: ...
-
-    data
-    ```
-  - This method takes in a file with the user's browsing history
+  - The keys that are accepted are: `time_stamp`, `task_no`, `treatment`,
+    `command`, `time`, `status`, `half`, `used`.
+  - `<file>` can be either `log.csv` or `tellina_used.csv`.
+  - The method will convert the `POST` request to the CSV file format and append
+    to the corresponding user log file.
+    - The method will not do any checking for right column types to match with
+      the file given.
 
 ### Client side
 The client side will use common bash commands along with the help of several
@@ -157,40 +157,85 @@ python scripts to run the experiments. It is expected that the client side can
 run on the CSE Linux VM without issue, and could potentially work on Attu as
 well.
 
+#### Distribution
+The client side will be distributed to users through a ZIP archive. The contents
+of the archive is described bellow.
+
+#### Directory Structure
+The directory structure for the client side after extracting the ZIP archive to
+`dir` will look similar to:
+```
+dir/
+|__.infrastructure
+|  |__*.sh           - Several Bash files with definitions for functions useful
+|  |                   for the experiment (infrastructure set-up, user
+|  |                   functions, etc.)
+|  |__files.tar      - The original version of the mock file system
+|  |__tasks/
+|  |  |__task1/
+|  |  |  |__task1.json      - JSON file with description of task
+|  |  |  |__task1.fs.out    - Expected state of file system
+|  |  |  |__task1.std.out   - Expected stdout of user command
+|  |  |__task2/
+|  |  |  |__...
+|  |  |__...
+|  |__...
+|__configure        - Bash script that the user can run to start the experiment
+|__README.txt       - Description of experiment (what's going to happen, time
+                      limit, resources, etc.)
+```
+
 #### Setting Up
-To set up the client side for experimentation, a `configure` bash script will be
+To set up the client side for experimentation, the `configure` bash script will be
 run by the user.
 
 The script will do the following:
-- Set up necessary environment variables.
-- Set up necessary aliases for `reset`, `abandon`.
+- Set up "variable files" that will keep track of the current task, task order,
+  and treatment.
+  - Example: `.treatment` where the content is either `T` or `NT`.
+  - This will allow the client side to be resumed if a failure happens.
+  - The files will be in the `.infrastructure` directory.
 - Install [Bash-Preexec](https://github.com/rcaloras/bash-preexec).
-- Prompt the user to install the Chrome history tracking extension
-  - Check if the extension is installed?
+  - The installation is quite simple: download the `bash_preeexec.sh` and source
+    it.
 - Collect user information:
-  - Machine name
-  - User name
-- Send user information to the server and get the user URL for the experiment.
+  - Machine name: determined by the `hostname` bash command
+  - Username: the user will be asked to enter their UW NetID
+- Set up user specific functions: `reset`, `task`, `abandon`, etc.
 - Set up the task set ordering:
-  - Get the ordering from the server
+  - The task set ordering for a user will be determined using a function
+    `f`. Several ideas for `f`:
+    1. `f` can hash the user name then do `hash % 4`.
+    2. `f` can randomly choose the treatment from `Uniform{0, 3}`.
+    3. ?
   - Set up the experiment prompts to follow that order.
 
 For Bash-Preexec, the following configurations will be implemented:
-- `preexec`:
+- `preexec`: ran right after the user enters a command and right before the
+  command is executed
   - Send command to the server
 - `precmd`:
   - Check for specific commands:
+    - `task`: prints the current task's description
     - `abandon`: reset the timer and go on to next task
     - `reset`: reset the file system and increment `resets` count in log file
+    - `helpme`: lists the commands available to the user
   - Check if the previous command's output is correct. If it is then move on to
     the next task, if not then display a diff of the file system and let the
     user continue.
-  - Determine if the user ran out of time or abandoned the task.
   - Keep track of the time limit for the user (using the `$SECONDS` environment
-    variable).
+    variable) and determine if the user ran out of time.
+    - The check will happen after the command is executed.
+    - **Note**: ideally, we would want a timer to interrupt the task and move on
+      to the next one. This method has several caveats:
+      - A bit more complicated to implement.
+      - What happens if the user is in the middle of typing a command?
+      - What happens if the interrupt happens during one of the phases of
+        `preexec` or `precmd`?
+      - What happens if the interface crashes but the timer is still running?
   - Check if all the tasks are complete.
     - Remind them to do the survey.
-    - Remind them to uninstall the extension. [TODO: How will they do this?]
+    - Uninstall Bash-preexec: Remove the `bash_preexec.sh` file.
   - Send user's data to the server:
     - Task number
     - Treatment.
@@ -205,39 +250,18 @@ act as wrappers around `curl` to send HTTP requests.
 
 The functions are:
 - `create_user()`:
-  - Parameters: machine_name, user_name
-  - Sends `POST` request to the server to create a user directory.
-  - Sends `GET` request to the server to get the user's URL and save it into an
-    environment variable.
-
-- `get_task_order()`:
-  - Sends `GET` request to get the task ordering for the current user.
-  - Returns a number from [0-3] that determines the ordering.
+  - Sends `POST` request to the server to create the user directory.
 
 - `write_log()`:
-  - Parameters: `task_no`, `treatment`, `command`, `time` (optional),
-    `status` (optional), `resets`.
-    - Some parameters are optional depending on what situation the user is
-      currently in (not finished, reset, abandoned).
+  - Parameters:`time_stamp`, `task_no`, `treatment`, `command`, `time`,
+    `status`.
   - Sends a `POST` request to the server with the specified parameters.
-
-#### Tracking Browsing History
-Browsing history will be tracked by a Chrome extension that the user will have
-to install.
-
-The extension will communicate directly with the server, sending webpages
-accessed by the user and writing it to the `browser_hist.txt` file.
 
 #### Task Interface
 - Mock File System
   - The files used for the file system will be distributed in a TAR file. The
     initial configuration of the interface and subsequent resets will extract
     the TAR into a specified directory.
-  - Tasks directory:
-    - For each task, a corresponding expected output file is kept as well.
-    - Each task and its expected output (for both `stdout` and `fs` structure)
-      will be kept in their respective task sets in folders `tasks` and
-      `expected`.
   - Output verification:
     - Verification will be done using a python script called
       `verify_output.py`:
@@ -256,25 +280,17 @@ accessed by the user and writing it to the `browser_hist.txt` file.
   - Each task will have up to **5** minutes to be completed.
   - Currently, the time limit will be checked once the user has entered a
     command.
-  - This will reset the timer, the mock file system, send a `2` status to the
-    server, and move on to the next task.
-- Custom commands:
-  - `reset`:
-    - Reset the file system and increment the number of resets in the log file.
-  - `abandon`:
-    - Abandoning a task will reset the timer, the mock file system, and send a `0`
-      status to the log file.
-  - `help`:
-    - Prints out the two custom commands
-  - `task`:
-    - Prints out the current task description.
+  - This will reset the time counter, the mock file system, send a `2` status to
+    the server, and move on to the next task.
+- After the each half of the experiment, asks the user if the have been using
+  Tellina to help them
+  - A request will be sent to the server to record this.
 
 ## Risks and Concerns
-- Scalability.
-  - Is using Flask the right approach for the server side?
-  - Hosting flask on the dev server will not scale well, will have to host on a
-    WSGI server.
-  - Have to ensure good runtime for logging code and verification code.
+- Flask vs. something simpler
+  - I will take a look at Jason's code as soon as I can get access to it and
+    make the necessary changes to the [server application](#server-application)
+    section.
 - User file system safety.
   - **The client task interface does not guarantee that the user's file system
       will be safe from misused commands. The only directory that can be rolled
@@ -282,10 +298,6 @@ accessed by the user and writing it to the `browser_hist.txt` file.
       the interface directory itself.**
     - For example, the interface does not prevent or protect the user from
       running `rm -rf $HOME`.
-- How to enforce logging tool (specifically browser history logging)?
-  - Should the tutorial check that? Should the initial config check that?
-- Should we limit the number of resets and commands?
-  - Why? How many?
 
 ## Acknowledgements
 - Some of the code used for the infrastructure was imported and modified from
