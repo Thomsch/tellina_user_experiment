@@ -32,56 +32,68 @@ The experiment infrastructure consists of several components:
 - Server side: The server's main purpose is to collect and store data from all
   experiments. This includes information about users, issued commands, time
   spent on tasks, browsing history, etc.
+  - The server will receive POST requests from clients and append them to a
+      single log file.
 - Client side: the client side consists of the following components
+  - Initial configuration script that sources infrastructure scripts to setup
+    the modified bash interface for the user to interact with, which is
+    described below.
   - A slightly modified bash interface for the user to interact with.
     Modifications include (see [Client Side](#client-side) for more details):
-    - Bash-preexec: runs extra code before the entered command is executed and
-      before the prompt is displayed after execution.
+    - Logs the command entered by the user before executing that command.
+    - After user command execution, verifies that the command entered by the
+      user produces the correct output (both in the state of the file system and
+      in standard output).
+      - Displays a diff if the actual and expected outputs do not match (one for
+        the file system state, one for the standard out).
     - Helpful user functions: `reset`, `abandon`, etc. to allow the user to work
       with the tasks more smoothly.
     - Infrastructure functions: functions set up to administer and manage the
       experiment as well as communicate with the server.
-  - Python scripts that verify the output of a command and displays a diff.
-  - Initial configuration script to set up the user and make sure that the
-    server is responding.
+      - Example functions include: moving on to the next task, determining task
+        order, logging, extracting the directory for the user to perform tasks
+        on, etc.
   - The directory with which the user will perform tasks on.
-  - "Pure" version of the mock file system.
-- Post-processor: the post-processor's main purpose is to parse, organize, and
-  sort the data that was recorded for the experiments (the log files created by
-  the server). It will be able to do the following to a user log files:
-  - Group tasks by name and treatment:
-    - Because each task can have multiple lines in the log file (due to multiple
-      commands being logged).
-  - Get (average) number of reset(s) for a specified task and treatment.
-  - Get (average) time(s) for a specific task and treatment.
-  - Get (average) success rates for a specific task and treatment.
+    - A "pure" version of this directory will be kept in a tarball, which will
+      be extracted at the beginning of a new task, or when the user issues a
+      reset command.
+- Analysis of experimental data: parse, organize, and sort the data that was
+  recorded to the log file. It will be able to do the following to a user log
+  files:
+  - We will want to do a real statistical analysis with a hypothesis test and
+    computed p-values, not just summary statistics.
 - Tasks:
-  - We will have `N` tasks for each user:
+  - We will have `N` tasks for each user.
   - The tasks will be labeled sequentially.
   - Each task will have a corresponding expected output file for both file
     system output and standard output.
 
 ## Implementation
 ### Server side
-#### Experiment data directory
-This directory will hold all data collected from each experiment that was run.
-It will have a rough structure of:
-```
-/
-|__user1
-|  |__log.csv
-|  |__tellina_used.csv
-|__user2k
-|  |__log.csv
-|  |__tellina_used.csv
-|__user3
-|__...
+The server side will be hosted on the [UW CSE's
+Homes](https://www.cs.washington.edu/lab/web). This allows the server to be
+reliable as the host is maintained by the CSE department.
 
-```
+The server will only handle `POST` requests, which will parse the form its
+given into the CSV format of the log.
 
-`log.csv` will have the following columns:
-- time_stamp: the current time that the command was entered.
-- task_no: the set_task number.
+The server implementation will be similar to:
+```PHP
+<?php
+if (isset($_POST) && ($_POST)) {
+    $filename="log.csv";
+    $line .= implode(",", $_POST);
+    $line .= "\n";
+    file_put_contents($filename, $line, FILE_APPEND);
+}
+?>
+```
+The log file (`log.csv`) will have the following columns:
+- user_id: the username and machine name associated with the information on the
+  current row
+- time_stamp: the current time that the command was entered on the client side.
+  - ISO-8601 formatted, with UTC as the timezone designator.
+- task_no: the current task number.
 - treatment: T/NT for Tellina/No Tellina.
 - command: the command that the user entered.
 - time (seconds): time in seconds the user took to formulate the command.
@@ -93,69 +105,23 @@ Example content of what `log.csv` could look like:
 
 |time_stamp|task_no|treatment|command|time|status|
 |-|-|-|-|-|-|
-|18:12:00|1|T|find . -name "*.txt" -delete|33|3|
-|18:12:04|1|T|reset|37|3|
-|18:12:07|1|T|find . -name "*.txt"|40|1|
+|2019-04-05T18:12:00Z|1|T|find . -name "*.txt" -delete|33|3|
+|2019-04-05T18:12:04Z|1|T|reset|37|3|
+|2019-04-05T18:12:07Z|1|T|find . -name "*.txt"|40|1|
 |...|...|...|...|...|...|
-|18:42:10|22|NT|find . -name "*.test"|10|3|
+|2019-04-05T18:42:10Z|22|NT|find . -name "*.test"|10|3|
 |...|...|...|...|...|...|
-|18:48:02|22|NT|...|300|2|
-
-`tellina_used.csv` is simple:
-- half: the 1st or 2nd half of the experiment
-- used: Y/N for Yes/No
-
-Example:
-
-|half|used|
-|-|-|
-|1st|No|
-|2nd|Yes|
-
-#### Server application
-There will be a simple Flask application managing the data directory.
-The will be hosted on a CSE department managed machine using the CSE Homes WSGI
-server.
-
-The app will handle the following requests from the client:
-- `create_user()`:
-  - Route: `/create_user`, methods: `POST`
-  - Expected request:
-    ```
-    POST /create_user
-    Host: host
-    Content-Type: application/x-www-form-urlencoded
-    Content-Length: ...
-
-    user_id=user_id
-    ```
-  - Creates a new user directory `user_id` and the CSV file associated to the
-    user.
-  - Respond with the `user_id` and the success code.
-- `write_log(user_id, file)`:
-  - Route: `/<user_id>/<file>`, methods: `POST`
-  - Expected request:
-    ```
-    POST /<user_id>
-    Host: host
-    Content-Type: application/x-www-form-urlencoded
-    Content-Length: ...
-
-    key1=value1&key2=value2&...
-    ```
-  - The keys that are accepted are: `time_stamp`, `task_no`, `treatment`,
-    `command`, `time`, `status`, `half`, `used`.
-  - `<file>` can be either `log.csv` or `tellina_used.csv`.
-  - The method will convert the `POST` request to the CSV file format and append
-    to the corresponding user log file.
-    - The method will not do any checking for right column types to match with
-      the file given.
+|2019-04-05T18:48:02Z|22|NT|...|300|2|
 
 ### Client side
 The client side will use common bash commands along with the help of several
 python scripts to run the experiments. It is expected that the client side can
 run on the CSE Linux VM without issue, and could potentially work on Attu as
 well.
+
+The client requires the user to have a graphical interface for the experiment.
+This is because the client uses [Meld](http://meldmerge.org/) to display the
+diffs.
 
 #### Distribution
 The client side will be distributed to users through a ZIP archive. The contents
@@ -167,10 +133,16 @@ The directory structure for the client side after extracting the ZIP archive to
 ```
 dir/
 |__.infrastructure
-|  |__*.sh           - Several Bash files with definitions for functions useful
-|  |                   for the experiment (infrastructure set-up, user
+|  |__setup.sh       - Bash script that sources funciton definition files, sets
+|  |                   variables for the experiment (paths to scripts, to files,
+|  |                   etc.), enables bash-preeexec.
+|  |__*.sh           - Bash files with definitions for functions useful
+|  |                   for the experiment (infrastructure functions, user
 |  |                   functions, etc.)
-|  |__files.tar      - The original version of the mock file system
+|  |__*.py           - Python scripts that helps with output verifictation, task
+|  |                   order determination, and printing task descriptions.
+|  |__files.tar      - The original version of the directory the user will be
+|  |                   working on.
 |  |__tasks/
 |  |  |__task1/
 |  |  |  |__task1.json      - JSON file with description of task
@@ -180,35 +152,47 @@ dir/
 |  |  |  |__...
 |  |  |__...
 |  |__...
-|__configure        - Bash script that the user can run to start the experiment
+|__configure        - Bash script that the user can run to start the experiment.
+|                     Sources ./.infrastructure/setup.sh.
+|__(file_system)/   - The directory that the user will be performing tasks on.
+|  |                  Extracted from files.tar on setup. Removed and
+|  |                  re-extracted on user reset
+|  |__...
 |__README.txt       - Description of experiment (what's going to happen, time
                       limit, resources, etc.)
 ```
 
 #### Setting Up
-To set up the client side for experimentation, the `configure` bash script will be
-run by the user.
+To set up the client side for experimentation, the user will be instructed to
+source the `configure` bash script.
 
-The script will do the following:
+The script will source `.infrastructure/setup.sh`, which will do the following:
 - Set up "variable files" that will keep track of the current task, task order,
-  and treatment.
+  treatment, and the most recent command.
   - Example: `.treatment` where the content is either `T` or `NT`.
   - This will allow the client side to be resumed if a failure happens.
   - The files will be in the `.infrastructure` directory.
 - Install [Bash-Preexec](https://github.com/rcaloras/bash-preexec).
   - The installation is quite simple: download the `bash_preeexec.sh` and source
     it.
-- Collect user information:
+- Create the user ID by gathering user information:
   - Machine name: determined by the `hostname` bash command
   - Username: the user will be asked to enter their UW NetID
+  - User ID will then be `username@machine_name`.
+- Determine the task set ordering:
+  - We will have 4 task orderings, with `s1, s2` as task set 1 and 2, and `T,
+    NT` for Tellina and No Tellina
+
+    ||1st|2nd|
+    |-|-|-|
+    |0|`s1 T`|`s2 NT`|
+    |1|`s2 T`|`s1 NT`|
+    |2|`s1 NT`|`s2 T`|
+    |3|`s2 NT`|`s1 T`|
+    - The user ID will be 
+  1. `f` can hash the user ID then do `hash % 4`.
+- Set up the experiment prompts to follow that order.
 - Set up user specific functions: `reset`, `task`, `abandon`, etc.
-- Set up the task set ordering:
-  - The task set ordering for a user will be determined using a function
-    `f`. Several ideas for `f`:
-    1. `f` can hash the user name then do `hash % 4`.
-    2. `f` can randomly choose the treatment from `Uniform{0, 3}`.
-    3. ?
-  - Set up the experiment prompts to follow that order.
 
 For Bash-Preexec, the following configurations will be implemented:
 - `preexec`: ran right after the user enters a command and right before the
@@ -248,31 +232,32 @@ For Bash-Preexec, the following configurations will be implemented:
 Communication with the server will be done through simple bash functions that
 act as wrappers around `curl` to send HTTP requests.
 
-The functions are:
-- `create_user()`:
-  - Sends `POST` request to the server to create the user directory.
-
 - `write_log()`:
   - Parameters:`time_stamp`, `task_no`, `treatment`, `command`, `time`,
     `status`.
   - Sends a `POST` request to the server with the specified parameters.
 
 #### Task Interface
-- Mock File System
-  - The files used for the file system will be distributed in a TAR file. The
+- Directory for experiment files:
+  - The files used for the experiment will be distributed in a TAR file. The
     initial configuration of the interface and subsequent resets will extract
     the TAR into a specified directory.
+  - The user will be performing tasks on files within this directory.
   - Output verification:
     - Verification will be done using a python script called
       `verify_output.py`:
-      - Parameters: `<task_no> <time_elapsed> [command...]`
-      - Return: `1` if the task passed, `0` if it did not.
+      - Parameters: `<task_no> [command...]`
+      - Return: `1` if the actual output matches expected, `0` if it did not.
       - The script will get the current state of the file system, normalize it,
         and compare it with the corresponding task's expected output.
       - The script will also check the `stdout` of the user command on the
         corresponding expected output as well.
+      - If the actual output does not match with the expected output, `meld` is
+        spawned to display the diffs between the actual and expected.
     - If the verification passes, the interface will reset the mock file system,
       send a `1` to the log file, and move on to the next task.
+    - If the verification fails, the interface will tell the user, remain on the
+      current task, and send a `3` to the log file.
 - Tutorial
   - 2 simple tasks will be displayed to the user in the beginning of the
     experiment to introduce them to Tellina and how the system works.
@@ -280,17 +265,14 @@ The functions are:
   - Each task will have up to **5** minutes to be completed.
   - Currently, the time limit will be checked once the user has entered a
     command.
-  - This will reset the time counter, the mock file system, send a `2` status to
-    the server, and move on to the next task.
-- After the each half of the experiment, asks the user if the have been using
-  Tellina to help them
-  - A request will be sent to the server to record this.
+  - This will reset the time counter, the directory for experiment files, send a
+    `2` status to the server, and move on to the next task.
+- After the each half of the experiment, confirm if the user has been following
+  the treatment for that half (used Tellina when allowed, did not use when not
+  allowed)
+  - The user's answer will be recorded just like a command sent to the log file.
 
 ## Risks and Concerns
-- Flask vs. something simpler
-  - I will take a look at Jason's code as soon as I can get access to it and
-    make the necessary changes to the [server application](#server-application)
-    section.
 - User file system safety.
   - **The client task interface does not guarantee that the user's file system
       will be safe from misused commands. The only directory that can be rolled
@@ -298,6 +280,7 @@ The functions are:
       the interface directory itself.**
     - For example, the interface does not prevent or protect the user from
       running `rm -rf $HOME`.
+  - Need to display this in the README.txt when the client is distributed.
 
 ## Acknowledgements
 - Some of the code used for the infrastructure was imported and modified from
