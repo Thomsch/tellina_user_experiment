@@ -189,8 +189,19 @@ The script will source `.infrastructure/setup.sh`, which will do the following:
     |1|`s2 T`|`s1 NT`|
     |2|`s1 NT`|`s2 T`|
     |3|`s2 NT`|`s1 T`|
-    - The user ID will be 
-  1. `f` can hash the user ID then do `hash % 4`.
+    - The task ordering will then be determined by this python function:
+    ```python
+    import hashlib  # the hashing library, built-in
+
+    def determine_task_order(user_id):
+      # Uses the md5 hash function to hash the user_id
+      hash_id = hashlib.md5(user_id.encode('utf-8'))
+      int_id = int(hash_id.hexdigest(), 16) # converts the hexdigest to an int
+
+      return int_id % 4
+    ```
+    - The function makes sure that the same `user_id` will have the same task
+      ordering.
 - Set up the experiment prompts to follow that order.
 - Set up user specific functions: `reset`, `task`, `abandon`, etc.
 
