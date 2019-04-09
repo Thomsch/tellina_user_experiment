@@ -7,13 +7,13 @@ natural language description of file system operations, and displays a ranked
 list of bash one-liner suggestions made by the model. The user can scroll down
 the web page to explore more suggestions.
 
-To answer questions regarding the usefulness of the tool, people were given
+In an experiment, people were given
 descriptions of file system operations, and asked to write bash commands to
 perform the operations.  The experimental group had access to Tellina, web
 search, and man pages; the control group had access only to web search and
 man pages. Measurements were done on whether subjects successfully complete the
-tasks, and the amount of time that it takes to complete the tasks.  We will also
-obtain qualitative feedback from a post-task questionnaire.
+tasks, and the amount of time that it takes to complete the tasks.
+A post-task questionnaire obtained qualitative feedback.
 
 We need to redo the experiment, for a few reasons.
 1. Tellina has changed since the user study was performed.  Tellina has better
