@@ -32,8 +32,8 @@ The experiment infrastructure consists of several components:
 - Server side: The server's main purpose is to collect and store data from all
   experiments. This includes information about users, issued commands, time
   spent on tasks, browsing history, etc.
-  - The server will receive POST requests from clients and append them to a
-      single log file.
+  - The server will only handle POST requests from clients, convert the request
+    into CSV format and append them to a single log file.
 - Client side: the client side consists of the following components
   - Initial configuration script that sources infrastructure scripts to setup
     the modified bash interface for the user to interact with, which is
@@ -48,18 +48,17 @@ The experiment infrastructure consists of several components:
         the file system state, one for the standard out).
     - Helpful user functions: `reset`, `abandon`, etc. to allow the user to work
       with the tasks more smoothly.
-    - Infrastructure functions: functions set up to administer and manage the
-      experiment as well as communicate with the server.
+    - Infrastructure functions: bash functions that set up, administer, and
+    - manage the experiment as well as communicate with the server.
       - Example functions include: moving on to the next task, determining task
         order, logging, extracting the directory for the user to perform tasks
         on, etc.
   - The directory with which the user will perform tasks on.
     - A "pure" version of this directory will be kept in a tarball, which will
-      be extracted at the beginning of a new task, or when the user issues a
-      reset command.
+      be extracted at the beginning of the experiment, a new task, or when the
+      user issues a reset command.
 - Analysis of experimental data: parse, organize, and sort the data that was
-  recorded to the log file. It will be able to do the following to a user log
-  files:
+  recorded to the log file.
   - We will want to do a real statistical analysis with a hypothesis test and
     computed p-values, not just summary statistics.
 - Tasks:
@@ -70,12 +69,13 @@ The experiment infrastructure consists of several components:
 
 ## Implementation
 ### Server side
-The server side will be hosted on the [UW CSE's
-Homes](https://www.cs.washington.edu/lab/web). This allows the server to be
-reliable as the host is maintained by the CSE department.
+The server side should be hosted on the [UW CSE's
+Homes](https://www.cs.washington.edu/lab/web).
+This allows the server to be reliable as the host is maintained by the CSE
+department.
 
-The server will only handle `POST` requests, which will parse the form its
-given into the CSV format of the log.
+The server will only handle `POST` requests, which will parse the form its given
+into CSV format.
 
 The server implementation will be similar to:
 ```PHP
@@ -88,7 +88,8 @@ if (isset($_POST) && ($_POST)) {
 }
 ?>
 ```
-The log file (`log.csv`) will have the following columns:
+The log file (`log.csv`) that is appended to by the server will have the
+following columns:
 - user_id: the username and machine name associated with the information on the
   current row
 - time_stamp: the current time that the command was entered on the client side.
@@ -103,15 +104,16 @@ The log file (`log.csv`) will have the following columns:
 
 Example content of what `log.csv` could look like:
 
-|time_stamp|task_no|treatment|command|time|status|
-|-|-|-|-|-|-|
-|2019-04-05T18:12:00Z|1|T|find . -name "*.txt" -delete|33|3|
-|2019-04-05T18:12:04Z|1|T|reset|37|3|
-|2019-04-05T18:12:07Z|1|T|find . -name "*.txt"|40|1|
-|...|...|...|...|...|...|
-|2019-04-05T18:42:10Z|22|NT|find . -name "*.test"|10|3|
-|...|...|...|...|...|...|
-|2019-04-05T18:48:02Z|22|NT|...|300|2|
+|user_id|time_stamp|task_no|treatment|command|time|status|
+|-|-|-|-|-|-|-|
+|abc@machineA|2019-04-05T18:12:00Z|1|T|find . -name "*.txt" -delete|33|3|
+|ddd@machineD|2019-04-05T18:12:03Z|1|NT|find . -name "*.txt"|40|1|
+|abc@machineA|2019-04-05T18:12:04Z|1|T|reset|37|3|
+|abc@machineA|2019-04-05T18:12:07Z|1|T|find . -name "*.txt"|40|1|
+|...|...|...|...|...|...|...|
+|abc@machineB|2019-04-05T18:42:10Z|22|NT|find . -name "*.test"|10|1|
+|...|...|...|...|...|...|...|
+|bcd@machineB|2019-04-08T18:48:02Z|22|T|...|300|2|
 
 ### Client side
 The client side will use common bash commands along with the help of several
@@ -121,7 +123,7 @@ well.
 
 The client requires the user to have a graphical interface for the experiment.
 This is because the client uses [Meld](http://meldmerge.org/) to display the
-diffs.
+diffs between actual and expected output.
 
 #### Distribution
 The client side will be distributed to users through a ZIP archive. The contents
@@ -133,7 +135,7 @@ The directory structure for the client side after extracting the ZIP archive to
 ```
 dir/
 |__.infrastructure
-|  |__setup.sh       - Bash script that sources funciton definition files, sets
+|  |__setup.sh       - Bash script that sources function definition files, sets
 |  |                   variables for the experiment (paths to scripts, to files,
 |  |                   etc.), enables bash-preeexec.
 |  |__*.sh           - Bash files with definitions for functions useful
@@ -142,7 +144,7 @@ dir/
 |  |__*.py           - Python scripts that helps with output verifictation, task
 |  |                   order determination, and printing task descriptions.
 |  |__files.tar      - The original version of the directory the user will be
-|  |                   working on.
+|  |                   performing tasks on.
 |  |__tasks/
 |  |  |__task1/
 |  |  |  |__task1.json      - JSON file with description of task
@@ -156,7 +158,9 @@ dir/
 |                     Sources ./.infrastructure/setup.sh.
 |__(file_system)/   - The directory that the user will be performing tasks on.
 |  |                  Extracted from files.tar on setup. Removed and
-|  |                  re-extracted on user reset
+|  |                  re-extracted on user reset. The user will automatically be
+|  |                  changed into this directory when the experiment starts and
+|  |                  on resets.
 |  |__...
 |__README.txt       - Description of experiment (what's going to happen, time
                       limit, resources, etc.)
@@ -164,7 +168,10 @@ dir/
 
 #### Setting Up
 To set up the client side for experimentation, the user will be instructed to
-source the `configure` bash script.
+run the following command:
+```sh
+source ./configure
+```
 
 The script will source `.infrastructure/setup.sh`, which will do the following:
 - Set up "variable files" that will keep track of the current task, task order,
@@ -191,7 +198,7 @@ The script will source `.infrastructure/setup.sh`, which will do the following:
     |3|`s2 NT`|`s1 T`|
     - The task ordering will then be determined by this python function:
     ```python
-    import hashlib  # the hashing library, built-in
+    import hashlib  # the hashing library, built-in to python 3+
 
     def determine_task_order(user_id):
       # Uses the md5 hash function to hash the user_id
@@ -200,19 +207,25 @@ The script will source `.infrastructure/setup.sh`, which will do the following:
 
       return int_id % 4
     ```
-    - The function makes sure that the same `user_id` will have the same task
+    - This function makes sure that the same `user_id` will have the same task
       ordering.
-- Set up the experiment prompts to follow that order.
+- Set up the experiment prompts to follow the determined task order.
 - Set up user specific functions: `reset`, `task`, `abandon`, etc.
 
-For Bash-Preexec, the following configurations will be implemented:
+#### Bash-Preexec
+Bash-preexec allows running code before and after the execution of a command
+that was ran interactively in the terminal.
+
+The following configurations will be implemented:
 - `preexec`: ran right after the user enters a command and right before the
   command is executed
-  - Send command to the server
-- `precmd`:
-  - Check for specific commands:
+  - Logs the command that the user entered.
+- `precmd`: ran right after the user command is executed and right before the
+  prompt is displayed
+  - Check for specific commands, these will be logged just like regular bash
+    commands but won't require output verification:
     - `task`: prints the current task's description
-    - `abandon`: reset the timer and go on to next task
+    - `abandon`: set `STATUS=2` to log, go on to next task immediately.
     - `reset`: reset the file system and increment `resets` count in log file
     - `helpme`: lists the commands available to the user
   - Check if the previous command's output is correct. If it is then move on to
@@ -232,6 +245,7 @@ For Bash-Preexec, the following configurations will be implemented:
     - Remind them to do the survey.
     - Uninstall Bash-preexec: Remove the `bash_preexec.sh` file.
   - Send user's data to the server:
+    - User ID
     - Task number
     - Treatment.
     - Command(s) used.
@@ -239,36 +253,31 @@ For Bash-Preexec, the following configurations will be implemented:
     - Status.
     - Resets.
 
-#### Communication With Server
-Communication with the server will be done through simple bash functions that
-act as wrappers around `curl` to send HTTP requests.
-
-- `write_log()`:
-  - Parameters:`time_stamp`, `task_no`, `treatment`, `command`, `time`,
-    `status`.
-  - Sends a `POST` request to the server with the specified parameters.
-
 #### Task Interface
 - Directory for experiment files:
   - The files used for the experiment will be distributed in a TAR file. The
     initial configuration of the interface and subsequent resets will extract
     the TAR into a specified directory.
   - The user will be performing tasks on files within this directory.
-  - Output verification:
-    - Verification will be done using a python script called
-      `verify_output.py`:
-      - Parameters: `<task_no> [command...]`
-      - Return: `1` if the actual output matches expected, `0` if it did not.
-      - The script will get the current state of the file system, normalize it,
-        and compare it with the corresponding task's expected output.
-      - The script will also check the `stdout` of the user command on the
-        corresponding expected output as well.
-      - If the actual output does not match with the expected output, `meld` is
-        spawned to display the diffs between the actual and expected.
-    - If the verification passes, the interface will reset the mock file system,
-      send a `1` to the log file, and move on to the next task.
-    - If the verification fails, the interface will tell the user, remain on the
-      current task, and send a `3` to the log file.
+- Output verification:
+  - Verification will be done using a python script called
+    `verify_output.py`:
+    - **Parameters**: `<task_no> [command...]`
+      - Each parameter after `<task no` is interpreted as part of the command
+        the user entered.
+    - The script will get the current state of the file system, normalize it,
+      and compare it with the corresponding task's expected output.
+    - The script will also check the `stdout` of the user command on the
+      corresponding expected output as well.
+      - It gets the `stdout` by re-executing the user command.
+    - If the actual output does not match with the expected output,
+      [Meld](http://meldmerge.org/) is spawned to display the diffs between the
+      actual and expected outputs.
+    - **Return**: `1` if the actual output matches expected, `0` if it did not.
+  - If the verification passes, the interface will reset the files directory,
+    set `STATUS=1`, and move on to the next task.
+  - If the verification fails, the interface will tell the user, remain on the
+    current task, and set `STATUS=3`.
 - Tutorial
   - 2 simple tasks will be displayed to the user in the beginning of the
     experiment to introduce them to Tellina and how the system works.
@@ -276,12 +285,23 @@ act as wrappers around `curl` to send HTTP requests.
   - Each task will have up to **5** minutes to be completed.
   - Currently, the time limit will be checked once the user has entered a
     command.
-  - This will reset the time counter, the directory for experiment files, send a
-    `2` status to the server, and move on to the next task.
+  - This will reset the time counter, the directory for experiment files, set
+    `STATUS=2`, and move on to the next task.
 - After the each half of the experiment, confirm if the user has been following
   the treatment for that half (used Tellina when allowed, did not use when not
   allowed)
   - The user's answer will be recorded just like a command sent to the log file.
+
+#### Communication With Server
+Communication with the server will be done through a simple bash function that
+act as wrappers around `curl` to send HTTP requests.
+
+- `write_log()`:
+  - Parameters:`user_id`, `time_stamp`, `task_no`, `treatment`, `command`,
+    `time`, `status`.
+  - Sends a `POST` request to the server with the specified parameters.
+  - The `status` parameter will be determined by the `STATUS` variable set
+    through out the experiment.
 
 ## Risks and Concerns
 - User file system safety.
