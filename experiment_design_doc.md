@@ -49,7 +49,7 @@ The experiment infrastructure consists of several components:
     - Helpful user functions: `reset`, `abandon`, etc. to allow the user to work
       with the tasks more smoothly.
     - Infrastructure functions: bash functions that set up, administer, and
-    - manage the experiment as well as communicate with the server.
+      manage the experiment as well as communicate with the server.
       - Example functions include: moving on to the next task, determining task
         order, logging, extracting the directory for the user to perform tasks
         on, etc.
@@ -57,10 +57,8 @@ The experiment infrastructure consists of several components:
     - A "pure" version of this directory will be kept in a tarball, which will
       be extracted at the beginning of the experiment, a new task, or when the
       user issues a reset command.
-- Analysis of experimental data: parse, organize, and sort the data that was
-  recorded to the log file.
-  - We will want to do a real statistical analysis with a hypothesis test and
-    computed p-values, not just summary statistics.
+- Analysis of experimental data: determine relative performance of subjects
+  using Tellina versus those who are not, via statistical analysis.
 - Tasks:
   - We will have `N` tasks for each user.
   - The tasks will be labeled sequentially.
@@ -74,8 +72,8 @@ Homes](https://www.cs.washington.edu/lab/web).
 This allows the server to be reliable as the host is maintained by the CSE
 department.
 
-The server will only handle `POST` requests, which will parse the form its given
-into CSV format.
+The server will only handle `POST` requests.  It will log each `POST`
+request to a CSV file.
 
 The server implementation will be similar to:
 ```PHP
@@ -141,7 +139,7 @@ dir/
 |  |__*.sh           - Bash files with definitions for functions useful
 |  |                   for the experiment (infrastructure functions, user
 |  |                   functions, etc.)
-|  |__*.py           - Python scripts that helps with output verifictation, task
+|  |__*.py           - Python scripts that helps with output verification, task
 |  |                   order determination, and printing task descriptions.
 |  |__files.tar      - The original version of the directory the user will be
 |  |                   performing tasks on.
@@ -263,7 +261,7 @@ The following configurations will be implemented:
   - Verification will be done using a python script called
     `verify_output.py`:
     - **Parameters**: `<task_no> [command...]`
-      - Each parameter after `<task no` is interpreted as part of the command
+      - Each parameter after `<task_no>` is interpreted as part of the command
         the user entered.
     - The script will get the current state of the file system, normalize it,
       and compare it with the corresponding task's expected output.
