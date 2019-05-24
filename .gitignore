@@ -6,10 +6,18 @@ log.csv
 .task_code
 .task_order
 .treatment
+.task_num
+.noverify
 
 # Ignore generated directories
 user_out/
 file_system/
+tellina_user_experiment/
 
 # Ignore .vim files
 *.vim
+tags
+
+# Distribution files
+*.zip
+*.tar*
