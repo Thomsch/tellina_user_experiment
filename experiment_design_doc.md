@@ -35,7 +35,7 @@ The experiment infrastructure consists of several components:
   experiments. This includes information about users, issued commands, time
   spent on tasks, etc.  It will not collect the user's browsing history.
   - The server will only handle POST requests from clients, convert the request
-    into CSV format and append them to a single log file.
+    into CSV format, and append them to a single log file.
 - Experiment Instructions (a web page):
   Information about the experiment.
 
@@ -73,7 +73,7 @@ The experiment infrastructure consists of several components:
     - Logs information about each command from the user for the experiment to
       the server (see [log file format](#logging) on what information is sent).
       - It also [saves some information locally](#variable_files) as well.
-  - The directory in which the user will perform tasks in.
+  - The directory where the user will perform tasks.
 - Tasks:
   - We will have `N` tasks for each user.
   - Each task has two different labels:
@@ -88,8 +88,8 @@ The experiment infrastructure consists of several components:
     system output and standard output.
   - The two initial tasks that the user will be doing will be tutorial
     tasks. The tutorial will print instructions on what to do for each step to the
-    shell as well. Tutorial would also teach users about `abandon`, `task`, and
-    `reset`.
+    shell as well. Tutorial would also teach users about `giveup`, `task`,
+    `reset`, and `helpme`.
 - Analysis scripts to process server logs: determine relative
   performance of subjects using Tellina versus those who are not, via
   statistical analysis.  This will be done with a post-processing program.
@@ -116,7 +116,7 @@ following differences to the shell's interface (assume print means "print to
 `stdout`" unless specified otherwise):
 - The user will be able to run the following **user meta-commands**:
   - `task`: prints the current task's description and number
-  - `abandon`: abandons the current task and goes to the next task.
+  - `giveup`: giveups the current task and goes to the next task.
   - `reset`: reset the file system, without changing the user's current
     working directory.
     - This command will return the user to the directory where they called it.
@@ -136,7 +136,7 @@ department. This recudes the likelihood that the server goes down without
 The server will only handle `POST` requests.  It will log each `POST`
 request to a CSV file.
 
-The server implementation will be similar to:
+The server implementation will be:
 ```PHP
 <?php
 if (isset($_POST) && ($_POST)) {
@@ -156,38 +156,39 @@ server will have the following columns:
 - **server_time_stamp**: the current time that the server received the `POST`
   request from the client.
   - ISO-8601 formatted with UTC.
-- **user_id**: the username and machine name associated with the information on the
+- **user_name**: the username associated with the information on the
   current row
+- **machine_name**:
 - **task_order**: the task order that was assigned to this user.
-- **client_time_stamp**: the current time that the command was entered on the client
-  side.
-  - ISO-8601 formatted with UTC.
 - **task_code**: the true task code of the current task.
 - **treatment** for the current task: Tellina/NoTellina.
 - **time_elapsed** (seconds): time in seconds the user took to formulate the command.
+- **client_time_stamp**: the current time that the command was entered on the client
+  side.
+  - ISO-8601 formatted with UTC.
 - **status**: `success` if the user succeeded, `timeout` if the user ran out of time,
-  `abandon` if the user abandoned the task, and `incomplete` if the task is
+  `giveup` if the user gave up on the task, and `incomplete` if the task is
   incomplete but the user still has time.
 - **command**: the command that the user entered.
 
 Example content of what `log.csv` could look like:
 
-|server_time_stamp|user_id|task_order|client_time_stamp|task_code|treatment|time_elapsed|status|command|
-|-|-|-|-|-|-|-|-|-|
-|2019-04-05T18:12:00Z|abc@machineA|s1Ts2NT|2019-04-05T18:12:00Z|a|Tellina|33|incomplete|find . -name "*.txt" -delete|
-|2019-04-05T18:12:03Z|ddd@machineD|s1NTs2T|2019-04-05T18:12:00Z|a|NoTellina|40|success|find . -name "*.txt"|
-|2019-04-05T18:12:04Z|abc@machineA|s1Ts2NT|2019-04-05T18:12:00Z|a|Tellina|37|incomplete|reset|
-|2019-04-05T18:12:07Z|abc@machineA|s1Ts2NT|2019-04-05T18:12:00Z|a|Tellina|40|success|find . -name "*.txt"|
-|...|...|...|...|...|...|...|...|...|
-|2019-04-05T18:42:10Z|abc@machineB|s2Ts1NT|2019-04-05T18:12:00Z|u|Tellina|100|abandon|abandon|
-|...|...|...|...|...|...|...|...|...|
-|2019-04-08T18:48:02Z|bcd@machineB|s2Ts1NT|2019-04-05T18:12:00Z|v|Tellina|300|timeout|...|
+|server_time_stamp|user_name|machine_name|task_order|task_code|treatment|time_elapsed|client_time_stamp|status|command|
+|-|-|-|-|-|-|-|-|-|-|
+|2019-04-05T18:12:00Z|abc|machineA|s1Ts2NT|a|Tellina|33|2019-04-05T18:12:00Z|incomplete|find . -name "*.txt" -delete|
+|2019-04-05T18:12:03Z|ddd|machineD|s1NTs2T|a|NoTellina|40|2019-04-05T18:12:00Z|success|find . -name "*.txt"|
+|2019-04-05T18:12:04Z|abc|machineA|s1Ts2NT|a|Tellina|37|2019-04-05T18:12:00Z|incomplete|reset|
+|2019-04-05T18:12:07Z|abc|machineA|s1Ts2NT|a|Tellina|40|2019-04-05T18:12:00Z|success|find . -name "*.txt"|
+|...|...|...|...|...|...|...|...|...|...|
+|2019-04-05T18:42:10Z|abc|machineB|s2Ts1NT|u|Tellina|100|2019-04-05T18:12:00Z|giveup|giveup|
+|...|...|...|...|...|...|...|...|...|...|
+|2019-04-08T18:48:02Z|bcd|machineB|s2Ts1NT|v|Tellina|300|2019-04-05T18:12:00Z|timeout|...|
 
 The start time of a task is the **client_time_stamp** of the row where the
 **command** column is "task started".  Its **time_elapsed** is 0.
 
 The total time for a task is the **time_elapsed** of the row where the
-**status** is either "success", "abandon", or "timeout". If the **status** is
+**status** is either "success", "giveup", or "timeout". If the **status** is
 "timeout", **time_elapsed** will be the time limit.
 
 ### Client side
@@ -219,6 +220,8 @@ user_experiment/
 |  |                    order determination, and printing task descriptions.
 |  |__file_system.tar - The original version of the directory the user will be
 |  |                    performing tasks on.
+|  |__prompts/        - Directory containing various text files used as prompts
+|  |                    for the experiment.
 |  |__tasks/
 |  |  |__task1/
 |  |  |  |__task1.json      - JSON file with description of task
@@ -227,7 +230,10 @@ user_experiment/
 |  |  |__task2/
 |  |  |  |__...
 |  |  |__...
-|  |__...
+|  |__test/         - Contains testing code for the client side infrastructure
+|  |  |               written in Bats.
+|  |  |__*.bats     - Files defining tests for infrastructure.
+|  |  |__*.bash     - "Library" files with helpful functions for testing.
 |__configure        - Bash script that the user can run to start the experiment.
 |                     Sources ./.infrastructure/setup.sh.
 |__file_system/     - The directory that the user will be performing tasks on.
@@ -245,99 +251,68 @@ The instructions on how to set up the experiment will be on the website where
 the user is also downloading the ZIP archive.
 
 The script will source `.infrastructure/setup.sh`, which will do the following:
-- Set up <a id=variable_files>variable files</a> that will keep track of the
-  current task, task order, treatment, and the most recent command.
-  - This will allow the client side to be resumed if a failure happens.
-  - The files will be in the `.infrastructure` directory.
-  - Files:
-    - `.treatment`: the treatment for the current task
-    - `.command`: the most recently entered command. Initial value is "start
-      task"
-    - `.task_order`: the task ordering for this user.
-    - `.task_code`: the true task code of the current task. This is sent to the
-      server.
+- Set up <a id=variable_files>variable files</a> in the `.infrastructure` directory.
+  This allows the client side to be resumed if a failure happens.
+  - `.command`: the most recently entered command. Initial value is "start
+    task"
+  - `.task_num`: if this file exists during setup, the experiment will resume
+    at the user task number written in this file.
+  - `.noverify`: if this file exists, output verification will not be
+    performed on the contents of `.command`.
 - Initialize Bash variables that will be used throughout the experiment:
   - `time_elapsed`: the time in seconds that the user spent on a command.
     - This is because `$SECONDS` does not stop incrementing, and the time
       between the log write and the command being entered could be different by
       a few seconds. Initial value is `0`.
   - `status`: the status of the current task. Can be `success`, `timeout`,
-    `abandon`, or `incomplete`. Initial value is "incomplete".
-  - `curr_task`: the user task number, this will be the task number showed
+    `giveup`, or `incomplete`. Initial value is "incomplete".
+  - `task_num`: the user task number, this will be the task number showed
+  - `task_set`: the current task set the user is in.
+  - `treatment`: the current treatment.
+  - `task_order`: the task order for the current user.
     to the user. Initial value is `1`.
 - Initializes Bash constants to keep track of directories, time limits, task
   limits, etc.
-- Defines user meta-commands:
-  - Each meta-command will be `alias <command_name>='touch .<command_name>'`.
-- Create the user ID by gathering user information: stored in `$USER_ID`
-  constant
-  - Machine name: determined by the `hostname` bash command
-  - Username: the user will be asked to enter their UW NetID
-  - User ID will then be `username@machine_name`.
-- Determine the task set ordering:
-  - Stored in `.task_order` as the concatenation of the "1st" and "2nd" column
-    for a row.
-  - We will have 4 task orderings, with `s1, s2` as task set 1 and 2, and `T,
-    NT` for Tellina and No Tellina
-
-    ||1st|2nd|
-    |-|-|-|
-    |0|`s1 T`|`s2 NT`|
-    |1|`s2 T`|`s1 NT`|
-    |2|`s1 NT`|`s2 T`|
-    |3|`s2 NT`|`s1 T`|
-    - The task ordering will then be determined by this bash command:
-    ```sh
-    echo $((0x$(md5sum <<<$USER_ID | cut -c1) % 4))
-    ```
-    - This function makes sure that the same `$USER_ID` will have the same task
-      ordering.
-    - Writes the treatment to `.treatment`, the true task code to `.task_code`
+- Defines user meta-commands.
+- Gather user information including the machine name and the user's UWNetID.
+- Determine the task order, which is which includes the order of the task set as
+  well as the treatments.
+  - An example task order would be: Task set 1 and no Tellina for the first
+    half, task set 2 and Tellina for the second.
 - Source `infrastructure.sh`, which defines the following functions:
   - `next_task`:
-    - Call `make_fs`.
-    - "Increment" the code in `.task_code` (`a -> b`, etc.)
-    - Increment the `curr_task` bash variable. This is the task number printed
-      to the user.
-      - If this variable is equal to `N / 2`, switch treatments and task sets
-        and notify the user.
-      - Check if all the tasks are complete, if it is then skip the following
-        steps and clean up instead.
-    - Set `time_elapsed=0`, `status="incomplete"`
-    - Write "start task" to `.command`.
-    - Call `write_log`. This writes the "start task" row to the log file.
-    - Call `get_tasks_description.py $(cat .task_code)`.
-    - Set `SECONDS=0`.
-      - `SECONDS` is a build-in Bash variable that increments every second. The
-        infrastructure uses this to check the time elapsed.
+    - Increments the user task number, resets the `file_system` directory, and
+      determines the following:
+      - Whether to move on to the next task.
+      - Whether the experiment is complete.
+      - Whether to switch the statement.
   - `make_fs`:
-    - Gets the current working directory. Then changes to the base experiment
-      directory (`user_experiment` from [Directory
-      Structure](#directory-structure))
-    - Removes the `file_system` directory and extracts the tarball to that
-      directory.
-    - Changes the user to the stored directory.
-  - `write_log`:
-    - Gather information needed for the log file:
-      - The server time stamp is handled by the server.
-      - `user_id`: `$USER_ID`
-      - `task_order`: `$(cat .task_order)`
-      - `client_time_stamp`: `$(date --utc +%FT%TZ)`
-      - `task_code`: `$(cat .task_code)`
-      - `treatment`: `$(cat .treatment)`
-      - `time_elapsed`: `$time_elapsed`
-      - `status`: `$status`
-      - `command`: `.command`
-    - Use `curl` to send the form with all gathered information to the server to
-      write to the log. See `server_side/post_handler/example` for an example of
-      what this could look like.
+    - Resets the `file_system` directory.
+      - This method does not change the user's working directory.
+  - `write_log`: Gather information needed for the log file:
 - Install [Bash-Preexec](https://github.com/rcaloras/bash-preexec) by sourcing
   `bash-preexec.sh`.
 - Set up the experiment prompts to follow the determined task order.
-- Call `make_fs`, `write_log`.
-- Change the user into the `file_system/` directory.
-- Prints treatment.
-- Prints the first task description.
+- Creates the `file_system` directory and changes the user into it.
+- Begin the experiment.
+
+#### Training
+To familiarize the user to the infrastrcture, there will be two tasks provided
+as training - one for the infrastructure and the other for Tellina.
+
+The infrastructure training will be enabled at the beginning of the experiment,
+right after the setup is complete. The Tellina training will only be enabled if
+Tellina is to be used for the current half of the experiment.
+If both infrastructure training and Tellina training is enabled, infrastructure
+training will happen first, then Tellina training will happen right after.
+
+The training is complete once the user succeeds the training task.
+
+During the training:
+- The user is expected to follow the instructions linked to by the training
+  prompt.
+- The user will not timeout.
+- The user cannot `giveup` the training task.
 
 #### Bash-Preexec
 Bash-preexec allows running code before and after the execution of a command
@@ -348,45 +323,38 @@ The following configurations will be implemented:
 - Ran right after the user enters a command and right before the
 command is executed
 - Write the command to `.command`.
-- Kill Meld.
 
-##### `precut`:
+##### `precmd`:
 - Ran right after the user command is executed and right before the
   prompt is displayed.
 - Only one of the following cases can happen every time a command has finished
   executing:
   1. Check if user has ran out of time:
-     - `time_elapsed=$SECONDS` is less than some time limit constant.
      - The check will happen after the command is executed.
-     - If the user ran out of time, `status="timeout"`,
-       `time_elapsed=$TIME_LIMIT`.
-  2. Handle user meta-command:
+     - If the user ran out of time, set the task `status` to `timeout`, write to
+       the server log with `time_elapsed` truncated to the time limit, and move
+       on to the next task.
+  2. Handle `.noveriy` commands:
+     - All user meta-commands are `.noverify` commands. The initial
+        configuration command run by the user is also a `.noverify` command.
      - Output verification will not be performed on these commands.
      - The check is done by looking for the existence of the file
-        `.<commmand_name>` in the `.infrastructure` directory.
-     - If `abandon`:
-       - Set `status="abandon"`.
-       - Remove `.abandon`.
-     - Otherwise
-       - If `reset`: Call `make_fs`. Remove `.reset`.
-       - If `helpme`: print the list of user meta-commands. Remove `.helpme`.
-       - If `task`: call `get_task_description.py` with `.task_code` to print the
-         task's description. Remove `.task`
-       - Set `status="incomplete"`.
+        `.noverify` in the `.infrastructure` directory.
+      - The file is removed immediately after the check.
+    - If `.noverify` is not empty and the content is "giveup", set the status
+      to "giveup".
   3. Check if the command in `.command` is correct.
-     - Does this by setting `status=$(verify_output.py $(cat .task_code) $(cat
-       .command))`
-     - This sets `status` to either "success" or "incomplete".
-     - If `status == "incomplete"` check the [exit code](#exit-stat) of
-       `verify_output.py`:
+     - Does this by running `verify_output.py $task_code $(cat .command)` and
+       checking its exit code.
+     - If the exit code is:
+       - `0`: set status to "success", otherwise set status to "incomplete".
        - `1`: open Meld for the file system.
        - `2`: open Meld for the file system, issue warning, and call
          `make_fs`.
        - `3`: open Meld for the `stdout`.
-- Call `write_log`. This writes information about the most recently executed
-  user command.
-- If `status="abandon" || status="timeout" || status="success"`, call
-  `next_task`.
+- Writes information about the most recently executed user command to the server
+  log.
+- If the status is either "giveup", "timeout" , or "success", call `next_task`.
 
 #### Output verification:
 - Verification will be done using a python script called
@@ -408,15 +376,12 @@ command is executed
         - Check that the captured `stdout` of the user command matches the
           corresponding expected output.
       - If the file system was modified then the task failed.
-  - <a id="exit-stat">**Exit status**</a>:
-    - Prints `success` to `stdout` if the actual output matches expected. Exit
-      code is `0`.
-    - Prints `incomplete` to `stdout` if the actual output does not match
-      expected.
-      - If the task is a file system task, exit code is `1`.
-      - If the task is a select task:
-        - If the file system has been changed, exit code is `2`.
-        - Otherwise, exit code is `3`.
+  - <a id="exit-stat">**Exit code**</a>:
+      - 0: The verification is successful.
+      - 1: The output does not match expected and the task is a file system
+        task.
+      - 2: The file system has been changed and the task is a select task.
+      - 3: The output does not match expected and the task is a select task.
 
 #### Directory for experiment files:
 - The files used for the experiment will be distributed in a TAR file along with
@@ -424,6 +389,10 @@ command is executed
   the directory that contains the files.
 - The user will be performing tasks on files within this directory and can move
   around freely within it.
+
+#### Testing
+
+The client side is tested using [Bats](https://github.com/bats-core/bats-core).
 
 ## Risks and Concerns
 - Do we want to automatically reset the file system after each command?

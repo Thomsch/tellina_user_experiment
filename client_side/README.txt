@@ -1,4 +1,4 @@
-Welcome to the Tellina User Experiment!
+Welcome to the Bash User Experiment!
 
-TODO: introduce Tellina
-TODO: introduce the experiment: process, tasks, interface, etc.
+Please see the instructions on the experiment website here:
+https://homes.cs.washington.edu/~atran35/research/bash_user_experiment/

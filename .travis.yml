@@ -1,0 +1,14 @@
+os: linux
+
+before_install:
+  # To install bats-core for the testing infrastructure
+  - git clone https://github.com/bats-core/bats-core.git
+  - sudo ./bats-core/install.sh /usr/local
+  - rm -rf ./bats-core
+
+script:
+  - make test
+
+notifications:
+  email:
+    on_success: never
