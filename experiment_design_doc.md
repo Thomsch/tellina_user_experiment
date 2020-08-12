@@ -86,9 +86,9 @@ The experiment infrastructure consists of several components:
       the "true task code" will be "k".
   - Each task will have a corresponding expected output file for both file
     system output and standard output.
-  - The two initial tasks that the user will be doing will be tutorial
+  - The two initial tasks are tutorial
     tasks. The tutorial will print instructions on what to do for each step to the
-    shell as well. Tutorial would also teach users about `giveup`, `task`,
+    shell as well. The tutorial will also teach users about `giveup`, `task`,
     `reset`, and `helpme`.
 - Analysis scripts to process server logs: determine relative
   performance of subjects using Tellina versus those who are not, via
@@ -116,7 +116,7 @@ following differences to the shell's interface (assume print means "print to
 `stdout`" unless specified otherwise):
 - The user will be able to run the following **user meta-commands**:
   - `task`: prints the current task's description and number
-  - `giveup`: giveups the current task and goes to the next task.
+  - `giveup`: gives up on the current task and goes to the next task.
   - `reset`: reset the file system, without changing the user's current
     working directory.
     - This command will return the user to the directory where they called it.
@@ -131,7 +131,7 @@ Meld and the web browser are unmodified.
 The server side should be hosted on the [UW CSE's
 Homes](https://www.cs.washington.edu/lab/web) or any machine maintained by the
 department. This recudes the likelihood that the server goes down without
-##us noticing, and eliminates the need for us to monitor it.
+us noticing, and eliminates the need for us to monitor it.
 
 The server will only handle `POST` requests.  It will log each `POST`
 request to a CSV file.
@@ -159,11 +159,12 @@ server will have the following columns:
 - **user_name**: the username associated with the information on the
   current row
 - **machine_name**:
-- **task_order**: the task order that was assigned to this user.
+- **task_order**: the task order that was assigned to this user.  One of
+  `s1NTs2T`, `s1Ts2NT`, `s2NTs1T`, `s2Ts1NT`.
 - **task_code**: the true task code of the current task.
 - **treatment** for the current task: Tellina/NoTellina.
 - **time_elapsed** (seconds): time in seconds the user took to formulate the command.
-- **client_time_stamp**: the current time that the command was entered on the client
+- **client_time_stamp**: the time that the command was entered on the client
   side.
   - ISO-8601 formatted with UTC.
 - **status**: `success` if the user succeeded, `timeout` if the user ran out of time,
@@ -185,7 +186,7 @@ Example content of what `log.csv` could look like:
 |2019-04-08T18:48:02Z|bcd|machineB|s2Ts1NT|v|Tellina|300|2019-04-05T18:12:00Z|timeout|...|
 
 The start time of a task is the **client_time_stamp** of the row where the
-**command** column is "task started".  Its **time_elapsed** is 0.
+**command** column is "task started".  That row's **time_elapsed** is 0.
 
 The total time for a task is the **time_elapsed** of the row where the
 **status** is either "success", "giveup", or "timeout". If the **status** is
@@ -237,7 +238,7 @@ user_experiment/
 |__configure        - Bash script that the user can run to start the experiment.
 |                     Sources ./.infrastructure/setup.sh.
 |__file_system/     - The directory that the user will be performing tasks on.
-|  |                  Extracted from files.tar on setup. Removed and
+|  |                  Extracted from file_system.tar on setup. Removed and
 |  |                  re-extracted on user reset. The user will automatically be
 |  |                  changed into this directory when the experiment starts and
 |  |                  on resets.
@@ -266,11 +267,11 @@ The script will source `.infrastructure/setup.sh`, which will do the following:
       a few seconds. Initial value is `0`.
   - `status`: the status of the current task. Can be `success`, `timeout`,
     `giveup`, or `incomplete`. Initial value is "incomplete".
-  - `task_num`: the user task number, this will be the task number showed
+  - `task_num`: the user task number, which is shown
+    to the user. Initial value is `1`.
   - `task_set`: the current task set the user is in.
   - `treatment`: the current treatment.
   - `task_order`: the task order for the current user.
-    to the user. Initial value is `1`.
 - Initializes Bash constants to keep track of directories, time limits, task
   limits, etc.
 - Defines user meta-commands.
@@ -306,7 +307,7 @@ Tellina is to be used for the current half of the experiment.
 If both infrastructure training and Tellina training is enabled, infrastructure
 training will happen first, then Tellina training will happen right after.
 
-The training is complete once the user succeeds the training task.
+The training is complete once the user succeeds at the training task.
 
 During the training:
 - The user is expected to follow the instructions linked to by the training
@@ -320,16 +321,15 @@ that was ran interactively in the terminal.
 
 The following configurations will be implemented:
 ##### `preexec`:
-- Ran right after the user enters a command and right before the
+- Run right after the user enters a command and right before the
 command is executed
 - Write the command to `.command`.
 
 ##### `precmd`:
-- Ran right after the user command is executed and right before the
+- Run right after the user command is executed and right before the
   prompt is displayed.
-- Only one of the following cases can happen every time a command has finished
-  executing:
-  1. Check if user has ran out of time:
+- Check the command that the user just entered.  Is the task done?
+  1. Check if user has run out of time:
      - The check will happen after the command is executed.
      - If the user ran out of time, set the task `status` to `timeout`, write to
        the server log with `time_elapsed` truncated to the time limit, and move
@@ -337,12 +337,12 @@ command is executed
   2. Handle `.noveriy` commands:
      - All user meta-commands are `.noverify` commands. The initial
         configuration command run by the user is also a `.noverify` command.
-     - Output verification will not be performed on these commands.
-     - The check is done by looking for the existence of the file
+     - Check for the existence of the file
         `.noverify` in the `.infrastructure` directory.
-      - The file is removed immediately after the check.
-    - If `.noverify` is not empty and the content is "giveup", set the status
-      to "giveup".
+        - If it exists, output verification is not performed.
+        - If `.noverify` is not empty and the content is "giveup", set the status
+          to "giveup".
+        - The file is removed immediately after the check.
   3. Check if the command in `.command` is correct.
      - Does this by running `verify_output.py $task_code $(cat .command)` and
        checking its exit code.
@@ -365,17 +365,17 @@ command is executed
   - The script checks the task number to see whether it is a "file system"
     task, which modifies the file system, or a "select" task, which does not
     modify the file system and only outputs to `stdout`:
-    - If it is a "file system" task, the script will:
-      - Get the current state of the file system and compares it to the expected
+    - If it is a "file system" task:
+      - Get the current state of the file system and compare it to the expected
         file system for the current task.
-    - Else if it is a "select" task, the script will:
+    - Else it is a "select" task:
       - Get the current state of the file system and compares it to the original
         state to make sure that it was not changed.
+      - If the file system was modified then the task failed.
       - If the file system was not modified:
         - Re-execute the user command and capture the `stdout`.
         - Check that the captured `stdout` of the user command matches the
           corresponding expected output.
-      - If the file system was modified then the task failed.
   - <a id="exit-stat">**Exit code**</a>:
       - 0: The verification is successful.
       - 1: The output does not match expected and the task is a file system
