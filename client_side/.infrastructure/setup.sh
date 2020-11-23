@@ -33,7 +33,7 @@ fi
 TASK_TIME_LIMIT=300
 
 # Establish the server information
-SERVER_HOST="https://homes.cs.washington.edu/~atran35"
+SERVER_HOST="https://homes.cs.washington.edu/~tschweiz"
 # Establish survey URL
 EXPERIMENT_HOME_URL="${SERVER_HOST}/research/bash_user_experiment"
 
