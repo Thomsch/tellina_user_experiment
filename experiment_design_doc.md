@@ -95,7 +95,7 @@ The experiment infrastructure consists of several components:
   statistical analysis.  This will be done with a post-processing program.
 
 ### User Requirements [Remote Edition]
-The subjects will participate to the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their laptops.
+The subjects will participate in the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their personal laptops.
 
 The participants are required to use a Linux environment. There are three ways to do so:
 - [Connect to a CSE Virtual Lab machine through Remote Desktop](https://vdi.cs.washington.edu/)*
