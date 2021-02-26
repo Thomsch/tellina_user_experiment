@@ -224,7 +224,7 @@ of the archive is described bellow.
 The directory structure for the client side after extracting the ZIP archive
 will look similar to:
 ```
-user_experiment/
+experiment/
 |__.infrastructure
 |  |__setup.sh        - Bash script that sources function definition files, sets
 |  |                    variables for the experiment (paths to scripts, to files,
