@@ -415,7 +415,9 @@ The client side is tested using [Bats](https://github.com/bats-core/bats-core).
 ### Creating a new host
 
 1. Clone the repository locally
-2. Update the Makefile in the local repo with the intended `HOST` and `HOST_DIR`,
+2. Update the Makefile in the local repo with the intended `HOST` and `HOST_DIR`.
+3. Update `SERVER_HOST` in `client_side/.infrastructure/setup.sh` with the new host.
+4. Update `client_side/README.txt` with the new host.
 3. Create `HOST_DIR` on `HOST`, and clone the repository into `HOST_DIR`.
 
     a. Rename `HOST_DIR/repo-name` to `DIST_NAME` (the directory name for the repository on `HOST` should match `DIST_NAME` in the local repo)
