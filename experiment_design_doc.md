@@ -423,6 +423,7 @@ The client side is tested using [Bats](https://github.com/bats-core/bats-core).
     a. Rename `HOST_DIR/repo-name` to `DIST_NAME` (the directory name for the repository on `HOST` should match `DIST_NAME` in the local repo)
 4. (Optional) Create a `HOST_DIR/staging` and repeat step 3 there if you would like to have a testing website.
 5. Run  `make all publish-distribution`
+6. Update the permission of `$HOST/$HOST_DIR/server_side/log.csv` with `chmod 666 log.csv`
 
 Once a new host has been created, the link in `telina_user_experiment/client_side/README.md` can be updated to wherever the new site is.
 
