@@ -1,20 +1,53 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <title>Tellina User Experiment</title>
+  <style>
+    body {
+      margin: 40px auto;
+      max-width: 900px;
+      line-height: 1.6;
+      font-size: 18px;
+      color: #444;
+      padding: 0 10px
+    }
+
+    h1,
+    h2,
+    h3 {
+      line-height: 1.2
+    }
+  </style>
+
+  <title>English to Bash Experiment 🧪</title>
 </head>
+
 <body>
-<h1>
-Welcome to the Bash User Experiment website!
-</h1>
-<p>For this experiment, you will be presented with a series of file system tasks
-that can be done within a Bash shell. For each task, you are encouraged to use a
-variety of tools (man pages, Google, etc.) to help you solve it.</p>
-<p>For the experiment to go as smoothly as possible, please ensure that you are
-  using a machine with a graphical display, Bash 3.0 or higher, and Meld
-  installed.</p>
-<p>Once all of those prerequisites are met, please download the following
-  <code>ZIP</code> file: <a
-    href="bash_user_experiment.zip">bash_user_experiment.zip</a></p>
+  <h1>
+    Welcome to the English to Bash Experiment website!
+  </h1>
+  <p>
+    For the experiment to go as smoothly as possible, please ensure that you have access to a <a
+      href="https://www.cs.washington.edu/lab/software/linuxhomevm">CSE Linux Home VM</a> with <a
+      href="https://meldmerge.org/">Meld</a> installed. You can verify if Meld is installed by using the Meld command in
+    your VM's terminal: <code>$ meld</code>. It should open a GUI window. To install Meld on your CSE Linux Home VM use
+    <code>$ sudo yum install meld</code>.
+  </p>
+  <p>
+    You will be presented with a series of file system tasks that can be done within a Bash shell.
+    For each task, you are encouraged to use a variety of tools (man pages, Google, etc.) to help you solve it. Your
+    objective is to solve each task with a Bash one-liner: a bash script that is contained on one line. E.g.,
+    <code>$ ls | tee file</code>
+  </p>
+  <p>
+    Once all of those prerequisites are met and you are ready, please follow these step to start the experiment:
+  <ol>
+    <li>Download <a href="experiment.zip">experiment.zip</a> in a convenient folder on your CSE Linux Home VM.</li>
+    <li>Unzip with <code>$ unzip experiment.zip</code></li>
+    <li>Start the experiment <code>$ source bash_experiment/configure</code></li>
+  </ol>
+  When you start the experiment, follow the prompts in your terminal. You will have 2 training questions to familiarize yourself with the tool and then the real tasks.
+  </p>
 </body>
+
 </html>
