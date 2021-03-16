@@ -210,7 +210,7 @@ infra_training() {
 tellina_training() {
   echo ${HLINE}
   echo "For this task, follow the instructions at"
-  echo "<tellina_training_url>"
+  echo "${EXPERIMENT_HOME_URL}/tellina.html"
   echo "to acquaint yourself with Tellina."
 }
 
