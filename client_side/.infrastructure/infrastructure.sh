@@ -201,7 +201,7 @@ check_and_update_training_status() {
 infra_training() {
   echo ${HLINE}
   echo "For this task, please follow the instructions at"
-  echo "${EXPERIMENT_HOME_URL}/website/training/infrastructure_training.html"
+  echo "${EXPERIMENT_HOME_URL}/experiment.html"
   echo "to learn how to do the experiment."
 }
 
