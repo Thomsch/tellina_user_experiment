@@ -1,5 +1,5 @@
-HOST="host.cs.washington.edu"
-ROUTE="/path/to/post_hander.php"
+HOST="https://homes.cs.washington.edu"
+ROUTE="~tschweiz/research/bash_experiment/server_side/post_handler/post_handler.php"
 
 USER_ID="jdoe@csevm"
 TASK_ORDER=0

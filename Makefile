@@ -26,10 +26,10 @@ TEST_DIR=$(INFRA_DIR)/test
 # Website
 
 # The machine that is hosting the website
-HOST=atran35@attu.cs.washington.edu
+HOST=tschweiz@attu.cs.washington.edu
 
 # The website's directory on HOST
-HOST_DIR=/cse/web/homes/atran35/research
+HOST_DIR=/cse/web/homes/tschweiz/research
 
 # Can be something else if needed
 WEBSITE_NAME=$(DIST_NAME)
