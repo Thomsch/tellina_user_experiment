@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.com/TellinaTool/tellina_user_experiment.svg?branch=master)](https://travis-ci.com/TellinaTool/tellina_user_experiment)
 # Tellina User Experiment
-Tellina is a natural language -> command translation tool. Tellina accepts a natural language description of file system operations and displays a ranked list of bash one-liner suggestions made by the model. The user can scroll down the web page to explore more suggestions.
+Tellina is a natural language -> command translation tool. Tellina accepts a natural language description of file system operations and displays a ranked list of bash one-liner suggestions made by the model. The user can scroll down the web page to explore more suggestions. http://tellina.rocks/
 
 This repository contains the infrastructure for formally conducting user experiments for Tellina.
 
