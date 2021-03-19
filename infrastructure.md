@@ -1,4 +1,4 @@
-# Tellina User Study Design Doc
+# Infrastructure Design
 This design document describes the infrastructure for the user experiment.
 
 ## Overview
