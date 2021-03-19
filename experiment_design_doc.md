@@ -1,30 +1,5 @@
 # Tellina User Study Design Doc
-
-## Introduction
-
-Tellina is a natural language -> command translation tool.  Tellina accepts a
-natural language description of file system operations, and displays a ranked
-list of bash one-liner suggestions made by the model. The user can scroll down
-the web page to explore more suggestions.
-
-In an experiment, people were given
-descriptions of file system operations, and asked to write bash commands to
-perform the operations.  The experimental group had access to Tellina, web
-search, and man pages; the control group had access only to web search and
-man pages. Measurements were done on whether subjects successfully complete the
-tasks, and the amount of time that it takes to complete the tasks.
-A post-task questionnaire obtained qualitative feedback.
-
-We need to redo the experiment, for a few reasons.
-1. Tellina has changed since the user study was performed.  Tellina has better
-   accuracy and handles more commands.  It would not be compelling to report an
-   experiment on an implementation that has since been superseded.
-2. The user study was relatively small (around 30 subjects), so the experimental
-   results were not always statistically significant.  With a larger pool of
-   subjects, the results will be more compelling.
-
-This design document describes a new infrastructure for the user design, as the
-previous one was buggy.
+This design document describes the infrastructure for the user experiment.
 
 ## Overview
 
