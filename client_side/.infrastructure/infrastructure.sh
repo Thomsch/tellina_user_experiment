@@ -96,7 +96,7 @@ end_experiment() {
   trap - DEBUG
 
   # Remove all variable files.
-  find ${INFRA_DIR} -type f -name ".*" -delete
+  find ${INFRA_DIR} -type f -name ".*" ! -name ".gitkeep" -delete
   cd "${EXP_DIR}"
 
   echo "Congratulations! You have completed the interactive portion of the experiment."
