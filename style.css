@@ -27,3 +27,11 @@ body {
     width: 50px;
     text-align: left;
 }
+
+.row {
+    display: flex;
+}
+  
+.column {
+    flex: 50%;
+}
