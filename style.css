@@ -1,0 +1,29 @@
+body {
+    margin: 40px auto;
+    max-width: 900px;
+    line-height: 1.6;
+    font-size: 18px;
+    color: #444;
+    padding: 0 10px;
+    font-family: "Roboto", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: 1.2
+  }
+
+  code {
+    font-family: Consolas,"courier new";
+    color: crimson;
+    background-color: #f1f1f1;
+    padding: 2px;
+    font-size: 90%;
+  }
+
+  .block label {
+    display: inline-block;
+    width: 50px;
+    text-align: left;
+}
