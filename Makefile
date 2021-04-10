@@ -56,7 +56,7 @@ ZIP=zip -qr
 #########################
 
 # See https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
-.PHONY: all test distribute publish-distribution stage-distribution cp_static
+.PHONY: all test distribute publish publish-staging cp_static dist-static dist-backend
 
 all: test distribute
 
@@ -75,7 +75,7 @@ publish: test distribute
 	@scp -pr $(BUILD_TARGET)/* $(HOST):$(PUBLIC_SITE)
 
 # Publish the distribution to the testing host folder.
-stage-distribution: test distribute
+publish-staging: test distribute
 	@echo "Publishing $(BUILD_TARGET) in **staging environment**..."
 	@scp -pr $(BUILD_TARGET)/* $(HOST):$(STAGING_SITE)
 
