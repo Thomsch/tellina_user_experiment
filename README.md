@@ -6,6 +6,7 @@ This repository contains the infrastructure for formally conducting user experim
 
 - [**server_side**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/client_side): contains the files to be distributed to the users of the experiment.
 - [**client_side**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/server_side): contains the code used for the server side of the experiment, this includes both the post handler and the post-processor.
+- [**static**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/static): contains the static content hosted on a public server. This is where the homepage and consent page of the experiment are located.
 - [**data_set**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/dataset): contains the scripts used to produce the data set for the user experiment (referenced as _taskset_).
 - [**infrastructure.md**](https://github.com/TellinaTool/tellina_user_experiment/blob/master/infrastructure.md): describes the technical infrastructure and implementation of the user experiment.
 
