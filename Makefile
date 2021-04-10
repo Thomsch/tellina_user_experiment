@@ -69,13 +69,13 @@ distribute: $(ZIP_DIST_NAME) dist-static dist-backend
 
 # Publish the distribution to the production host folder.
 publish: test distribute
-	@echo "Publishing $<"
-	@scp $< $(HOST):$(PUBLIC_SITE)
+	@echo "Publishing $(BUILD_TARGET)..."
+	@scp -pr $(BUILD_TARGET)/* $(HOST):$(PUBLIC_SITE)
 
 # Publish the distribution to the testing host folder.
 stage-distribution: test distribute
-	@echo "Staging $<"
-	@scp $< $(HOST):$(STAGING_SITE)
+	@echo "Publishing $(BUILD_TARGET) in **staging environment**..."
+	@scp -pr $(BUILD_TARGET)/* $(HOST):$(STAGING_SITE)
 
 clean: clean-dist clean-fs-dir
 
