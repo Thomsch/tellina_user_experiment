@@ -4,8 +4,8 @@ Tellina is a natural language -> command translation tool. Tellina accepts a nat
 
 This repository contains the infrastructure for formally conducting user experiments for Tellina.
 
-- [**server_side**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/client_side): contains the code used for the server side of the experiment, this includes both the post handler.
-- [**client_side**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/server_side): contains the files to be distributed to the users of the experiment.
+- [**backend**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/backend): contains the code used for the server side of the experiment, this includes both the post handler.
+- [**client_side**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/client_side): contains the files to be distributed to the users of the experiment.
 - [**static**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/static): contains the static content hosted on a public server. This is where the homepage and consent page of the experiment are located.
 - [**data_set**](https://github.com/TellinaTool/tellina_user_experiment/tree/master/dataset): contains the scripts used to produce the data set for the user experiment (referenced as _taskset_).
 - [**infrastructure.md**](https://github.com/TellinaTool/tellina_user_experiment/blob/master/infrastructure.md): describes the technical infrastructure and implementation of the user experiment.
@@ -19,7 +19,7 @@ This repository contains the infrastructure for formally conducting user experim
 4. Create directory `HOST_DIR/WEBSITE_NAME` on `HOST`.
    a. (Optional) Create directory `HOST_DIR/staging/WEBSITE_NAME` if you would like to have a testing website.
 5. Run  `make all publish` to build and upload the study website on the new host.
-6. Update the permission of `$HOST/$HOST_DIR/server_side/log.csv` with `chmod 666 log.csv`
+6. Update the permission of `$HOST/$HOST_DIR/backend/log.csv` with `chmod 666 log.csv`
 
 ### Requirements
 - [Bats](https://github.com/bats-core/bats-core)

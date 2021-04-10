@@ -11,6 +11,8 @@ DIST_NAME=experiment
 ZIP_DIST_NAME=$(DIST_NAME).zip
 
 CLIENT_DIR=client_side
+BACKEND_DIR=backend
+
 # This operation is safe because the test frame work will clean up any backup,
 # temporary files, etc.
 CLIENT_FILES=$(shell find $(CLIENT_DIR) -type f)
@@ -83,9 +85,9 @@ clean: clean-dist clean-fs-dir
 dist-static:
 	cp -a static/. $(BUILD_TARGET)
 
-# Distribute the backend server_side
+# Distribute the backend
 dist-backend:
-	cp -r -p server_side $(BUILD_TARGET)
+	cp -r -p $(BACKEND_DIR) $(BUILD_TARGET)
 
 $(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) test
 	$(ZIP) $@ $<
