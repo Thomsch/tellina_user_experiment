@@ -39,6 +39,9 @@ PUBLIC_SITE=$(HOST_DIR)/$(WEBSITE_NAME)
 # Hosted testing location
 STAGING_SITE=$(HOST_DIR)/staging/$(WEBSITE_NAME)
 
+# Local folder to store what is going to be hosted.
+BUILD_TARGET=distribution
+
 #########################
 ## Commands
 #########################
@@ -51,31 +54,38 @@ ZIP=zip -qr
 #########################
 
 # See https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
-.PHONY: all test publish-distribution stage-distribution
+.PHONY: all test distribute publish-distribution stage-distribution cp_static
 
-all: $(ZIP_DIST_NAME)
+all: test distribute
 
 test:
 	$(MAKE) -C $(INFRA_DIR) test
 
+# Assemble hosted content in folder specified by BUILD_TARGET
+distribute: $(ZIP_DIST_NAME) dist-static dist-backend
+	mkdir -p $(BUILD_TARGET)
+	mv $< $(BUILD_TARGET)
+	find $(BUILD_TARGET) -name "README.md" -type f -delete
+
 # Publish the distribution to the production host folder.
-publish: $(ZIP_DIST_NAME) $(PUBLIC_SITE)
+publish: test distribute
 	@echo "Publishing $<"
 	@scp $< $(HOST):$(PUBLIC_SITE)
 
 # Publish the distribution to the testing host folder.
-stage-distribution: $(ZIP_DIST_NAME) $(STAGING_SITE)
+stage-distribution: test distribute
 	@echo "Staging $<"
 	@scp $< $(HOST):$(STAGING_SITE)
 
 clean: clean-dist clean-fs-dir
 
-clean-dist:
-	$(RM) $(ZIP_DIST_NAME)
-	$(RM) $(DIST_NAME)
+# Distribute static resources
+dist-static:
+	cp -a static/. $(BUILD_TARGET)
 
-clean-fs-dir:
-	$(RM) $(FS_DIR)
+# Distribute the backend server_side
+dist-backend:
+	cp -r -p server_side $(BUILD_TARGET)
 
 $(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) test
 	$(ZIP) $@ $<
@@ -92,3 +102,11 @@ $(FS_DIR):
 	@echo -n "Checking that host directory $@ exists... "
 	@ssh $(HOST) '[ -d $@ ]'
 	@echo "OK."
+
+clean-dist:
+	$(RM) $(ZIP_DIST_NAME)
+	$(RM) $(DIST_NAME)
+	$(RM) $(BUILD_TARGET)
+
+clean-fs-dir:
+	$(RM) $(FS_DIR)
