@@ -35,7 +35,7 @@ TASK_TIME_LIMIT=300
 # Establish the server information
 SERVER_HOST="https://homes.cs.washington.edu/~tschweiz"
 # Establish survey URL
-EXPERIMENT_HOME_URL="${SERVER_HOST}/research/bash_experiment"
+EXPERIMENT_HOME_URL="${SERVER_HOST}/research/en2bash-study"
 
 POST_HANDLER="${EXPERIMENT_HOME_URL}/server_side/post_handler/post_handler.php"
 

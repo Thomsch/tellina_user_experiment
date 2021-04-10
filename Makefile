@@ -31,7 +31,7 @@ HOST=tschweiz@attu.cs.washington.edu
 HOST_DIR=/cse/web/homes/tschweiz/research
 
 # The host folder containing the website
-WEBSITE_NAME=tellina_user_study
+WEBSITE_NAME=en2bash-study
 
 # Physical location where the website is hosted
 PUBLIC_SITE=$(HOST_DIR)/$(WEBSITE_NAME)
