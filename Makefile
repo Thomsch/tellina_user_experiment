@@ -30,10 +30,13 @@ HOST=tschweiz@attu.cs.washington.edu
 # The website's directory on HOST
 HOST_DIR=/cse/web/homes/tschweiz/research
 
-# Can be something else if needed
-WEBSITE_NAME=$(DIST_NAME)
+# The host folder containing the website
+WEBSITE_NAME=tellina_user_study
 
+# Physical location where the website is hosted
 PUBLIC_SITE=$(HOST_DIR)/$(WEBSITE_NAME)
+
+# Hosted testing location
 STAGING_SITE=$(HOST_DIR)/staging/$(WEBSITE_NAME)
 
 #########################
@@ -54,6 +57,16 @@ all: $(ZIP_DIST_NAME)
 test:
 	$(MAKE) -C $(INFRA_DIR) test
 
+# Publish the distribution to the production host folder.
+publish: $(ZIP_DIST_NAME) $(PUBLIC_SITE)
+	@echo "Publishing $<"
+	@scp $< $(HOST):$(PUBLIC_SITE)
+
+# Publish the distribution to the testing host folder.
+stage-distribution: $(ZIP_DIST_NAME) $(STAGING_SITE)
+	@echo "Staging $<"
+	@scp $< $(HOST):$(STAGING_SITE)
+
 clean: clean-dist clean-fs-dir
 
 clean-dist:
@@ -72,16 +85,6 @@ $(DIST_NAME):
 $(FS_DIR):
 	cp -r $(INFRA_DIR)/file_system $@
 	find $@ -type f -exec chmod a+w {} \;
-
-# Copy the ZIP distribution on the public site specified by PUBLIC_SITE.
-publish-distribution: $(ZIP_DIST_NAME) $(PUBLIC_SITE)
-	@echo "Publishing $<"
-	@scp $< $(HOST):$(PUBLIC_SITE)
-
-# Copy the ZIP distribution on the staging site specified by STAGING_SITE.
-stage-distribution: $(ZIP_DIST_NAME) $(STAGING_SITE)
-	@echo "Staging $<"
-	@scp $< $(HOST):$(STAGING_SITE)
 
 # Check that the host has the website directory.
 %/$(WEBSITE_NAME):
