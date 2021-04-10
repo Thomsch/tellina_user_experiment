@@ -50,6 +50,7 @@ ZIP=zip -qr
 ## Tasks
 #########################
 
+# See https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
 .PHONY: all test publish-distribution stage-distribution
 
 all: $(ZIP_DIST_NAME)
