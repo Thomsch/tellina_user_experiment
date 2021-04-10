@@ -1,8 +1,6 @@
-# Commands
-RM=rm -rf
-ZIP=zip -qr
-
-# Files and directories.
+#########################
+## Files and directories
+#########################
 
 # Directory of distribution which is a symbolic link to CLIENT_DIR.
 # This allows naming the directory distributed to the users without directly
@@ -22,7 +20,9 @@ FS_DIR=$(CLIENT_DIR)/file_system
 INFRA_DIR=$(CLIENT_DIR)/.infrastructure
 TEST_DIR=$(INFRA_DIR)/test
 
-# Website
+#########################
+## Host
+#########################
 
 # The machine that is hosting the website
 HOST=tschweiz@attu.cs.washington.edu
@@ -35,6 +35,17 @@ WEBSITE_NAME=$(DIST_NAME)
 
 PUBLIC_SITE=$(HOST_DIR)/$(WEBSITE_NAME)
 STAGING_SITE=$(HOST_DIR)/staging/$(WEBSITE_NAME)
+
+#########################
+## Commands
+#########################
+
+RM=rm -rf
+ZIP=zip -qr
+
+#########################
+## Tasks
+#########################
 
 .PHONY: all test publish-distribution stage-distribution
 
