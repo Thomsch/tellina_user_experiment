@@ -28,9 +28,9 @@ The experiment infrastructure consists of several components:
   To set up the client side for experimentation, the user will be instructed to
   run the following commands in a bash session:
   ```sh
-  wget .../bash_experiment.zip
-  unzip bash_experiment.zip
-  source bash_experiment/configure
+  wget .../experiment.zip
+  unzip experiment.zip
+  source experiment/configure
   ```
 - Client side: this contains
   - Initial configuration script that sources infrastructure code (next
