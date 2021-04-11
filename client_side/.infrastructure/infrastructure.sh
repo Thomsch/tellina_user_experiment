@@ -215,9 +215,10 @@ infra_training() {
 # pairs.
 tellina_training() {
   echo ${HLINE}
-  echo "For this task, follow the instructions at"
-  echo "${EXPERIMENT_HOME_URL}/tellina.html"
-  echo "to acquaint yourself with Tellina."
+  echo "To use Tellina, visit ${TELLINA_WEBSITE}. The website include quick tips and examples on how to use the translation assistant."
+  echo "Essentially, you input your query in english in the top text field and click on the button located on the right of the text field (the one with a robot) to trigger the translation."
+  echo "The button on the left does a regular Google search with the content of the text field."
+  echo ${HLINE}
 }
 
 # Prints the list of resources that the user is allowed to use based on the
