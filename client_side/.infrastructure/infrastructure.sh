@@ -200,9 +200,15 @@ check_and_update_training_status() {
 # - The directory that they should be performing tasks on.
 infra_training() {
   echo ${HLINE}
-  echo "For this task, please follow the instructions at"
-  echo "${EXPERIMENT_HOME_URL}/experiment.html"
-  echo "to learn how to do the experiment."
+  echo "This terminal is the interface for the experiment."
+  echo "At any point, run \"helpme\" to see a list of commands available to you."
+  echo ""
+  echo "For each task, we ask you to a corresponding bash one-liner satisfying the prompt, just like you would ordinarily."
+  echo "Please stay in the current test directory already provided, the file system changes between each one-liner is reset after each command."
+  echo "If the one-liner is accepted, the experiment will continue to the next task."
+  echo "If the one-liner does not produce the expected changes, a window with the expected diff will be shown to you so you can retry."
+  echo "There is no limits on the number of times you can retry. However, please note that each task has a time limit of 5 minutes."
+  echo ${HLINE}
 }
 
 # Introduces the user to Tellina and suggests a couple of known query-command
