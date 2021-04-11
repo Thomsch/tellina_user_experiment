@@ -220,7 +220,7 @@ print_treatment() {
   echo ${HLINE}
   if [[ "$treatment" == "T" ]]; then
     echo "For this half of the experiment you can use any online resources and man pages,"
-    echo "and Tellina (https://tellina.rocks)."
+    echo "and Tellina (${TELLINA_WEBSITE})."
   else
     if (( task_num >= TASKS_SIZE / 2 + 1 )); then
       echo "For this half of the experiment you can use any online resources and man pages,"
