@@ -39,7 +39,7 @@ EXPERIMENT_HOME_URL="${SERVER_HOST}/research/bash_experiment"
 
 POST_HANDLER="${EXPERIMENT_HOME_URL}/server_side/post_handler/post_handler.php"
 
-TELLINA_WEBSITE = "https://tellina.rocks"
+TELLINA_WEBSITE="https://tellina.rocks"
 
 ### Infrastructure
 
