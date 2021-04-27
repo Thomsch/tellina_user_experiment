@@ -203,7 +203,7 @@ infra_training() {
   echo "This terminal is the interface for the experiment."
   echo "At any point, run \"helpme\" to see a list of commands available to you."
   echo ""
-  echo "For each task, we ask you to a corresponding bash one-liner satisfying the prompt, just like you would ordinarily."
+  echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt given to you. Write the one-liner like you would usually when working in a Unix environment."
   echo "Please stay in the current test directory already provided, the file system changes between each one-liner is reset after each command."
   echo "If the one-liner is accepted, the experiment will continue to the next task."
   echo "If the one-liner does not produce the expected changes, a window with the expected diff will be shown to you so you can retry."
