@@ -2,30 +2,30 @@
 <html>
 
 <head>
-  <style>
-    body {
-      margin: 40px auto;
-      max-width: 900px;
-      line-height: 1.6;
-      font-size: 18px;
-      color: #444;
-      padding: 0 10px
-    }
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
 
-    h1,
-    h2,
-    h3 {
-      line-height: 1.2
-    }
-  </style>
-
-  <title>English to Bash Experiment 🧪</title>
+  <title>English to Bash Study</title>
 </head>
 
 <body>
   <h1>
-    Welcome to the English to Bash Experiment website!
+    Welcome to the English to Bash study website!
   </h1>
+  <p>
+    Thank you for participating to this study! We are interested in evaluating if translation assistants can help
+    programmers to write Bash scripts using English descriptions.
+  </p>
+
+  <h2>Consent</h2>
+  <p>
+    Before we start, please review carefully the <a href="consent.html">consent information</a> and sign
+    at the bottom of the consent page. You <b>must</b> complete this step in order to continue.
+  </p>
+
+  <h2>Instructions</h2>
   <p>
     For the experiment to go as smoothly as possible, please ensure that you have access to a <a
       href="https://www.cs.washington.edu/lab/software/linuxhomevm">CSE Linux Home VM</a> with <a
@@ -33,24 +33,32 @@
     your VM's terminal: <code>$ meld</code>. It should open a GUI window. To install Meld on your CSE Linux Home VM use
     <code>$ sudo yum install meld</code>.
   </p>
+
+  <p>
+    Once all of those prerequisites are met and you are ready, please follow these step to start the experiment:
+    <ol>
+      <li>Download <a href="experiment.zip">experiment.zip</a> in a convenient folder on your CSE Linux Home VM.</li>
+      <li>Unzip with <code>$ unzip experiment.zip</code></li>
+      <li>Start the experiment <code>$ source experiment/configure</code></li>
+    </ol>
+    When you start the experiment, follow the prompts in your terminal. You will have 2 training questions to familiarize yourself with the tool and then the real tasks.
+  </p>
+
   <p>
     You will be presented with a series of file system tasks that can be done within a Bash shell.
     For each task, you are encouraged to use a variety of tools (man pages, Google, etc.) to help you solve it. Your
-    objective is to solve each task with a Bash one-liner: a bash script that is contained on one line. E.g.,
-    <code>$ ls | tee file</code>
-  </p>
-  <p>
-    Once all of those prerequisites are met and you are ready, please follow these step to start the experiment:
-  <ol>
-    <li>Download <a href="experiment.zip">experiment.zip</a> in a convenient folder on your CSE Linux Home VM.</li>
-    <li>Unzip with <code>$ unzip experiment.zip</code></li>
-    <li>Start the experiment <code>$ source bash_experiment/configure</code></li>
-  </ol>
-  When you start the experiment, follow the prompts in your terminal. You will have 2 training questions to familiarize yourself with the tool and then the real tasks.
+    objective is to solve each task with a Bash one-liner: a bash script that is contained on one line. For example: 
+    <code>$ ls | tee file</code>.
   </p>
 
-  <h2>After the experiment</h2>
-  When you have finished the experiment, please complete this <a href="http://https://forms.gle/xjAqf1YrvfKMZunL8">short survey</a> (5 minutes).
+  <h2>Survey</h2>
+  When you have finished the experiment, please complete this <a href="https://forms.gle/QieZPezcLSYoX2k26"
+    target="_blank"> short survey</a> (5 minutes).
+
+  <h2>End</h2>
+  <p>You're all done! Thank you for your participation! We will be sending you the gift card soon at the address you provided in the survey.</p>
+  
+  <p>If you have any questions or concerns, feel free to get in touch with us via the UW CSE Slack (@Thomas Schweizer) or by email (tschweiz AT cs.washington.edu).</p>
 </body>
 
 </html>
