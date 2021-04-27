@@ -1,6 +1,3 @@
-# Don't track log file
-log.csv
-
 # Ignore variable files
 .command
 .task_code
@@ -17,14 +14,8 @@ tellina_user_experiment/
 *.vim
 tags
 
-# Distribution files
+# Distribution files and directories
 *.zip
 *.tar*
-
-experiment_design/.ipynb_checkpoints/
-
-.vscode/
-
-dataset/Pipfile
-
-dataset/Pipfile.lock
+distribution/
+experiment
