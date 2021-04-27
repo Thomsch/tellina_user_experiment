@@ -100,7 +100,7 @@ end_experiment() {
   cd "${EXP_DIR}"
 
   echo "Congratulations! You have completed the interactive portion of the experiment."
-  echo "Please fill out the survey on the experiment home page."
+  echo "Please fill out our short survey at https://forms.gle/xjAqf1YrvfKMZunL8 (5 minutes)."
 
   return 0
 }

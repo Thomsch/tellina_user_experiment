@@ -1,30 +1,5 @@
-# Tellina User Study Design Doc
-
-## Introduction
-
-Tellina is a natural language -> command translation tool.  Tellina accepts a
-natural language description of file system operations, and displays a ranked
-list of bash one-liner suggestions made by the model. The user can scroll down
-the web page to explore more suggestions.
-
-In an experiment, people were given
-descriptions of file system operations, and asked to write bash commands to
-perform the operations.  The experimental group had access to Tellina, web
-search, and man pages; the control group had access only to web search and
-man pages. Measurements were done on whether subjects successfully complete the
-tasks, and the amount of time that it takes to complete the tasks.
-A post-task questionnaire obtained qualitative feedback.
-
-We need to redo the experiment, for a few reasons.
-1. Tellina has changed since the user study was performed.  Tellina has better
-   accuracy and handles more commands.  It would not be compelling to report an
-   experiment on an implementation that has since been superseded.
-2. The user study was relatively small (around 30 subjects), so the experimental
-   results were not always statistically significant.  With a larger pool of
-   subjects, the results will be more compelling.
-
-This design document describes a new infrastructure for the user design, as the
-previous one was buggy.
+# Infrastructure Design
+This design document describes the infrastructure for the user experiment.
 
 ## Overview
 
@@ -53,9 +28,9 @@ The experiment infrastructure consists of several components:
   To set up the client side for experimentation, the user will be instructed to
   run the following commands in a bash session:
   ```sh
-  wget .../bash_experiment.zip
-  unzip bash_experiment.zip
-  source bash_experiment/configure
+  wget .../experiment.zip
+  unzip experiment.zip
+  source experiment/configure
   ```
 - Client side: this contains
   - Initial configuration script that sources infrastructure code (next
@@ -90,9 +65,6 @@ The experiment infrastructure consists of several components:
     tasks. The tutorial will print instructions on what to do for each step to the
     shell as well. The tutorial will also teach users about `giveup`, `task`,
     `reset`, and `helpme`.
-- Analysis scripts to process server logs: determine relative
-  performance of subjects using Tellina versus those who are not, via
-  statistical analysis.  This will be done with a post-processing program.
 
 ### User Requirements [Remote Edition]
 The subjects will participate in the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their personal laptops.
@@ -410,23 +382,6 @@ command is executed
 
 The client side is tested using [Bats](https://github.com/bats-core/bats-core).
 
-## Maintenance
-
-### Creating a new host
-
-1. Clone the repository locally
-2. Update the Makefile in the local repo with the intended `HOST` and `HOST_DIR`.
-3. Update `SERVER_HOST` in `client_side/.infrastructure/setup.sh` with the new host.
-4. Update `client_side/README.txt` with the new host.
-3. Create `HOST_DIR` on `HOST`, and clone the repository into `HOST_DIR`.
-
-    a. Rename `HOST_DIR/repo-name` to `DIST_NAME` (the directory name for the repository on `HOST` should match `DIST_NAME` in the local repo)
-4. (Optional) Create a `HOST_DIR/staging` and repeat step 3 there if you would like to have a testing website.
-5. Run  `make all publish-distribution`
-6. Update the permission of `$HOST/$HOST_DIR/server_side/log.csv` with `chmod 666 log.csv`
-
-Once a new host has been created, the link in `telina_user_experiment/client_side/README.md` can be updated to wherever the new site is.
-
 ## Risks and Concerns
 - Do we want to automatically reset the file system after each command?
   - Encourages one-liner solutions.
@@ -439,4 +394,3 @@ Once a new host has been created, the link in `telina_user_experiment/client_sid
   - TellinaTool/bash_task_interface.git
   - TellinaTool/user_study_chrome_extension.git
   - TellinaTool/resource-website.git
-
