@@ -28,9 +28,9 @@ The experiment infrastructure consists of several components:
   To set up the client side for experimentation, the user will be instructed to
   run the following commands in a bash session:
   ```sh
-  wget .../bash_experiment.zip
-  unzip bash_experiment.zip
-  source bash_experiment/configure
+  wget .../experiment.zip
+  unzip experiment.zip
+  source experiment/configure
   ```
 - Client side: this contains
   - Initial configuration script that sources infrastructure code (next
@@ -65,9 +65,6 @@ The experiment infrastructure consists of several components:
     tasks. The tutorial will print instructions on what to do for each step to the
     shell as well. The tutorial will also teach users about `giveup`, `task`,
     `reset`, and `helpme`.
-- Analysis scripts to process server logs: determine relative
-  performance of subjects using Tellina versus those who are not, via
-  statistical analysis.  This will be done with a post-processing program.
 
 ### User Requirements [Remote Edition]
 The subjects will participate in the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their personal laptops.

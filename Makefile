@@ -1,8 +1,6 @@
-# Commands
-RM=rm -rf
-ZIP=zip -qr
-
-# Files and directories.
+#########################
+## Files and directories
+#########################
 
 # Directory of distribution which is a symbolic link to CLIENT_DIR.
 # This allows naming the directory distributed to the users without directly
@@ -13,17 +11,20 @@ DIST_NAME=experiment
 ZIP_DIST_NAME=$(DIST_NAME).zip
 
 CLIENT_DIR=client_side
+BACKEND_DIR=backend
+
 # This operation is safe because the test frame work will clean up any backup,
 # temporary files, etc.
 CLIENT_FILES=$(shell find $(CLIENT_DIR) -type f)
 
 FS_DIR=$(CLIENT_DIR)/file_system
-TASKS_MODIFICATION_TIMES=TASK_G_TIME TASK_H_TIME TASK_P_TIME
 
 INFRA_DIR=$(CLIENT_DIR)/.infrastructure
 TEST_DIR=$(INFRA_DIR)/test
 
-# Website
+#########################
+## Host
+#########################
 
 # The machine that is hosting the website
 HOST=tschweiz@attu.cs.washington.edu
@@ -31,29 +32,64 @@ HOST=tschweiz@attu.cs.washington.edu
 # The website's directory on HOST
 HOST_DIR=/cse/web/homes/tschweiz/research
 
-# Can be something else if needed
-WEBSITE_NAME=$(DIST_NAME)
+# The host folder containing the website
+WEBSITE_NAME=en2bash-study
 
+# Physical location where the website is hosted
 PUBLIC_SITE=$(HOST_DIR)/$(WEBSITE_NAME)
+
+# Hosted testing location
 STAGING_SITE=$(HOST_DIR)/staging/$(WEBSITE_NAME)
 
-.PHONY: all test publish-distribution stage-distribution
+# Local folder to store what is going to be hosted.
+BUILD_TARGET=distribution
 
-all: $(ZIP_DIST_NAME)
+#########################
+## Commands
+#########################
+
+RM=rm -rf
+ZIP=zip -qr
+
+#########################
+## Tasks
+#########################
+
+# See https://www.gnu.org/software/make/manual/html_node/Phony-Targets.html
+.PHONY: all test distribute publish publish-staging cp_static dist-static dist-backend
+
+all: test distribute
 
 test:
 	$(MAKE) -C $(INFRA_DIR) test
 
+# Assemble hosted content in folder specified by BUILD_TARGET
+distribute: $(ZIP_DIST_NAME) dist-static dist-backend
+	mkdir -p $(BUILD_TARGET)
+	mv $< $(BUILD_TARGET)
+	find $(BUILD_TARGET) -name "README.md" -type f -delete
+
+# Publish the distribution to the production host folder.
+publish: test distribute
+	@echo "Publishing $(BUILD_TARGET)..."
+	@scp -pr $(BUILD_TARGET)/* $(HOST):$(PUBLIC_SITE)
+
+# Publish the distribution to the testing host folder.
+publish-staging: test distribute
+	@echo "Publishing $(BUILD_TARGET) in **staging environment**..."
+	@scp -pr $(BUILD_TARGET)/* $(HOST):$(STAGING_SITE)
+
 clean: clean-dist clean-fs-dir
 
-clean-dist:
-	$(RM) $(ZIP_DIST_NAME)
-	$(RM) $(DIST_NAME)
+# Distribute static resources
+dist-static:
+	cp -a static/. $(BUILD_TARGET)
 
-clean-fs-dir:
-	$(RM) $(FS_DIR)
+# Distribute the backend
+dist-backend:
+	cp -r -p $(BACKEND_DIR) $(BUILD_TARGET)
 
-$(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) $(TASKS_MODIFICATION_TIMES) test
+$(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) test
 	$(ZIP) $@ $<
 
 $(DIST_NAME):
@@ -63,42 +99,17 @@ $(FS_DIR):
 	cp -r $(INFRA_DIR)/file_system $@
 	find $@ -type f -exec chmod a+w {} \;
 
-TASK_G_TIME: $(FS_DIR)
-	$(eval TIME=$(shell date -d "-300 days" +%Y%m%d%H%M))
-	$(eval TOUCH=touch -m -t $(TIME))
-
-	find "$</css/" -type f -exec touch -m {} \;
-
-	$(TOUCH) $</css/bootstrap3/bootstrap-glyphicons.css
-	$(TOUCH) $</css/fonts/glyphiconshalflings-regular.eot
-	$(TOUCH) $</css/fonts/glyphiconshalflings-regular.otf
-	$(TOUCH) $</css/fonts/glyphiconshalflings-regular.svg
-	$(TOUCH) $</css/fonts/glyphiconshalflings-regular.ttf
-
-TASK_H_TIME: $(FS_DIR)
-	$(eval TIME=201602050900)
-	$(eval TOUCH=touch -m -t $(TIME))
-
-	find "$</content/" -type f -exec $(TOUCH) {} \;
-
-TASK_P_TIME: $(FS_DIR)
-	$(eval TIME=201701100036)
-	$(eval TOUCH=touch -m -t $(TIME))
-
-	find "$</content/labs/2013" -type f -exec $(TOUCH) {} \;
-
-# Copy the ZIP distribution on the public site specified by PUBLIC_SITE.
-publish-distribution: $(ZIP_DIST_NAME) $(PUBLIC_SITE)
-	@echo "Publishing $<"
-	@scp $< $(HOST):$(PUBLIC_SITE)
-
-# Copy the ZIP distribution on the staging site specified by STAGING_SITE.
-stage-distribution: $(ZIP_DIST_NAME) $(STAGING_SITE)
-	@echo "Staging $<"
-	@scp $< $(HOST):$(STAGING_SITE)
-
 # Check that the host has the website directory.
 %/$(WEBSITE_NAME):
 	@echo -n "Checking that host directory $@ exists... "
 	@ssh $(HOST) '[ -d $@ ]'
 	@echo "OK."
+
+clean-dist:
+	$(RM) $(ZIP_DIST_NAME)
+	$(RM) $(DIST_NAME)
+	$(RM) $(BUILD_TARGET)
+
+clean-fs-dir:
+	$(RM) $(FS_DIR)
+	
