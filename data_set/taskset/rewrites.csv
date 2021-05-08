@@ -4,7 +4,7 @@ Id,Rewrite (* Means that the task has been adapted for the context of the experi
 3,Rename README.md to README.txt,mv filename.{old,new}
 4,Copy 'content/tips.md' in new directory 'content/backup/',mkdir -p "content/backup" && cp content/tips.md "content/backup"
 5,Print the number of lines in the syllabus file,wc -l content/syllabus.md
-6,Delete all the files containing 'glyph' in their filename,find . -name 'glyph*'
+6,Delete all the files containing 'glyph' in their filename,find . -name 'glyph*' -delete
 7,"Show which file diff between in 'content/labs' and 'content/lessons', including their subdirectories",diff -qr content/labs/ content/lessons/
 8,List all the non-markdown files,find . -type f ! -name "*.md"
 9,Delete all markdown files starting with a number,find . -type f -name "[[:digit:]]*.md"
