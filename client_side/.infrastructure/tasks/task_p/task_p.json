@@ -1,4 +1,4 @@
 {
    "task_id": "16",
-   "description": "Delete all empty subdirectories"
+   "description": "Remove all files except 'tips.md' in directory 'content/'"
 }
