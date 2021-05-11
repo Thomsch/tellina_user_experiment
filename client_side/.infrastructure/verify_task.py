@@ -128,6 +128,13 @@ def normalize_and_copy_output(subprocess_output_file, normalized_output_file):
     """
     Normalizes the contents of file subprocess_output (sorts lines, removes
     leading './') and writes the result to file normalized_output.
+
+    This step accounts for platform difference changing the output of the `find` utility.
+
+    Removing trailing `./` ensures calls to `find '.' ...` and `find ...` yield the same output.
+
+    Sorting the lines ensures the order of the output doesn't change between systems as
+    the file order is given by the layout of the filesystem's i-nodes.
     """
     with open(normalized_output_file, 'w') as normalized_output:
         with open(subprocess_output_file) as subprocess_output:
