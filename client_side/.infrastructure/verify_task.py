@@ -51,6 +51,11 @@ EXPECTED_FILE = os.path.join('/tmp', 'expected')
 # those that expect a modification to the file system.
 FILESYSTEM_TASKS = {'c', 'd', 'f', 'i', 'n', 'o', 'p', 'v'}
 
+# These task rely on the `find` utility to complete the task. 
+# They require their output to be normalized for consistent behavior
+# across different systems.
+NORMALIZE_FIND_TASKS = {'h', 'j', 'l', 'u'}
+
 def main():
     class cd:
         """Context manager for changing the current working directory"""
@@ -87,7 +92,8 @@ def main():
             with cd(FS_DIR):
                 filesystem = subprocess.call('find .', shell=True, stderr=devnull, stdout=user_out)
 
-        normalize_and_copy_output(USER_FS_FILE, ACTUAL_FILE)
+        if task_code in NORMALIZE_FIND_TASKS:
+            normalize_and_copy_output(USER_FS_FILE, ACTUAL_FILE)
 
         # Verify checks whether or not the file system state is as expected.
         fs_good = verify(ACTUAL_FILE, task_code, True)
