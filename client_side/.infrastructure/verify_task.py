@@ -137,7 +137,7 @@ def normalize_and_copy_output(subprocess_output_file, normalized_output_file):
 
     This step accounts for platform difference changing the output of the `find` utility.
 
-    Removing trailing `./` ensures calls to `find '.' ...` and `find ...` yield the same output.
+    Removing leading `./` ensures calls to `find '.' ...` and `find ...` yield the same output.
 
     Sorting the lines ensures the order of the output doesn't change between systems as
     the file order is given by the layout of the filesystem's i-nodes.
