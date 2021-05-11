@@ -92,8 +92,7 @@ def main():
             with cd(FS_DIR):
                 filesystem = subprocess.call('find .', shell=True, stderr=devnull, stdout=user_out)
 
-        if task_code in NORMALIZE_FIND_TASKS:
-            normalize_and_copy_output(USER_FS_FILE, ACTUAL_FILE)
+        normalize_and_copy_output(USER_FS_FILE, ACTUAL_FILE)
 
         # Verify checks whether or not the file system state is as expected.
         fs_good = verify(ACTUAL_FILE, task_code, True)
@@ -117,8 +116,9 @@ def main():
                         # (see https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline)
                         with cd(command_dir):
                             stdout = subprocess.call(command, shell=True, stderr=user_err, stdout=user_out)
-
-                normalize_and_copy_output(USER_STDOUT_FILE, ACTUAL_FILE)
+                
+                if task_code in NORMALIZE_FIND_TASKS:
+                    normalize_and_copy_output(USER_STDOUT_FILE, ACTUAL_FILE)
 
                 if verify(ACTUAL_FILE, task_code, False):
                     sys.exit(VERIFICATION_SUCCESS)
