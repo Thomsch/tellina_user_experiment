@@ -119,6 +119,8 @@ def main():
                 
                 if task_code in NORMALIZE_FIND_TASKS:
                     normalize_and_copy_output(USER_STDOUT_FILE, ACTUAL_FILE)
+                else:
+                    shutil.copy(USER_STDOUT_FILE, ACTUAL_FILE)
 
                 if verify(ACTUAL_FILE, task_code, False):
                     sys.exit(VERIFICATION_SUCCESS)
