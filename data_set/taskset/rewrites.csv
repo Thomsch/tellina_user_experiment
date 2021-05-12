@@ -1,17 +1,17 @@
 Id,Rewrite (* Means that the task has been adapted for the context of the experiment.),Solution
 1,Show the lines of `content/review/review2.md` that are not in `content/review/review1.md`,comm -23 content/review/review2.md content/review/review1.md
 2,Display the content of the main stylesheet inside the 'css' folder,cat css/app.css
-3,Rename README.md to README.txt,mv filename.{old,new}
+3,Rename README.md to README.txt,mv README.md README.txt
 4,Copy 'content/tips.md' in new directory 'content/backup/',mkdir -p "content/backup" && cp content/tips.md "content/backup"
 5,Print the number of lines in the syllabus file,wc -l content/syllabus.md
 6,Delete all the files containing 'glyph' in their filename,find . -name '*glyph*' -delete
 7,"Show which file diff between in 'content/labs' and 'content/lessons', including their subdirectories",diff -qr content/labs/ content/lessons/
 8,List all the non-markdown files,find . -type f ! -name "*.md"
-9,Delete all markdown files starting with a number,find . -type f -name "[[:digit:]]*.md"
+9,Delete all markdown files starting with a number,find . -type f -name "[[:digit:]]*.md" -delete
 10,Find all lines containing "why" in files containing "review" in their filename,find . -name *review* -exec grep -Hni 'why' {} \;
 11,Count the number of files in 'labs/' and subfolders,find 'content/labs' -type f | wc -l
 12,List the name of the immediate subfolders contained in the folders at the root of 'content/', find content/ -mindepth 2 -maxdepth 2 -type d -exec basename {} \;
 13,Display the content of the root folder ordered by directory first, then files,ls -lago | grep "^d" && ls -lago | grep "^-"
 14,Create a symbolic link in the current directory for each markdown file at the root of 'content/',ln -s content/*.md .
-15,Delete all empty subdirectories,find . -depth  -type d  -empty -exec rmdir {} \;
+15,Delete all empty subdirectories,find . -depth  -type d -delete -empty -exec rmdir {} \;
 16,Remove all files except 'tips.md' in directory 'content/',find content/ -maxdepth 1 ! -name "tips.md" -type f -delete
