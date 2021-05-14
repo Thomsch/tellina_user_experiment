@@ -1,4 +1,4 @@
 {
    "task_id": "14",
-   "description": "Create a symbolic link in the current directory for each markdown file at the root of 'content/'"
+   "description": "Show the size of files and directories at the root of 'content/ in a human-friendly format, ordered by size"
 }

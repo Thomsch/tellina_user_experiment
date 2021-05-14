@@ -49,7 +49,7 @@ EXPECTED_FILE = os.path.join('/tmp', 'expected')
 
 # There are two types of tasks: those that expect output, and
 # those that expect a modification to the file system.
-FILESYSTEM_TASKS = {'c', 'd', 'f', 'i', 'n', 'o', 'p', 'v'}
+FILESYSTEM_TASKS = {'c', 'd', 'f', 'i', 'o', 'p', 'v'}
 
 # These task rely on the `find` utility to complete the task. 
 # They require their output to be normalized for consistent behavior
