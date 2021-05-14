@@ -1,17 +1,17 @@
-Id,Rewrite (* Means that the task has been adapted for the context of the experiment.)
-1,Print the lines that are missing from a file compared to another file.
-2,* Display main styling sheet file for website.
-3,Rename README.md to README.txt 
-4,Copy <file> in <nested non existing destination>
-5,Get the number of lines for `index.html`
-6,Delete all the files starting with '2013' in a <directory>
-7,Show the differences between files in a <directory> and <sub-directories>
-8,List the files that do not have a file type in <directory>
-9,Using a regular expression, delete all the minimized javascript and css files.
-10,For each file named <file>, Show the filename and line number matching text <text>
-11,Save manual page for <entry of `man`> in <entry of `man`>.txt
-12,List three-level deep subdirectories of <directory> 
-13,Download and extract <tar ball on user experiment website> without an intermediary file.
-14,For each file with the extension <extension> in directory <directory>, create a symbolic link in the current directory.
-15,Delete recursively all subdirectories that are empty using find.
-16,Remove all files except <survivor file> in <directory>  
+Id,Rewrite (* Means that the task has been adapted for the context of the experiment.),Solution
+1,Show the lines of `content/review/review2.md` that are not in `content/review/review1.md`,comm -23 content/review/review2.md content/review/review1.md
+2,Display the content of the main stylesheet inside the 'css' folder,cat css/app.css
+3,Rename README.md to README.txt,mv README.md README.txt
+4,Copy 'content/tips.md' in new directory 'content/backup/',mkdir -p "content/backup" && cp content/tips.md "content/backup"
+5,Print the number of lines in the syllabus file,wc -l content/syllabus.md
+6,Delete all the files containing 'glyph' in their filename,find . -name '*glyph*' -delete
+7,"Show which file diff between in 'content/labs' and 'content/lessons', including their subdirectories",diff -qr content/labs/ content/lessons/
+8,List all the non-markdown files,find . -type f ! -name "*.md"
+9,Delete all markdown files starting with a number,find . -type f -name "[[:digit:]]*.md" -delete
+10,Find all lines containing "why" in files containing "review" in their filename,find . -name *review* -exec grep -Hni 'why' {} \;
+11,Count the number of files in 'labs/' and subfolders,find 'content/labs' -type f | wc -l
+12,List the name of the immediate subfolders contained in the folders at the root of 'content/', find content/ -mindepth 2 -maxdepth 2 -type d -exec basename {} \;
+13,Display the content of the root folder ordered by directory first, then files,ls -lago --time-style=+"" | grep "^d" && ls -lago --time-style=+"" | grep "^-"
+14,Show the size of files and directories at the root of "content/" in a human-friendly format, ordered by size, du -hs content/* | sort -hr
+15,Delete all empty subdirectories,find . -depth  -type d -delete -empty -exec rmdir {} \;
+16,Remove all files except 'tips.md' in directory 'content/',find content/ -maxdepth 1 ! -name "tips.md" -type f -delete

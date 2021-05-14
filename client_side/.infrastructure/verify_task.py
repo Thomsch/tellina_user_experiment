@@ -49,7 +49,12 @@ EXPECTED_FILE = os.path.join('/tmp', 'expected')
 
 # There are two types of tasks: those that expect output, and
 # those that expect a modification to the file system.
-FILESYSTEM_TASKS = {'b', 'c', 'd', 'e', 'f', 'k', 'l', 'o', 'q', 't', 'v'}
+FILESYSTEM_TASKS = {'c', 'd', 'f', 'i', 'o', 'p', 'v'}
+
+# These task rely on the `find` utility to complete the task. 
+# They require their output to be normalized for consistent behavior
+# across different systems.
+NORMALIZE_FIND_TASKS = {'h', 'j', 'l', 'u'}
 
 def main():
     class cd:
@@ -111,8 +116,11 @@ def main():
                         # (see https://docs.python.org/3/library/subprocess.html#replacing-shell-pipeline)
                         with cd(command_dir):
                             stdout = subprocess.call(command, shell=True, stderr=user_err, stdout=user_out)
-
-                normalize_and_copy_output(USER_STDOUT_FILE, ACTUAL_FILE)
+                
+                if task_code in NORMALIZE_FIND_TASKS:
+                    normalize_and_copy_output(USER_STDOUT_FILE, ACTUAL_FILE)
+                else:
+                    shutil.copy(USER_STDOUT_FILE, ACTUAL_FILE)
 
                 if verify(ACTUAL_FILE, task_code, False):
                     sys.exit(VERIFICATION_SUCCESS)
@@ -128,6 +136,13 @@ def normalize_and_copy_output(subprocess_output_file, normalized_output_file):
     """
     Normalizes the contents of file subprocess_output (sorts lines, removes
     leading './') and writes the result to file normalized_output.
+
+    This step accounts for platform difference changing the output of the `find` utility.
+
+    Removing leading `./` ensures calls to `find '.' ...` and `find ...` yield the same output.
+
+    Sorting the lines ensures the order of the output doesn't change between systems as
+    the file order is given by the layout of the filesystem's i-nodes.
     """
     with open(normalized_output_file, 'w') as normalized_output:
         with open(subprocess_output_file) as subprocess_output:
@@ -150,32 +165,32 @@ def verify(normalized_output_file, task_code, check_fs):
         os.environ['TASKS_DIR'], "{task}/{task}.{out_type}.out"
             .format(task=task, out_type="fs" if check_fs else "select"))
 
-    # special verification for task b
-    if task_code == 'b':
-        files_in_tar = set()
-        try:
-            tar = tarfile.open(os.path.join(os.environ['FS_DIR'], 'html.tar'))
-            for member in tar.getmembers():
-                files_in_tar.add(os.path.basename(member.name))
-            if files_in_tar != {'index.html', 'home.html', 'labs.html',
-                                'lesson.html', 'menu.html', 'navigation.html'}:
-                print('-------------------------------------------')
-                print('html.tar does not contain the correct files')
-                print('contains: ' + str(files_in_tar))
-                print('should be: ' + str({'index.html',
-                                           'home.html',
-                                           'labs.html',
-                                           'lesson.html',
-                                           'menu.html',
-                                           'navigation.html'}))
-                return False
-        except tarfile.ReadError:
-            # valid tar file does not exist on the target path
-            print('--------------------------------')
-            print('html.tar is not a valid tar file')
-            return False
-        except IOError:
-            pass
+    # # special verification for task b
+    # if task_code == 'b':
+    #     files_in_tar = set()
+    #     try:
+    #         tar = tarfile.open(os.path.join(os.environ['FS_DIR'], 'html.tar'))
+    #         for member in tar.getmembers():
+    #             files_in_tar.add(os.path.basename(member.name))
+    #         if files_in_tar != {'index.html', 'home.html', 'labs.html',
+    #                             'lesson.html', 'menu.html', 'navigation.html'}:
+    #             print('-------------------------------------------')
+    #             print('html.tar does not contain the correct files')
+    #             print('contains: ' + str(files_in_tar))
+    #             print('should be: ' + str({'index.html',
+    #                                        'home.html',
+    #                                        'labs.html',
+    #                                        'lesson.html',
+    #                                        'menu.html',
+    #                                        'navigation.html'}))
+    #             return False
+    #     except tarfile.ReadError:
+    #         # valid tar file does not exist on the target path
+    #         print('--------------------------------')
+    #         print('html.tar is not a valid tar file')
+    #         return False
+    #     except IOError:
+    #         pass
 
     # compare normalized output file and task verification file
     files_match = filecmp.cmp(normalized_output_file, task_verify_file)

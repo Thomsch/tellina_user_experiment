@@ -67,15 +67,8 @@ css/fonts/glyphiconshalflings-regular.ttf
 css/fonts/glyphiconshalflings-regular.woff
 index.html
 js
-js/angular-resource.min.js
-js/angular.min.js
 js/app.js
-js/bootstrap.js
-js/bootstrap.min.js
 js/controllers.js
-js/jquery-2.0.3.min.js
-js/showdown.min.js
-js/underscore.min.js
 lib
 lib/angular
 lib/angular/angular-resource.min.js

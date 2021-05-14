@@ -55,12 +55,10 @@ content/syllabus.md
 content/tips.md
 css
 css/app.css
+css/bootstrap3
+css/bootstrap3/bootstrap.css
+css/bootstrap3/bootstrap.min.css
 css/fonts
-css/fonts/glyphiconshalflings-regular.eot
-css/fonts/glyphiconshalflings-regular.otf
-css/fonts/glyphiconshalflings-regular.svg
-css/fonts/glyphiconshalflings-regular.ttf
-css/fonts/glyphiconshalflings-regular.woff
 index.html
 js
 js/app.js
@@ -69,6 +67,9 @@ lib
 lib/angular
 lib/angular/angular-resource.min.js
 lib/angular/angular.min.js
+lib/bootstrap3
+lib/bootstrap3/bootstrap.js
+lib/bootstrap3/bootstrap.min.js
 lib/jquery
 lib/jquery/jquery-2.0.3.min.js
 lib/showdown
