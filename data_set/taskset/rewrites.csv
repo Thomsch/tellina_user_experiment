@@ -12,6 +12,6 @@ Id,Rewrite (* Means that the task has been adapted for the context of the experi
 11,Count the number of files in 'labs/' and subfolders,find 'content/labs' -type f | wc -l
 12,List the name of the immediate subfolders contained in the folders at the root of 'content/', find content/ -mindepth 2 -maxdepth 2 -type d -exec basename {} \;
 13,Display the content of the root folder ordered by directory first, then files,ls -lago --time-style=+"" | grep "^d" && ls -lago --time-style=+"" | grep "^-"
-14,Create a symbolic link in the current directory for each markdown file at the root of 'content/',ln -s content/*.md .
+14,Show the size of files and directories at the root of "content/" in a human-friendly format, ordered by size, du -hs content/* | sort -hr
 15,Delete all empty subdirectories,find . -depth  -type d -delete -empty -exec rmdir {} \;
 16,Remove all files except 'tips.md' in directory 'content/',find content/ -maxdepth 1 ! -name "tips.md" -type f -delete

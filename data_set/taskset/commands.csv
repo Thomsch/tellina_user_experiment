@@ -12,6 +12,6 @@ Id,Post,Commands
 11, https://unix.stackexchange.com/questions/90106/,ls wc
 12, https://unix.stackexchange.com/questions/93323/,find basename
 13, https://superuser.com/questions/109537/,ls grep
-14, https://superuser.com/questions/633605/,ln
+14, https://superuser.com/questions/554319/, du sort
 15, http://www.bashoneliners.com/oneliners/61/,find rmdir
 16, https://www.commandlinefu.com/commands/view/6652/,rm
