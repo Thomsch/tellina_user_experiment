@@ -204,7 +204,7 @@ infra_training() {
   echo "At any point, run \"helpme\" to see a list of commands available to you."
   echo ""
   echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
-  echo "Write the one-liner like you would usually when working in a Unix environment."
+  # echo "Write the one-liner like you would usually when working in a Unix environment."
   echo "Please stay in the current directory."
   echo "If your one-liner accomplishes the task, you will proceed to the next task."
   echo "If the one-liner is not correct, then you will see a GUI window with the"
