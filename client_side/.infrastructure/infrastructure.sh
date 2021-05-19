@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ##############################################################################
 # This file contains utility functions for use by the interface:
 # - Creating the file system for the user.
