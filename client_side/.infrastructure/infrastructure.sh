@@ -1,3 +1,5 @@
+#!/bin/bash
+
 ##############################################################################
 # This file contains utility functions for use by the interface:
 # - Creating the file system for the user.
@@ -100,7 +102,7 @@ end_experiment() {
   cd "${EXP_DIR}"
 
   echo "Congratulations! You have completed the interactive portion of the experiment."
-  echo "Please fill out our short survey at https://forms.gle/xjAqf1YrvfKMZunL8 (5 minutes)."
+  echo "Please fill out a <5 minute survey at https://forms.gle/xjAqf1YrvfKMZunL8 ."
 
   return 0
 }
@@ -203,11 +205,14 @@ infra_training() {
   echo "This terminal is the interface for the experiment."
   echo "At any point, run \"helpme\" to see a list of commands available to you."
   echo ""
-  echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt given to you. Write the one-liner like you would usually when working in a Unix environment."
-  echo "Please stay in the current test directory already provided, the file system changes between each one-liner is reset after each command."
-  echo "If the one-liner is accepted, the experiment will continue to the next task."
-  echo "If the one-liner does not produce the expected changes, a window with the difference between your output and the expected output will be shown to you so that you can retry."
-  echo "There is no limits on the number of times you can retry. However, please note that each task has a time limit of 5 minutes."
+  echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
+  # echo "Write the one-liner like you would usually when working in a Unix environment."
+  echo "Please stay in the current directory."
+  echo "If your one-liner accomplishes the task, you will proceed to the next task."
+  echo "If the one-liner is not correct, then you will see a GUI window with the"
+  echo "difference between your output and the expected output.  You can try a"
+  echo "different command, but note that the file system is reset between commands."
+  echo "You can retry as many times as you like, within a 5-minute deadline."
   echo ${HLINE}
 }
 
@@ -215,9 +220,9 @@ infra_training() {
 # pairs.
 tellina_training() {
   echo ${HLINE}
-  echo "To use Tellina, visit ${TELLINA_WEBSITE}. The website include quick tips and examples on how to use the translation assistant."
-  echo "Essentially, you input your query in english in the top text field and click on the button located on the right of the text field (the one with a robot) to trigger the translation."
-  echo "The button on the left does a regular Google search with the content of the text field."
+  echo "To use Tellina, visit ${TELLINA_WEBSITE}."
+  echo "You provide a query as an English sentence or phrase."
+  echo "Check out the \"Tips\" and the \"Sample questions\" on the website."
   echo ${HLINE}
 }
 
@@ -231,7 +236,7 @@ print_treatment() {
   else
     if (( task_num >= TASKS_SIZE / 2 + 1 )); then
       echo "For this half of the experiment you can use any online resources and man pages,"
-      echo "but you should not use Tellina."
+      echo "but DO NOT use Tellina."
     else
       echo "For this half of the experiment you can use any online resources and man pages."
     fi

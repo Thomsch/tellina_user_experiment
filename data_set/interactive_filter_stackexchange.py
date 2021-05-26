@@ -5,42 +5,55 @@ import os
 import pandas as pd
 import re
 
+
 def main():
     """Interactive session to annotate a clean stackexchange CSV file (e.g., data-clean/stackoverflow*.csv)"""
     args = sys.argv[1:]
 
-    if(len(args) < 1):
+    if len(args) < 1:
         print("Usage: requires 1 argument")
         print("0: input file")
 
     input_file = args[0]
-    df = pd.read_csv(input_file, sep=',', engine='python')
+    df = pd.read_csv(input_file, sep=",", engine="python")
 
-    incompatible_commands = ['awk', 'sed', 'python', 'java', 'git', 'iconv', 
-    'ffmpeg', 'jar', 'perl', 'python', 'svn', 'docker']
-    kept_posts = [] # contains the list of accepted posts
-    kept_target = 30 # the number of posts we want to acquire.
+    incompatible_commands = [
+        "awk",
+        "sed",
+        "python",
+        "java",
+        "git",
+        "iconv",
+        "ffmpeg",
+        "jar",
+        "perl",
+        "python",
+        "svn",
+        "docker",
+    ]
+    kept_posts = []  # contains the list of accepted posts
+    kept_target = 30  # the number of posts we want to acquire.
 
     for index, row in df.iterrows():
- 
+
         code = row["Code"]
-        link = row['Link']
-        title = row['Title']
+        link = row["Link"]
+        title = row["Title"]
         print(f"=========================== (#{index}, url: {link})")
         print(title)
         # print('~~~~~~~~~~~~~~~~~~~~~~~~~~~')
         # print(code) # Todo print Body instead if needed
-        print('~~~~~~~~~~~~~~~~~~~~~~~~~~~')
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
         count = 0
-        
+
         for snippet in code.split("</code>, <code>"):
             snippet = snippet.replace("[<code>", "")
             snippet = snippet.replace("</code>]", "")
             snippet = snippet.replace("#!/bin/bash", "")
 
             snippet = snippet.strip()
-            
+
             snippet = snippet.replace("&lt;", "<")
             snippet = snippet.replace("&gt;", ">")
             snippet = snippet.replace("&amp;", "&")
@@ -58,11 +71,12 @@ def main():
             legal_start = re.search(r"^\$? ?[a-zA-Z0-9\-]+ ", snippet)
             if_matches = re.search(r"if[\s\S]*?then[\s\S]*?fi", snippet)
             while_matches = re.search(r"if[\s\S]*?then[\s\S]*?fi", snippet)
-            for_matches = re.search(r"for[\s\S]*?in[\s\S]*?[\s\S]*?do[\s\S]*?done", snippet)
-            
-            
+            for_matches = re.search(
+                r"for[\s\S]*?in[\s\S]*?[\s\S]*?do[\s\S]*?done", snippet
+            )
+
             # if, for, do, while, done
-            
+
             # if not legal_start:
             #     print("Not a valid command start")
             # elif if_matches:
@@ -92,10 +106,12 @@ def main():
         print()
 
         if kept_target == len(kept_posts):
-            if query_yes_no(f"You reached the post target ({kept_target}). Do you want to save and exit (Answering 'No' will rairse the target by 10 posts)?"):
+            if query_yes_no(
+                f"You reached the post target ({kept_target}). Do you want to save and exit (Answering 'No' will rairse the target by 10 posts)?"
+            ):
                 # Save posts to file
-                output_file = 'se_interactive_session_results.txt'
-                with open(output_file, 'w') as f:
+                output_file = "se_interactive_session_results.txt"
+                with open(output_file, "w") as f:
                     for item in kept_posts:
                         print(item)
                         f.write(f"{str(item)}\n")
@@ -105,11 +121,13 @@ def main():
                 kept_target += 10
                 print(f"Post target raised to {kept_target}")
 
+
 def clean_alt_list(list_):
-    list_ = list_.replace(', ', '","')
-    list_ = list_.replace('[', '["')
-    list_ = list_.replace(']', '"]')
+    list_ = list_.replace(", ", '","')
+    list_ = list_.replace("[", '["')
+    list_ = list_.replace("]", '"]')
     return list_
+
 
 def query_yes_no(question, default="yes"):
     """Ask a yes/no question via raw_input() and return their answer.
@@ -122,8 +140,7 @@ def query_yes_no(question, default="yes"):
     The "answer" return value is True for "yes" or False for "no".
     https://stackoverflow.com/questions/3041986/
     """
-    valid = {"yes": True, "y": True, "ye": True,
-             "no": False, "n": False}
+    valid = {"yes": True, "y": True, "ye": True, "no": False, "n": False}
     if default is None:
         prompt = " [y/n] "
     elif default == "yes":
@@ -136,13 +153,13 @@ def query_yes_no(question, default="yes"):
     while True:
         sys.stdout.write(question + prompt)
         choice = input().lower()
-        if default is not None and choice == '':
+        if default is not None and choice == "":
             return valid[default]
         elif choice in valid:
             return valid[choice]
         else:
-            sys.stdout.write("Please respond with 'yes' or 'no' "
-                             "(or 'y' or 'n').\n")
+            sys.stdout.write("Please respond with 'yes' or 'no' " "(or 'y' or 'n').\n")
+
 
 if __name__ == "__main__":
     main()

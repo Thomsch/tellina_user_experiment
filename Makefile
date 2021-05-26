@@ -90,6 +90,8 @@ dist-backend:
 	cp -r -p $(BACKEND_DIR) $(BUILD_TARGET)
 
 $(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) test
+# Delete Emacs backup files.
+	find . -name '*~' -delete
 	$(ZIP) $@ $<
 
 $(DIST_NAME):
@@ -112,4 +114,13 @@ clean-dist:
 
 clean-fs-dir:
 	$(RM) $(FS_DIR)
-	
+
+BASH_SCRIPTS = $(shell grep -r -l '^\#! \?\(/bin/\|/usr/bin/env \)bash' * | grep -v .git | grep -v "~" | grep -v '.csv')
+shell-script-style:
+	shellcheck --format=gcc ${BASH_SCRIPTS}
+	checkbashisms ${SH_SCRIPTS}
+
+PYTHON_FILES=$(wildcard **/*.py)
+python-style:
+	black ${PYTHON_FILES}
+	pylint -f parseable --disable=W,invalid-name ${PYTHON_FILES}
