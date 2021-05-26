@@ -25,6 +25,9 @@ This repository contains the infrastructure for formally conducting user experim
 - Linux Environment (MacOS or Windows is not compatible)
 - [Bats](https://github.com/bats-core/bats-core)
 - [zip](https://linux.die.net/man/1/zip) (if it's not already installed on your system)
+- [Black](https://github.com/psf/black)
+- [Pylint](https://www.pylint.org/)
+- [Shellcheck](https://github.com/koalaman/shellcheck)
 
 ## Previously
 In a past experiment, people were given descriptions of file system operations, and asked to write bash commands to perform the operations.  The experimental group had access to Tellina, web search, and man pages; the control group had access only to web search and man pages. Measurements were done on whether subjects successfully complete the tasks, and the amount of time that it takes to complete the tasks. A post-task questionnaire obtained qualitative feedback.
