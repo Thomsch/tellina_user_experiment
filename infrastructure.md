@@ -1,5 +1,5 @@
 # Infrastructure Design
-This design document describes the infrastructure for the user experiment.
+This design document describes the infrastructure for the user study.
 
 ## Overview
 
@@ -93,8 +93,8 @@ Throughout the experiment, the users will be interacting with the bash shell, Me
 #### Unified vs Graphical diffs
 Diffs could be shown in the bash shell where the participants will be completing the tasks. However, diffs shown
 in the terminal (unified diffs) can be hard to understand, especially for participants unfamiliar with diffs. 
-On the other hand, graphical diffs are easier to understand and more accessible. Thus, the study will use Meld to
-show diffs. This requires that the subjects have Meld installed on the system they will use to participate to the study.
+On the other hand, graphical diffs are easier to understand and more accessible. Thus, the experiment will use Meld to
+show diffs. This requires that the subjects have Meld installed on the system they will use to participate to the experiment.
 
 ### User Interface
 
