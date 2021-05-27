@@ -118,7 +118,13 @@ alias helpme='
 ### Variables that differ per user
 
 MACHINE_NAME=$(hostname)
-read -p "Enter your UW NetID: " UW_NETID
+
+# Read non-empty UW NETID.
+while read -p "Enter your UW NetID: " UW_NETID; do
+    if [ ! -z $UW_NETID ]; then
+        break
+    fi
+done
 
 # Determine the task order based on a truncated md5sum hash of the username.
 # The has will return a number from 0 to 3.
