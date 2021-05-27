@@ -1,5 +1,5 @@
 {
-   "task_id": "22",
+   "task_id": "17",
    "type": "filesystem_change",
    "description": "Remove all the files under the \"css\" directory.",
    "file_attributes": [],
