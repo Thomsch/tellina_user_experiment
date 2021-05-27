@@ -365,13 +365,12 @@ next_task() {
 # request.
 write_log() {
   curl -s -X POST ${POST_HANDLER} \
+    -d client_time_stamp="$(date --utc +%FT%TZ)" \
     -d user_id="$UW_NETID" \
-    -d host_name="$MACHINE_NAME" \
     -d task_order="$TASK_ORDER" \
     -d task_code="$task_code" \
     -d treatment="$treatment" \
     -d time_elapsed="$time_elapsed" \
-    -d client_time_stamp="$(date --utc +%FT%TZ)" \
     -d status="$status" \
     -d command="$(cat "${INFRA_DIR}/.command")" &>> ${INF_LOG_FILE}
 }

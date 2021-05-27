@@ -1,8 +1,8 @@
 HOST="https://homes.cs.washington.edu"
 ROUTE="~tschweiz/research/en2bash-study/backend/post_handler/post_handler.php"
 
-USER_ID="jdoe@csevm"
-TASK_ORDER=0
+USER_ID="test"
+TASK_ORDER=T1N2
 CLIENT_TIME_STAMP=$(date --utc +%FT%TZ)
 TASK_NO=12
 TREATMENT="NoTellina"
@@ -11,11 +11,11 @@ TIME_ELAPSED=$SECONDS
 STATUS="success"
 
 curl -X POST ${HOST}/${ROUTE} \
+  -d c="$CLIENT_TIME_STAMP" \
   -d a="$USER_ID" \
   -d b="$TASK_ORDER" \
-  -d c="$CLIENT_TIME_STAMP" \
   -d d="$TASK_NO" \
   -d e="$TREATMENT" \
-  -d f="$COMMAND" \
   -d g="$TIME_ELAPSED" \
-  -d h="$STATUS"
+  -d h="$STATUS" \
+  -d f="$COMMAND"
