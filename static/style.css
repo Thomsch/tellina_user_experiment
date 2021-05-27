@@ -6,23 +6,31 @@ body {
     color: #444;
     padding: 0 10px;
     font-family: "Roboto", sans-serif;
-  }
+}
 
-  h1,
-  h2,
-  h3 {
-    line-height: 1.2
-  }
+h1,
+h2,
+h3 {
+  line-height: 1.2
+}
 
-  code {
-    font-family: Consolas,"courier new";
-    color: crimson;
-    background-color: #f1f1f1;
-    padding: 2px;
-    font-size: 90%;
-  }
+code {
+  font-family: Consolas,"courier new";
+  color: crimson;
+  background-color: #f1f1f1;
+  padding: 2px;
+  font-size: 80%;
+  padding: 5px;
+}
 
-  .block label {
+pre code {
+  border: 1px solid rgb(100, 100, 100);
+  display: block;
+  padding-left: 10px;
+  width:fit-content;
+}
+
+.block label {
     display: inline-block;
     width: 50px;
     text-align: left;
