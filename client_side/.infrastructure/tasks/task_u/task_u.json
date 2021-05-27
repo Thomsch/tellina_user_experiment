@@ -1,10 +1,10 @@
 {
-   "task_id": "21",
-   "type": "file_search",
-   "description": "List all the files under the \"css\" directory.",
+   "task_id": "22",
+   "type": "filesystem_change",
+   "description": "Remove all the files under the \"css\" directory.",
    "file_attributes": [],
    "target_dir": "website/css",
-   "solution": "find css -type f",
+   "solution": "find css -type f | xargs rm",
    "difficulty": 0,
    "goal_filesystem":
    {
@@ -376,105 +376,15 @@
             "name": "css",
             "children": [
                {
-                  "attributes": {
-                     "size": "2182"
-                  },
-                  "type": "file",
-                  "name": "app.css",
-                  "tag": {
-                    "to_select": 1
-                  }
-               },
-               {
                   "type": "directory",
                   "name": "bootstrap3",
                   "children": [
-                     {
-                        "attributes": {
-                           "size": "7587"
-                        },
-                        "type": "file",
-                        "name": "bootstrap-glyphicons.css",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     },
-                     {
-                        "attributes": {
-                           "size": "82480"
-                        },
-                        "type": "file",
-                        "name": "bootstrap.css",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     },
-                     {
-                        "attributes": {
-                           "size": "66966"
-                        },
-                        "type": "file",
-                        "name": "bootstrap.min.css",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     }
                   ]
                },
                {
                   "type": "directory",
                   "name": "fonts",
                   "children": [
-                     {
-                        "attributes": {
-                           "size": "33358"
-                        },
-                        "type": "file",
-                        "name": "glyphiconshalflings-regular.eot",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     },
-                     {
-                        "attributes": {
-                           "size": "18116"
-                        },
-                        "type": "file",
-                        "name": "glyphiconshalflings-regular.otf",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     },
-                     {
-                        "attributes": {
-                           "size": "51353"
-                        },
-                        "type": "file",
-                        "name": "glyphiconshalflings-regular.svg",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     },
-                     {
-                        "attributes": {
-                           "size": "32896"
-                        },
-                        "type": "file",
-                        "name": "glyphiconshalflings-regular.ttf",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     },
-                     {
-                        "attributes": {
-                           "size": "18944"
-                        },
-                        "type": "file",
-                        "name": "glyphiconshalflings-regular.woff",
-                        "tag": {
-                          "to_select": 1
-                        }
-                     }
                   ]
                }
             ]
