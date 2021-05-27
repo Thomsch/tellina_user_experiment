@@ -64,10 +64,12 @@ test:
 	$(MAKE) -C $(INFRA_DIR) test
 
 # Assemble hosted content in folder specified by BUILD_TARGET
+# log.csv needs to be writeable for the post_handler in the server.
 distribute: $(ZIP_DIST_NAME) dist-static dist-backend
 	mkdir -p $(BUILD_TARGET)
 	mv $< $(BUILD_TARGET)
 	find $(BUILD_TARGET) -name "README.md" -type f -delete
+	chmod 666 $(BUILD_TARGET)/backend/log.csv
 
 # Publish the distribution to the production host folder.
 publish: test distribute
