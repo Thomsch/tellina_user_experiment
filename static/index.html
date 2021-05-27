@@ -19,6 +19,15 @@
     programmers to write Bash scripts.
   </p>
 
+  <p>
+    In the experiment,
+    you will be presented with 16 short file system tasks. For example, <em>"Show the number of lines in file foo.txt"</em>.
+    Your objective is to solve each task with a Bash one-liner: a sequence of bash commands (a mini bash script) that is contained on one line. For example, <em><code>cat foo.txt | wc -l</code></em>.
+  </p>
+
+  <p>You may use any tool to help you solve the tasks; for example, you might read man pages or search on Google.
+  </p>
+
   <h2>Consent</h2>
   <p>
     Please review the <a href="consent.html">consent information</a> and sign
@@ -26,48 +35,44 @@
   </p>
 
   <h2>Instructions</h2>
-  <p>Prerequisites:</p>
-  <ul>
+  <p><strong>Prerequisites:</strong></p>
+  <ol>
     <li>
     Boot up a <a href="https://www.cs.washington.edu/lab/software/linuxhomevm">CSE Linux Home VM</a>.
     </li>
     <li>
-      Install <a href="https://meldmerge.org/">Meld</a>.  First, run <code>$ meld</code> in your VM's terminal.  If it opens a GUI window, then Meld is installed; close the window.  Otherwise, run
-    <code>$ sudo yum install meld</code> and then double-check that Meld is installed.
+      Install <a href="https://meldmerge.org/">Meld</a> in the VM.
     </li>
-    </ul>
+    <li>Run <code>$ meld</code> in your VM's terminal.  If it opens a GUI window, then Meld is installed; close the window.  Otherwise, run
+      <code>$ sudo yum install meld</code> and then double-check that Meld is installed.</li>
+    </ol>
 
-  <p>
-    In the experiment,
-    you will be presented with a series of file system tasks that can be done within a Bash shell.
-    Your objective is to solve each task with a Bash one-liner: a sequence of bash commands (a mini bash script) that is contained on one line. For example: 
-    <code>$ ls | tee file</code>.
-    You may use any tool to help you solve the tasks;
-    for example, you might read man pages or search on Google.
-  </p>
+    <p><strong>Experiment:</strong></p>
 
-  <p>
-    Start the experiment by opening a <em>new</em> terminal (command shell) and pasting the following into it:
-    <pre>
-      cd
-      mkdir en2bash
-      cd en2bash
-      wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
-      unzip experiment.zip
-      bash
-      source experiment/configure
-    </pre>
-    Now, follow the prompts in your terminal. You will have 2 training questions to familiarize yourself with the tool and then the real tasks.
-  </p>
+    <ol start="4">
+      <li>Open a <em>new</em> terminal (command shell) and pasting the following into it:
+        <pre>
+          cd
+          mkdir en2bash
+          cd en2bash
+          wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
+          unzip experiment.zip
+          bash
+          source experiment/configure
+        </pre>
+      </li>
+      <li>Follow the prompts in your terminal. There are 2 training questions to familiarize yourself with the tool and then the experiment tasks.</li>
+    </ol>
 
+    <p><strong>Survey:</strong></p>
+    <ol start="6">
+      <li>When you have finished the experiment, please complete this <a href="https://forms.gle/QieZPezcLSYoX2k26" target="_blank"> short survey</a> (5 minutes).</li>
+    </ol>
 
-  <h2>Survey</h2>
-  When you have finished the experiment, please complete this <a href="https://forms.gle/QieZPezcLSYoX2k26"
-    target="_blank"> short survey</a> (5 minutes).
-
-  <h2>End</h2>
-  <p>Remove the experiment files from your Home VM:</p>
-  <pre>rm -rf ~/en2bash</pre>
+    <p><strong>Clean-up:</strong> (optional)</p>
+    <ol start="7">
+      <li>Remove the experiment files from your Home VM:<pre>rm -rf ~/en2bash</pre></li>
+    </ol>
 
   <p>You're all done! Thank you for your participation. We will send you the gift card soon at the address you provided in the survey.</p>
   
