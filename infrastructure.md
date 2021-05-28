@@ -69,12 +69,7 @@ The experiment infrastructure consists of several components:
 ### User Requirements [Remote Edition]
 The subjects will participate in the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their personal laptops.
 
-The participants are required to use a Linux environment. There are three ways to do so:
-- [Connect to a CSE Virtual Lab machine through Remote Desktop](https://vdi.cs.washington.edu/)*
-- [Download and Run a CSE Linux VM](https://www.cs.washington.edu/lab/software/linuxhomevm)*
-- Run from local Linux laptop installation (Not recommended)
-
-*available for Windows, Mac, and Linux computers
+The participants are required to use a Linux environment via the [CSE Linux VM](https://www.cs.washington.edu/lab/software/linuxhomevm). It is available for Windows, Mac, and Linux computers
 
 ### User Experience
 
