@@ -103,14 +103,16 @@ HLINE="-------------------------------------------------------------------------
 # to "giveup". precmd_func checks the contents.
 alias giveup='echo "giveup" > ${INFRA_DIR}/.noverify'
 alias task='print_task; touch "${INFRA_DIR}"/.noverify'
-alias helpme='
-  echo ${HLINE}
-  echo "Commands:"
-  echo "task     prints the description of the current task."
-  echo "giveup   gives up on the current task and starts the next task."
-  echo "helpme   prints this help message."
-  print_treatment
-  touch ${INFRA_DIR}/.noverify'
+alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
+
+show_help() {
+  echo ${HLINE};
+  echo "Commands:";
+  echo "task     prints the description of the current task.";
+  echo "giveup   gives up on the current task and starts the next task.";
+  echo "helpme   prints this help message.";
+  print_treatment;
+}
 
 
 ### Variables that differ per user
