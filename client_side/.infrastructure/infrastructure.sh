@@ -231,8 +231,8 @@ tellina_training() {
 print_treatment() {
   echo ${HLINE}
   if [[ "$treatment" == "T" ]]; then
-    echo "For this half of the experiment you can use any online resources and man pages,"
-    echo "and Tellina (${TELLINA_WEBSITE})."
+    echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
+    echo "help you complete the tasks. You may also use online resources and man pages."
   else
     if (( task_num >= TASKS_SIZE / 2 + 1 )); then
       echo "For this half of the experiment you can use any online resources and man pages,"
