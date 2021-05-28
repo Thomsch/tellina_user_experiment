@@ -17,9 +17,7 @@ BACKEND_DIR=backend
 # temporary files, etc.
 CLIENT_FILES=$(shell find $(CLIENT_DIR) -type f)
 
-FS_DIR=$(CLIENT_DIR)/file_system
-
-INFRA_DIR=$(CLIENT_DIR)/.infrastructure
+INFRA_DIR=$(DIST_NAME)/.infrastructure
 TEST_DIR=$(INFRA_DIR)/test
 
 #########################
@@ -60,7 +58,7 @@ ZIP=zip -qr
 
 all: test distribute
 
-test:
+test: $(DIST_NAME)
 	$(MAKE) -C $(INFRA_DIR) test
 
 # Assemble hosted content in folder specified by BUILD_TARGET
@@ -81,7 +79,10 @@ publish-staging: test distribute
 	@echo "Publishing $(BUILD_TARGET) in **staging environment**..."
 	@scp -pr $(BUILD_TARGET)/* $(HOST):$(STAGING_SITE)
 
-clean: clean-dist clean-fs-dir
+clean: 
+	$(RM) $(ZIP_DIST_NAME)
+	$(RM) $(DIST_NAME)
+	$(RM) $(BUILD_TARGET)
 
 # Distribute static resources
 dist-static:
@@ -97,25 +98,14 @@ $(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) test
 	$(ZIP) $@ $<
 
 $(DIST_NAME):
-	ln -s $(CLIENT_DIR) $@
-
-$(FS_DIR):
-	cp -r $(INFRA_DIR)/file_system $@
-	find $@ -type f -exec chmod a+w {} \;
+	cp -r $(CLIENT_DIR) $@
+	find $@ -name ".gitkeep" -type f -delete
 
 # Check that the host has the website directory.
 %/$(WEBSITE_NAME):
 	@echo -n "Checking that host directory $@ exists... "
 	@ssh $(HOST) '[ -d $@ ]'
 	@echo "OK."
-
-clean-dist:
-	$(RM) $(ZIP_DIST_NAME)
-	$(RM) $(DIST_NAME)
-	$(RM) $(BUILD_TARGET)
-
-clean-fs-dir:
-	$(RM) $(FS_DIR)
 
 BASH_SCRIPTS = $(shell grep -r -l '^\#! \?\(/bin/\|/usr/bin/env \)bash' * | grep -v .git | grep -v "~" | grep -v '.csv')
 shell-script-style:
