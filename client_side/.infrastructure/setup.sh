@@ -102,13 +102,11 @@ HLINE="-------------------------------------------------------------------------
 # This is because aliases can't set variables and giveup needs to set $status
 # to "giveup". precmd_func checks the contents.
 alias giveup='echo "giveup" > ${INFRA_DIR}/.noverify'
-alias reset='reset_fs; touch "${INFRA_DIR}"/.noverify'
 alias task='print_task; touch "${INFRA_DIR}"/.noverify'
 alias helpme='
   echo ${HLINE}
   echo "Commands:"
   echo "task     prints the description of the current task."
-  echo "reset    restores the file system to its original state."
   echo "giveup   gives up on the current task and starts the next task."
   echo "helpme   prints this help message."
   print_treatment

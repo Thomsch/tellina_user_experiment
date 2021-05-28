@@ -63,8 +63,7 @@ The experiment infrastructure consists of several components:
     system output and standard output.
   - The two initial tasks are tutorial
     tasks. The tutorial will print instructions on what to do for each step to the
-    shell as well. The tutorial will also teach users about `giveup`, `task`,
-    `reset`, and `helpme`.
+    shell as well. The tutorial will also teach users about `giveup`, `task`, and `helpme`.
 
 ### User Requirements [Remote Edition]
 The subjects will participate in the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their personal laptops.
@@ -100,8 +99,6 @@ following differences to the shell's interface (assume print means "print to
 - The user will be able to run the following **user meta-commands**:
   - `task`: prints the current task's description and number
   - `giveup`: gives up on the current task and goes to the next task.
-  - `reset`: reset the file system, without changing the user's current
-    working directory.
     - This command will return the user to the directory where they called it.
   - `helpme`: lists the commands available to the user
 - Prints any messages related to the experiment (prompts, current task
