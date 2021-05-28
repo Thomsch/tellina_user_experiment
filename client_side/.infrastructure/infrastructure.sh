@@ -248,8 +248,13 @@ print_task() {
   if (( task_num == 1 )); then
     echo "You have 5 minutes to complete each task."
   fi
+
   echo ${HLINE}
-  echo "Task: ${task_num}/${TASKS_SIZE}"
+  if [[ "${INF_TRAINING}" == "true" || "${TEL_TRAINING}" == "true" ]]; then
+    echo "Training Task"
+  else
+    echo "Task: ${task_num}/${TASKS_SIZE}"
+  fi
 
   ${INFRA_DIR}/jq-linux64 -r '.description' \
     "${TASKS_DIR}/task_${task_code}/task_${task_code}.json"
