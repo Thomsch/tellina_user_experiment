@@ -1,4 +1,4 @@
 {
    "task_id": "18",
-   "description": "List all of the files in the \"content\" directory and subdirectories that are larger than 10kB."
+   "description": "List all of the files in the root directory and subdirectories that are larger than 10kB."
 }
