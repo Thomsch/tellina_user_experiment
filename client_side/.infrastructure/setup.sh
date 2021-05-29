@@ -130,7 +130,6 @@ done
 # The has will return a number from 0 to 3.
 TASK_ORDER=${TASK_ORDERS_CODES[$((0x$(md5sum <<<${UW_NETID} | cut -c1) % 4))]}
 
-
 ################################################################################
 #                                  BASH PREEXEC                                #
 ################################################################################
@@ -168,7 +167,7 @@ precmd_func() {
   time_elapsed=${SECONDS}
 
   # Checks if the user has run out of time.
-  if (( time_elapsed >= TASK_TIME_LIMIT )); then
+  if (( time_elapsed >= TASK_TIME_LIMIT )) && [[ "${INF_TRAINING:-false}" == "false" && "${TEL_TRAINING:-false}" == "false" ]] ; then
     echo "You have run out of time for task ${task_num}."
 
     status="timeout"
@@ -198,7 +197,7 @@ precmd_func() {
     fi
   fi
 
-  # Disables giveup and timeout while in training.
+  # Disables giveup while in training.
   if [[ "${INF_TRAINING:-false}" == "true" ]] || \
      [[ "${TEL_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" != "success" ]]; then
