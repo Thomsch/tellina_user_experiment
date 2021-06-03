@@ -58,7 +58,7 @@ ZIP=zip -qr
 
 all: test distribute
 
-test: $(DIST_NAME)
+test: clean $(DIST_NAME)
 	$(MAKE) -C $(INFRA_DIR) test
 
 # Assemble hosted content in folder specified by BUILD_TARGET
