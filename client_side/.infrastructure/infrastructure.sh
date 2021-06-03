@@ -302,6 +302,41 @@ verify_task() {
   return $exit_code
 }
 
+# Increments the current task number and either starts a new task or ends the
+# experiment.
+#
+# If the user is in training, the current task number does not increment.
+next_task() {
+
+  echo "Training status: INF:${INF_TRAINING} TEL:${TEL_TRAINING}"
+  check_and_update_training_status
+  echo "Training status: INF:${INF_TRAINING} TEL:${TEL_TRAINING}"
+
+  echo "Task num: ${task_num}"
+  echo "Task code: ${task_code}"
+
+  if [[ "${TEL_TRAINING:-false}" != "true" ]] && \
+     [[ "${INF_TRAINING:-false}" != "true" ]]; then
+    # Increment the number of tasks finished by the user.
+    task_num=$(( task_num + 1 ))
+    echo "${task_num}" > "${INFRA_DIR}/.task_num"
+  fi
+
+  echo "Task num: ${task_num}"
+  echo "Task code: ${task_code}"
+  echo ""
+
+  # If done with all the tasks
+  if (( task_num == TASKS_SIZE )); then
+    end_experiment
+    return 0
+  fi
+
+  # Otherwise start another task
+  start_task
+  write_log
+}
+
 # This is called to start the user on a new task.
 #
 # Restores the file system and sets the variables.
@@ -339,31 +374,6 @@ start_task() {
   echo "start_task" > "${INFRA_DIR}/.command"
 
   print_task
-}
-
-# Increments the current task number and either starts a new task or ends the
-# experiment.
-#
-# If the user is in training, the current task number does not increment.
-next_task() {
-  check_and_update_training_status
-
-  if [[ "${TEL_TRAINING:-false}" != "true" ]] && \
-     [[ "${INF_TRAINING:-false}" != "true" ]]; then
-    # Increment the number of tasks finished by the user.
-    task_num=$(( task_num + 1 ))
-    echo "${task_num}" > "${INFRA_DIR}/.task_num"
-  fi
-
-  # If done with all the tasks
-  if (( task_num == TASKS_SIZE )); then
-    end_experiment
-    return 0
-  fi
-
-  # Otherwise start another task
-  start_task
-  write_log
 }
 
 # Writes the command in `.command` to the log file on the server with a POST
