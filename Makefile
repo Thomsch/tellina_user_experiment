@@ -58,7 +58,7 @@ ZIP=zip -qr
 
 all: test distribute
 
-test: clean $(DIST_NAME)
+test: $(DIST_NAME)
 	$(MAKE) -C $(INFRA_DIR) test
 
 # Assemble hosted content in folder specified by BUILD_TARGET
@@ -97,7 +97,7 @@ $(ZIP_DIST_NAME): $(DIST_NAME) $(CLIENT_FILES) test
 	find . -name '*~' -delete
 	$(ZIP) $@ $<
 
-$(DIST_NAME):
+$(DIST_NAME): clean
 	cp -r $(CLIENT_DIR) $@
 	find $@ -name ".gitkeep" -type f -delete
 
