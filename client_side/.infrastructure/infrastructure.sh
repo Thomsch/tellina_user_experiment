@@ -251,7 +251,7 @@ print_task() {
 
   echo ${HLINE}
   if [[ "${INF_TRAINING}" == "true" || "${TEL_TRAINING}" == "true" ]]; then
-    echo "Training Task"
+    echo "Task: Training"
   else
     echo "Task: ${task_num}/${TASKS_SIZE}"
   fi
