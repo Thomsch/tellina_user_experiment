@@ -308,6 +308,12 @@ verify_task() {
 # If the user is in training, the current task number does not increment.
 next_task() {
 
+  # If done with all the tasks, end the experiment
+  if (( task_num == TASKS_SIZE )); then
+    end_experiment
+    return 0
+  fi
+
   echo "Training status: INF:${INF_TRAINING} TEL:${TEL_TRAINING}"
   check_and_update_training_status
   echo "Training status: INF:${INF_TRAINING} TEL:${TEL_TRAINING}"
@@ -326,13 +332,7 @@ next_task() {
   echo "Task code: ${task_code}"
   echo ""
 
-  # If done with all the tasks
-  if (( task_num == TASKS_SIZE )); then
-    end_experiment
-    return 0
-  fi
-
-  # Otherwise start another task
+  # Start another task
   start_task
   write_log
 }

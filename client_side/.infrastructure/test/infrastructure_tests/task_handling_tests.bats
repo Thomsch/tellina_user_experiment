@@ -71,7 +71,7 @@ load ../libs/setup
 
 @test "next_task ends experiment" {
   local TASKS_SIZE=10
-  local task_num=9
+  local task_num=10
 
   run next_task
 
