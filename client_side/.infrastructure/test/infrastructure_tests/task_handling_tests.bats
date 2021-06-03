@@ -136,11 +136,11 @@ load ../libs/setup
 }
 
 @test "start_task switches treatment" {
-  local TASKS_SIZE=2
+  local TASKS_SIZE=6
   local TASK_ORDER="T1N2"
   local task_num task_set time_elapsed status task_code treatment
 
-  task_num=1
+  task_num=3
   begin_treatment 1
 
   INF_TRAINING=false
@@ -150,15 +150,15 @@ load ../libs/setup
 
   assert_output "$treatment" "T"
   assert_output "$task_set" 1
-  assert_output "$task_code" "a"
+  assert_output "$task_code" "c"
 
-  task_num=2
+  task_num=4
 
   start_task
 
   assert_output "$treatment" "N"
   assert_output "$task_set" 2
-  assert_output "$task_code" "b"
+  assert_output "$task_code" "d"
 }
 
 @test "next_task increments task_num" {
