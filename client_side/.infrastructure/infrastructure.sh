@@ -344,7 +344,6 @@ next_task() {
 
   status="incomplete"
 
-  # Start another task
   start_task
   write_log
 }
@@ -352,7 +351,6 @@ next_task() {
 # This is called to start the user on a new task.
 #
 # Restores the file system and sets the variables.
-# May begin a new treatment.
 # Writes "start task" to `.command`.
 # Prints the description of the current task.
 start_task() {
