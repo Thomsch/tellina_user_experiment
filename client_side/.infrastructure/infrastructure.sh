@@ -109,8 +109,10 @@ end_experiment() {
   find ${INFRA_DIR} -type f -name ".*" -delete
   cd "${EXP_DIR}"
 
+  echo ${SLINE}
   echo "Congratulations! You have completed the interactive portion of the experiment."
   echo "Please fill out a <5 minute survey at https://forms.gle/xjAqf1YrvfKMZunL8 ."
+  echo ""
 
   return 0
 }
