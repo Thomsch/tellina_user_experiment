@@ -374,6 +374,15 @@ command is executed
 
 The client side is tested using [Bats](https://github.com/bats-core/bats-core).
 
+#### NetId hashes and treatments
+
+| UW NetID  | Treatment |
+| - | ---- |
+| a | N1T2 |
+| b | N2T1 |
+| e | T2N1 |
+| h | T1N2 |
+
 ## Risks and Concerns
 - Do we want to automatically reset the file system after each command?
   - Encourages one-liner solutions.
