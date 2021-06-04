@@ -1,55 +1,113 @@
 #!/usr/bin/env bats
 load ../libs/setup
 
-@test "start_task switches treatment T2N1" {
+@test "next_task switches treatment N1T2" {
+  local TASKS_SIZE=6
+  local TASK_ORDER="N1T2"
+  local task_num task_set time_elapsed status task_code treatment
+  local TEL_TRAINING INF_TRAINING
+
+  begin_treatment 1
+  INF_TRAINING=""
+  task_num=3
+  task_code='c'
+
+  set +e
+  next_task
+  set -e
+  status="success"
+
+  assert_output "$TEL_TRAINING" "true"
+  assert_output "$treatment" "T"
+  assert_output "$task_set" 2
+  assert_output "$task_code" "v"
+  assert_output "$task_num" 3
+
+  set +e
+  next_task
+  set -e
+
+  assert_output "$TEL_TRAINING" ""
+  assert_output "$treatment" "T"
+  assert_output "$task_set" 2
+  assert_output "$task_code" "d"
+  assert_output "$task_num" 4
+}
+
+@test "next_task switches treatment N2T1" {
+  local TASKS_SIZE=6
+  local TASK_ORDER="N2T1"
+  local task_num task_set time_elapsed status task_code treatment
+  local TEL_TRAINING INF_TRAINING
+
+  begin_treatment 1
+  INF_TRAINING=""
+  task_num=3
+  task_code='f'
+
+  set +e
+  next_task
+  set -e
+  status="success"
+
+  assert_output "$TEL_TRAINING" "true"
+  assert_output "$treatment" "T"
+  assert_output "$task_set" 1
+  assert_output "$task_code" "v"
+  assert_output "$task_num" 3
+
+  set +e
+  next_task
+  set -e
+
+  assert_output "$TEL_TRAINING" ""
+  assert_output "$treatment" "T"
+  assert_output "$task_set" 1
+  assert_output "$task_code" "a"
+  assert_output "$task_num" 4
+}
+
+@test "next_task switches treatment T2N1" {
   local TASKS_SIZE=6
   local TASK_ORDER="T2N1"
   local task_num task_set time_elapsed status task_code treatment
 
-  task_num=3
   begin_treatment 1
+  task_num=3
+  task_code='f'
 
   INF_TRAINING=false
   TEL_TRAINING=false
 
-  start_task
-
-  assert_output "$treatment" "T"
-  assert_output "$task_set" 2
-  assert_output "$task_code" "f"
-
-  task_num=4
-
-  start_task
+  set +e
+  next_task
+  set -e
 
   assert_output "$treatment" "N"
   assert_output "$task_set" 1
+  assert_output "$task_num" 4
   assert_output "$task_code" "a"
 }
 
-@test "start_task switches treatment T1N2" {
+@test "next_task switches treatment T1N2" {
   local TASKS_SIZE=6
   local TASK_ORDER="T1N2"
   local task_num task_set time_elapsed status task_code treatment
 
-  task_num=3
   begin_treatment 1
+  task_num=3
+  task_code='c'
 
   INF_TRAINING=false
   TEL_TRAINING=false
 
-  start_task
-
-  assert_output "$treatment" "T"
-  assert_output "$task_set" 1
-  assert_output "$task_code" "c"
-
-  task_num=4
-
-  start_task
+  set +e
+  next_task
+  set -e
 
   assert_output "$treatment" "N"
   assert_output "$task_set" 2
+  assert_output "$task_num" 4
   assert_output "$task_code" "d"
 }
 

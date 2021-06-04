@@ -5,6 +5,7 @@ load ../libs/setup
   local SLEEP_TIME=5
   local ACCEPTABLE_TIME=$((SLEEP_TIME / 2))
   local time_elapsed=$SECONDS
+  local task_code='a'
   SECONDS=0
 
   sleep $SLEEP_TIME
@@ -15,13 +16,15 @@ load ../libs/setup
   assert_output "$time_elapsed" 0
 }
 
-@test "start_task sets correct log information" {
+@test "next_task sets correct log information" {
   local TASKS_SIZE=10
-  local task_num=1
+  local task_num=0
   local task_set=1
   local status command task_code
 
-  start_task
+  set +e
+  next_task
+  set -e
 
   command=$(cat "${INFRA_DIR}/.command")
 

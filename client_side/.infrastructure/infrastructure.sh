@@ -314,23 +314,35 @@ next_task() {
     return 0
   fi
 
-  echo "Training status: INF:${INF_TRAINING} TEL:${TEL_TRAINING}"
   check_and_update_training_status
-  echo "Training status: INF:${INF_TRAINING} TEL:${TEL_TRAINING}"
 
-  echo "Task num: ${task_num}"
-  echo "Task code: ${task_code}"
+  # Check if we need to switch the task set and the treatment
+  if (( task_num == TASKS_SIZE / 2 )) && [[ "${task_code}" != "v" ]] ; then
+    echo "You have finished the first half of the experiment!"
+    begin_treatment 2
+  fi
 
   if [[ "${TEL_TRAINING:-false}" != "true" ]] && \
-     [[ "${INF_TRAINING:-false}" != "true" ]]; then
+    [[ "${INF_TRAINING:-false}" != "true" ]]; then
     # Increment the number of tasks finished by the user.
     task_num=$(( task_num + 1 ))
     echo "${task_num}" > "${INFRA_DIR}/.task_num"
   fi
 
-  echo "Task num: ${task_num}"
-  echo "Task code: ${task_code}"
-  echo ""
+  # If the user is in training, set the task_code to the appropriate training
+  # tasks. "task_u" for infrastructure training, and "task_v" for Tellina
+  # training.
+  #
+  # Otherwise, calculate the task_code from the current_task and task_set.
+  if [[ ${INF_TRAINING:-false} == "true" ]]; then
+    task_code="u"
+  elif [[ ${TEL_TRAINING:-false} == "true" ]]; then
+    task_code="v"
+  else
+    task_code=$(get_task_code)
+  fi
+
+  status="incomplete"
 
   # Start another task
   start_task
@@ -347,29 +359,8 @@ start_task() {
   reset_fs
   cd ${FS_DIR}
 
-  # Check if we need to switch the task set and the treatment
-  if (( task_num == TASKS_SIZE / 2 + 1 )); then
-    echo "You have finished the first half of the experiment!"
-
-    begin_treatment 2
-  fi
-
-  # If the user is in training, set the task_code to the appropriate training
-  # tasks. "task_u" for infrastructure training, and "task_v" for Tellina
-  # training.
-  #
-  # Otherwise, calculate the task_code from the current_task and task_set.
-  if [[ ${INF_TRAINING:-false} == "true" ]]; then
-    task_code="u"
-  elif [[ ${TEL_TRAINING:-false} == "true" ]]; then
-    task_code="v"
-  else
-    task_code=$(get_task_code)
-  fi
-
   SECONDS=0
   time_elapsed=0
-  status="incomplete"
 
   echo "start_task" > "${INFRA_DIR}/.command"
 
