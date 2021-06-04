@@ -9,8 +9,6 @@
 # - Verify the output of a task.
 ##############################################################################
 
-HLINE="--------------------------------------------------------------------------------"
-
 # Prints to stdout the character with the given numeric ASCII value.
 #
 # Exit status:
@@ -72,8 +70,18 @@ start_experiment() {
 
   cd "${FS_DIR}"
 
-  echo "Welcome to the bash user study!"
-  echo "At any point, run \"helpme\" to see a list of commands available to you."
+  echo "=== Intro ======================================================================"
+  echo "In the experiment, you will be presented with 16 short file system tasks"
+  echo "(for example: 'Show the number of lines in file foo.txt')."
+  echo "Your objective is to solve each task with a Bash one-liner: a sequence of"
+  echo "bash commands (a mini bash script) that is contained on one line"
+  echo "(for example: cat foo.txt | wc -l)."
+  echo ""
+  echo "At any point, you can run \"helpme\" to see the list of commands available."
+  echo "Please stay in the current directory."
+  echo ""
+  echo "The experiment will continue to a brief training session."
+  echo ""
 
   begin_treatment 1
   next_task
@@ -101,8 +109,10 @@ end_experiment() {
   find ${INFRA_DIR} -type f -name ".*" -delete
   cd "${EXP_DIR}"
 
+  echo ${SLINE}
   echo "Congratulations! You have completed the interactive portion of the experiment."
   echo "Please fill out a <5 minute survey at https://forms.gle/xjAqf1YrvfKMZunL8 ."
+  echo ""
 
   return 0
 }
@@ -202,18 +212,13 @@ check_and_update_training_status() {
 # - The directory that they should be performing tasks on.
 infra_training() {
   echo ${HLINE}
-  echo "This terminal is the interface for the experiment."
-  echo "At any point, run \"helpme\" to see a list of commands available to you."
-  echo ""
   echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
-  # echo "Write the one-liner like you would usually when working in a Unix environment."
-  echo "Please stay in the current directory."
   echo "If your one-liner accomplishes the task, you will proceed to the next task."
   echo "If the one-liner is not correct, then you will see a GUI window with the"
   echo "difference between your output and the expected output.  You can try a"
   echo "different command, but note that the file system is reset between commands."
   echo "You can retry as many times as you like, within a 5-minute deadline."
-  echo ${HLINE}
+  echo ""
 }
 
 # Introduces the user to Tellina and suggests a couple of known query-command
@@ -223,13 +228,14 @@ tellina_training() {
   echo "To use Tellina, visit ${TELLINA_WEBSITE}."
   echo "You provide a query as an English sentence or phrase."
   echo "Check out the \"Tips\" and the \"Sample questions\" on the website."
-  echo ${HLINE}
+  echo ""
 }
 
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo ${HLINE}
+  echo ${SLINE}
+
   if [[ "$treatment" == "T" ]]; then
     echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
     echo "help you complete the tasks. You may also use online resources and man pages."
@@ -241,15 +247,14 @@ print_treatment() {
       echo "For this half of the experiment you can use any online resources and man pages."
     fi
   fi
+
+  echo ""
 }
 
 # Prints the current task number and its description.
 print_task() {
-  if (( task_num == 1 )); then
-    echo "You have 5 minutes to complete each task."
-  fi
-
   echo ${HLINE}
+
   if [[ "${INF_TRAINING}" == "true" || "${TEL_TRAINING}" == "true" ]]; then
     echo "Task: Training"
   else
@@ -318,7 +323,9 @@ next_task() {
 
   # Check if we need to switch the task set and the treatment
   if (( task_num == TASKS_SIZE / 2 )) && [[ "${task_code}" != "v" ]] ; then
+    echo ${SLINE}
     echo "You have finished the first half of the experiment!"
+    echo ""
     begin_treatment 2
   fi
 
