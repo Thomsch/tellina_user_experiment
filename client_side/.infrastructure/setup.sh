@@ -92,7 +92,7 @@ else
 fi
 
 ### User meta-commands
-
+SLINE="================================================================================"
 HLINE="--------------------------------------------------------------------------------"
 
 # Each user meta-command will create a file called .noverify in the
@@ -114,17 +114,25 @@ show_help() {
   print_treatment;
 }
 
+### Greet the participant
+echo "${SLINE}"
+echo "Welcome to the bash user study!"
+echo ""
+echo "This terminal will be the interface for the experiment."
+echo ""
 
 ### Variables that differ per user
-
 MACHINE_NAME=$(hostname)
 
 # Read non-empty UW NETID.
-while read -p "Enter your UW NetID: " UW_NETID; do
+while read -p "To start, please enter your UW NetID: " UW_NETID; do
     if [ ! -z $UW_NETID ]; then
         break
     fi
 done
+
+echo "Thank you! Let's start."
+echo ""
 
 # Determine the task order based on a truncated md5sum hash of the username.
 # The has will return a number from 0 to 3.

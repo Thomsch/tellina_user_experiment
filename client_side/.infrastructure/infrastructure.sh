@@ -9,8 +9,6 @@
 # - Verify the output of a task.
 ##############################################################################
 
-HLINE="--------------------------------------------------------------------------------"
-
 # Prints to stdout the character with the given numeric ASCII value.
 #
 # Exit status:
@@ -72,8 +70,10 @@ start_experiment() {
 
   cd "${FS_DIR}"
 
-  echo "Welcome to the bash user study!"
+  echo "${SLINE}"
+  echo "This terminal is the interface for the experiment."
   echo "At any point, run \"helpme\" to see a list of commands available to you."
+  echo ""
 
   begin_treatment 1
   next_task
@@ -202,11 +202,8 @@ check_and_update_training_status() {
 # - The directory that they should be performing tasks on.
 infra_training() {
   echo ${HLINE}
-  echo "This terminal is the interface for the experiment."
-  echo "At any point, run \"helpme\" to see a list of commands available to you."
   echo ""
   echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
-  # echo "Write the one-liner like you would usually when working in a Unix environment."
   echo "Please stay in the current directory."
   echo "If your one-liner accomplishes the task, you will proceed to the next task."
   echo "If the one-liner is not correct, then you will see a GUI window with the"
