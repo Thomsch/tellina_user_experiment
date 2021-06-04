@@ -1,6 +1,138 @@
 #!/usr/bin/env bats
 load ../libs/setup
 
+@test "start_experiment single training N1T2" {
+  local TASKS_SIZE=6
+  local TASK_ORDER="N1T2"
+  local task_num task_set time_elapsed status task_code treatment
+  local TEL_TRAINING INF_TRAINING
+
+  task_num=0
+
+  set +e
+  start_experiment
+  set -e
+
+  assert_output "$task_num" 0
+  assert_output "$task_code" "u"
+  assert_output "$INF_TRAINING" "true"
+  assert_output "$TEL_TRAINING" ""
+
+  status="success"
+  set +e
+  next_task
+  set -e
+
+  assert_output "$task_num" 1
+  assert_output "$task_code" "a"
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" ""
+}
+
+@test "start_experiment single training N2T1" {
+  local TASKS_SIZE=6
+  local TASK_ORDER="N2T1"
+  local task_num task_set time_elapsed status task_code treatment
+  local TEL_TRAINING INF_TRAINING
+
+  task_num=0
+
+  set +e
+  start_experiment
+  set -e
+
+  assert_output "$task_num" 0
+  assert_output "$task_code" "u"
+  assert_output "$INF_TRAINING" "true"
+  assert_output "$TEL_TRAINING" ""
+
+  status="success"
+  set +e
+  next_task
+  set -e
+
+  assert_output "$task_num" 1
+  assert_output "$task_code" "d"
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" ""
+}
+
+@test "start_experiment double training T2N1" {
+  local TASKS_SIZE=6
+  local TASK_ORDER="T2N1"
+  local task_num task_set time_elapsed status task_code treatment
+  local TEL_TRAINING INF_TRAINING
+
+  task_num=0
+
+  set +e
+  start_experiment
+  set -e
+
+  assert_output "$task_num" 0
+  assert_output "$task_code" "u"
+  assert_output "$INF_TRAINING" "true"
+  assert_output "$TEL_TRAINING" "true"
+
+  status="success"
+  set +e
+  next_task
+  set -e
+
+  assert_output "$task_num" 0
+  assert_output "$task_code" "v"
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" "true"
+
+  status="success"
+  set +e
+  next_task
+  set -e
+
+  assert_output "$task_num" 1
+  assert_output "$task_code" "d"
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" ""
+}
+
+@test "start_experiment double training T1N2" {
+  local TASKS_SIZE=6
+  local TASK_ORDER="T1N2"
+  local task_num task_set time_elapsed status task_code treatment
+  local TEL_TRAINING INF_TRAINING
+
+  task_num=0
+
+  set +e
+  start_experiment
+  set -e
+
+  assert_output "$task_num" 0
+  assert_output "$task_code" "u"
+  assert_output "$INF_TRAINING" "true"
+  assert_output "$TEL_TRAINING" "true"
+
+  status="success"
+  set +e
+  next_task
+  set -e
+
+  assert_output "$task_num" 0
+  assert_output "$task_code" "v"
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" "true"
+
+  status="success"
+  set +e
+  next_task
+  set -e
+
+  assert_output "$task_num" 1
+  assert_output "$task_code" "a"
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" ""
+}
+
 @test "next_task switches treatment N1T2" {
   local TASKS_SIZE=6
   local TASK_ORDER="N1T2"
