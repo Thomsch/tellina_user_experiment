@@ -39,7 +39,7 @@ EXPERIMENT_HOME_URL="${SERVER_HOST}/~tschweiz/research/en2bash-study"
 
 POST_HANDLER="${EXPERIMENT_HOME_URL}/backend/post_handler/post_handler.php"
 
-TELLINA_WEBSITE="https://tellina.rocks"
+TELLINA_WEBSITE="http://kirin.cs.washington.edu:8888/"
 
 ### Infrastructure
 
