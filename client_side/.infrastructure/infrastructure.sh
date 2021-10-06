@@ -84,7 +84,7 @@ start_experiment() {
   echo ""
 
   echo "=== Training ==================================================================="
-  echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
+  echo "For each task, please write a one-liner in Bash satisfying the prompt."
   echo "If your one-liner accomplishes the task, you will proceed to the next task."
   echo "If the one-liner is not correct, then you will see a GUI window with the"
   echo "difference between your output and the expected output.  You can try a"
