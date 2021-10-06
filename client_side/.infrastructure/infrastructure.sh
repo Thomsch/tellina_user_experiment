@@ -83,6 +83,15 @@ start_experiment() {
   echo "The experiment will continue to a brief training session."
   echo ""
 
+  echo "=== Training ==================================================================="
+  echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
+  echo "If your one-liner accomplishes the task, you will proceed to the next task."
+  echo "If the one-liner is not correct, then you will see a GUI window with the"
+  echo "difference between your output and the expected output.  You can try a"
+  echo "different command, but note that the file system is reset between commands."
+  echo "You can retry as many times as you like, within a 5-minute deadline."
+  echo ""
+
   begin_treatment 1
   next_task
 
@@ -128,7 +137,6 @@ reset_fs() {
 # Prints out the treatment conditions for the experiment and optionally starts
 # training for the infrastructure and/or Tellina.
 #
-# If the experiment just started, infra_training will be started.
 # If the current treatment is "T", tellina_training will be started.
 #
 # Parameters:
@@ -191,9 +199,6 @@ check_and_update_training_status() {
       if [[ "${TEL_TRAINING:-false}" == "true" ]]; then
         tellina_training
       fi
-    else
-      # Otherwise, print the information about the training.
-      infra_training
     fi
   elif [[ "${TEL_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" == "success" ]]; then
@@ -206,20 +211,7 @@ check_and_update_training_status() {
   fi
 }
 
-# Trains the user on how the infrastructure itself works. This includes:
-# - User meta-commands.
-# - Tasks and diff printing.
-# - The directory that they should be performing tasks on.
-infra_training() {
-  echo ${HLINE}
-  echo "For each task, we ask you to write a one-liner in Bash satisfying the prompt."
-  echo "If your one-liner accomplishes the task, you will proceed to the next task."
-  echo "If the one-liner is not correct, then you will see a GUI window with the"
-  echo "difference between your output and the expected output.  You can try a"
-  echo "different command, but note that the file system is reset between commands."
-  echo "You can retry as many times as you like, within a 5-minute deadline."
-  echo ""
-}
+
 
 # Introduces the user to Tellina and suggests a couple of known query-command
 # pairs.
