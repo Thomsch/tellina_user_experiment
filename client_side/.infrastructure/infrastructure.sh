@@ -123,10 +123,7 @@ reset_fs() {
     "${FS_SYNC_DIR}/" "${FS_DIR}"
 }
 
-# Prints out the treatment conditions for the experiment and optionally starts
-# training for the infrastructure and/or Tellina.
-#
-# If the current treatment is "T", tellina_training will be started.
+# Updates the states and training status when switching treatment.
 #
 # Parameters:
 # $1: the half of the experiment to begin treatment for, can be 1 or 2.
@@ -163,21 +160,8 @@ begin_treatment() {
   fi
 }
 
-# Checks whether infrastructure training or Tellina training is enabled and
-# disables them if complete..
-#
-# Prioritizes infrastructure training.
+# Disable training if completed. Prioritizes infrastructure training.
 check_and_update_training_status() {
-  # The check is based on the status of the task assigned to the training. The
-  # training is then complete when the $status of the task is "success", in
-  # which case the corresponding training variable ($INF_TRAINING or
-  # $TEL_TRAINING) gets unset.
-
-  # In the case that both $INF_TRAINING and $TEL_TRAINING are true, the priority
-  # for $INF_TRAINING is especially important.
-  # At this point, $status is "success", meaning if $INF_TRAINING and
-  # $TEL_TRAINING are checked separately, they will both be unset, thus skipping
-  # the training for Tellina.
   if [[ "${INF_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" == "success" ]]; then
       # If the user successfully did the infrastructure training, disables it.
@@ -191,7 +175,7 @@ check_and_update_training_status() {
   fi
 }
 
-# General training
+# Prints guide for the general training.
 general_training() {
   echo "=== Training ==================================================================="
   echo "For each task, please write a one-liner in Bash satisfying the prompt."
@@ -239,7 +223,7 @@ print_treatment() {
   echo ""
 }
 
-# Prints the current task number and its description.
+# Prints the current task number and its description. Prints a special header if this is a training task.
 print_task() {
   echo ${HLINE}
 
@@ -295,9 +279,8 @@ verify_task() {
   return $exit_code
 }
 
-# Increments the current task number and either starts a new task or ends the
-# experiment.
-#
+# Controls when treatment is changed, end of experiment, and training. 
+# Increments the current task number and either starts a new task
 # If the user is in training, the current task number does not increment.
 next_task() {
 
@@ -307,6 +290,7 @@ next_task() {
     return 0
   fi
 
+  # Verify if a training has been completed.
   check_and_update_training_status
 
   # Check if we need to switch the task set and the treatment
@@ -324,11 +308,8 @@ next_task() {
     echo "${task_num}" > "${INFRA_DIR}/.task_num"
   fi
 
-  # If the user is in training, set the task_code to the appropriate training
-  # tasks. "task_u" for infrastructure training, and "task_v" for Tellina
-  # training.
-  #
-  # Otherwise, calculate the task_code from the current_task and task_set.
+  # Selects the next task code. "task_u" for infrastructure training, "task_v" for Tellina
+  # training, or calculate the task_code from the current_task and task_set if not a training task.
   if [[ ${INF_TRAINING:-false} == "true" ]]; then
     general_training
     task_code="u"
