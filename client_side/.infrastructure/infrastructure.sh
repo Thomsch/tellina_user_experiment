@@ -70,7 +70,7 @@ start_experiment() {
 
   cd "${FS_DIR}"
 
-  echo "=== Intro ======================================================================"
+  echo "=== Description ================================================================"
   echo "You will be presented with 16 short file system tasks"
   echo "(e.g., 'Show the number of lines in file foo.txt')."
   echo "Your objective is to solve each task with a Bash one-liner: a sequence of"
@@ -81,15 +81,6 @@ start_experiment() {
   echo "Please stay in the current directory."
   echo ""
   echo "The experiment will continue to a brief training session."
-  echo ""
-
-  echo "=== Training ==================================================================="
-  echo "For each task, please write a one-liner in Bash satisfying the prompt."
-  echo "If your one-liner accomplishes the task, you will proceed to the next task."
-  echo "If the one-liner is not correct, then you will see a GUI window with the"
-  echo "difference between your output and the expected output.  You can try a"
-  echo "different command, but note that the file system is reset between commands."
-  echo "You can retry as many times as you like, within a 5-minute deadline."
   echo ""
 
   begin_treatment 1
@@ -149,12 +140,10 @@ begin_treatment() {
   if (( ${experiment_half} == 1 )); then
     treatment="${TASK_ORDER:0:1}"
     task_set=${TASK_ORDER:1:1}
-  else
+  else # (experiment_half == 2)
     treatment="${TASK_ORDER:2:1}"
     task_set=${TASK_ORDER:3:1}
   fi
-
-  print_treatment
 
   if (( task_num == 0 )); then
     if ! [[ -f "${INFRA_DIR}/.task_num" ]]; then
@@ -195,28 +184,33 @@ check_and_update_training_status() {
     if [[ "${status}" == "success" ]]; then
       # If the user successfully did the infrastructure training, disables it.
       unset INF_TRAINING
-
-      if [[ "${TEL_TRAINING:-false}" == "true" ]]; then
-        tellina_training
-      fi
     fi
   elif [[ "${TEL_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" == "success" ]]; then
       # if the user successfully did the Tellina training, disables it.
       unset TEL_TRAINING
-    else
-      # Otherwise, print the information about the training.
-      tellina_training
     fi
   fi
 }
 
-
+# General training
+general_training() {
+  echo "=== Training ==================================================================="
+  echo "For each task, please write a one-liner in Bash satisfying the prompt."
+  echo "If your one-liner accomplishes the task, you will proceed to the next task."
+  echo "If the one-liner is not correct, then you will see a GUI window with the"
+  echo "difference between your output and the expected output.  You can try a"
+  echo "different command, but note that the file system is reset between commands."
+  echo "You can retry as many times as you like, within a 5-minute deadline."
+  echo ""
+  echo "Please try to solve the following task to get acquainted to the experiment."
+  echo ""
+}
 
 # Introduces the user to Tellina and suggests a couple of known query-command
 # pairs.
 tellina_training() {
-  echo ${HLINE}
+  echo "=== Tellina ===================================================================="
   echo "To use Tellina, visit ${TELLINA_WEBSITE}."
   echo "You provide a query as an English sentence or phrase."
   echo "Check out the \"Tips\" and the \"Sample questions\" on the website."
@@ -226,7 +220,7 @@ tellina_training() {
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo ${SLINE}
+  echo "=== Part X ====================================================================="
 
   if [[ "$treatment" == "T" ]]; then
     echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
@@ -240,6 +234,11 @@ print_treatment() {
     fi
   fi
 
+  echo "At any point, you can run \"helpme\" to see the list of commands available."
+  echo "Please stay in the current directory."
+
+  # TODO: Press any key to start the experiment.
+
   echo ""
 }
 
@@ -248,7 +247,7 @@ print_task() {
   echo ${HLINE}
 
   if [[ "${INF_TRAINING}" == "true" || "${TEL_TRAINING}" == "true" ]]; then
-    echo "Task: Training"
+    echo "> Training <"
   else
     echo "Task: ${task_num}/${TASKS_SIZE}"
   fi
@@ -316,7 +315,7 @@ next_task() {
   # Check if we need to switch the task set and the treatment
   if (( task_num == TASKS_SIZE / 2 )) && [[ "${task_code}" != "v" ]] ; then
     echo ${SLINE}
-    echo "You have finished the first half of the experiment!"
+    echo "Way to go! You have finished the first half of the experiment!"
     echo ""
     begin_treatment 2
   fi
@@ -334,11 +333,17 @@ next_task() {
   #
   # Otherwise, calculate the task_code from the current_task and task_set.
   if [[ ${INF_TRAINING:-false} == "true" ]]; then
+    general_training
     task_code="u"
   elif [[ ${TEL_TRAINING:-false} == "true" ]]; then
+    tellina_training
     task_code="v"
   else
     task_code=$(get_task_code)
+
+    if (( task_num == 1 )) || (( task_num == ( TASKS_SIZE / 2 ) + 1 )); then
+      print_treatment
+    fi 
   fi
 
   status="incomplete"
