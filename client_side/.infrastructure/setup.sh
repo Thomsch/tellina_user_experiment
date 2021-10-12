@@ -117,22 +117,21 @@ show_help() {
 
 ### Greet the participant
 echo "${SLINE}"
-echo "Welcome to the bash user study!"
+echo "Welcome to the user study! Thank you for choosing to participate!"
 echo ""
-echo "This terminal will be the interface for the experiment."
+echo "This terminal will be the main interface for the experiment."
 echo ""
 
 ### Variables that differ per user
 MACHINE_NAME=$(hostname)
 
 # Read non-empty UW NETID.
-while read -p "To start, please enter your UW NetID: " UW_NETID; do
+while read -p "Please enter your UW NetID to get started: " UW_NETID; do
     if [ ! -z $UW_NETID ]; then
         break
     fi
 done
 
-echo "Thank you! Let's start."
 echo ""
 
 # Determine the task order based on a truncated md5sum hash of the username.
