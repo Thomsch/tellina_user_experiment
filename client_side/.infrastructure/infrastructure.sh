@@ -68,8 +68,6 @@ start_experiment() {
   preexec_functions+=(preexec_func)
   precmd_functions+=(precmd_func)
 
-  cd "${FS_DIR}"
-
   echo "=== Description ================================================================"
   echo "You will be presented with 16 short file system tasks"
   echo "(e.g., 'Show the number of lines in file foo.txt')."
