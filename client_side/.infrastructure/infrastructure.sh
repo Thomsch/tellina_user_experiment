@@ -220,7 +220,7 @@ tellina_training() {
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo "=== Part X ====================================================================="
+  echo "=== Part ${task_set} ====================================================================="
 
   if [[ "$treatment" == "T" ]]; then
     echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
@@ -234,11 +234,10 @@ print_treatment() {
     fi
   fi
 
-  echo "At any point, you can run \"helpme\" to see the list of commands available."
-  echo "Please stay in the current directory."
-
-  # TODO: Press any key to start the experiment.
-
+  echo ""
+  echo "Remember:"
+  echo "- You can run \"helpme\" to see the list of commands available."
+  echo "- Please stay in the current directory."
   echo ""
 }
 
