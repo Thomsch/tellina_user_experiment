@@ -10,7 +10,7 @@ load ../libs/setup
   task_num=0
 
   set +e
-  start_experiment
+  start_experiment <<< "k" # Mimics a keypress
   set -e
 
   assert_output "$task_num" 0
@@ -38,7 +38,7 @@ load ../libs/setup
   task_num=0
 
   set +e
-  start_experiment
+  start_experiment <<< "k" # Mimics a keypress
   set -e
 
   assert_output "$task_num" 0
@@ -66,7 +66,7 @@ load ../libs/setup
   task_num=0
 
   set +e
-  start_experiment
+  start_experiment <<< "k" # Mimics a keypress
   set -e
 
   assert_output "$task_num" 0
@@ -104,7 +104,7 @@ load ../libs/setup
   task_num=0
 
   set +e
-  start_experiment
+  start_experiment <<< "k" # Mimics a keypress
   set -e
 
   assert_output "$task_num" 0

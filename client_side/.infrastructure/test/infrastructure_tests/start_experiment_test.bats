@@ -9,7 +9,7 @@ load ../libs/setup
   local treatment="T"
 
   set +e
-  start_experiment
+  start_experiment <<< "k" # Mimics a keypress
   set -e
 
   preexec_functions=$(echo ${preexec_functions[@]})

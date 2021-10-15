@@ -69,16 +69,22 @@ start_experiment() {
   precmd_functions+=(precmd_func)
 
   echo "=== Description ================================================================"
-  echo "You will be presented with 16 short file system tasks"
-  echo "(e.g., 'Show the number of lines in file foo.txt')."
-  echo "Your objective is to solve each task with a Bash one-liner: a sequence of"
-  echo "bash commands (a mini bash script) that are contained on one line"
-  echo "(e.g., cat foo.txt | wc -l)."
+  echo "In this study, you will be presented with 16 short tasks in Bash."
+  echo "For example: Show the number of lines in file foo.txt."
   echo ""
-  echo "At any point, you can run \"helpme\" to see the list of commands available."
-  echo "Please stay in the current directory."
+  echo "We ask you to try to solve each task with a Bash one-liner. A Bash one-liner is"
+  echo "a sequence of bash commands (a mini bash script) that are contained on one line."
+  echo "For example: cat foo.txt | wc -l"
   echo ""
-  echo "The experiment will continue to a brief training session."
+  echo "The experiment is divided in two parts of 8 tasks each. Each part will have"
+  echo "instructions describing the tools you can use to help you solve the tasks for"
+  echo "that part. Make sure to watch out for them and read them."
+  echo ""
+  echo "Before starting the first task, you will have time to get familiar with the"
+  echo "experiment's terminal and commands through a brief training."
+  echo ""
+  read -n 1 -s -r -p "Press any key to start the training..."
+  echo ""
   echo ""
 
   begin_treatment 1
@@ -178,14 +184,28 @@ check_and_update_training_status() {
 # Prints guide for the general training.
 general_training() {
   echo "=== Training ==================================================================="
-  echo "For each task, please write a one-liner in Bash satisfying the prompt."
-  echo "If your one-liner accomplishes the task, you will proceed to the next task."
-  echo "If the one-liner is not correct, then you will see a GUI window with the"
-  echo "difference between your output and the expected output.  You can try a"
-  echo "different command, but note that the file system is reset between commands."
-  echo "You can retry as many times as you like, within a 5-minute deadline."
+  echo "For each task in this experiment, please write a Bash one-liner in this terminal"
+  echo "that satisfies the task's prompt."
   echo ""
-  echo "Please try to solve the following task to get acquainted to the experiment."
+  echo "-> If your one-liner solves the task, you will be directed to the next task."
+  echo "-> If your one-liner is incorrect, a GUI window will pop up to show you the"
+  echo "  difference between your output and the expected output."
+  echo ""
+  echo "You can retry as many times as you like, within a 5-minute deadline."
+  echo "Please note that the working directory is reset between attempts so you can't"
+  echo "solve a task incrementally."
+  echo "Please stay in the current directory."
+  echo ""
+  echo "After the training, you can use the following commands to assist you:"
+  echo "  task     prints the description of the current task.";
+  echo "  giveup   gives up on the current task and starts the next task.";
+  echo "  helpme   prints this help message.";
+  echo ""
+  echo "Let's practice! Try to solve the training task below."
+  echo "- See what happens when you enter incorrect command (e.g., 'rm -r css')"
+  echo "  -> You should see the diff window pop-up showing actual / expected output."
+  echo "- See what happens when you enter the right command"
+  echo "  -> You will proceed to the first part of the experiment!"
   echo ""
 }
 
@@ -203,7 +223,9 @@ tellina_training() {
 # current treatment.
 print_treatment() {
   echo "=== Part ${task_set} ====================================================================="
+  echo "Great job on going this far!"
 
+  echo "Instructions (read attentively):"
   if [[ "$treatment" == "T" ]]; then
     echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
     echo "help you complete the tasks. You may also use online resources and man pages."
@@ -220,6 +242,7 @@ print_treatment() {
   echo "Remember:"
   echo "- You can run \"helpme\" to see the list of commands available."
   echo "- Please stay in the current directory."
+  echo "- You have a 5-minute limit per task. Take your time!"
   echo ""
 }
 
