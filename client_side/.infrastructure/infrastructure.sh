@@ -183,6 +183,7 @@ check_and_update_training_status() {
 
 # Prints guide for the general training.
 general_training() {
+  echo ""
   echo "=== Training ==================================================================="
   echo "For each task in this experiment, please write a Bash one-liner in this terminal"
   echo "that satisfies the task's prompt."
@@ -191,10 +192,10 @@ general_training() {
   echo "-> If your one-liner is incorrect, a GUI window will pop up to show you the"
   echo "  difference between your output and the expected output."
   echo ""
-  echo "You can retry as many times as you like, within a 5-minute deadline."
-  echo "Please note that the working directory is reset between attempts so you can't"
-  echo "solve a task incrementally."
-  echo "Please stay in the current directory."
+  echo "- You can retry as many times as you like, within a 5-minute deadline."
+  echo "- Please note that the working directory is reset between attempts so you can't"
+  echo "  solve a task incrementally."
+  echo "- Please stay in the current directory."
   echo ""
   echo "After the training, you can use the following commands to assist you:"
   echo "  task     prints the description of the current task.";
@@ -202,9 +203,11 @@ general_training() {
   echo "  helpme   prints this help message.";
   echo ""
   echo "Let's practice! Try to solve the training task below."
-  echo "- See what happens when you enter incorrect command (e.g., 'rm -r css')"
+  echo "- See what happens when you enter an incorrect command (e.g., 'ls css')"
   echo "  -> You should see the diff window pop-up showing actual / expected output."
-  echo "- See what happens when you enter the right command"
+  echo ""
+  echo "- See what happens when you enter the right command (you can use any"
+  echo "  any resource you want)."
   echo "  -> You will proceed to the first part of the experiment!"
   echo ""
 }
@@ -212,19 +215,58 @@ general_training() {
 # Introduces the user to Tellina and suggests a couple of known query-command
 # pairs.
 tellina_training() {
+  echo ""
   echo "=== Tellina ===================================================================="
-  echo "To use Tellina, visit ${TELLINA_WEBSITE}."
-  echo "You provide a query as an English sentence or phrase."
-  echo "Check out the \"Tips\" and the \"Sample questions\" on the website."
+  echo "In this experiment, we are asking you to try out Tellina, a novel tool to assist"
+  echo "developers write Bash one-liners."
+  echo ""
+  echo "Tellina is easy to use: you tell it, in english, what you want to do in Bash and"
+  echo "the Tellina gives you a corresponding Bash one-liner."
+  echo "For example, if you give it the sentence: 'remove all pdf files in my current"
+  echo "directory',"
+  echo "Tellina will propose you 'find . -name '*.pdf' -exec rm {} \;', which does"
+  echo "indeed deletes all pdf files in the current directory."
+  echo ""
+  echo "As mentionned just earlier, we would like for you to consider using Tellina for"
+  echo "CERTAIN tasks in this experiment (for some tasks, we will ask you to NOT use"
+  echo "Tellina."
+  echo ""
+  echo "Let's practice! Please visit ${TELLINA_WEBSITE}"
+  echo "to access Tellina."
+  echo "- Get acquainted with the website's interface. "
+  echo "  -> There are three main sections: 'The top search bar', 'Sample Questions',"
+  echo "     and 'Tips'. "
+  echo "  -> There is also an 'About' link, feel free to take a look at it."
+  echo ""
+  echo "- Take a closer look at the top search bar"
+  echo "  -> The search bar allows you to write a query in english. "
+  echo "  -> The button on the right submits the query to Tellina."
+  echo "  -> The button on the left searches the query on Google."
+  echo ""
+  echo "- 'Sample Questions' contains pairs of query and bash one-liner examples."
+  echo ""
+  echo "- 'Tips' contains advice on how to make the most of Tellina."
+  echo ""
+  echo "- Try to submit one of the queries in the Sample Questions."
+  echo "  -> Notice how Tellina gives you a list of Bash one-liners it thinks are the"
+  echo "     most relevant."
+  echo "  -> Notice how the Bash one-liners might require some slight tweaking compared"
+  echo "     to the reference Bash one-liner for the query you choose from the samples."
+  echo ""
+  echo "- Feel free to try out a few more queries!"
+  echo ""echo ""
+  echo "- Time for practice! Try to solve the prompted training task below with"
+  echo "  the help of Tellina."
   echo ""
 }
 
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
+  echo ""
   echo "=== Part ${task_set} ====================================================================="
   echo "Great job on going this far!"
-
+  echo ""
   echo "Instructions (read attentively):"
   if [[ "$treatment" == "T" ]]; then
     echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
