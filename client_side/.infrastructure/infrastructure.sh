@@ -330,6 +330,7 @@ verify_task() {
       ;;
     1)
       echo "File system does not match expected. A diff has been shown."
+      reset_fs
       ;;
     2)
       echo "You have modified the file system. It will now be reset to its original state."
