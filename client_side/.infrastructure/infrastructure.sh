@@ -254,7 +254,7 @@ tellina_training() {
   echo "     to the reference Bash one-liner for the query you choose from the samples."
   echo ""
   echo "- Feel free to try out a few more queries!"
-  echo ""echo ""
+  echo ""
   echo "- Time for practice! Try to solve the prompted training task below with"
   echo "  the help of Tellina."
   echo ""
@@ -264,19 +264,16 @@ tellina_training() {
 # current treatment.
 print_treatment() {
   echo ""
-  echo "=== Part ${task_set} ====================================================================="
+  echo "=== Part ${task_set}/2 ==================================================================="
   echo "Great job on going this far!"
   echo ""
-  echo "Instructions (read attentively):"
+  echo "Instructions for this half of the experiment (read carefully):"
+  echo "- You CAN use any online resources and man pages."
   if [[ "$treatment" == "T" ]]; then
-    echo "For this half of the experiment, please use Tellina (${TELLINA_WEBSITE}) to"
-    echo "help you complete the tasks. You may also use online resources and man pages."
+    echo "- You CAN use Tellina (${TELLINA_WEBSITE})"
   else
     if (( task_num >= TASKS_SIZE / 2 + 1 )); then
-      echo "For this half of the experiment you can use any online resources and man pages,"
-      echo "but DO NOT use Tellina."
-    else
-      echo "For this half of the experiment you can use any online resources and man pages."
+      echo "- You MUST NOT use Tellina."
     fi
   fi
 
@@ -285,6 +282,8 @@ print_treatment() {
   echo "- You can run \"helpme\" to see the list of commands available."
   echo "- Please stay in the current directory."
   echo "- You have a 5-minute limit per task. Take your time!"
+  echo ""
+  echo "Good luck!"
   echo ""
 }
 
