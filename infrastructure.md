@@ -63,7 +63,7 @@ The experiment infrastructure consists of several components:
     system output and standard output.
   - The two initial tasks are tutorial
     tasks. The tutorial will print instructions on what to do for each step to the
-    shell as well. The tutorial will also teach users about `giveup`, `task`, and `helpme`.
+    shell as well. The tutorial will also teach users about `skip`, `task`, and `helpme`.
 
 ### User Requirements [Remote Edition]
 The subjects will participate in the experiment remotely. Thus, they will not be able to use CSE lab computers and will have to use their personal laptops.
@@ -98,7 +98,7 @@ following differences to the shell's interface (assume print means "print to
 `stdout`" unless specified otherwise):
 - The user will be able to run the following **user meta-commands**:
   - `task`: prints the current task's description and number
-  - `giveup`: gives up on the current task and goes to the next task.
+  - `skip`: gives up on the current task and goes to the next task.
     - This command will return the user to the directory where they called it.
   - `helpme`: lists the commands available to the user
 - Prints any messages related to the experiment (prompts, current task
@@ -148,7 +148,7 @@ server will have the following columns:
   side.
   - ISO-8601 formatted with UTC.
 - **status**: `success` if the user succeeded, `timeout` if the user ran out of time,
-  `giveup` if the user gave up on the task, and `incomplete` if the task is
+  `skip` if the user gave up on the task, and `incomplete` if the task is
   incomplete but the user still has time.
 - **command**: the command that the user entered.
 
@@ -161,7 +161,7 @@ Example content of what `log.csv` could look like:
 |2019-04-05T18:12:04Z|abc|machineA|s1Ts2NT|a|Tellina|37|2019-04-05T18:12:00Z|incomplete|reset|
 |2019-04-05T18:12:07Z|abc|machineA|s1Ts2NT|a|Tellina|40|2019-04-05T18:12:00Z|success|find . -name "*.txt"|
 |...|...|...|...|...|...|...|...|...|...|
-|2019-04-05T18:42:10Z|abc|machineB|s2Ts1NT|u|Tellina|100|2019-04-05T18:12:00Z|giveup|giveup|
+|2019-04-05T18:42:10Z|abc|machineB|s2Ts1NT|u|Tellina|100|2019-04-05T18:12:00Z|skip|skip|
 |...|...|...|...|...|...|...|...|...|...|
 |2019-04-08T18:48:02Z|bcd|machineB|s2Ts1NT|v|Tellina|300|2019-04-05T18:12:00Z|timeout|...|
 
@@ -169,7 +169,7 @@ The start time of a task is the **client_time_stamp** of the row where the
 **command** column is "task started".  That row's **time_elapsed** is 0.
 
 The total time for a task is the **time_elapsed** of the row where the
-**status** is either "success", "giveup", or "timeout". If the **status** is
+**status** is either "success", "skip", or "timeout". If the **status** is
 "timeout", **time_elapsed** will be the time limit.
 
 ### Client side
@@ -246,7 +246,7 @@ The script will source `.infrastructure/setup.sh`, which will do the following:
       between the log write and the command being entered could be different by
       a few seconds. Initial value is `0`.
   - `status`: the status of the current task. Can be `success`, `timeout`,
-    `giveup`, or `incomplete`. Initial value is "incomplete".
+    `skip`, or `incomplete`. Initial value is "incomplete".
   - `task_num`: the user task number, which is shown
     to the user. Initial value is `1`.
   - `task_set`: the current task set the user is in.
@@ -293,7 +293,7 @@ During the training:
 - The user is expected to follow the instructions linked to by the training
   prompt.
 - The user will not timeout.
-- The user cannot `giveup` the training task.
+- The user cannot `skip` the training task.
 
 #### Bash-Preexec
 Bash-preexec allows running code before and after the execution of a command
@@ -320,8 +320,8 @@ command is executed
      - Check for the existence of the file
         `.noverify` in the `.infrastructure` directory.
         - If it exists, output verification is not performed.
-        - If `.noverify` is not empty and the content is "giveup", set the status
-          to "giveup".
+        - If `.noverify` is not empty and the content is "skip", set the status
+          to "skip".
         - The file is removed immediately after the check.
   3. Check if the command in `.command` is correct.
      - Does this by running `verify_output.py $task_code $(cat .command)` and
@@ -334,7 +334,7 @@ command is executed
        - `3`: open Meld for the `stdout`.
 - Writes information about the most recently executed user command to the server
   log.
-- If the status is either "giveup", "timeout" , or "success", call `next_task`.
+- If the status is either "skip", "timeout" , or "success", call `next_task`.
 
 #### Output verification:
 - Verification will be done using a python script called

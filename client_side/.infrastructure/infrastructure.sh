@@ -199,7 +199,7 @@ general_training() {
   echo ""
   echo "After the training, you can use the following commands to assist you:"
   echo "  task     prints the description of the current task.";
-  echo "  giveup   gives up on the current task and starts the next task.";
+  echo "  skip   skips the current task and starts the next task.";
   echo "  helpme   prints this help message.";
   echo ""
   echo "Let's practice! Try to solve the training task below."

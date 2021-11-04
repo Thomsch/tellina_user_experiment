@@ -98,10 +98,10 @@ HLINE="-------------------------------------------------------------------------
 # Each user meta-command will create a file called .noverify in the
 # infrastructure directory.
 
-# giveup writes "giveup" to `.noverify`.
-# This is because aliases can't set variables and giveup needs to set $status
-# to "giveup". precmd_func checks the contents.
-alias giveup='echo "giveup" > ${INFRA_DIR}/.noverify'
+# skip writes "skip" to `.noverify`.
+# This is because aliases can't set variables and skip needs to set $status
+# to "skip". precmd_func checks the contents.
+alias skip='echo "skip" > ${INFRA_DIR}/.noverify'
 alias task='print_task; touch "${INFRA_DIR}"/.noverify'
 alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
 
@@ -109,7 +109,7 @@ show_help() {
   echo ${HLINE};
   echo "Commands:";
   echo "task     prints the description of the current task.";
-  echo "giveup   gives up on the current task and starts the next task.";
+  echo "skip   gives up on the current task and starts the next task.";
   echo "helpme   prints this help message.";
   echo ""
   print_treatment;
@@ -163,7 +163,7 @@ preexec_func() {
 # Executed after the user-entered command is executed.
 #
 # This function sets $status to one of "timeout", "success",
-# "incomplete", or "giveup".
+# "incomplete", or "skip".
 # This is based on:
 #  * whether the user has run out of time, and
 #  * verifying the output of the user command unless it was a meta-command.
@@ -186,10 +186,10 @@ precmd_func() {
     # This can happen if the user entered a user meta-command or at the
     # beginning of the experiment.
 
-    # If the .noverify file has "giveup" in it, then the user used the
-    # "giveup" meta-command.
-    if [[ "$(cat "${INFRA_DIR}/.noverify")" == "giveup" ]]; then
-      status="giveup"
+    # If the .noverify file has "skip" in it, then the user used the
+    # "skip" meta-command.
+    if [[ "$(cat "${INFRA_DIR}/.noverify")" == "skip" ]]; then
+      status="skip"
     fi
 
     rm "${INFRA_DIR}/.noverify"
@@ -205,11 +205,11 @@ precmd_func() {
     fi
   fi
 
-  # Disables giveup while in training.
+  # Disables skip while in training.
   if [[ "${INF_TRAINING:-false}" == "true" ]] || \
      [[ "${TEL_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" != "success" ]]; then
-      if [[ "${status}" == "giveup" ]]; then
+      if [[ "${status}" == "skip" ]]; then
         echo "You can't givup during training."
       fi
       status="incomplete"
@@ -217,7 +217,7 @@ precmd_func() {
   fi
 
   write_log
-  if [[ "${status}" == "giveup" ]] || \
+  if [[ "${status}" == "skip" ]] || \
      [[ "${status}" == "timeout" ]] || \
      [[ "${status}" == "success" ]]; then
     next_task
