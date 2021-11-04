@@ -63,6 +63,8 @@ general_training() {
   echo "- You can retry as many times as you like, within a 5-minute deadline."
   echo "- Please note that the working directory is reset between attempts so you can't"
   echo "  solve a task incrementally."
+  echo "- We are not expecting you to use interpreted commands (e.g., sed, awk, glob)"
+  echo "  but you're welcome to use them if you're familiar with them."
   echo "- Please stay in the current directory."
   echo ""
   echo "After the training, you can use the following commands to assist you:"
