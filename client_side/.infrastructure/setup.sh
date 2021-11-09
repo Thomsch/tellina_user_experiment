@@ -221,6 +221,8 @@ precmd_func() {
      [[ "${status}" == "timeout" ]] || \
      [[ "${status}" == "success" ]]; then
     next_task
+  else
+    print_task
   fi
 }
 
