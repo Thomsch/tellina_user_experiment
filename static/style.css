@@ -23,6 +23,11 @@ code {
   padding: 5px;
 }
 
+.notice {
+  color: orangered;
+  font-weight: bold;
+}
+
 pre code {
   border: 1px solid rgb(100, 100, 100);
   display: block;
