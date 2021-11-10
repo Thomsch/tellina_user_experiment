@@ -105,9 +105,9 @@ tellina_training() {
   echo "CERTAIN tasks in this experiment (for some tasks, we will ask you to NOT use"
   echo "Tellina."
   echo ""
-  echo "Let's practice! Please visit ${TELLINA_WEBSITE}"
+  echo "Please visit ${TELLINA_WEBSITE}"
   echo "to access Tellina."
-  echo "- Get acquainted with the website's interface. "
+  echo "- Get acquainted with the website's interface."
   echo "  -> There are three main sections: 'The top search bar', 'Sample Questions',"
   echo "     and 'Tips'. "
   echo "  -> There is also an 'About' link, feel free to take a look at it."
@@ -132,6 +132,10 @@ tellina_training() {
   echo "- Time for practice! Try to solve the prompted training task below with"
   echo "  the help of Tellina."
   echo ""
+  echo "! Tellina works best on simple sentences. For this reason we suggest avoiding"
+  echo "  copy-pasting the task prompts direclty into the search bar"
+  echo "  Try instead to rephrase what you want to do in smaller sentences"
+  echo "  for each part of the task you want to achieve."
 }
 
 # Prints the list of resources that the user is allowed to use based on the
