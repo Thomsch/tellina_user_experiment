@@ -1,4 +1,4 @@
 {
    "task_id": "3",
-   "description": "Rename file 'README.md' to 'README.txt'"
+   "description": "Rename file './README.md' to './README.txt'"
 }

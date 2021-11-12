@@ -1,4 +1,4 @@
 {
    "task_id": "4",
-   "description": "Copy 'content/tips.md' in new directory 'content/backup/'"
+   "description": "Copy './content/tips.md' in new directory './content/backup/'"
 }

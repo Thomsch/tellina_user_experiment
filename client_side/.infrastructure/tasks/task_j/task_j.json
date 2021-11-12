@@ -1,4 +1,4 @@
 {
    "task_id": "10",
-   "description": "Find all lines containing 'why' in files containing 'review' in their filename"
+   "description": "For all files in the current directory and in recursive subdirectories, find all lines containing 'why' (case insensitive) in files containing 'review' in their filename."
 }

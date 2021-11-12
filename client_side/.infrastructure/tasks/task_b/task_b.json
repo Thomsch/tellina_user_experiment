@@ -1,4 +1,4 @@
 {
    "task_id": "2",
-   "description": "Display the content of the main stylesheet inside the 'css' folder"
+   "description": "Display the content of the CSS file in the './css/' folder"
 }
