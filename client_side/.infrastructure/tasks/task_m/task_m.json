@@ -1,4 +1,4 @@
 {
    "task_id": "13",
-   "description": "Display the content of the current folder ordered by directory first, then files"
+   "description": "Display the content of the current directory ordered by directory first, then files."
 }
