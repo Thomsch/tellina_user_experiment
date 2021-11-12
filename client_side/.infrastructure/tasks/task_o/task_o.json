@@ -1,4 +1,4 @@
 {
    "task_id": "15",
-   "description": "Delete all empty subdirectories"
+   "description": "Recursively delete all empty subdirectories from the current directory."
 }

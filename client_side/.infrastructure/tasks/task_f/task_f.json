@@ -1,4 +1,4 @@
 {
    "task_id": "6",
-   "description": "From the current directory, delete recursively all the files containing 'glyph' in their filename."
+   "description": "Delete recursively all files containing 'glyph' in their filename from the current directory."
 }
