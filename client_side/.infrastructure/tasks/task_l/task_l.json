@@ -1,4 +1,4 @@
 {
    "task_id": "12",
-   "description": "List the name of the immediate subfolders contained in the folders in 'content/'"
+   "description": "List the names of the directories that are children of children of the './content/' directory."
 }
