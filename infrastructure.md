@@ -138,7 +138,6 @@ server will have the following columns:
   - ISO-8601 formatted with UTC.
 - **user_name**: the username associated with the information on the
   current row
-- **machine_name**:
 - **task_order**: the task order that was assigned to this user.  One of
   `s1NTs2T`, `s1Ts2NT`, `s2NTs1T`, `s2Ts1NT`.
 - **task_code**: the true task code of the current task.

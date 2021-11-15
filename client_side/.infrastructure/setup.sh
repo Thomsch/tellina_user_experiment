@@ -122,9 +122,6 @@ echo ""
 echo "This terminal will be the main interface for the experiment."
 echo ""
 
-### Variables that differ per user
-MACHINE_NAME=$(hostname)
-
 # Read non-empty UW NETID.
 while read -p "Please enter your UW NetID to get started: " UW_NETID; do
     if [ ! -z $UW_NETID ]; then
