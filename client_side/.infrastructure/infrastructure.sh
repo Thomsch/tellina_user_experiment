@@ -127,7 +127,13 @@ tellina_training() {
   echo ""
   echo "- 'Sample Questions' contains pairs of query and bash one-liner examples."
   echo ""
-  echo "- 'Tips' contains advice on how to make the most of Tellina."
+  echo "- MAKE SURE to read the 'Tips' section; it describes how to best use Tellina"
+  echo "  and what to account for."
+  echo ""
+  echo "- Tellina works best on simple sentences. For this reason we suggest avoiding"
+  echo "  copy-pasting the task prompts direclty into the search bar"
+  echo "  Try instead to rephrase what you want to do in smaller sentences"
+  echo "  for each part of the task you want to achieve."
   echo ""
   echo "- Try to submit one of the queries in the Sample Questions."
   echo "  -> Notice how Tellina gives you a list of Bash one-liners it thinks are the"
@@ -140,10 +146,6 @@ tellina_training() {
   echo "- Time for practice! Try to solve the prompted training task below with"
   echo "  the help of Tellina."
   echo ""
-  echo "! Tellina works best on simple sentences. For this reason we suggest avoiding"
-  echo "  copy-pasting the task prompts direclty into the search bar"
-  echo "  Try instead to rephrase what you want to do in smaller sentences"
-  echo "  for each part of the task you want to achieve."
 }
 
 # Prints the list of resources that the user is allowed to use based on the
