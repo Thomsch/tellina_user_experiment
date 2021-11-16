@@ -178,6 +178,15 @@ preexec_func() {
 precmd_func() {
   time_elapsed=${SECONDS}
 
+  local user_command="$(cat "${INFRA_DIR}/.command")"
+
+  # Ignore exploratory commands from verification
+  if [[ ! $user_command =~ \| ]]; then
+      if [[ $user_command =~ ^man[[:space:]]* ]] || [[ $user_command =~ ^ls[[:space:]]* ]]; then
+        touch "${INFRA_DIR}/.noverify"
+      fi
+  fi
+
   # Checks if the user has run out of time.
   if (( time_elapsed >= TASK_TIME_LIMIT )) && [[ "${INF_TRAINING:-false}" == "false" && "${TEL_TRAINING:-false}" == "false" ]] ; then
     echo "You have run out of time for task ${task_num}."
