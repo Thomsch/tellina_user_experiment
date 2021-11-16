@@ -30,12 +30,16 @@ start_experiment() {
   echo "instructions describing the tools you can use to help you solve the tasks for"
   echo "that part. Make sure to watch out for them and read them."
   echo ""
-  echo "Before starting the first task, you will have time to get familiar with the"
-  echo "experiment's terminal and commands through a brief training."
-  echo ""
-  read -n 1 -s -r -p "Press any key to start the training..."
-  echo ""
-  echo ""
+
+    # Show these instructions if this is not a recovery.
+    if (( is_recovery != 1 )); then
+      echo "Before starting the first task, you will have time to get familiar with the"
+      echo "experiment's terminal and commands through a brief training."
+      echo ""
+      read -n 1 -s -r -p "Press any key to start the training..."
+      echo ""
+    fi
+    echo ""
 
   begin_treatment 1
   next_task
@@ -171,8 +175,13 @@ print_treatment() {
 # $1: the half of the experiment to begin treatment for, can be 1 or 2.
 begin_treatment() {
   # Sets the current treatment and task set based on the task ordering for the
-  # experiment.
+  # experiment.Good 
   local experiment_half=$1
+
+  # Override experiment half if we're in experiment recovery.
+  if (( is_recovery == 1 )) && (( task_num >= TASKS_SIZE / 2 )); then
+    experiment_half=2
+  fi
 
   if (( ${experiment_half} == 1 )); then
     treatment="${TASK_ORDER:0:1}"
@@ -182,23 +191,14 @@ begin_treatment() {
     task_set=${TASK_ORDER:3:1}
   fi
 
-  if (( task_num == 0 )); then
-    if ! [[ -f "${INFRA_DIR}/.task_num" ]]; then
-      # If the user is at the very beginning and is not resuming to task 1, then
-      # enables infrastructure training.
-      INF_TRAINING=true
+  # If it's the first task, we enable the general training, except if we are recovering the experiment.
+  if (( task_num == 0 )) && (( is_recovery != 1 )); then
+      INF_TRAINING=true  
+  fi
 
-      if [[ "$treatment" == "T" ]]; then
-        # If the treatment is T, enables Tellina training.
-        TEL_TRAINING=true
-      fi
-    fi
-  else
-    # If the treatment is T and the user is not at the beginning, enables
-    # Tellina training.
-    if [[ "$treatment" == "T" ]]; then
+  # If the treatment is T, enables Tellina training, except if we are recovering the experiment.
+  if [[ "$treatment" == "T" ]] && (( is_recovery != 1 )); then
       TEL_TRAINING=true
-    fi
   fi
 }
 # Controls when treatment is changed, end of experiment, and training. 
@@ -216,7 +216,7 @@ next_task() {
   check_and_update_training_status
 
   # Check if we need to switch the task set and the treatment
-  if (( task_num == TASKS_SIZE / 2 )) && [[ "${task_code}" != "v" ]] ; then
+  if (( task_num == TASKS_SIZE / 2 )) && [[ "${task_code}" != "v" ]] && (( is_recovery != 1 )); then
     echo ${SLINE}
     echo "Way to go! You have finished the first half of the experiment!"
     echo ""
@@ -241,8 +241,9 @@ next_task() {
   else
     task_code=$(get_task_code)
 
-    if (( task_num == 1 )) || (( task_num == ( TASKS_SIZE / 2 ) + 1 )); then
+    if (( task_num == 1 )) || (( task_num == ( TASKS_SIZE / 2 ) + 1 )) || (( is_recovery == 1 )); then
       print_treatment
+      is_recovery=0
     fi 
   fi
 

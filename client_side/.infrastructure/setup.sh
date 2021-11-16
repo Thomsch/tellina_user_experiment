@@ -87,8 +87,10 @@ if [[ -f "${INFRA_DIR}/.task_num" ]]; then
   # be one lower to allow the user to start at the task where they previously
   # stopped.
   task_num=$((task_num - 1))
+  is_recovery=1
 else
   task_num=0
+  is_recovery=0
 fi
 
 ### User meta-commands
@@ -117,9 +119,14 @@ show_help() {
 
 ### Greet the participant
 echo "${SLINE}"
-echo "Welcome to the user study! Thank you for choosing to participate!"
-echo ""
-echo "This terminal will be the main interface for the experiment."
+if (( is_recovery == 1 )); then
+  echo "Welcome back!"
+  echo "The experiment will resume where you left."
+else
+  echo "Welcome to the user study! Thank you for choosing to participate!"
+  echo ""
+  echo "This terminal will be the main interface for the experiment."
+fi
 echo ""
 
 # Read non-empty UW NETID.
