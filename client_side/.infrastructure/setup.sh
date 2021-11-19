@@ -65,6 +65,9 @@ FS_SYNC_DIR="${INFRA_DIR}/file_system"
 USER_OUT="${INFRA_DIR}/user_out"
 mkdir -p "${USER_OUT}"
 
+# Magic string to trigger the 'expected command'
+MAGIC_STRING_EXPECTED_COMMAND="MAGIC_STRING_EXPECTED_COMMAND"
+
 ### Task-related variables
 
 # The TASK_ORDER is two two-character codes.  In each two-character code, the
@@ -106,12 +109,14 @@ HLINE="-------------------------------------------------------------------------
 alias skip='echo "skip" > ${INFRA_DIR}/.noverify'
 alias task='print_task; touch "${INFRA_DIR}"/.noverify'
 alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
+alias expected='show_expected; touch ${INFRA_DIR}/.noverify'
 
 show_help() {
   echo ${HLINE};
   echo "Commands:";
+  echo "expected shows the expected result for this task";
   echo "task     prints the description of the current task.";
-  echo "skip   gives up on the current task and starts the next task.";
+  echo "skip     gives up on the current task and starts the next task.";
   echo "helpme   prints this help message.";
   echo ""
   print_treatment;
@@ -162,6 +167,17 @@ source "${INFRA_DIR}"/bash-preexec.sh
 preexec_func() {
   command_dir=$PWD
   echo "$1" > "${INFRA_DIR}/.command"
+}
+
+# Shows expected result for the current task.
+show_expected() {
+  echo "Showing expected one-liner result..."
+
+  pkill meld 2>> ${INF_LOG_FILE}
+
+  "${INFRA_DIR}"/verify_task.py ${task_code} "${command_dir}" "${MAGIC_STRING_EXPECTED_COMMAND}"
+
+  (meld "/tmp/actual" "/tmp/expected" &)
 }
 
 # Executed after the user-entered command is executed.

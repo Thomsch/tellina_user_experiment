@@ -56,24 +56,35 @@ FILESYSTEM_TASKS = {'c', 'd', 'f', 'i', 'o', 'p', 'u'}
 # across different systems.
 NORMALIZE_FIND_TASKS = {'h', 'j', 'l', 'v'}
 
+# Magic string to trigger the 'expected command'
+MAGIC_SHOW_EXPECTED_COMMAND = "MAGIC_STRING_EXPECTED_COMMAND"
+
+class cd:
+    """Context manager for changing the current working directory"""
+    def __init__(self, newPath):
+        self.newPath = os.path.expanduser(newPath)
+
+    def __enter__(self):
+        self.savedPath = os.getcwd()
+        os.chdir(self.newPath)
+
+    def __exit__(self, etype, value, traceback):
+        os.chdir(self.savedPath)
+
 def main():
-    class cd:
-        """Context manager for changing the current working directory"""
-        def __init__(self, newPath):
-            self.newPath = os.path.expanduser(newPath)
-
-        def __enter__(self):
-            self.savedPath = os.getcwd()
-            os.chdir(self.newPath)
-
-        def __exit__(self, etype, value, traceback):
-            os.chdir(self.savedPath)
 
     # the true task code
     task_code = sys.argv[1]
     command_dir = sys.argv[2]
     # the current command
     command = ' '.join(sys.argv[3:])
+
+    # Special behavior when using expected help command
+    if command == MAGIC_SHOW_EXPECTED_COMMAND:
+        check_fs = task_code in FILESYSTEM_TASKS # True if this is a filesystem task.
+        generate_expected(task_code, check_fs)
+        generate_actual(check_fs)
+        sys.exit(0)
 
     try:
 
@@ -198,6 +209,27 @@ def verify(normalized_output_file, task_code, check_fs):
         shutil.copy(task_verify_file, EXPECTED_FILE)
 
     return files_match
+
+def generate_expected(task_code, check_fs):
+    task = "task_{}".format(task_code)
+
+    task_verify_file = os.path.join(
+        os.environ['TASKS_DIR'], "{task}/{task}.{out_type}.out"
+            .format(task=task, out_type="fs" if check_fs else "select"))
+    
+    shutil.copy(task_verify_file, EXPECTED_FILE)
+
+def generate_actual(check_fs):
+    if check_fs:
+        devnull = open(os.devnull, 'wb')
+
+        with open(USER_FS_FILE, 'w') as user_out:
+            with cd(FS_DIR):
+                filesystem = subprocess.call('find .', shell=True, stderr=devnull, stdout=user_out)
+
+        normalize_and_copy_output(USER_FS_FILE, ACTUAL_FILE)
+    else:
+        open(ACTUAL_FILE, 'w').close() # Empties ACTUAL_FILE
 
 if __name__ == '__main__':
     main()

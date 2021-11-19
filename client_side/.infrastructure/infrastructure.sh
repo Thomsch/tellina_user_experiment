@@ -68,6 +68,8 @@ general_training() {
   echo "- Please note that the working directory is reset between attempts so you can't"
   echo "  solve a task incrementally."
   echo ""
+  echo "- You can use the 'expected' command to show the expected results for this task."
+  echo ""
   echo "- We are not expecting you to use interpreted commands (e.g., sed, awk, glob)"
   echo "  but you're welcome to use them if you're familiar with them."
   echo ""
@@ -80,8 +82,9 @@ general_training() {
   echo "- Please stay in the current directory."
   echo ""
   echo "After the training, you can use the following commands to assist you:"
+  echo "  expected shows the expected result for this task";
   echo "  task     prints the description of the current task.";
-  echo "  skip   skips the current task and starts the next task.";
+  echo "  skip     skips the current task and starts the next task.";
   echo "  helpme   prints this help message.";
   echo ""
   echo "Let's practice! Try to solve the training task below."
