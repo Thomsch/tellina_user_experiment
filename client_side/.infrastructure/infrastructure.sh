@@ -47,10 +47,10 @@ start_experiment() {
   # Because precmd is enabled by this function, precmd will be invoked before
   # the next command line prompt.
   # ".noverify" is touched so that precmd does not attempt to verify
+  # ".noprint" is touched so that precmd does not attempt to verify
   # user output on the "start_task" command that was written to `.command`.
   touch "${INFRA_DIR}/.noverify"
-
-  # write_log does not need to be called because it is called by precmd.
+  touch "${INFRA_DIR}/.noprint"
 }
 
 # Prints guide for the general training.
@@ -261,7 +261,6 @@ next_task() {
   start_task
   write_log
 }
-
 
 # This is called to start the user on a new task.
 #

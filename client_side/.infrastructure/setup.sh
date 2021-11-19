@@ -106,8 +106,8 @@ HLINE="-------------------------------------------------------------------------
 # skip writes "skip" to `.noverify`.
 # This is because aliases can't set variables and skip needs to set $status
 # to "skip". precmd_func checks the contents.
-alias skip='echo "skip" > ${INFRA_DIR}/.noverify'
-alias task='print_task; touch "${INFRA_DIR}"/.noverify'
+alias skip='echo "skip" > ${INFRA_DIR}/.noverify; touch "${INFRA_DIR}/.noprint"'
+alias task='print_task; touch "${INFRA_DIR}"/.noverify; touch "${INFRA_DIR}/.noprint"'
 alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
 alias expected='show_expected; touch ${INFRA_DIR}/.noverify'
 
@@ -250,6 +250,8 @@ precmd_func() {
      [[ "${status}" == "timeout" ]] || \
      [[ "${status}" == "success" ]]; then
     next_task
+  elif [[ -f "${INFRA_DIR}/.noprint" ]]; then
+    rm "${INFRA_DIR}/.noprint"
   else
     print_task
   fi
