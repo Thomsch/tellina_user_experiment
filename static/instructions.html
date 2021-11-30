@@ -31,7 +31,7 @@
     <p><strong>Experiment:</strong></p>
 
     <ol start="4">
-      <li>Open a <em>new</em> terminal (command shell) and paste in the snippet below to download and install the experiment:
+      <li>Open a <em>new</em> terminal (command shell) and paste in the snippet below to download and install the experiment<sup>*†</sup>:
     <pre><code>cd
 mkdir en2bash
 cd en2bash
@@ -39,7 +39,10 @@ wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment
 unzip experiment.zip
 bash
 </code></pre>
-<p><small>* If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (<code>wget --no-check-certificate ...</code>).</small></p>
+  <p>
+    <small>* The experiment won't change anything in your system; it is entirely self-contained in the `en2bash` folder.</small></br>
+    <small>† If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (<code>wget --no-check-certificate ...</code>).</smal>
+  </p>
       </li>
       <li>Then type <code>source experiment/configure</code> to launch the experiment client.</li>
       <li>Follow the prompts in the terminal. There will be a short training session to familiarize yourself with the tool and then the experiment tasks.</li>
