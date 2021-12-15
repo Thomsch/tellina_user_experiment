@@ -82,3 +82,25 @@ load ../libs/setup
     assert_output $output ${lower_alph[i - 1]}
   done
 }
+
+@test "get_training_code gives correct code for general training" {
+  run get_training_code 'v' 1
+  assert_output $output 'v'
+
+  run get_training_code 'v' 2
+  assert_output $output 'w'
+
+  run get_training_code 'v' 3 # Should throw an error because v and w are the only training tasks
+  assert_output $output 'x'
+}
+
+@test "get_training_code gives correct code for tellina training" {
+  run get_training_code 'y' 1
+  assert_output $output 'y'
+
+  run get_training_code 'y' 2
+  assert_output $output 'z'
+
+  run get_training_code 'y' 3 # Should throw an error because v and w are the only training tasks
+  assert_output $output '{'
+}

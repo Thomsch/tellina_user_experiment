@@ -202,12 +202,14 @@ begin_treatment() {
 
   # If it's the first task, we enable the general training, except if we are recovering the experiment.
   if (( task_num == 0 )) && (( is_recovery != 1 )); then
-      INF_TRAINING=true  
+      INF_TRAINING=true
+      general_training_num=0
   fi
 
   # If the treatment is T, enables Tellina training, except if we are recovering the experiment.
   if [[ "$treatment" == "T" ]] && (( is_recovery != 1 )); then
       TEL_TRAINING=true
+      tellina_training_num=0
   fi
 }
 # Controls when treatment is changed, end of experiment, and training. 
@@ -225,7 +227,7 @@ next_task() {
   check_and_update_training_status
 
   # Check if we need to switch the task set and the treatment
-  if (( task_num == TASKS_SIZE / 2 )) && [[ "${task_code}" != "v" ]] && (( is_recovery != 1 )); then
+  if (( task_num == TASKS_SIZE / 2 )) && (( tellina_training_num == 0 )) && [[ "${task_code}" != "${TELLINA_START_CODE}" ]] && (( is_recovery != 1 )); then
     echo ${SLINE}
     echo "Way to go! You have finished the first half of the experiment!"
     echo ""
@@ -242,11 +244,24 @@ next_task() {
   # Selects the next task code. "task_u" for infrastructure training, "task_v" for Tellina
   # training, or calculate the task_code from the current_task and task_set if not a training task.
   if [[ ${INF_TRAINING:-false} == "true" ]]; then
-    general_training
-    task_code="u"
+
+    # Only show training instructions for the first training task.
+    if (( general_training_num == 0 )); then
+      general_training
+    fi
+
+    general_training_num=$(( general_training_num + 1 ))
+    task_code=$(get_training_code ${GENERAL_START_CODE} ${general_training_num})
+    
   elif [[ ${TEL_TRAINING:-false} == "true" ]]; then
-    tellina_training
-    task_code="v"
+
+    if (( tellina_training_num == 0 )); then
+      tellina_training
+    fi
+    
+    tellina_training_num=$(( tellina_training_num + 1 ))
+    task_code=$(get_training_code ${TELLINA_START_CODE} ${tellina_training_num})
+
   else
     task_code=$(get_task_code)
 
@@ -281,12 +296,12 @@ start_task() {
 
 # Disable training if completed. Prioritizes infrastructure training.
 check_and_update_training_status() {
-  if [[ "${INF_TRAINING:-false}" == "true" ]]; then
+  if [[ "${INF_TRAINING:-false}" == "true" ]] && ((general_training_num == GENERAL_TRAINING_SIZE)); then
     if [[ "${status}" == "success" ]]; then
       # If the user successfully did the infrastructure training, disables it.
       unset INF_TRAINING
     fi
-  elif [[ "${TEL_TRAINING:-false}" == "true" ]]; then
+  elif [[ "${TEL_TRAINING:-false}" == "true" ]] && ((tellina_training_num == TELLINA_TRAINING_SIZE)); then
     if [[ "${status}" == "success" ]]; then
       # if the user successfully did the Tellina training, disables it.
       unset TEL_TRAINING
@@ -412,6 +427,18 @@ char_from() {
   local num_fr=$((num_a + $1 - 1))
 
   echo $(chr ${num_fr})
+}
+
+# Gets the code for the training task.
+# $1: The first training task's code
+# $2: The number of the current training task (1-indexed)
+# Example: 
+#   get_training_code 'v' 1 => 'v' # First task code for training set starting at 'v' is 'v'
+#   get_training_code 'v' 2 => 'w' # Second task code for training set starting at 'v' is 'w'
+get_training_code() {
+  local num_initial=$(ord $1) # First general training task
+  local code=$((num_initial + $2 - 1))
+  echo $(chr ${code})
 }
 
 # Prints the true task code, from the current user task number and task set.

@@ -75,10 +75,24 @@ MAGIC_STRING_EXPECTED_COMMAND="MAGIC_STRING_EXPECTED_COMMAND"
 # used.
 TASK_ORDERS_CODES=("T1N2" "T2N1" "N1T2" "N2T1")
 
+# Training information
+# Make sure that GENERAL_START_CODE + GENERAL_TRAINING_SIZE is always smaller than TELLINA_START_CODE
+# otherwise you will reuse training tasks in both.
+# Example: 'v' + 3 => 'x' (there is 3 letters v, w, x) and TELLINA_START_CODE = 'y' is fine! 'x' < 'y'
+GENERAL_TRAINING_SIZE=3
+GENERAL_START_CODE="v"
+TELLINA_TRAINING_SIZE=2
+TELLINA_START_CODE="y"
+TRAINING_SIZE=$((GENERAL_TRAINING_SIZE + TELLINA_TRAINING_SIZE))
+
+echo "@@@Task size is ${TRAINING_SIZE}"
+
 # Note: The infrastructure currently does not support odd TASK_SIZE due to
 # integer division creating difficulties for splitting up the task sets.
 TASKS_SIZE=$(ls -1 "${TASKS_DIR}" | wc -l)
-TASKS_SIZE=$(( TASKS_SIZE - 2 )) # reserve the two final tasks for training.
+TASKS_SIZE=$(( TASKS_SIZE - TRAINING_SIZE )) # reserve the two final tasks for training.
+
+echo "@@@Task size is ${TASKS_SIZE}"
 
 # If a task_num file already exists, it means we are trying to resume the
 # experiment.

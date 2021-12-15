@@ -294,6 +294,9 @@ During the training:
 - The user will not timeout.
 - The user cannot `skip` the training task.
 
+#### Limitations
+- Recovery doesn't resume the training stage. It's either all or nothing.
+
 #### Bash-Preexec
 Bash-preexec allows running code before and after the execution of a command
 that was ran interactively in the terminal.
