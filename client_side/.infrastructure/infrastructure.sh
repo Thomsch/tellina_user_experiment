@@ -19,7 +19,7 @@ start_experiment() {
   precmd_functions+=(precmd_func)
 
   echo "=== Description ================================================================"
-  echo "In this study, you will be presented with 16 short tasks in Bash."
+  echo "In this study, you will be presented with 8 short tasks in Bash."
   echo "For example: Show the number of lines in file foo.txt."
   echo ""
   echo "We ask you to try to solve each task with a Bash one-liner. A Bash one-liner is"
