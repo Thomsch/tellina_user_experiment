@@ -87,7 +87,7 @@ general_training() {
   echo "  skip     skips the current task and starts the next task.";
   echo "  helpme   prints this help message.";
   echo ""
-  echo "Let's practice! Try to solve the training task below."
+  echo "Let's practice! Try to solve the ${GENERAL_TRAINING_SIZE} training tasks below."
   echo "- See what happens when you enter an incorrect command (e.g., 'ls css')"
   echo "  -> You should see the diff window pop-up showing actual / expected output."
   echo ""
@@ -146,7 +146,7 @@ tellina_training() {
   echo ""
   echo "- Feel free to try out a few more queries!"
   echo ""
-  echo "- Time for practice! Try to solve the prompted training task below with"
+  echo "- Time for practice! Try to solve the ${TELLINA_TRAINING_SIZE} training tasks below with"
   echo "  the help of Tellina."
   echo ""
 }
@@ -155,7 +155,7 @@ tellina_training() {
 # current treatment.
 print_treatment() {
   echo ""
-  echo "=== Part ${task_set}/2 ==================================================================="
+  echo "=== Part ${experiment_half}/2 ==================================================================="
   echo "Great job on going this far!"
   echo ""
   echo "Instructions for this half of the experiment (read carefully):"
@@ -184,8 +184,8 @@ print_treatment() {
 # $1: the half of the experiment to begin treatment for, can be 1 or 2.
 begin_treatment() {
   # Sets the current treatment and task set based on the task ordering for the
-  # experiment.Good 
-  local experiment_half=$1
+  # experiment.
+  experiment_half=$1
 
   # Override experiment half if we're in experiment recovery.
   if (( is_recovery == 1 )) && (( task_num >= TASKS_SIZE / 2 )); then
@@ -227,7 +227,7 @@ next_task() {
   check_and_update_training_status
 
   # Check if we need to switch the task set and the treatment
-  if (( task_num == TASKS_SIZE / 2 )) && (( tellina_training_num == 0 )) && [[ "${task_code}" != "${TELLINA_START_CODE}" ]] && (( is_recovery != 1 )); then
+  if (( task_num == TASKS_SIZE / 2 )) && [[ "${TEL_TRAINING:-false}" == "false" ]] && [[ "${task_code}" != $(get_training_code ${TELLINA_START_CODE} ${TELLINA_TRAINING_SIZE}) ]] && (( is_recovery != 1 )); then
     echo ${SLINE}
     echo "Way to go! You have finished the first half of the experiment!"
     echo ""
