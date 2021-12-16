@@ -1,4 +1,4 @@
 {
-   "task_id": "8",
-   "description": "List recursively all the non-markdown files in the current directory."
+   "task_id": "18",
+   "description": "Recursively list all files in the current directory that are larger than 10kB."
 }

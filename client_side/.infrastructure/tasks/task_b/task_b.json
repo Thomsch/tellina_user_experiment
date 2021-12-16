@@ -1,4 +1,4 @@
 {
-   "task_id": "2",
-   "description": "Display the content of the CSS file in the './css/' directory."
+   "task_id": "1",
+   "description": "Show the lines of `./content/review/review2.md` that are not in `./content/review/review1.md`"
 }

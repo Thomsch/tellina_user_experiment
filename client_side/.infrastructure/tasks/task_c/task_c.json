@@ -1,4 +1,4 @@
 {
-   "task_id": "3",
-   "description": "Rename file './README.md' to './README.txt'"
+   "task_id": "11",
+   "description": "Count the number of files in './content/labs/' and subdirectories recursively."
 }

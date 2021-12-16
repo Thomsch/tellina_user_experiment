@@ -1,4 +1,4 @@
 {
-   "task_id": "1",
-   "description": "Show the lines of `./content/review/review2.md` that are not in `./content/review/review1.md`"
+   "task_id": "15",
+   "description": "Recursively delete all empty subdirectories from the current directory."
 }
