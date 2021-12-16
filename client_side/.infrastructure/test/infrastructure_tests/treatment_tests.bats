@@ -323,17 +323,20 @@ load ../libs/setup
   local TASK_ORDER="T2N1"
   local task_num task_set time_elapsed status task_code treatment
 
+  local tellina_training_num=TELLINA_TRAINING_SIZE
+
   begin_treatment 1
   task_num=3
   task_code='f'
-
-  INF_TRAINING=false
-  TEL_TRAINING=false
+  unset INF_TRAINING
+  unset TEL_TRAINING
 
   set +e
   next_task
   set -e
 
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" ""
   assert_output "$treatment" "N"
   assert_output "$task_set" 1
   assert_output "$task_num" 4
@@ -344,18 +347,32 @@ load ../libs/setup
   local TASKS_SIZE=6
   local TASK_ORDER="T1N2"
   local task_num task_set time_elapsed status task_code treatment
+  
+  local GENERAL_START_CODE='v'
+  local GENERAL_TRAINING_SIZE=2
+  local TELLINA_START_CODE='x'
+  local TELLINA_TRAINING_SIZE=2
+  local tellina_training_num=0
+
+  local INF_TRAINING
+  local TEL_TRAINING
 
   begin_treatment 1
   task_num=3
   task_code='c'
+  unset INF_TRAINING
+  unset TEL_TRAINING
+  tellina_training_num=TELLINA_TRAINING_SIZE
 
-  INF_TRAINING=false
-  TEL_TRAINING=false
+  assert_output "$treatment" "T"
+  assert_output "$task_set" 1
 
   set +e
   next_task
   set -e
 
+  assert_output "$INF_TRAINING" ""
+  assert_output "$TEL_TRAINING" ""
   assert_output "$treatment" "N"
   assert_output "$task_set" 2
   assert_output "$task_num" 4
@@ -368,7 +385,8 @@ load ../libs/setup
   local GENERAL_START_CODE='a'
   local GENERAL_TRAINING_SIZE=2
   local task_num task_set time_elapsed status task_code treatment
-  local TEL_TRAINING INF_TRAINING
+  local TEL_TRAINING INF_TRAINING  
+  local tellina_training_num
 
   task_num=0
 
@@ -400,6 +418,7 @@ load ../libs/setup
   assert_output "$task_code" "a"
   assert_output "$INF_TRAINING" ""
   assert_output "$TEL_TRAINING" ""
+  assert_output "$tellina_training_num" ""
 }
 
 @test "begin_treatment correct for first half of experiment" {
