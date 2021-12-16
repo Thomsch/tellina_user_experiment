@@ -313,8 +313,10 @@ check_and_update_training_status() {
 print_task() {
   echo ${HLINE}
 
-  if [[ "${INF_TRAINING}" == "true" || "${TEL_TRAINING}" == "true" ]]; then
-    echo "> Training <"
+  if [[ "${INF_TRAINING}" == "true" ]]; then
+    echo "> Training ${general_training_num}/${GENERAL_TRAINING_SIZE} <"
+  elif [[ "${TEL_TRAINING}" == "true" ]]; then
+    echo "> Training ${tellina_training_num}/${TELLINA_TRAINING_SIZE} <"
   else
     echo "Task: ${task_num}/${TASKS_SIZE}"
   fi
