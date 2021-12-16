@@ -49,12 +49,12 @@ EXPECTED_FILE = os.path.join('/tmp', 'expected')
 
 # There are two types of tasks: those that expect output, and
 # those that expect a modification to the file system.
-FILESYSTEM_TASKS = {'c', 'd', 'f', 'i', 'o', 'p', 'u'}
+FILESYSTEM_TASKS = {'v', 'y', 'x', 'f', 'a', 'd'}
 
 # These task rely on the `find` utility to complete the task. 
 # They require their output to be normalized for consistent behavior
 # across different systems.
-NORMALIZE_FIND_TASKS = {'h', 'j', 'l', 'v'}
+NORMALIZE_FIND_TASKS = {'e', 'h'}
 
 # Magic string to trigger the 'expected command'
 MAGIC_SHOW_EXPECTED_COMMAND = "MAGIC_STRING_EXPECTED_COMMAND"
