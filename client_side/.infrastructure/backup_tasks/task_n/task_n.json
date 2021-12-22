@@ -1,4 +1,3 @@
 {
-   "task_id": "14",
    "description": "Show the size of files and directories in 'content/' in the expected human-friendly format, ordered by size."
 }

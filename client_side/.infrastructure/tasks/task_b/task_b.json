@@ -1,4 +1,3 @@
 {
-   "task_id": "1",
    "description": "Show the lines of `./content/review/review2.md` that are not in `./content/review/review1.md`"
 }

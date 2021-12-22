@@ -1,4 +1,3 @@
 {
-   "task_id": "7",
    "description": "Show which files differ recursively between './content/labs/' and './content/lessons/'."
 }

@@ -1,5 +1,4 @@
 {
-   "task_id": "17",
    "type": "filesystem_change",
    "description": "Recursively remove all files in the './css/' directory.",
    "file_attributes": [],
