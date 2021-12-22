@@ -30,7 +30,7 @@ fi
 
 ### Experiment configuration
 
-TASK_TIME_LIMIT=300
+TASK_TIME_LIMIT=360
 
 # Establish the server information
 SERVER_HOST="https://homes.cs.washington.edu"
