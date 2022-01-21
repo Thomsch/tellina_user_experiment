@@ -23,33 +23,38 @@
     </li>
     <li>
       Install <a href="https://meldmerge.org/">Meld</a> in the VM.
+      <ol>
+        <li>Start a command shell by clicking on <em>Activities</em> and selecting <em>Terminal</em>.</li>
+        <li>Run the command <code>sudo yum -qy install meld</code>.</li>
+        <li>
+          Run the command <code>meld --version</code> in your VM's terminal. You should get something like <code>meld 3.20.2</code>.
+          <small>If you get an error, please contact tschweiz AT cs.washington.edu to fix the issue.</small>
+        </li>
+      </ol>
     </li>
-    <li>Run <code>meld</code> in your VM's terminal.  If it opens a GUI window, then Meld is installed; close the window.  Otherwise, run
-      <code>sudo yum install meld</code> and then double-check that Meld is installed.</li>
-    </ol>
+  </ol>
 
-    <p><strong>Experiment:</strong></p>
+  <p><strong>Experiment:</strong></p>
 
-    <ol start="4">
-      <li>Open a <em>new</em> terminal (command shell) and paste in the snippet below to download and install the experiment<sup>*†</sup>:
-    <pre><code>cd
+  <ol start="3">
+    <li>Open a <em>new</em> terminal (command shell) and paste in the snippet below to download and install the experiment<sup>*†</sup>:
+  <pre><code>cd
 mkdir en2bash
 cd en2bash
 wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
 unzip experiment.zip
-bash
-</code></pre>
+bash</code></pre>
   <p>
     <small>* The experiment won't change anything in your system; it is entirely self-contained in the `en2bash` folder.</small></br>
-    <small>† If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (<code>wget --no-check-certificate ...</code>).</smal>
+    <small>† If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (<code>wget --no-check-certificate ...</code>).</small>
   </p>
-      </li>
-      <li>Then type <code>source experiment/configure</code> to launch the experiment client.</li>
-      <li>Follow the prompts in the terminal. There will be a short training session to familiarize yourself with the tool and then the experiment tasks.</li>
-    </ol>
+    </li>
+    <li>Then type <code>source experiment/configure</code> to launch the experiment client.</li>
+    <li>Follow the prompts in the terminal. There will be a short training session to familiarize yourself with the tool and then the experiment tasks.</li>
+  </ol>
 
     <p><strong>Survey:</strong></p>
-    <ol start="7">
+    <ol start="6">
       <li>
         When you have finished the experiment, please complete this <a href="https://forms.gle/QieZPezcLSYoX2k26" target="_blank"> short survey</a> (5 minutes);
         We will use your address from the survey to send the gift card.
@@ -57,7 +62,7 @@ bash
     </ol>
 
     <p><strong>Clean-up:</strong> (optional)</p>
-    <ol start="8">
+    <ol start="7">
       <li>Remove the experiment files from your Home VM:<code>rm -rf ~/en2bash</code></li>
     </ol>
 
