@@ -124,7 +124,7 @@ alias expected='show_expected; touch ${INFRA_DIR}/.noverify'
 show_help() {
   echo ${HLINE};
   echo "Commands:";
-  echo "expected shows the expected result for this task";
+  echo "expected shows a diff with the expected result.";
   echo "task     prints the description of the current task.";
   echo "skip     gives up on the current task and starts the next task.";
   echo "helpme   prints this help message.";
@@ -145,7 +145,7 @@ fi
 echo ""
 
 # Read non-empty UW NETID.
-while read -p "Please enter your UW NetID to get started: " UW_NETID; do
+while read -p "Please enter your UW NetID: " UW_NETID; do
     if [ ! -z $UW_NETID ]; then
         break
     fi
