@@ -98,7 +98,7 @@ general_training() {
 # pairs.
 tellina_training() {
   echo ""
-  echo "=== Tellina ===================================================================="
+  echo "=== Tellina training ==========================================================="
   echo "In this experiment, we are asking you to try out Tellina, a novel tool that"
   echo "helps developers write Bash one-liners."
   echo ""
