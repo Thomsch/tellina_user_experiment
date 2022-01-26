@@ -122,8 +122,8 @@ alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
 alias expected='show_expected; touch ${INFRA_DIR}/.noverify'
 
 show_help() {
-  echo ${HLINE};
-  echo "Commands:";
+  echo "--- Help -----------------------------------------------------------------------";
+  echo "Available commands:";
   echo "expected shows a diff with the expected result.";
   echo "task     prints the description of the current task.";
   echo "skip     gives up on the current task and starts the next task.";
