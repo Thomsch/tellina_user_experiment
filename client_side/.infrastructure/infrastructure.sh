@@ -78,11 +78,20 @@ general_training() {
   echo "- Please stay in the current directory. That is, do not use commands such"
   echo "  as `cd` or `pushd` to change the working directory."
   echo ""
-  echo "After the training, you can use the following commands to assist you:"
-  echo "  expected shows the expected result for this task";
-  echo "  task     prints the description of the current task.";
-  echo "  skip     skips the current task and starts the next task.";
-  echo "  helpme   prints this help message.";
+  echo "At any time, you can type 'helpme' to print the available commands to help you."
+  echo "Let's give it a try:"
+
+  while read -p "Please type 'helpme' (without the apostrophes):" type_helpme; do
+    if [[ $type_helpme == "helpme" ]]; then
+        echo ""
+        show_help;
+        break;
+    fi
+  done
+
+  echo "Please take a few instants to read the description of the available commands."
+  read -n 1 -s -r -p "When you're ready to continue, press any key..."
+  echo ""
   echo ""
   echo "Let's practice! Try to solve the ${GENERAL_TRAINING_SIZE} training tasks below."
   echo "- See what happens when you enter an incorrect command (e.g., 'ls css')"
