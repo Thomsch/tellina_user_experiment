@@ -144,7 +144,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 0
@@ -203,7 +203,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 0
@@ -243,7 +243,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$TEL_TRAINING" "true"
@@ -296,7 +296,7 @@ load ../libs/setup
   task_code='f'
 
   set +e
-  next_task
+  next_task <<< "k"
   set -e
   status="success"
 
