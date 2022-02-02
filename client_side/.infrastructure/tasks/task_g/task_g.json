@@ -1,3 +1,3 @@
 {
-   "description": "Show which files differ recursively between './content/labs/' and './content/lessons/'."
+   "description": "List recursively all the non-markdown files in the current directory."
 }

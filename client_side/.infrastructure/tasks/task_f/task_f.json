@@ -1,3 +1,3 @@
 {
-   "description": "Delete recursively all markdown files starting with a number under the current directory."
+   "description": "List the names of the directories that are children of children of the './content/' directory."
 }
