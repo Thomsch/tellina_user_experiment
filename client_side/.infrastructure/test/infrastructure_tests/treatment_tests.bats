@@ -24,7 +24,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1
@@ -67,7 +67,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1
@@ -110,7 +110,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1
@@ -168,7 +168,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1
@@ -215,7 +215,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1
@@ -267,7 +267,7 @@ load ../libs/setup
 
   status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$TEL_TRAINING" ""
@@ -308,7 +308,7 @@ load ../libs/setup
   assert_output "$tellina_training_num" 1
 
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$TEL_TRAINING" ""
@@ -332,7 +332,7 @@ load ../libs/setup
   unset TEL_TRAINING
 
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$INF_TRAINING" ""
@@ -368,7 +368,7 @@ load ../libs/setup
   assert_output "$task_set" 1
 
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$INF_TRAINING" ""
@@ -411,7 +411,7 @@ load ../libs/setup
 
     status="success"
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1

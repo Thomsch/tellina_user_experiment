@@ -23,7 +23,7 @@ load ../libs/setup
   local status command task_code
 
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   command=$(cat "${INFRA_DIR}/.command")
@@ -38,7 +38,7 @@ load ../libs/setup
 
   # Write log will fail because we don't have a URL for curl
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1
@@ -51,7 +51,7 @@ load ../libs/setup
   local task_num=0
 
   set +e
-  next_task
+  next_task <<< "k"
   set -e
 
   assert_output "$task_num" 1

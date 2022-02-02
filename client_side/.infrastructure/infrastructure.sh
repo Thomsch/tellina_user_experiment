@@ -191,6 +191,9 @@ print_treatment() {
   echo "- Please stay in the current directory."
   echo "- You have a 6-minute limit per task. Take your time!"
   echo ""
+  read -n 1 -s -r -p "Press any key to start this part..."
+  echo ""
+  echo ""
 }
 
 # Updates the states and training status when switching treatment.
