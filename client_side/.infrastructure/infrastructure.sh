@@ -89,13 +89,13 @@ general_training() {
     fi
   done
 
-  echo "Please take a few instants to read the description of the available commands."
+  echo "Please take an instant to read the description of the available commands."
   echo ""
   read -n 1 -s -r -p "When you're ready to continue, press any key..."
   echo ""
   echo ""
   echo "Let's practice! Try to solve the ${GENERAL_TRAINING_SIZE} training tasks below."
-  echo "- See what happens when you enter an incorrect command (e.g., 'ls css')"
+  echo "- See what happens when you enter an incorrect command (e.g., 'mkdir test')"
   echo "  -> You should see the diff window pop-up showing actual / expected output."
   echo ""
   echo "- See what happens when you enter the right command (you can use any"
