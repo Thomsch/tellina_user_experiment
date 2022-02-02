@@ -17,14 +17,14 @@ export TASKS_DIR
   local cmd
 
   cmd=$'find . -type f -size +10k'
-  test_verify_task "h" "$cmd" "success" 0
+  test_verify_task "j" "$cmd" "success" 0
 }
 
 @test "verify_task select task unchanged file system failure" {
   local cmd
 
   cmd=$'find \'"."\' -type f'
-  test_verify_task "h" "$cmd" "incomplete" 3
+  test_verify_task "j" "$cmd" "incomplete" 3
 }
 
 @test "verify_task select task changed file system failure" {
@@ -36,7 +36,7 @@ export TASKS_DIR
 
   # find content -type f -size +10k -size -800c -delete
   cmd=$'find css -type f -delete'
-  test_verify_task "h" "$cmd" "incomplete" 2
+  test_verify_task "j" "$cmd" "incomplete" 2
 }
 
 @test "verify_task file system task success" {
