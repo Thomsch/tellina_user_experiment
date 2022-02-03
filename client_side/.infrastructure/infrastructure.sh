@@ -25,7 +25,7 @@ start_experiment() {
   echo "We ask you to try to solve each task with a Bash one-liner."
   echo "For example: cat foo.txt | wc -l"
   echo ""
-  echo "The experiment is divided in two parts of 4 tasks each. Each part will have"
+  echo "The experiment is divided in two parts of 6 tasks each. Each part will have"
   echo "instructions describing the tools you can use."
   echo ""
 
