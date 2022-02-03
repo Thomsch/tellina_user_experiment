@@ -336,7 +336,9 @@ print_task() {
   elif [[ "${TEL_TRAINING}" == "true" ]]; then
     echo "> Training ${tellina_training_num}/${TELLINA_TRAINING_SIZE} <"
   else
-    echo "Task: ${task_num}/${TASKS_SIZE}"
+    local half_tasks_size=$((TASKS_SIZE / 2))
+    local local_task_num=$(((( task_num - 1 ) % half_tasks_size ) + 1))
+    echo "Task: ${local_task_num}/${half_tasks_size}"
   fi
 
   ${INFRA_DIR}/jq-linux64 -r '.description' \
