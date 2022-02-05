@@ -172,7 +172,6 @@ tellina_training() {
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo ""
   echo "=== Part ${experiment_half}/2 ==================================================================="
   echo ""
   echo "Instructions for this half of the experiment (read carefully):"
@@ -286,6 +285,7 @@ next_task() {
     if (( task_num == 1 )) || (( task_num == ( TASKS_SIZE / 2 ) + 1 )) || (( is_recovery == 1 )); then
       print_treatment
       is_recovery=0
+      taskset_timestamp_start=$(date +%s) # Count in seconds
     fi 
   fi
 
@@ -422,6 +422,7 @@ end_experiment() {
   echo "Congratulations! You have completed the interactive portion of the experiment."
   echo "Please fill out a <5 minute survey at https://forms.gle/xjAqf1YrvfKMZunL8 ."
   echo ""
+  echo "Thank you for your participation!"
 
   return 0
 }

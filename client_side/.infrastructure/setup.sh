@@ -30,7 +30,8 @@ fi
 
 ### Experiment configuration
 
-TASK_TIME_LIMIT=360
+TASK_TIME_LIMIT=360 # In seconds
+TASK_SET_TIME_LIMIT=$(( 25 * 60 )) # In seconds
 
 # Establish the server information
 SERVER_HOST="https://homes.cs.washington.edu"
@@ -202,6 +203,7 @@ show_expected() {
 # This function always writes to the log.
 precmd_func() {
   time_elapsed=${SECONDS}
+  taskset_timestamp_end=$(date +%s)
 
   local user_command="$(cat "${INFRA_DIR}/.command")"
 
@@ -212,8 +214,27 @@ precmd_func() {
       fi
   fi
 
+  task_set_time_elapsed=$(( taskset_timestamp_end - taskset_timestamp_start))
+  
+  # Checks if the participant hasn't ran out of time for the current taskset
+  if [ ! -z ${taskset_timestamp_start+x} ] && (( task_set_time_elapsed >= TASK_SET_TIME_LIMIT )) ; then
+    echo $SLINE
+    echo "The time allocated for part ${experiment_half} of the experiment is over."
+    echo "Please follow the new instructions below."
+    echo ""
+
+    status="set-timeout"
+    unset taskset_timestamp_start
+
+    # Move task to next part or end.
+    if (( task_num <= TASKS_SIZE / 2 )) ; then
+      task_num=$(( TASKS_SIZE / 2 ))
+    else
+      task_num=${TASKS_SIZE}
+    fi
+
   # Checks if the user has run out of time.
-  if (( time_elapsed >= TASK_TIME_LIMIT )) && [[ "${INF_TRAINING:-false}" == "false" && "${TEL_TRAINING:-false}" == "false" ]] ; then
+  elif (( time_elapsed >= TASK_TIME_LIMIT )) && [[ "${INF_TRAINING:-false}" == "false" && "${TEL_TRAINING:-false}" == "false" ]] ; then
     echo "You have run out of time for task ${task_num}."
 
     status="timeout"
@@ -257,6 +278,7 @@ precmd_func() {
   write_log
   if [[ "${status}" == "skip" ]] || \
      [[ "${status}" == "timeout" ]] || \
+     [[ "${status}" == "set-timeout" ]] || \
      [[ "${status}" == "success" ]]; then
     next_task
   elif [[ -f "${INFRA_DIR}/.noprint" ]]; then
