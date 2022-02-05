@@ -2,7 +2,7 @@
 load ../libs/setup
 
 @test "start_task resets time variables" {
-  local SLEEP_TIME=5
+  local SLEEP_TIME=2
   local ACCEPTABLE_TIME=$((SLEEP_TIME / 2))
   local time_elapsed=$SECONDS
   local task_code='a'
