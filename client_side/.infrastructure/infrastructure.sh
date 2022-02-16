@@ -123,7 +123,7 @@ tellina_training() {
   echo "In this experiment, we are asking you to try out Tellina, a novel tool that"
   echo "helps developers write Bash one-liners."
   echo ""
-  echo "Tellina takes in the description of what you want to in English and"
+  echo "Tellina takes in the description of what you want to do in English and"
   echo "returns corresponding Bash one-liners."
   echo ""
   echo "For example, given the sentence: "
