@@ -49,6 +49,8 @@ BUILD_TARGET=distribution
 RM=rm -rf
 ZIP=zip -qr
 
+TIMESTAMP=$(shell date +%Y-%m-%dT%H-%M-%S)
+
 #########################
 ## Tasks
 #########################
@@ -72,6 +74,12 @@ distribute: $(ZIP_DIST_NAME) dist-static dist-backend
 # Publish the distribution to the production host folder.
 publish: test distribute
 	@echo "Publishing $(BUILD_TARGET)..."
+	
+	@echo "Saving existing log file with timestamp $(TIMESTAMP)..."
+	@scp -p $(HOST):$(PUBLIC_SITE)/backend/log.csv $(HOST):$(PUBLIC_SITE)/backend/log-$(TIMESTAMP).csv
+	@scp -p $(HOST):$(PUBLIC_SITE)/backend/log.csv log-$(TIMESTAMP).csv
+
+	@echo "Uploading new version, overriden files..."
 	@scp -pr $(BUILD_TARGET)/* $(HOST):$(PUBLIC_SITE)
 
 # Publish the distribution to the testing host folder.
