@@ -67,8 +67,6 @@ general_training() {
   echo "  you cannot solve a task using multiple commands at the command line; you must"
   echo "  use a bash one-liner to combine all the operations you wish to perform."
   echo ""
-  echo "- You can use the 'expected' command to show the expected results for this task."
-  echo ""
   echo "- You can use 'ls' and 'man' to explore the experiment's file system or "
   echo "  look up information about a command directly in the terminal without having"
   echo "  the Meld window appearing."
@@ -93,6 +91,9 @@ general_training() {
   done
 
   echo "Please take an instant to read the description of the available commands."
+  echo ""
+  echo "- Note that you can use the 'expected' command to show the expected "
+  echo "  results for this task."
   echo ""
   read -n 1 -s -r -p "When you're ready to continue, press any key..."
   echo ""
