@@ -298,8 +298,15 @@ next_task() {
 
     if (( task_num == 1 )) || (( task_num == ( TASKS_SIZE / 2 ) + 1 )) || (( is_recovery == 1 )); then
       print_treatment
-      is_recovery=0
       taskset_timestamp_start=$(date +%s) # Count in seconds
+
+      # If recovery, remove elapsed time from taskset start.
+      if [[ -f "${INFRA_DIR}/.taskset_elapsed" ]] && (( is_recovery == 1 )); then
+        already_elapsed=$(cat "${INFRA_DIR}/.taskset_elapsed")
+        taskset_timestamp_start=$(( taskset_timestamp_start - already_elapsed))
+      fi
+      
+      is_recovery=0
     fi 
   fi
 

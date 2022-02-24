@@ -177,6 +177,14 @@ source "${INFRA_DIR}"/bash-preexec.sh
 preexec_func() {
   command_dir=$PWD
   echo "$1" > "${INFRA_DIR}/.command"
+
+  # Save elapsed time for the current taskset in case we need to recover.
+  if [ ! -z ${taskset_timestamp_start+x} ]; then
+    taskset_timestamp_end=$(date +%s)
+    task_set_time_elapsed=$(( taskset_timestamp_end - taskset_timestamp_start))
+    echo "${task_set_time_elapsed}" > "${INFRA_DIR}/.taskset_elapsed"
+  fi
+
 }
 
 # Shows expected result for the current task.
