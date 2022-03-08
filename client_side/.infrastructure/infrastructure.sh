@@ -22,11 +22,11 @@ start_experiment() {
   echo "In this study, you will be presented with 12 short tasks in Bash."
   echo "For example: Show the number of lines in file foo.txt."
   echo ""
-  echo "We ask you to try to solve each task with a Bash one-liner."
+  echo "We ask you to solve each task with a Bash one-liner."
   echo "For example: cat foo.txt | wc -l"
   echo ""
-  echo "The experiment is divided in two parts of 6 tasks each. Each part will have"
-  echo "instructions describing the tools you can use."
+  echo "The experiment is divided in two parts of 6 tasks each."
+  echo "Each part will have instructions describing the tools you can use."
   echo ""
 
     # Show these instructions if this is not a recovery.
@@ -34,7 +34,7 @@ start_experiment() {
       echo "Before starting the first task, you will get familiar with the"
       echo "experiment's terminal and commands through a brief training."
       echo ""
-      read -n 1 -s -r -p "Press any key to start the training..."
+      read -n 1 -s -r -p "Press the ENTER key to start the training..."
       echo ""
     fi
     echo ""
@@ -89,7 +89,7 @@ general_training() {
   echo "At any time, you can type 'helpme' to print the available commands to help you."
   echo "Let's give it a try:"
 
-  while read -p "Please type 'helpme' (without the apostrophes):" type_helpme; do
+  while read -p "Please type 'helpme' (without the apostrophes): " type_helpme; do
     if [[ $type_helpme == "helpme" ]]; then
         echo ""
         show_help;
@@ -97,11 +97,6 @@ general_training() {
     fi
   done
 
-  echo "Please take an instant to read the description of the available commands."
-  echo ""
-  echo "- Note that you can use the 'expected' command to show the expected "
-  echo "  results for this task."
-  echo ""
   read -n 1 -s -r -p "When you're ready to continue, press any key..."
   echo ""
   echo ""
@@ -123,8 +118,8 @@ tellina_training() {
   echo "In this experiment, we are asking you to try out Tellina, a novel tool that"
   echo "helps developers write Bash one-liners."
   echo ""
-  echo "Tellina takes in the description of what you want to do in English and"
-  echo "returns corresponding Bash one-liners."
+  echo "Tellina takes in the description of what you want to do as an English"
+  echo "sentence, and it returns a corresponding Bash one-liner."
   echo ""
   echo "For example, given the sentence: "
   echo "   'Remove all pdf files in my current directory'"
@@ -142,8 +137,7 @@ tellina_training() {
   echo "Please visit ${TELLINA_WEBSITE}"
   echo "to access Tellina."
   echo ""
-  echo "- Get acquainted with the website's interface."
-  echo "  -> There are three main sections: 'The top search bar', 'Sample Questions',"
+  echo "The website has three main sections: 'The top search bar', 'Sample Questions',"
   echo "     and 'Tips'. "
   echo ""
   read -n 1 -s -r -p "Press any key to continue..."
