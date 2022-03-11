@@ -48,20 +48,25 @@
       Open a <em>new</em> terminal (command shell) and maximize its height within the VM. 
       You might want to move the terminal to the right side of the screen so that the Meld window doesn't cover it.
     </li>
-    <li>Paste in the snippet below in the terminal you just created to download and install the experiment<sup>*†</sup>:
-  <pre><code>cd
-mkdir en2bash
-cd en2bash
-wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
-unzip -q experiment.zip
-bash</code></pre>
-  <p>
-    <small>* The experiment won't change anything in your system; it is entirely self-contained in the `en2bash` folder.</small></br>
-    <small>† If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (<code>wget --no-check-certificate ...</code>).</small>
-  </p>
+    <li>
+      Paste in the snippet below in the terminal you just created to download and install the experiment.
+      </br>The experiment won't change anything in your system; it is entirely self-contained in the `en2bash` folder.
+      <pre><code>cd
+    mkdir en2bash
+    cd en2bash
+    wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
+    unzip -q experiment.zip
+    bash</code></pre>
+      <p>
+        If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (<code>wget --no-check-certificate ...</code>).
+      </p>
     </li>
     <li>Then type <code>source experiment/configure</code> to launch the experiment client.</li>
-    <li>Read and follow the prompts in the terminal. The experiment will start with a short training session to familiarize yourself to the environment. Then, you will be asked to complete 12 short file system tasks.</li>
+    <li>
+      Read and follow the prompts in the terminal. 
+      The experiment will start with a short training session to familiarize yourself to the environment. 
+      Then, you will be asked to complete 12 short file system tasks.
+    </li>
   </ol>
 
     <p><strong>Survey:</strong></p>
