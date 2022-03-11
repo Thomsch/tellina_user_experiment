@@ -14,6 +14,10 @@ h3 {
   line-height: 1.2
 }
 
+li{
+  margin: 10px 0;
+}
+
 code {
   font-family: Consolas,"courier new";
   color: crimson;
