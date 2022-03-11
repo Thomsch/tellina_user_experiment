@@ -45,32 +45,50 @@
 
   <ol start="6">
     <li>
-      Open a <em>new</em> terminal (command shell) and maximize its height within the VM. 
-      You might want to move the terminal to the right side of the screen so that the Meld window doesn't cover it.
+      Open a <em>new</em> terminal (command shell).
     </li>
     <li>
       Paste in the snippet below in the terminal you just created to download and install the experiment.
       </br>The experiment won't change anything in your system; it is entirely self-contained in the `en2bash` folder.
       <pre><code>cd
-    mkdir en2bash
-    cd en2bash
-    wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
-    unzip -q experiment.zip
-    bash</code></pre>
+mkdir ~/en2bash
+cd ~/en2bash
+wget https://homes.cs.washington.edu/~tschweiz/research/en2bash-study/experiment.zip
+unzip -q experiment.zip</code></pre>
       <p>
         If you encounter a certificate issue with <code>wget</code>, use the <code>--no-check-certificate</code> option (i.e., <code>wget --no-check-certificate <em>url</em></i></code>).
       </p>
     </li>
-    <li>Then type <code>source experiment/configure</code> to launch the experiment client.</li>
+    <li>Launch the experiment client by typing the command below in the same or new terminal.
+<pre><code>cd ~/en2bash
+bash
+source experiment/configure
+</code></pre>
+    </li>
+    <li>
+      Please maximize the height of experiment client's terminal within the VM.
+      You might also want to move the terminal to the right side of the screen so that the Meld window doesn't cover it.
+    </li>
     <li>
       Read and follow the prompts in the terminal. 
-      The experiment will start with a short training session to familiarize yourself to the environment. 
-      Then, you will be asked to complete 12 short file system tasks.
+
+      <p>
+        The experiment will start with a short training session to familiarize yourself to the environment. 
+        Then, you will be asked to complete 12 short file system tasks.
+      </p>
+
+      <p>
+        If you get interrupted (or you type <code>Ctrl+C</code> or <code>exit</code> ), 
+        start a new terminal and 
+        follow the instructions from step 8 to resume the experiment where you left off.
+      </p>
+
+      <p>In case your command hangs, try to type <code>Ctrl+D</code> terminate it.</p>
     </li>
   </ol>
 
     <p><strong>Survey:</strong></p>
-    <ol start="10">
+    <ol start="11">
       <li>
         When you have finished the experiment, please complete this <a href="https://forms.gle/QieZPezcLSYoX2k26" target="_blank"> short survey</a> (5 minutes).
         We use your email from the survey to send the gift card.
@@ -78,7 +96,7 @@
     </ol>
 
     <p><strong>Clean-up:</strong> (optional)</p>
-    <ol start="11">
+    <ol start="12">
       <li>Remove the experiment files from your Home VM:<code>cd && rm -rf ~/en2bash</code>.</li>
     </ol>
 
