@@ -25,3 +25,25 @@ This file contains the training tasks and experiment tasks present in `client_si
 | Delete recursively all files containing 'glyph' in their filename under the current directory. | `find . -name '*glyph*' -delete` |
 | Copy './content/tips.md' in new directory './content/backup/'. | `mkdir -p "content/backup" && cp content/tips.md "content/backup"` |
 | Print the number of lines of './content/syllabus.md'. | `wc -l content/syllabus.md` |
+
+## Count
+Counting the commands in the original solutions, excluding the original traning tasks that were not sampled by this method (*Recursively remove all files in the './css/' directory* and *Recursively list all files in the current directory that are larger than 10kB*).
+
+### How many times each command appears in the original solutions?
+- `find` 8
+- `wc` 2
+- `grep` 1
+- `sort` 1
+- `cat` 1
+- `mv` 1
+- `cp` 1
+- `mkdir` 1
+- `comm` 1
+- `diff` 1
+- `du` 1
+- `rmdir` 1
+- `basename` 1
+
+### How many commands appears in the original solutions?
+- 1 command: 8 solutions
+- 2 commands: 7 solutions
