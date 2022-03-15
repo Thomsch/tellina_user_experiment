@@ -8,7 +8,7 @@ This file contains the training tasks and experiment tasks present in `client_si
 | Show the lines of `./content/review/review2.md` that are not in `./content/review/review1.md` | `comm -23 content/review/review2.md content/review/review1.md` |
 | Count the number of files in './content/labs/' and subdirectories recursively. | `find "content/labs" -type f \| wc -l` |
 | Remove all files except 'tips.md' in directory './content/'. | `find content/ -maxdepth 1 ! -name "tips.md" -type f -delete` |
-| Recursively remove all files in the './css/' directory. | `find /css/ -type f -delete` |
+| Recursively remove all files in the './css/' directory. | `find css -type f | xargs rm` |
 | List the names of the directories that are children of children of the './content/' directory. | `find content/ -mindepth 2 -maxdepth 2 -type d -exec basename {} \;` |
 | List recursively all the non-markdown files in the current directory. | `find . -type f ! -name "*.md"` |
 | Delete recursively all markdown files starting with a number under the current directory. | `find . -type f -name "[[:digit:]]*.md" -delete` |
