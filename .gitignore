@@ -19,3 +19,6 @@ tags
 *.tar*
 distribution/
 experiment
+
+# Backup logs
+logs/
