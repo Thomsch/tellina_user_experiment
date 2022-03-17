@@ -58,7 +58,8 @@ general_training() {
   echo "For each task in this experiment, please write a Bash one-liner in this terminal"
   echo "that satisfies the task's prompt."
   echo ""
-  echo "-> If your one-liner solves the task, you will be directed to the next task."
+  echo "-> If your one-liner solves the task, the terminal will print 'Success!' and "
+  echo "   you will be directed to the next task."
   echo "-> If your one-liner is incorrect, a GUI window will pop up to show you the"
   echo "  difference between your output and the expected output."
   echo ""
@@ -384,6 +385,7 @@ verify_task() {
   case $exit_code in
     0)
       status="success"
+      echo "Success!"
       ;;
     1)
       echo ""
