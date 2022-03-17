@@ -227,14 +227,14 @@ precmd_func() {
   # Checks if the participant hasn't ran out of time for the current taskset
   if [ ! -z ${taskset_timestamp_start+x} ] && (( task_set_time_elapsed >= TASK_SET_TIME_LIMIT )) ; then
     echo $SLINE
-    echo "The time allocated for part ${experiment_half} of the experiment is over."
+    echo "The time allocated for half ${experiment_half} of the experiment is over."
     echo "Please follow the new instructions below."
     echo ""
 
     status="set-timeout"
     unset taskset_timestamp_start
 
-    # Move task to next part or end.
+    # Move task to the start of next half or end.
     if (( task_num <= TASKS_SIZE / 2 )) ; then
       task_num=$(( TASKS_SIZE / 2 ))
     else

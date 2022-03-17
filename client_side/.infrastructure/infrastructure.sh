@@ -25,8 +25,8 @@ start_experiment() {
   echo "We ask you to solve each task with a Bash one-liner."
   echo "For example: cat foo.txt | wc -l"
   echo ""
-  echo "The experiment is divided in two parts of 6 tasks each."
-  echo "Each part has instructions describing the tools you can use for that part."
+  echo "The experiment is divided in two halves of 6 tasks each."
+  echo "Each half has instructions describing the tools you can use for that half."
   echo ""
 
     # Show these instructions if this is not a recovery.
@@ -107,7 +107,7 @@ general_training() {
   echo ""
   echo "- See what happens when you enter the right command (you can use any"
   echo "  resource you want)."
-  echo "  -> You will proceed to the first part of the experiment!"
+  echo "  -> You will proceed to the first half of the experiment!"
   echo ""
 }
 
@@ -133,8 +133,7 @@ tellina_training() {
   read -n 1 -s -r -p "Press any key to continue..."
   echo ""
   echo ""
-  echo "You may use Tellina in this part of the experiment (6 tasks),"
-  echo "but not for the other part of the experiment (6 different tasks)."
+  echo "You may use Tellina in this half of the experiment (6 tasks)."
   echo ""
   echo "Please visit"
   echo "  ${TELLINA_WEBSITE}"
@@ -180,7 +179,7 @@ tellina_training() {
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo "=== Part ${experiment_half}/2 ==================================================================="
+  echo "=== Half ${experiment_half}/2 ==================================================================="
   echo ""
   echo "Instructions for this half of the experiment (read carefully):"
   echo "- You CAN use any online resources and man pages."
@@ -198,7 +197,7 @@ print_treatment() {
   echo "- Please stay in the current directory."
   echo "- You have a 6-minute limit per task. Take your time!"
   echo ""
-  read -n 1 -s -r -p "Press any key to start this part..."
+  read -n 1 -s -r -p "Press any key to start this half of the experiment..."
   echo ""
   echo ""
 }
