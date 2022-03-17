@@ -133,8 +133,6 @@ tellina_training() {
   read -n 1 -s -r -p "Press any key to continue..."
   echo ""
   echo ""
-  echo "You may use Tellina in this half of the experiment (6 tasks)."
-  echo ""
   echo "Please visit"
   echo "  ${TELLINA_WEBSITE}"
   echo "now to access Tellina."
@@ -182,12 +180,13 @@ print_treatment() {
   echo "=== Half ${experiment_half}/2 ==================================================================="
   echo ""
   echo "Instructions for this half of the experiment (read carefully):"
-  echo "- You CAN use any online resources and man pages."
+  echo "- You MAY use any online resources and man pages."
   if [[ "$treatment" == "T" ]]; then
-    echo "- You CAN use Tellina (${TELLINA_WEBSITE})"
+    echo "- You MAY use Tellina in this half of the experiment (6 tasks)"
+    echo "  ${TELLINA_WEBSITE}"
   else
     if (( task_num >= TASKS_SIZE / 2 + 1 )); then
-      echo "- You MUST NOT use Tellina."
+      echo "- You MUST NOT use Tellina in this half of the experiment (6 tasks)"
     fi
   fi
 
