@@ -15,7 +15,7 @@ This file contains the training tasks and experiment tasks present in `client_si
 | Show which files differ recursively between './content/labs/' and './content/lessons/'. | `diff -qr content/labs/ content/lessons/` |
 | Recursively list all files in the current directory that are larger than 10kB. | `find . -size +10k` |
 | Find all lines containing 'why' (case insensitive) in all files containing 'review' in their filename in the current directory and subdirectories recursively. | `find . -name *review* -exec grep -Hni 'why' {} \;` |
-| Show the size of files and directories in 'content/' in the expected human-friendly format, ordered by size. | `du -hs content/* \| sort -hr` |
+| Show the size of files and directories in 'content/' ordered by size. | `du -hs content/* \| sort -hr` |
 
 ## Training Tasks
 |Rewritten Prompt|Original Solution|
