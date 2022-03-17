@@ -118,7 +118,6 @@ HLINE="-------------------------------------------------------------------------
 # This is because aliases can't set variables and skip needs to set $status
 # to "skip". precmd_func checks the contents.
 alias skip='echo "skip" > ${INFRA_DIR}/.noverify; touch "${INFRA_DIR}/.noprint"'
-alias task='print_task; touch "${INFRA_DIR}"/.noverify; touch "${INFRA_DIR}/.noprint"'
 alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
 alias expected='show_expected; touch ${INFRA_DIR}/.noverify'
 
@@ -126,7 +125,6 @@ show_help() {
   echo "--- Help -----------------------------------------------------------------------";
   echo "Available commands:";
   echo "expected shows a diff with the expected result.";
-  echo "task     prints the description of the current task.";
   echo "skip     gives up on the current task and starts the next task.";
   echo "helpme   prints this help message.";
   echo ""
