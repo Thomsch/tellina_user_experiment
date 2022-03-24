@@ -25,8 +25,8 @@ start_experiment() {
   echo "We ask you to solve each task with a Bash one-liner."
   echo "For example: cat foo.txt | wc -l"
   echo ""
-  echo "The experiment is divided in two parts of 6 tasks each."
-  echo "Each part has instructions describing the tools you can use for that part."
+  echo "The experiment is divided in two halves of 6 tasks each."
+  echo "Each half has instructions describing the tools you can use for that half."
   echo ""
 
     # Show these instructions if this is not a recovery.
@@ -58,19 +58,20 @@ general_training() {
   echo "For each task in this experiment, please write a Bash one-liner in this terminal"
   echo "that satisfies the task's prompt."
   echo ""
-  echo "-> If your one-liner solves the task, you will be directed to the next task."
+  echo "-> If your one-liner solves the task, the terminal will print 'Success!' and "
+  echo "   you will be directed to the next task."
   echo "-> If your one-liner is incorrect, a GUI window will pop up to show you the"
   echo "  difference between your output and the expected output."
   echo ""
   echo "- You can retry as many times as you like, within a 6-minute deadline."
   echo ""
-  echo "- The working directory is reset between attempts. This means"
-  echo "  you cannot solve a task using multiple commands at the command line; you must"
-  echo "  use a bash one-liner to combine all the operations you wish to perform."
+  echo "- The current directory and the experiment's filesystem are reset between"
+  echo "  attempts. This means you cannot solve a task using multiple commands; you must"
+  echo "  use a one-liner to combine all the operations you wish to perform."
   echo ""
   echo "- You can use 'ls' and 'man' to explore the experiment's file system or "
-  echo "  look up information about a command directly in the terminal without having"
-  echo "  the Meld window appearing."
+  echo "  lookup information about a command directly in the terminal without having"
+  echo "  the Meld window appear."
   echo ""
   echo "- Please stay in the current directory. That is, do not use commands such"
   echo "  as 'cd' or 'pushd' to change the working directory."
@@ -107,7 +108,7 @@ general_training() {
   echo ""
   echo "- See what happens when you enter the right command (you can use any"
   echo "  resource you want)."
-  echo "  -> You will proceed to the first part of the experiment!"
+  echo "  -> You will proceed to the first half of the experiment!"
   echo ""
 }
 
@@ -132,9 +133,6 @@ tellina_training() {
   echo ""
   read -n 1 -s -r -p "Press any key to continue..."
   echo ""
-  echo ""
-  echo "You may use Tellina in this part of the experiment (6 tasks),"
-  echo "but not for the other part of the experiment (6 different tasks)."
   echo ""
   echo "Please visit"
   echo "  ${TELLINA_WEBSITE}"
@@ -180,15 +178,16 @@ tellina_training() {
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo "=== Part ${experiment_half}/2 ==================================================================="
+  echo "=== Half ${experiment_half}/2 ==================================================================="
   echo ""
   echo "Instructions for this half of the experiment (read carefully):"
-  echo "- You CAN use any online resources and man pages."
+  echo "- You MAY use any online resources and man pages."
   if [[ "$treatment" == "T" ]]; then
-    echo "- You CAN use Tellina (${TELLINA_WEBSITE})"
+    echo "- You MAY use Tellina in this half of the experiment (6 tasks)"
+    echo "  ${TELLINA_WEBSITE}"
   else
     if (( task_num >= TASKS_SIZE / 2 + 1 )); then
-      echo "- You MUST NOT use Tellina."
+      echo "- You MUST NOT use Tellina in this half of the experiment (6 tasks)"
     fi
   fi
 
@@ -198,7 +197,7 @@ print_treatment() {
   echo "- Please stay in the current directory."
   echo "- You have a 6-minute limit per task. Take your time!"
   echo ""
-  read -n 1 -s -r -p "Press any key to start this part..."
+  read -n 1 -s -r -p "Press any key to start this half of the experiment..."
   echo ""
   echo ""
 }
@@ -386,6 +385,7 @@ verify_task() {
   case $exit_code in
     0)
       status="success"
+      echo "Success!"
       ;;
     1)
       echo ""

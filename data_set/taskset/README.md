@@ -14,8 +14,8 @@ This file contains the training tasks and experiment tasks present in `client_si
 | Delete recursively all markdown files starting with a number under the current directory. | `find . -type f -name "[[:digit:]]*.md" -delete` |
 | Show which files differ recursively between './content/labs/' and './content/lessons/'. | `diff -qr content/labs/ content/lessons/` |
 | Recursively list all files in the current directory that are larger than 10kB. | `find . -size +10k` |
-| Find all lines containing 'why' (case insensitive) in files with 'review' in their filename recursively contained in the current directory. | `find . -name *review* -exec grep -Hni 'why' {} \;` |
-| Show the size of files and directories in 'content/' in the expected human-friendly format, ordered by size. | `du -hs content/* \| sort -hr` |
+| Find all lines containing 'why' (case insensitive) in all files containing 'review' in their filename in the current directory and subdirectories recursively. | `find . -name *review* -exec grep -Hni 'why' {} \;` |
+| Show the size of files and directories in 'content/' ordered by size. | `du -hs content/* \| sort -hr` |
 
 ## Training Tasks
 |Rewritten Prompt|Original Solution|
@@ -24,7 +24,7 @@ This file contains the training tasks and experiment tasks present in `client_si
 | Display the content of the CSS file in the './css/' directory. | `cat css/app.css` |
 | Delete recursively all files containing 'glyph' in their filename under the current directory. | `find . -name '*glyph*' -delete` |
 | Copy './content/tips.md' in new directory './content/backup/'. | `mkdir -p "content/backup" && cp content/tips.md "content/backup"` |
-| Print the number of lines of './content/syllabus.md'. | `wc -l content/syllabus.md` |
+| Print the number of lines of './content/syllabus.md'. | `cat content/syllabus.md | wc -l ` |
 
 ## Count
 Counting the commands in the original solutions, excluding the original traning tasks that were not sampled by this method (*Recursively remove all files in the './css/' directory* and *Recursively list all files in the current directory that are larger than 10kB*).
@@ -34,7 +34,7 @@ Counting the commands in the original solutions, excluding the original traning 
 - `wc` 2
 - `grep` 1
 - `sort` 1
-- `cat` 1
+- `cat` 2
 - `mv` 1
 - `cp` 1
 - `mkdir` 1

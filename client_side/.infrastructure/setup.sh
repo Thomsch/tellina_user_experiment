@@ -118,17 +118,16 @@ HLINE="-------------------------------------------------------------------------
 # This is because aliases can't set variables and skip needs to set $status
 # to "skip". precmd_func checks the contents.
 alias skip='echo "skip" > ${INFRA_DIR}/.noverify; touch "${INFRA_DIR}/.noprint"'
-alias task='print_task; touch "${INFRA_DIR}"/.noverify; touch "${INFRA_DIR}/.noprint"'
 alias helpme='show_help; touch ${INFRA_DIR}/.noverify'
 alias expected='show_expected; touch ${INFRA_DIR}/.noverify'
 
 show_help() {
   echo "--- Help -----------------------------------------------------------------------";
   echo "Available commands:";
-  echo "expected shows a diff with the expected result.";
-  echo "task     prints the description of the current task.";
-  echo "skip     gives up on the current task and starts the next task.";
-  echo "helpme   prints this help message.";
+  echo "expected    shows a diff between the initial file system and the expected";
+  echo "            filesystem.";
+  echo "skip        gives up on the current task and starts the next task.";
+  echo "helpme      prints this help message.";
   echo ""
 }
 
@@ -227,14 +226,14 @@ precmd_func() {
   # Checks if the participant hasn't ran out of time for the current taskset
   if [ ! -z ${taskset_timestamp_start+x} ] && (( task_set_time_elapsed >= TASK_SET_TIME_LIMIT )) ; then
     echo $SLINE
-    echo "The time allocated for part ${experiment_half} of the experiment is over."
+    echo "The time allocated for half ${experiment_half} of the experiment is over."
     echo "Please follow the new instructions below."
     echo ""
 
     status="set-timeout"
     unset taskset_timestamp_start
 
-    # Move task to next part or end.
+    # Move task to the start of next half or end.
     if (( task_num <= TASKS_SIZE / 2 )) ; then
       task_num=$(( TASKS_SIZE / 2 ))
     else
@@ -277,7 +276,7 @@ precmd_func() {
      [[ "${TEL_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" != "success" ]]; then
       if [[ "${status}" == "skip" ]]; then
-        echo "You can't givup during training."
+        echo "Skipping is disabled during training."
       fi
       status="incomplete"
     fi
