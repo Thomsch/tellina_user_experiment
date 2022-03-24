@@ -275,7 +275,7 @@ precmd_func() {
      [[ "${TEL_TRAINING:-false}" == "true" ]]; then
     if [[ "${status}" != "success" ]]; then
       if [[ "${status}" == "skip" ]]; then
-        echo "You can't givup during training."
+        echo "Skipping is disabled during training."
       fi
       status="incomplete"
     fi
