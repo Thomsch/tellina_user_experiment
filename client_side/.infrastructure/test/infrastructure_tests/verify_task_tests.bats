@@ -47,6 +47,30 @@ export TASKS_DIR
   test_verify_task "a" "$cmd" "success" 0
 }
 
+@test "verify_task task_i accept implicit relative path" {
+  local cmd
+
+  cmd=$'diff -qr content/labs/ content/lessons/'
+  test_verify_task "i" "$cmd" "success" 0
+}
+
+@test "verify_task task_i accept explicit relative path" {
+  local cmd
+
+  cmd=$'diff -qr ./content/labs/ ./content/lessons/'
+  test_verify_task "i" "$cmd" "success" 0
+}
+
+@test "verify_task task_i accept mixed relative path" {
+  local cmd
+
+  cmd=$'diff -qr content/labs/ ./content/lessons/'
+  test_verify_task "i" "$cmd" "success" 0
+
+    cmd=$'diff -qr ./content/labs/ content/lessons/'
+  test_verify_task "i" "$cmd" "success" 0
+}
+
 @test "verify_task file system task failure" {
   local cmd # should 'single quoted'
 

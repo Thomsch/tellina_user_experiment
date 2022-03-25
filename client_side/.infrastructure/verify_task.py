@@ -174,32 +174,17 @@ def verify(normalized_output_file, task_code, check_fs):
         os.environ['TASKS_DIR'], "{task}/{task}.{out_type}.out"
             .format(task=task, out_type="fs" if check_fs else "select"))
 
-    # # special verification for task b
-    # if task_code == 'b':
-    #     files_in_tar = set()
-    #     try:
-    #         tar = tarfile.open(os.path.join(os.environ['FS_DIR'], 'html.tar'))
-    #         for member in tar.getmembers():
-    #             files_in_tar.add(os.path.basename(member.name))
-    #         if files_in_tar != {'index.html', 'home.html', 'labs.html',
-    #                             'lesson.html', 'menu.html', 'navigation.html'}:
-    #             print('-------------------------------------------')
-    #             print('html.tar does not contain the correct files')
-    #             print('contains: ' + str(files_in_tar))
-    #             print('should be: ' + str({'index.html',
-    #                                        'home.html',
-    #                                        'labs.html',
-    #                                        'lesson.html',
-    #                                        'menu.html',
-    #                                        'navigation.html'}))
-    #             return False
-    #     except tarfile.ReadError:
-    #         # valid tar file does not exist on the target path
-    #         print('--------------------------------')
-    #         print('html.tar is not a valid tar file')
-    #         return False
-    #     except IOError:
-    #         pass
+    # Remove non leading "./" for output in task i.
+    if task_code == 'i':
+        clean_lines = []
+        with open(normalized_output_file, 'r') as file:
+            for line in file.read().splitlines():
+                clean_line = line.replace("./", "")
+                clean_lines.append(clean_line)
+        
+        with open(normalized_output_file, 'w') as file:
+            for line in clean_lines:
+                print(line, file=file)
 
     # compare normalized output file and task verification file
     files_match = filecmp.cmp(normalized_output_file, task_verify_file)
