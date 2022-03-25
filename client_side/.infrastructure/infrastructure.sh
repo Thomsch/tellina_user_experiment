@@ -73,9 +73,6 @@ general_training() {
   echo "  lookup information about a command directly in the terminal without having"
   echo "  the Meld window appear."
   echo ""
-  echo "- Please stay in the current directory. That is, do not use commands such"
-  echo "  as 'cd' or 'pushd' to change the working directory."
-  echo ""
   read -n 1 -s -r -p "Press any key to continue..."
   echo ""
   echo ""
@@ -316,7 +313,6 @@ next_task() {
 # Prints the description of the current task.
 start_task() {
   reset_fs
-  cd ${FS_DIR}
 
   SECONDS=0
   time_elapsed=0

@@ -283,6 +283,8 @@ precmd_func() {
   fi
 
   write_log
+  cd ${FS_DIR} # Resets the working directory in case it has been changed.
+
   if [[ "${status}" == "skip" ]] || \
      [[ "${status}" == "timeout" ]] || \
      [[ "${status}" == "set-timeout" ]] || \
