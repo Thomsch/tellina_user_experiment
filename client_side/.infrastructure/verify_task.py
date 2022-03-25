@@ -137,8 +137,6 @@ def main():
                     sys.exit(VERIFICATION_SUCCESS)
                 else:
                     sys.exit(STANDARD_OUT_FAILURE)
-        print("This can't happen")
-        sys.exit(UNEXPECTED_FAILURE)
     except (OSError, subprocess.CalledProcessError) as e:
         print(e)
         sys.exit(SUBPROCESS_FAILURE)
