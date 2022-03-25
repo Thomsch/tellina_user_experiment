@@ -22,3 +22,6 @@ experiment
 
 # Backup logs
 logs/
+
+# Ignore VSCode settings
+.vscode/settings.json
