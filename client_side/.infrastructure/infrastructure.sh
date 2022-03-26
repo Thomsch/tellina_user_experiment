@@ -173,7 +173,12 @@ tellina_training() {
 # Prints the list of resources that the user is allowed to use based on the
 # current treatment.
 print_treatment() {
-  echo "=== Half ${experiment_half}/2 ==================================================================="
+  if (( ${experiment_half} == 1 )); then
+  echo "=== First half (${experiment_half}/2) ==========================================================="
+  else # (experiment_half == 2)
+  echo "=== Second half (${experiment_half}/2) =========================================================="
+  fi
+  
   echo ""
   echo "Instructions for this half of the experiment (read carefully):"
   echo "- You MAY use any online resources and man pages."
