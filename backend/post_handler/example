@@ -8,6 +8,7 @@ TASK_NO=42
 TREATMENT="NoTellina"
 COMMAND="find . -type f -name \"*.txt\""
 TIME_ELAPSED=$SECONDS
+TIME_ELAPSED_TASK_SET=30
 STATUS="success"
 
 curl -X POST ${HOST}/${ROUTE} \
@@ -16,6 +17,7 @@ curl -X POST ${HOST}/${ROUTE} \
   -d b="$TASK_ORDER" \
   -d d="$TASK_NO" \
   -d e="$TREATMENT" \
-  -d g="$TIME_ELAPSED" \
+  -d f="$TIME_ELAPSED" \
+  -d g="$TIME_ELAPSED_TASK_SET" \
   -d h="$STATUS" \
-  -d f="$COMMAND"
+  -d i="$COMMAND"

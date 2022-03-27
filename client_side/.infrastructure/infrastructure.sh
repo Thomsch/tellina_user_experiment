@@ -418,6 +418,7 @@ write_log() {
     -d task_code="$task_code" \
     -d treatment="$treatment" \
     -d time_elapsed="$time_elapsed" \
+    -d time_elapsed_task_set="$task_set_time_elapsed" \
     -d status="$status" \
     -d command="$(cat "${INFRA_DIR}/.command")" &>> ${INF_LOG_FILE}
 }
