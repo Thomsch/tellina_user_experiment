@@ -21,7 +21,7 @@ This file contains the training tasks and experiment tasks present in `client_si
 |Rewritten Prompt|Original Solution|
 -------|-----------------
 | Rename file './README.md' to './README.txt'. | `mv README.md README.txt` |
-| Display the content of the CSS file in the './css/' directory. | `cat css/app.css` |
+| Display the content of ./css/app.css. | `cat css/app.css` |
 | Delete recursively all files containing 'glyph' in their filename under the current directory. | `find . -name '*glyph*' -delete` |
 | Copy './content/tips.md' in new directory './content/backup/'. | `mkdir -p "content/backup" && cp content/tips.md "content/backup"` |
 | Print the number of lines of './content/syllabus.md'. | `cat content/syllabus.md | wc -l ` |
