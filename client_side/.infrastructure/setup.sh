@@ -17,10 +17,8 @@ if ! xhost &>> ${INF_LOG_FILE}; then
   return 1
 fi
 if ! which meld &>> ${INF_LOG_FILE}; then
-  echo "The program Meld is not installed. Please switch to a machine that uses it or"
-  echo "install it."
-  echo "For Mac OS X, see the \"Getting it\" section of: https://meldmerge.org/."
-  echo "For Ubuntu, run:  sudo apt-get install meld"
+  echo "The program Meld is not installed. Please install it with"
+  echo "sudo yum -qy install meld"
   return 1
 fi
 
