@@ -428,8 +428,6 @@ verify_task() {
   return $exit_code
 }
 
-
-
 # Writes the command in `.command` to the log file on the server with a POST
 # request.
 write_log() {
@@ -464,6 +462,8 @@ end_experiment() {
   echo "Please fill out a <5 minute survey at https://forms.gle/xjAqf1YrvfKMZunL8 ."
   echo ""
   echo "Thank you for your participation!"
+
+  trap - SIGINT
 
   return 0
 }

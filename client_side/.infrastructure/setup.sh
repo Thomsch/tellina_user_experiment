@@ -296,4 +296,6 @@ precmd_func() {
   fi
 }
 
+trap "" SIGINT
+
 start_experiment
