@@ -130,6 +130,8 @@ show_help() {
   echo ""
 }
 
+trap "" SIGINT # Prevents interruption by ctrl-c or cmd-c for the experiment.
+
 ### Greet the participant
 echo "${SLINE}"
 if (( is_recovery == 1 )); then
@@ -295,7 +297,5 @@ precmd_func() {
     print_task
   fi
 }
-
-trap "" SIGINT
 
 start_experiment
