@@ -441,6 +441,8 @@ write_log() {
     -d time_elapsed_task_set="$task_set_time_elapsed" \
     -d status="$status" \
     -d command="$(cat "${INFRA_DIR}/.command")" >> ${INF_LOG_FILE} 2>&1
+
+    echo "$(date -u +%FT%TZ)", "$UW_NETID", "$TASK_ORDER", "$task_code", "$treatment", "$time_elapsed", "$task_set_time_elapsed", "$status", "$(cat "${INFRA_DIR}/.command")" >> /tmp/tellina-experiment.csv
 }
 
 # "Uninstalls" Bash Preexec by removing its triggers.
