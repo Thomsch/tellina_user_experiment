@@ -432,7 +432,7 @@ verify_task() {
 # request.
 write_log() {
   curl -s -X POST ${POST_HANDLER} \
-    -d client_time_stamp="$(date --utc +%FT%TZ)" \
+    -d client_time_stamp="$(date -u +%FT%TZ)" \
     -d user_id="$UW_NETID" \
     -d task_order="$TASK_ORDER" \
     -d task_code="$task_code" \
@@ -440,7 +440,7 @@ write_log() {
     -d time_elapsed="$time_elapsed" \
     -d time_elapsed_task_set="$task_set_time_elapsed" \
     -d status="$status" \
-    -d command="$(cat "${INFRA_DIR}/.command")" &>> ${INF_LOG_FILE}
+    -d command="$(cat "${INFRA_DIR}/.command")" >> ${INF_LOG_FILE} 2>&1
 }
 
 # "Uninstalls" Bash Preexec by removing its triggers.
