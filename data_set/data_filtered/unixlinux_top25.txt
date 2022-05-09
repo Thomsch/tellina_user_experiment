@@ -23,8 +23,3 @@ https://unix.stackexchange.com/questions/90106/
 https://unix.stackexchange.com/questions/260630/
 https://unix.stackexchange.com/questions/144208/
 https://unix.stackexchange.com/questions/60849/
-https://unix.stackexchange.com/questions/9597/
-https://unix.stackexchange.com/questions/65075/
-https://unix.stackexchange.com/questions/118577/
-https://unix.stackexchange.com/questions/131180/
-https://unix.stackexchange.com/questions/119894/single-command-to-login-to-ssh-and-run-program
