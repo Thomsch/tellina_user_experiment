@@ -23,7 +23,6 @@ import os
 import shutil
 import subprocess
 import filecmp
-import tarfile
 
 # Exit codes
 VERIFICATION_SUCCESS = 0
