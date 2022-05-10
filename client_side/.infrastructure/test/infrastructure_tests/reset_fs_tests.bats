@@ -24,6 +24,7 @@ load ../libs/setup
   export FS_DIR
   export USER_OUT
   export TASKS_DIR
+  export TMP_DIFF
 
   # We are using verify_task.py and the fact that it checks the integrity of the
   # original file system directory on a "select" task.

@@ -65,6 +65,10 @@ FS_SYNC_DIR="${INFRA_DIR}/file_system"
 USER_OUT="${INFRA_DIR}/user_out"
 mkdir -p "${USER_OUT}"
 
+# Contains actual and expected output files for comparison.
+TMP_DIFF="${INFRA_DIR}/tmp_diff"
+mkdir -p "${TMP_DIFF}"
+
 # Magic string to trigger the 'expected command'
 MAGIC_STRING_EXPECTED_COMMAND="MAGIC_STRING_EXPECTED_COMMAND"
 
@@ -195,7 +199,7 @@ show_expected() {
 
   "${INFRA_DIR}"/verify_task.py ${task_code} "${command_dir}" "${MAGIC_STRING_EXPECTED_COMMAND}"
 
-  (meld "/tmp/actual" "/tmp/expected" &)
+  (meld "${TMP_DIFF}/actual" "${TMP_DIFF}/expected" &)
 }
 
 # Executed after the user-entered command is executed.
@@ -268,7 +272,7 @@ precmd_func() {
     if ! verify_task "${command_dir}"; then
       # Starting a background task in a subshell silences the job ID and PID
       # output.
-      (meld "/tmp/actual" "/tmp/expected" &)
+      (meld "${TMP_DIFF}/actual" "${TMP_DIFF}/expected" &)
     fi
   fi
 

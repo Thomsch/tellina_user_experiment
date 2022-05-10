@@ -16,6 +16,8 @@ setup() {
 
   USER_OUT=$(mktemp -d)
 
+  TMP_DIFF="$(mktemp -d)"
+
   time_elapsed=0
 }
 
@@ -23,4 +25,5 @@ teardown() {
   find "${INFRA_DIR}" -type f -name ".*" -not -path "*/file_system/*" -delete
   rm -rf "${FS_DIR}"
   rm -rf "${USER_OUT}"
+  rm -rf "${TMP_DIFF}"
 }

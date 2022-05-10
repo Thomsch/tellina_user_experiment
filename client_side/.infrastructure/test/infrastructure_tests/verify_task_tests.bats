@@ -7,6 +7,7 @@ load ../libs/setup
 export FS_DIR
 export USER_OUT
 export TASKS_DIR
+export TMP_DIFF
 
 @test "verify_task select task success" {
   # Parameters for test_verify_task are

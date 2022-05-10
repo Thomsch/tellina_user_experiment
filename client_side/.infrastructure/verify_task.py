@@ -15,7 +15,7 @@ This script has the following exit codes:
 - 3: The output does not match expected and the task is a select task.
 
 In addition, two files called "actual" and "expected" will be created
-in /tmp/ if the verification fails.
+in TMP_DIFF_DIR if the verification fails.
 """
 
 import sys
@@ -34,8 +34,8 @@ SUBPROCESS_FAILURE   = 5
 
 # Gets all the environment variables
 FS_DIR = os.environ['FS_DIR']
-
 USER_OUT_DIR = os.environ['USER_OUT']
+TMP_DIFF_DIR = os.environ['TMP_DIFF']
 
 # Establishes files for all the outputs
 USER_STDERR = os.path.join(USER_OUT_DIR, 'std_err')
@@ -43,8 +43,8 @@ USER_STDERR = os.path.join(USER_OUT_DIR, 'std_err')
 USER_FS_FILE = os.path.join(USER_OUT_DIR, 'fs_out')
 USER_STDOUT_FILE = os.path.join(USER_OUT_DIR, 'std_out')
 
-ACTUAL_FILE = os.path.join('/tmp', 'actual')
-EXPECTED_FILE = os.path.join('/tmp', 'expected')
+ACTUAL_FILE = os.path.join(TMP_DIFF_DIR, 'actual')
+EXPECTED_FILE = os.path.join(TMP_DIFF_DIR, 'expected')
 
 # There are two types of tasks: those that expect output, and
 # those that expect a modification to the file system.
