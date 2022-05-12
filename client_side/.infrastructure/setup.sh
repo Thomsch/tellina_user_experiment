@@ -149,7 +149,7 @@ fi
 echo ""
 
 # Read non-empty UW NETID.
-while read -rp "Please enter your UW NetID: " UW_NETID; do
+while read -r -p "Please enter your UW NetID: " UW_NETID; do
     if [ -n "$UW_NETID" ]; then
         break
     fi

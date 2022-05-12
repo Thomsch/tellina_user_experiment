@@ -92,7 +92,7 @@ general_training() {
   echo "At any time, you can type 'helpme' to print the available commands to help you."
   echo "Let's give it a try:"
 
-  while read -pr "Please type 'helpme' (without the apostrophes): " type_helpme; do
+  while read -r -p "Please type 'helpme' (without the apostrophes): " type_helpme; do
     if [[ $type_helpme == "helpme" ]]; then
         echo ""
         show_help;
@@ -380,6 +380,7 @@ print_task() {
   fi
 
   cat "${TASKS_DIR}/task_${task_code}/task_${task_code}.json"
+  echo ""
 }
 
 # See documentation for ./verify_task.py for more details on what it does.
