@@ -46,7 +46,7 @@ INSTRUCTION_WEBSITE="https://bit.ly/en2bash-instructions" #https://homes.cs.wash
 # The absolute path to the user experiment directory
 EXP_DIR="$1"
 # The absolute path to the experiment's infrastructure directory
-INFRA_DIR="${EXP_DIR}/$(dirname ${BASH_SOURCE[0]})"
+INFRA_DIR="${EXP_DIR}/$(dirname "${BASH_SOURCE[0]}")"
 
 # Enables infrastructure functions.
 source "${INFRA_DIR}"/infrastructure.sh
@@ -149,8 +149,8 @@ fi
 echo ""
 
 # Read non-empty UW NETID.
-while read -p "Please enter your UW NetID: " UW_NETID; do
-    if [ ! -z $UW_NETID ]; then
+while read -rp "Please enter your UW NetID: " UW_NETID; do
+    if [ -n "$UW_NETID" ]; then
         break
     fi
 done
@@ -159,14 +159,14 @@ echo ""
 
 # Determine the task order based on a truncated md5sum hash of the username.
 # The has will return a number from 0 to 3.
-TASK_ORDER=${TASK_ORDERS_CODES[$((0x$(md5sum <<<${UW_NETID} | cut -c1) % 4))]}
+TASK_ORDER=${TASK_ORDERS_CODES[$((0x$(md5sum <<<"${UW_NETID}" | cut -c1) % 4))]}
 
 ################################################################################
 #                                  BASH PREEXEC                                #
 ################################################################################
 
 # Saves the old value of PROMPT_COMMAND, since Bash Preexec overwrites it.
-PROMPT_COMMAND_ORIG=${PROMPT_COMMAND}
+# PROMPT_COMMAND_ORIG=${PROMPT_COMMAND}
 
 # Install Bash preexec.
 source "${INFRA_DIR}"/bash-preexec.sh
@@ -183,7 +183,7 @@ preexec_func() {
   echo "$1" > "${INFRA_DIR}/.command"
 
   # Save elapsed time for the current taskset in case we need to recover.
-  if [ ! -z ${taskset_timestamp_start+x} ]; then
+  if [ -n "${taskset_timestamp_start+x}" ]; then
     taskset_timestamp_end=$(date +%s)
     task_set_time_elapsed=$(( taskset_timestamp_end - taskset_timestamp_start))
     echo "${task_set_time_elapsed}" > "${INFRA_DIR}/.taskset_elapsed"
@@ -197,7 +197,7 @@ show_expected() {
 
   pkill meld 2>> ${INF_LOG_FILE}
 
-  "${INFRA_DIR}"/verify_task.py ${task_code} "${command_dir}" "${MAGIC_STRING_EXPECTED_COMMAND}"
+  "${INFRA_DIR}"/verify_task.py "${task_code}" "${command_dir}" "${MAGIC_STRING_EXPECTED_COMMAND}"
 
   (meld "${TMP_DIFF}/actual" "${TMP_DIFF}/expected" &)
 }
@@ -217,7 +217,8 @@ precmd_func() {
   time_elapsed=${SECONDS}
   taskset_timestamp_end=$(date +%s)
 
-  local user_command="$(cat "${INFRA_DIR}/.command")"
+  local user_command # Splitting in two avoids masking return value (SC2155)
+  user_command="$(cat "${INFRA_DIR}/.command")"
 
   # Ignore exploratory commands from verification
   if [[ ! $user_command =~ \| ]]; then
@@ -229,7 +230,7 @@ precmd_func() {
   task_set_time_elapsed=$(( taskset_timestamp_end - taskset_timestamp_start))
   
   # Checks if the participant hasn't ran out of time for the current taskset
-  if [ ! -z ${taskset_timestamp_start+x} ] && (( task_set_time_elapsed >= TASK_SET_TIME_LIMIT )) ; then
+  if [ -n "${taskset_timestamp_start+x}" ] && (( task_set_time_elapsed >= TASK_SET_TIME_LIMIT )) ; then
     echo $SLINE
     echo "The time allocated for half ${experiment_half} of the experiment is over."
     echo "Please follow the new instructions below."
@@ -288,7 +289,8 @@ precmd_func() {
   fi
 
   write_log
-  cd ${FS_DIR} # Resets the working directory in case it has been changed.
+  
+  cd "${FS_DIR}" || exit # Resets the working directory in case it has been changed.
 
   if [[ "${status}" == "skip" ]] || \
      [[ "${status}" == "timeout" ]] || \

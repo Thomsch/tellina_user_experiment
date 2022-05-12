@@ -92,7 +92,7 @@ general_training() {
   echo "At any time, you can type 'helpme' to print the available commands to help you."
   echo "Let's give it a try:"
 
-  while read -p "Please type 'helpme' (without the apostrophes): " type_helpme; do
+  while read -pr "Please type 'helpme' (without the apostrophes): " type_helpme; do
     if [[ $type_helpme == "helpme" ]]; then
         echo ""
         show_help;
@@ -276,8 +276,8 @@ next_task() {
   check_and_update_training_status
 
   # Check if we need to switch the task set and the treatment
-  if (( task_num == TASKS_SIZE / 2 )) && [[ "${TEL_TRAINING:-false}" == "false" ]] && [[ "${task_code}" != $(get_training_code ${TELLINA_START_CODE} ${TELLINA_TRAINING_SIZE}) ]] && (( is_recovery != 1 )); then
-    echo ${SLINE}
+  if (( task_num == TASKS_SIZE / 2 )) && [[ "${TEL_TRAINING:-false}" == "false" ]] && [[ "${task_code}" != $(get_training_code "${TELLINA_START_CODE}" "${TELLINA_TRAINING_SIZE}") ]] && (( is_recovery != 1 )); then
+    echo "${SLINE}"
     echo "Way to go! You have finished the first half of the experiment!"
     echo ""
     begin_treatment 2
@@ -300,7 +300,7 @@ next_task() {
     fi
 
     general_training_num=$(( general_training_num + 1 ))
-    task_code=$(get_training_code ${GENERAL_START_CODE} ${general_training_num})
+    task_code=$(get_training_code "${GENERAL_START_CODE}" ${general_training_num})
     
   elif [[ ${TEL_TRAINING:-false} == "true" ]]; then
 
@@ -309,7 +309,7 @@ next_task() {
     fi
     
     tellina_training_num=$(( tellina_training_num + 1 ))
-    task_code=$(get_training_code ${TELLINA_START_CODE} ${tellina_training_num})
+    task_code=$(get_training_code "${TELLINA_START_CODE}" ${tellina_training_num})
 
   else
     task_code=$(get_task_code)
@@ -367,7 +367,7 @@ check_and_update_training_status() {
 
 # Prints the current task number and its description. Prints a special header if this is a training task.
 print_task() {
-  echo ${HLINE}
+  echo "${HLINE}"
 
   if [[ "${INF_TRAINING}" == "true" ]]; then
     echo "> Training ${general_training_num}/${GENERAL_TRAINING_SIZE} <"
@@ -379,7 +379,7 @@ print_task() {
     echo "Task: ${local_task_num}/${half_tasks_size}"
   fi
 
-  ${INFRA_DIR}/jq-linux64 -r '.description' \
+  "${INFRA_DIR}"/jq-linux64 -r '.description' \
     "${TASKS_DIR}/task_${task_code}/task_${task_code}.json"
 }
 
@@ -401,9 +401,11 @@ print_task() {
 verify_task() {
   # Verify the output of the previous command.
   local exit_code
-  local user_command="$(cat "${INFRA_DIR}/.command")"
+  local user_command
+  
+  user_command="$(cat "${INFRA_DIR}/.command")"
 
-  "${INFRA_DIR}"/verify_task.py ${task_code} "$1" ${user_command}
+  "${INFRA_DIR}"/verify_task.py "${task_code}" "$1" "${user_command}"
   exit_code=$?
 
   case $exit_code in
@@ -431,7 +433,7 @@ verify_task() {
 # Writes the command in `.command` to the log file on the server with a POST
 # request.
 write_log() {
-  curl -s -X POST ${POST_HANDLER} \
+  curl -s -X POST "${POST_HANDLER}" \
     -d client_time_stamp="$(date -u +%FT%TZ)" \
     -d user_id="$UW_NETID" \
     -d task_order="$TASK_ORDER" \
@@ -440,7 +442,7 @@ write_log() {
     -d time_elapsed="$time_elapsed" \
     -d time_elapsed_task_set="$task_set_time_elapsed" \
     -d status="$status" \
-    -d command="$(cat "${INFRA_DIR}/.command")" >> ${INF_LOG_FILE} 2>&1
+    -d command="$(cat "${INFRA_DIR}/.command")" >> "${INF_LOG_FILE}" 2>&1
 
     echo "$(date -u +%FT%TZ)", "$UW_NETID", "$TASK_ORDER", "$task_code", "$treatment", "$time_elapsed", "$task_set_time_elapsed", "$status", "$(cat "${INFRA_DIR}/.command")" >> /tmp/tellina-experiment.csv
 }
@@ -456,10 +458,10 @@ end_experiment() {
   trap - DEBUG
 
   # Remove all variable files.
-  find ${INFRA_DIR} -type f -name ".*" -delete
-  cd "${EXP_DIR}"
+  find "${INFRA_DIR}" -type f -name ".*" -delete
+  cd "${EXP_DIR}" || exit
 
-  echo ${SLINE}
+  echo "${SLINE}"
   echo "Congratulations! You have completed the interactive portion of the experiment."
   echo "Please fill out a <5 minute survey at https://forms.gle/xjAqf1YrvfKMZunL8 ."
   echo ""
