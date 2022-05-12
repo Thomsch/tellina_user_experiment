@@ -379,8 +379,7 @@ print_task() {
     echo "Task: ${local_task_num}/${half_tasks_size}"
   fi
 
-  "${INFRA_DIR}"/jq-linux64 -r '.description' \
-    "${TASKS_DIR}/task_${task_code}/task_${task_code}.json"
+  cat "${TASKS_DIR}/task_${task_code}/task_${task_code}.json"
 }
 
 # See documentation for ./verify_task.py for more details on what it does.
