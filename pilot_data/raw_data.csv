@@ -1,0 +1,1157 @@
+server_time_stamp,client_time_stamp,user_id,task_order,task_code,treatment,time_elapsed,time_elapsed_task_set,status,command
+2022-04-07T22:09:47Z,2022-04-07T22:09:46Z,junxingg,T2N1,v,T,0,,incomplete,start_task
+2022-04-07T22:09:47Z,2022-04-07T22:09:47Z,junxingg,T2N1,v,T,1,1649369387,incomplete,start_task
+2022-04-07T22:09:59Z,2022-04-07T22:09:59Z,junxingg,T2N1,v,T,13,1649369399,incomplete,aaaaa
+2022-04-07T22:10:29Z,2022-04-07T22:10:28Z,junxingg,T2N1,v,T,42,1649369428,incomplete,asdasdkhsd
+2022-04-07T22:10:38Z,2022-04-07T22:10:38Z,junxingg,T2N1,v,T,52,1649369438,incomplete,asdasd
+2022-04-07T22:10:58Z,2022-04-07T22:10:58Z,junxingg,T2N1,v,T,72,1649369458,success,mv README.md README.txt
+2022-04-07T22:10:58Z,2022-04-07T22:10:58Z,junxingg,T2N1,w,T,0,1649369458,incomplete,start_task
+2022-04-07T22:11:13Z,2022-04-07T22:11:13Z,junxingg,T2N1,w,T,14,1649369472,success,cat ./css/app.css
+2022-04-07T22:11:13Z,2022-04-07T22:11:13Z,junxingg,T2N1,x,T,0,1649369472,incomplete,start_task
+2022-04-07T22:11:30Z,2022-04-07T22:11:30Z,junxingg,T2N1,x,T,17,1649369490,incomplete,rm -r *glyph*
+2022-04-07T22:11:54Z,2022-04-07T22:11:54Z,junxingg,T2N1,x,T,41,1649369514,incomplete,rm -r "./*glyph*"
+2022-04-07T22:13:12Z,2022-04-07T22:13:12Z,junxingg,T2N1,x,T,118,1649369591,incomplete,rm "*glyph*"
+2022-04-07T22:13:29Z,2022-04-07T22:13:28Z,junxingg,T2N1,x,T,135,1649369608,incomplete,rm *glyph*
+2022-04-07T22:15:03Z,2022-04-07T22:15:03Z,junxingg,T2N1,x,T,230,1649369703,incomplete,rm -r *glyph*
+2022-04-07T22:15:25Z,2022-04-07T22:15:25Z,junxingg,T2N1,x,T,251,1649369724,incomplete,rm -r *'glyph'*
+2022-04-07T22:16:24Z,2022-04-07T22:16:24Z,junxingg,T2N1,x,T,310,1649369783,incomplete,rm -r *
+2022-04-07T22:16:40Z,2022-04-07T22:16:40Z,junxingg,T2N1,x,T,327,1649369800,incomplete,rm -r **/*glyph*
+2022-04-07T22:17:03Z,2022-04-07T22:17:03Z,junxingg,T2N1,x,T,350,1649369823,incomplete,rm -r **/*glyph*.*
+2022-04-07T22:17:16Z,2022-04-07T22:17:16Z,junxingg,T2N1,x,T,363,1649369836,incomplete,rm -r **/.*glyph.*
+2022-04-07T22:17:30Z,2022-04-07T22:17:30Z,junxingg,T2N1,x,T,377,1649369850,incomplete,ls *glyph*
+2022-04-07T22:18:18Z,2022-04-07T22:18:18Z,junxingg,T2N1,x,T,425,1649369898,incomplete,man rm
+2022-04-07T22:18:31Z,2022-04-07T22:18:31Z,junxingg,T2N1,x,T,438,1649369911,incomplete,rm . glyph
+2022-04-07T22:18:51Z,2022-04-07T22:18:50Z,junxingg,T2N1,x,T,457,1649369930,incomplete,rm ./.*glyph.*
+2022-04-07T22:19:29Z,2022-04-07T22:19:29Z,junxingg,T2N1,x,T,496,1649369969,incomplete,rm ./.*glyph.*..*
+2022-04-07T22:20:41Z,2022-04-07T22:20:41Z,junxingg,T2N1,x,T,568,1649370041,incomplete,help expand
+2022-04-07T22:22:30Z,2022-04-07T22:22:29Z,junxingg,T2N1,x,T,676,1649370149,incomplete,find . -name '*glyph*' | rm
+2022-04-07T22:22:47Z,2022-04-07T22:22:46Z,junxingg,T2N1,x,T,693,1649370166,incomplete,find . -name '*glyph*' -exec rm
+2022-04-07T22:23:05Z,2022-04-07T22:23:04Z,junxingg,T2N1,x,T,711,1649370184,incomplete,man rm
+2022-04-07T22:23:43Z,2022-04-07T22:23:43Z,junxingg,T2N1,x,T,750,1649370223,incomplete,man find
+2022-04-07T22:23:59Z,2022-04-07T22:23:59Z,junxingg,T2N1,x,T,766,1649370239,incomplete,man xargs
+2022-04-07T22:24:07Z,2022-04-07T22:24:07Z,junxingg,T2N1,x,T,774,1649370247,success,find . -name '*glyph*' | xargs rm
+2022-04-07T22:27:51Z,2022-04-07T22:27:51Z,junxingg,T2N1,y,T,0,1649370247,incomplete,start_task
+2022-04-07T22:28:29Z,2022-04-07T22:28:29Z,junxingg,T2N1,y,T,38,1649370509,incomplete,Copy './content/tips.md' in new directory './content/backup/'
+2022-04-07T22:29:19Z,2022-04-07T22:29:19Z,junxingg,T2N1,y,T,88,1649370559,incomplete, cp ./content/tips.md ./content/backup/ 
+2022-04-07T22:30:16Z,2022-04-07T22:30:16Z,junxingg,T2N1,y,T,145,1649370616,incomplete, cp -f ./content/tips.md ./content/backup/ 
+2022-04-07T22:33:21Z,2022-04-07T22:33:20Z,junxingg,T2N1,y,T,329,1649370800,incomplete,man mkdir
+2022-04-07T22:34:23Z,2022-04-07T22:34:23Z,junxingg,T2N1,y,T,392,1649370863,incomplete,man  cp
+2022-04-07T22:34:31Z,2022-04-07T22:34:30Z,junxingg,T2N1,y,T,399,1649370870,incomplete,mkdir
+2022-04-07T22:34:52Z,2022-04-07T22:34:52Z,junxingg,T2N1,y,T,421,1649370892,incomplete,man mkdir
+2022-04-07T22:36:31Z,2022-04-07T22:36:30Z,junxingg,T2N1,y,T,519,1649370990,incomplete,man cp
+2022-04-07T22:37:04Z,2022-04-07T22:37:04Z,junxingg,T2N1,y,T,553,1649371024,success,mkdir './content/backup/'
+2022-04-07T22:37:05Z,2022-04-07T22:37:04Z,junxingg,T2N1,z,T,0,1649371024,incomplete,start_task
+2022-04-07T22:37:47Z,2022-04-07T22:37:46Z,junxingg,T2N1,z,T,42,1649371066,success,cat './content/syllabus.md' | wc -l
+2022-04-07T22:37:59Z,2022-04-07T22:37:58Z,junxingg,T2N1,g,T,0,1649371066,incomplete,start_task
+2022-04-07T22:38:46Z,2022-04-07T22:38:46Z,junxingg,T2N1,g,T,48,48,incomplete,start_task
+2022-04-07T22:38:47Z,2022-04-07T22:38:47Z,junxingg,T2N1,g,T,49,49,incomplete,find . -type f ! -name "*.markdown" -exec ls -l -d {} \;
+2022-04-07T22:39:09Z,2022-04-07T22:39:09Z,junxingg,T2N1,g,T,71,71,incomplete,find . -type f ! -name "*.markdown" -exec ls -l -d {} \;
+2022-04-07T22:39:10Z,2022-04-07T22:39:10Z,junxingg,T2N1,g,T,72,72,incomplete,find . -type f ! -name "*.markdown" -exec ls -l -d {} \;
+2022-04-07T22:39:46Z,2022-04-07T22:39:46Z,junxingg,T2N1,g,T,107,107,incomplete,find . -type f ! -name "*.markdown" -exec ls -r {} \;
+2022-04-07T22:40:35Z,2022-04-07T22:40:35Z,junxingg,T2N1,g,T,156,156,incomplete,find . ! -name "*.md" -exec ls -r {} \;
+2022-04-07T22:41:01Z,2022-04-07T22:41:01Z,junxingg,T2N1,g,T,183,183,success,find . -type f ! -name "*.md" -exec ls {} \;
+2022-04-07T22:41:01Z,2022-04-07T22:41:01Z,junxingg,T2N1,h,T,0,183,incomplete,start_task
+2022-04-07T22:41:45Z,2022-04-07T22:41:44Z,junxingg,T2N1,h,T,43,226,incomplete,find . -type f -name '*.md' -exec rm {} \;
+2022-04-07T22:42:18Z,2022-04-07T22:42:18Z,junxingg,T2N1,h,T,77,260,incomplete,find . -type f -name '*.md' -exec rm -f {} \;
+2022-04-07T22:43:03Z,2022-04-07T22:43:02Z,junxingg,T2N1,h,T,121,304,success,find . -type f -name '[0-9]*.md' -exec rm -f {} \;
+2022-04-07T22:43:03Z,2022-04-07T22:43:03Z,junxingg,T2N1,i,T,0,304,incomplete,start_task
+2022-04-07T22:43:53Z,2022-04-07T22:43:52Z,junxingg,T2N1,i,T,49,354,incomplete,diff -r ./content/labs/ ./content/lessons
+2022-04-07T22:44:22Z,2022-04-07T22:44:22Z,junxingg,T2N1,i,T,79,384,incomplete,diff ./content/labs/ ./content/lessons
+2022-04-07T22:44:47Z,2022-04-07T22:44:47Z,junxingg,T2N1,i,T,104,409,incomplete,diff -rq ./content/labs/ ./content/lessons
+2022-04-07T22:45:03Z,2022-04-07T22:45:02Z,junxingg,T2N1,i,T,119,424,success,diff -rq ./content/labs/ ./content/lessons/
+2022-04-07T22:45:03Z,2022-04-07T22:45:03Z,junxingg,T2N1,j,T,0,424,incomplete,start_task
+2022-04-07T22:45:38Z,2022-04-07T22:45:38Z,junxingg,T2N1,j,T,35,460,incomplete,start_task
+2022-04-07T22:45:38Z,2022-04-07T22:45:38Z,junxingg,T2N1,j,T,35,460,incomplete,find . -size  10k -exec ls -l {} \;
+2022-04-07T22:45:58Z,2022-04-07T22:45:58Z,junxingg,T2N1,j,T,55,480,success,find . -size  10k -exec ls {} \;
+2022-04-07T22:45:58Z,2022-04-07T22:45:58Z,junxingg,T2N1,k,T,0,480,incomplete,start_task
+2022-04-07T22:47:38Z,2022-04-07T22:47:38Z,junxingg,T2N1,k,T,100,580,incomplete,man grep
+2022-04-07T22:47:55Z,2022-04-07T22:47:55Z,junxingg,T2N1,k,T,117,597,incomplete,man grep
+2022-04-07T22:48:26Z,2022-04-07T22:48:26Z,junxingg,T2N1,k,T,147,627,incomplete,find . 'review' | xargs grep -i "why"
+2022-04-07T22:48:43Z,2022-04-07T22:48:42Z,junxingg,T2N1,k,T,164,644,incomplete,find . -type f -name 'review' | xargs grep -i "why"
+2022-04-07T22:49:19Z,2022-04-07T22:49:19Z,junxingg,T2N1,k,T,201,681,incomplete,find . -type f -name '*review*' | xargs grep -i "why"
+2022-04-07T22:50:53Z,2022-04-07T22:50:53Z,junxingg,T2N1,k,T,295,775,incomplete,find . -type f -name '*review*' -exec grep -l "why" {} \;
+2022-04-07T22:51:08Z,2022-04-07T22:51:08Z,junxingg,T2N1,k,T,310,790,incomplete,find . -name '*review*' -exec grep -l "why" {} \;
+2022-04-07T22:51:22Z,2022-04-07T22:51:22Z,junxingg,T2N1,k,T,323,803,incomplete,find . -type f -name '*review*' -exec grep -l "why" {} \;
+2022-04-07T22:51:37Z,2022-04-07T22:51:37Z,junxingg,T2N1,k,T,338,818,incomplete,find . -type f -name '*review*' -exec grep -il "why" {} \;
+2022-04-07T22:52:04Z,2022-04-07T22:52:04Z,junxingg,T2N1,k,T,,846,timeout,find . -type f -name '*review*' -exec grep -i "why" {} \;
+2022-04-07T22:52:04Z,2022-04-07T22:52:04Z,junxingg,T2N1,l,T,0,846,incomplete,start_task
+2022-04-07T22:53:12Z,2022-04-07T22:53:12Z,junxingg,T2N1,l,T,68,914,incomplete,start_task
+2022-04-07T22:53:13Z,2022-04-07T22:53:13Z,junxingg,T2N1,l,T,68,914,incomplete,du -s -h *
+2022-04-07T22:53:31Z,2022-04-07T22:53:31Z,junxingg,T2N1,l,T,87,933,incomplete,du -s -h content/
+2022-04-07T22:53:57Z,2022-04-07T22:53:57Z,junxingg,T2N1,l,T,112,958,incomplete,du -s -h content/*
+2022-04-07T22:54:26Z,2022-04-07T22:54:26Z,junxingg,T2N1,l,T,142,988,incomplete,du -s -h content/* | sort
+2022-04-07T22:55:02Z,2022-04-07T22:55:02Z,junxingg,T2N1,l,T,178,1024,incomplete,du -s -h content/* | sort -n
+2022-04-07T22:55:24Z,2022-04-07T22:55:24Z,junxingg,T2N1,l,T,199,1045,success,du -s -h content/* | sort -n -r
+2022-04-07T22:55:44Z,2022-04-07T22:55:43Z,junxingg,T2N1,a,N,0,1045,incomplete,start_task
+2022-04-07T22:56:29Z,2022-04-07T22:56:29Z,junxingg,T2N1,a,N,45,46,incomplete,find . -type f -empty -delete
+2022-04-07T22:56:47Z,2022-04-07T22:56:46Z,junxingg,T2N1,a,N,63,63,success,find . -type d -empty -delete
+2022-04-07T22:56:47Z,2022-04-07T22:56:47Z,junxingg,T2N1,b,N,0,63,incomplete,start_task
+2022-04-07T22:58:15Z,2022-04-07T22:58:15Z,junxingg,T2N1,b,N,88,152,incomplete,com -23 ./content/review/review2.md ./content/review/review1.md
+2022-04-07T22:58:26Z,2022-04-07T22:58:26Z,junxingg,T2N1,b,N,99,163,success,comm -23 ./content/review/review2.md ./content/review/review1.md
+2022-04-07T22:58:26Z,2022-04-07T22:58:26Z,junxingg,T2N1,c,N,0,163,incomplete,start_task
+2022-04-07T22:59:39Z,2022-04-07T22:59:39Z,junxingg,T2N1,c,N,72,235,incomplete,ls ./content/labs | wc -l
+2022-04-07T23:00:03Z,2022-04-07T23:00:03Z,junxingg,T2N1,c,N,97,260,incomplete,find ./content/labs | wc -l
+2022-04-07T23:00:20Z,2022-04-07T23:00:20Z,junxingg,T2N1,c,N,114,277,incomplete,find -type f./content/labs | wc -l
+2022-04-07T23:00:34Z,2022-04-07T23:00:34Z,junxingg,T2N1,c,N,128,291,incomplete,find -type f ./content/labs | wc -l
+2022-04-07T23:01:00Z,2022-04-07T23:01:00Z,junxingg,T2N1,c,N,154,317,incomplete,find -type f "./content/labs/" | wc -l
+2022-04-07T23:01:55Z,2022-04-07T23:01:55Z,junxingg,T2N1,c,N,209,372,incomplete,man find
+2022-04-07T23:02:04Z,2022-04-07T23:02:04Z,junxingg,T2N1,c,N,217,380,success,find "./content/labs/" -type f | wc -l
+2022-04-07T23:02:04Z,2022-04-07T23:02:04Z,junxingg,T2N1,d,N,0,380,incomplete,start_task
+2022-04-07T23:03:16Z,2022-04-07T23:03:15Z,junxingg,T2N1,d,N,71,452,incomplete,find . ! -name 'tips.md' -type f -exec rm -f {} \;
+2022-04-07T23:03:50Z,2022-04-07T23:03:50Z,junxingg,T2N1,d,N,106,487,incomplete,find . ! -name 'tips.md' -type f -exec rm {} \;
+2022-04-07T23:04:05Z,2022-04-07T23:04:05Z,junxingg,T2N1,d,N,121,502,incomplete,find ./content/ ! -name 'tips.md' -type f -exec rm {} \;
+2022-04-07T23:04:30Z,2022-04-07T23:04:29Z,junxingg,T2N1,d,N,145,526,incomplete,find ./content/ -type f ! -name 'tips.md' -exec rm {} \;
+2022-04-07T23:04:48Z,2022-04-07T23:04:48Z,junxingg,T2N1,d,N,164,545,incomplete,find ./content/ ! -name 'tips.md' -exec rm {} \;
+2022-04-07T23:05:06Z,2022-04-07T23:05:06Z,junxingg,T2N1,d,N,182,563,incomplete,find ./content/ ! -name 'tips.md' -type f -exec rm {} \;
+2022-04-07T23:07:37Z,2022-04-07T23:07:37Z,junxingg,T2N1,d,N,333,714,incomplete,ls ./content/ | grep -v tips.md | xargs rm
+2022-04-07T23:08:07Z,2022-04-07T23:08:07Z,junxingg,T2N1,d,N,,744,timeout,ls ./content/ | grep -v "*tips.md" | xargs rm
+2022-04-07T23:08:08Z,2022-04-07T23:08:07Z,junxingg,T2N1,e,N,0,744,incomplete,start_task
+2022-04-07T23:08:17Z,2022-04-07T23:08:17Z,junxingg,T2N1,e,N,10,754,incomplete,rm -r ./css/
+2022-04-07T23:08:38Z,2022-04-07T23:08:38Z,junxingg,T2N1,e,N,31,775,incomplete,rm -r ./css/*
+2022-04-07T23:08:52Z,2022-04-07T23:08:52Z,junxingg,T2N1,e,N,45,789,incomplete,rm ./css/*
+2022-04-07T23:09:14Z,2022-04-07T23:09:14Z,junxingg,T2N1,e,N,67,811,incomplete,man rm
+2022-04-07T23:09:27Z,2022-04-07T23:09:26Z,junxingg,T2N1,e,N,79,823,success,find ./css/ -type f | xargs rm
+2022-04-07T23:09:27Z,2022-04-07T23:09:27Z,junxingg,T2N1,f,N,0,823,incomplete,start_task
+2022-04-07T23:09:50Z,2022-04-07T23:09:50Z,junxingg,T2N1,f,N,23,847,incomplete,ls ./content/*/*/*
+2022-04-07T23:09:59Z,2022-04-07T23:09:59Z,junxingg,T2N1,f,N,32,856,incomplete,ls ./content/*/*/*
+2022-04-07T23:10:37Z,2022-04-07T23:10:37Z,junxingg,T2N1,f,N,70,894,incomplete,ls ./content/*/*
+2022-04-07T23:10:50Z,2022-04-07T23:10:50Z,junxingg,T2N1,f,N,83,907,incomplete,ls -d ./content/*/*
+2022-04-07T23:11:24Z,2022-04-07T23:11:24Z,junxingg,T2N1,f,N,117,941,incomplete,man ls
+2022-04-07T23:11:25Z,2022-04-07T23:11:25Z,junxingg,T2N1,f,N,118,942,incomplete,ls
+2022-04-07T23:11:28Z,2022-04-07T23:11:28Z,junxingg,T2N1,f,N,121,945,incomplete,ls -d
+2022-04-07T23:11:35Z,2022-04-07T23:11:35Z,junxingg,T2N1,f,N,127,951,incomplete,ls -d *
+2022-04-07T23:11:41Z,2022-04-07T23:11:41Z,junxingg,T2N1,f,N,133,957,incomplete,ls -d */
+2022-04-07T23:11:51Z,2022-04-07T23:11:51Z,junxingg,T2N1,f,N,144,968,incomplete,ls -d ./content/
+2022-04-07T23:12:00Z,2022-04-07T23:12:00Z,junxingg,T2N1,f,N,153,977,incomplete,find ./content/ -type d
+2022-04-07T23:12:49Z,2022-04-07T23:12:48Z,junxingg,T2N1,f,N,201,1025,incomplete,man find
+2022-04-07T23:13:00Z,2022-04-07T23:13:00Z,junxingg,T2N1,f,N,213,1037,incomplete,find ./content/ -type d -printf "%f\n"
+2022-04-07T23:15:12Z,2022-04-07T23:15:12Z,junxingg,T2N1,f,N,345,1169,incomplete,ls -d
+2022-04-07T23:15:14Z,2022-04-07T23:15:13Z,junxingg,T2N1,f,N,346,1170,incomplete,ls
+2022-04-07T23:15:17Z,2022-04-07T23:15:17Z,junxingg,T2N1,f,N,350,1174,incomplete,ls . -d
+2022-04-07T23:16:06Z,2022-04-07T23:16:05Z,junxingg,T2N1,f,N,,1222,timeout,ls . -d
+2022-04-12T22:08:26Z,2022-04-12T22:08:25Z,wma5,N1T2,v,N,0,,incomplete,start_task
+2022-04-12T22:08:26Z,2022-04-12T22:08:26Z,wma5,N1T2,v,N,1,1649801306,incomplete,start_task
+2022-04-12T22:09:10Z,2022-04-12T22:09:10Z,wma5,N1T2,v,N,44,1649801349,incomplete,helpme rename
+2022-04-12T22:09:23Z,2022-04-12T22:09:23Z,wma5,N1T2,v,N,58,1649801363,incomplete,helpme expected
+2022-04-12T22:09:35Z,2022-04-12T22:09:35Z,wma5,N1T2,v,N,70,1649801375,incomplete,expected
+2022-04-12T22:10:33Z,2022-04-12T22:10:33Z,wma5,N1T2,v,N,128,1649801433,incomplete,mv README.md README.txt
+2022-04-12T22:11:49Z,2022-04-12T22:11:49Z,wma5,N1T2,v,N,203,1649801508,incomplete,rename README.md to README.txt
+2022-04-12T22:12:21Z,2022-04-12T22:12:20Z,wma5,N1T2,v,N,235,1649801540,success,mv README.md README.txt
+2022-04-12T22:12:21Z,2022-04-12T22:12:21Z,wma5,N1T2,w,N,0,1649801540,incomplete,start_task
+2022-04-12T22:12:32Z,2022-04-12T22:12:32Z,wma5,N1T2,w,N,11,1649801552,incomplete,ls ./css/app.css.
+2022-04-12T22:12:42Z,2022-04-12T22:12:41Z,wma5,N1T2,w,N,20,1649801561,incomplete,cat ./css/app.css.
+2022-04-12T22:13:05Z,2022-04-12T22:13:04Z,wma5,N1T2,w,N,43,1649801584,incomplete,cat ./css/app.css.
+2022-04-12T22:13:19Z,2022-04-12T22:13:18Z,wma5,N1T2,w,N,57,1649801598,success,cat ./css/app.css
+2022-04-12T22:13:19Z,2022-04-12T22:13:19Z,wma5,N1T2,x,N,0,1649801598,incomplete,start_task
+2022-04-12T22:13:57Z,2022-04-12T22:13:56Z,wma5,N1T2,x,N,37,1649801636,incomplete,rm *glyph*
+2022-04-12T22:14:36Z,2022-04-12T22:14:36Z,wma5,N1T2,x,N,76,1649801675,success,find -type f -name '*glyph*' -delete
+2022-04-12T22:14:48Z,2022-04-12T22:14:48Z,wma5,N1T2,a,N,0,1649801675,incomplete,start_task
+2022-04-12T22:15:19Z,2022-04-12T22:15:19Z,wma5,N1T2,a,N,30,30,incomplete,find . -maxdepth 1 -type d -empty -print -delete -o -type f -empty -print -delete
+2022-04-12T22:15:41Z,2022-04-12T22:15:40Z,wma5,N1T2,a,N,52,52,incomplete, find . -type d -empty -print -delete -o -type f -empty -print -delete
+2022-04-12T22:16:28Z,2022-04-12T22:16:27Z,wma5,N1T2,a,N,99,99,incomplete,find . -type d -empty -print
+2022-04-12T22:16:42Z,2022-04-12T22:16:42Z,wma5,N1T2,a,N,114,114,incomplete,helpme
+2022-04-12T22:17:12Z,2022-04-12T22:17:11Z,wma5,N1T2,a,N,143,143,incomplete,man find
+2022-04-12T22:17:32Z,2022-04-12T22:17:32Z,wma5,N1T2,a,N,164,164,success,find . -type d -empty -delete
+2022-04-12T22:17:33Z,2022-04-12T22:17:33Z,wma5,N1T2,b,N,0,164,incomplete,start_task
+2022-04-12T22:19:00Z,2022-04-12T22:19:00Z,wma5,N1T2,b,N,87,252,success,comm -23 ./content/review/review2.md ./content/review/review1.md
+2022-04-12T22:19:00Z,2022-04-12T22:19:00Z,wma5,N1T2,c,N,0,252,incomplete,start_task
+2022-04-12T22:19:33Z,2022-04-12T22:19:32Z,wma5,N1T2,c,N,32,284,incomplete,find . -type f -print | wc -l
+2022-04-12T22:19:58Z,2022-04-12T22:19:58Z,wma5,N1T2,c,N,57,309,incomplete,find ./content/lab/ -type f -print | wc -l
+2022-04-12T22:20:36Z,2022-04-12T22:20:36Z,wma5,N1T2,c,N,96,348,incomplete,find ./content/labs/ -type f | wc -1
+2022-04-12T22:20:48Z,2022-04-12T22:20:48Z,wma5,N1T2,c,N,107,359,success,find ./content/labs/ -type f | wc -l
+2022-04-12T22:20:48Z,2022-04-12T22:20:48Z,wma5,N1T2,d,N,0,359,incomplete,start_task
+2022-04-12T22:22:09Z,2022-04-12T22:22:09Z,wma5,N1T2,d,N,80,440,incomplete,find ./content/ -type f -not name 'tips.md' -delete
+2022-04-12T22:22:25Z,2022-04-12T22:22:23Z,wma5,N1T2,d,N,95,455,incomplete,find ./content/ -type f -not -name 'tips.md' -delete
+2022-04-12T22:23:28Z,2022-04-12T22:23:28Z,wma5,N1T2,d,N,159,519,incomplete,find ./content/ -type f -not -name 'tips.md'-delete
+2022-04-12T22:23:42Z,2022-04-12T22:23:41Z,wma5,N1T2,d,N,173,533,incomplete,find ./content/ -type f -not -name 'tips.md'-delete
+2022-04-12T22:24:34Z,2022-04-12T22:24:34Z,wma5,N1T2,d,N,226,586,incomplete,find ./content/ -type f ! -name 'tips.md'-delete
+2022-04-12T22:24:42Z,2022-04-12T22:24:42Z,wma5,N1T2,d,N,233,593,incomplete,next
+2022-04-12T22:24:53Z,2022-04-12T22:24:53Z,wma5,N1T2,d,N,244,604,incomplete,find ./content/ -type f -not -name 'tips.md'-delete
+2022-04-12T22:25:37Z,2022-04-12T22:25:37Z,wma5,N1T2,d,N,288,648,incomplete,find ./content/ -type f -not -name 'tips.md'-delete
+2022-04-12T22:26:38Z,2022-04-12T22:26:38Z,wma5,N1T2,d,N,350,710,incomplete,find ./content/ \! -name 'tips.md' -delete
+2022-04-12T22:27:03Z,2022-04-12T22:27:03Z,wma5,N1T2,d,N,,735,timeout,find ./content/ -type f -not -name 'tips.md'-delete
+2022-04-12T22:27:03Z,2022-04-12T22:27:03Z,wma5,N1T2,e,N,0,735,incomplete,start_task
+2022-04-12T22:27:31Z,2022-04-12T22:27:31Z,wma5,N1T2,e,N,28,763,success,find ./css/ -type f -delete
+2022-04-12T22:27:31Z,2022-04-12T22:27:31Z,wma5,N1T2,f,N,0,763,incomplete,start_task
+2022-04-12T22:28:40Z,2022-04-12T22:28:39Z,wma5,N1T2,f,N,68,831,incomplete,find ./content/* -type d
+2022-04-12T22:29:14Z,2022-04-12T22:29:14Z,wma5,N1T2,f,N,103,866,incomplete,man find
+2022-04-12T22:30:43Z,2022-04-12T22:30:43Z,wma5,N1T2,f,N,191,954,incomplete,find ./content/ -type d
+2022-04-12T22:31:17Z,2022-04-12T22:31:17Z,wma5,N1T2,f,N,226,989,incomplete,find ./content/ -type d | ls -d
+2022-04-12T22:31:44Z,2022-04-12T22:31:44Z,wma5,N1T2,f,N,253,1016,incomplete,man ls
+2022-04-12T22:31:50Z,2022-04-12T22:31:50Z,wma5,N1T2,f,N,259,1022,incomplete,ls ./content/
+2022-04-12T22:31:57Z,2022-04-12T22:31:57Z,wma5,N1T2,f,N,266,1029,incomplete,ls ./content/*/
+2022-04-12T22:32:33Z,2022-04-12T22:32:33Z,wma5,N1T2,f,N,302,1065,incomplete,ls -r
+2022-04-12T22:32:53Z,2022-04-12T22:32:53Z,wma5,N1T2,f,N,322,1085,incomplete,ls -r ./content/
+2022-04-12T22:32:58Z,2022-04-12T22:32:57Z,wma5,N1T2,f,N,326,1089,incomplete,ls -r ./content/*
+2022-04-12T22:33:09Z,2022-04-12T22:33:09Z,wma5,N1T2,f,N,338,1101,incomplete,find ./content/ -type d | ls -d
+2022-04-12T22:33:23Z,2022-04-12T22:33:23Z,wma5,N1T2,f,N,351,1115,incomplete,find ./content/* -type d
+2022-04-12T22:34:06Z,2022-04-12T22:34:06Z,wma5,N1T2,f,N,,1158,timeout,find ./content/* -type d | ls -r
+2022-04-12T22:34:31Z,2022-04-12T22:34:31Z,wma5,N1T2,y,T,0,1158,incomplete,start_task
+2022-04-12T22:35:11Z,2022-04-12T22:35:11Z,wma5,N1T2,y,T,40,1223,incomplete,copy a file to a new directory
+2022-04-12T22:37:17Z,2022-04-12T22:37:17Z,wma5,N1T2,y,T,166,1349,incomplete,cp ./content/tips.md ./content/backup/
+2022-04-12T22:40:29Z,2022-04-12T22:40:29Z,wma5,N1T2,y,T,358,1541,incomplete,mkdir ./content/backup/ | cp ./content/tips.md ./content/backup/
+2022-04-12T22:40:47Z,2022-04-12T22:40:47Z,wma5,N1T2,y,T,376,1649803247,success,mkdir ./content/backup/ | cp ./content/tips.md ./content/backup/
+2022-04-12T22:40:47Z,2022-04-12T22:40:47Z,wma5,N1T2,z,T,0,1649803247,incomplete,start_task
+2022-04-12T22:41:09Z,2022-04-12T22:41:08Z,wma5,N1T2,z,T,21,1649803268,incomplete,cat ./content/syllabus.md
+2022-04-12T22:41:10Z,2022-04-12T22:41:09Z,wma5,N1T2,z,T,22,1649803269,incomplete,cat [-benstuv] [file ...]
+2022-04-12T22:41:11Z,2022-04-12T22:41:10Z,wma5,N1T2,z,T,23,1649803270,incomplete,cat [-benstuv] [file ...]
+2022-04-12T22:42:00Z,2022-04-12T22:41:59Z,wma5,N1T2,z,T,72,1649803319,success,cat ./content/syllabus.md | wc -l
+2022-04-12T22:42:03Z,2022-04-12T22:42:02Z,wma5,N1T2,g,T,0,1649803319,incomplete,start_task
+2022-04-12T22:42:24Z,2022-04-12T22:42:24Z,wma5,N1T2,g,T,22,22,incomplete,find . -name "*.markdown" -exec ls -l -d {} 
+2022-04-12T22:42:59Z,2022-04-12T22:42:59Z,wma5,N1T2,g,T,57,57,incomplete,find . ! -name "non-markdown" -exec ls -l {} 
+2022-04-12T22:43:11Z,2022-04-12T22:43:11Z,wma5,N1T2,g,T,69,69,incomplete,find . ! -name "non-markdown"
+2022-04-12T22:43:58Z,2022-04-12T22:43:58Z,wma5,N1T2,g,T,116,116,incomplete,ls *.md
+2022-04-12T22:44:09Z,2022-04-12T22:44:09Z,wma5,N1T2,g,T,126,126,incomplete,find . -name .md
+2022-04-12T22:44:27Z,2022-04-12T22:44:26Z,wma5,N1T2,g,T,144,144,incomplete,find . -name -NOT .md
+2022-04-12T22:44:39Z,2022-04-12T22:44:39Z,wma5,N1T2,g,T,157,157,incomplete,find . -not -name .md
+2022-04-12T22:45:11Z,2022-04-12T22:45:11Z,wma5,N1T2,g,T,188,188,incomplete,find . -not -name .md
+2022-04-12T22:45:14Z,2022-04-12T22:45:13Z,wma5,N1T2,g,T,191,191,incomplete,find . -not -name .md
+2022-04-12T22:45:15Z,2022-04-12T22:45:15Z,wma5,N1T2,g,T,192,192,success,find . -type f -not -name "*.md"
+2022-04-12T22:45:15Z,2022-04-12T22:45:15Z,wma5,N1T2,h,T,0,192,incomplete,start_task
+2022-04-12T22:46:27Z,2022-04-12T22:46:26Z,wma5,N1T2,h,T,71,264,incomplete,find . -name "*.md" -regex "[^/] /.*[0-9] " -delete
+2022-04-12T22:47:46Z,2022-04-12T22:47:46Z,wma5,N1T2,h,T,151,344,incomplete,find . -name "*.md" -inum -number -delete
+2022-04-12T22:48:29Z,2022-04-12T22:48:29Z,wma5,N1T2,h,T,194,387,incomplete,find . -name "*.md" -inum -number -delete
+2022-04-12T22:48:47Z,2022-04-12T22:48:47Z,wma5,N1T2,h,T,211,404,incomplete,find . -name "1*.md" -delte
+2022-04-12T22:49:28Z,2022-04-12T22:49:28Z,wma5,N1T2,h,T,252,445,incomplete,find . -name "1*.md" -delete
+2022-04-12T22:49:44Z,2022-04-12T22:49:44Z,wma5,N1T2,h,T,269,462,success,find . -name "[0-9]*.md" -delete
+2022-04-12T22:49:45Z,2022-04-12T22:49:45Z,wma5,N1T2,i,T,0,462,incomplete,start_task
+2022-04-27T00:54:16Z,2022-04-27T00:54:16Z,pjhale,T2N1,v,T,0,,incomplete,start_task
+2022-04-27T00:54:16Z,2022-04-27T00:54:16Z,pjhale,T2N1,v,T,0,1651020856,incomplete,start_task
+2022-04-27T00:54:59Z,2022-04-27T00:54:59Z,pjhale,T2N1,v,T,42,1651020898,success,mv ./README.md ./README.txt
+2022-04-27T00:54:59Z,2022-04-27T00:54:59Z,pjhale,T2N1,w,T,0,1651020898,incomplete,start_task
+2022-04-27T00:55:17Z,2022-04-27T00:55:17Z,pjhale,T2N1,w,T,18,1651020917,success,cat ./css/app.css
+2022-04-27T00:55:17Z,2022-04-27T00:55:17Z,pjhale,T2N1,x,T,0,1651020917,incomplete,start_task
+2022-04-27T00:56:44Z,2022-04-27T00:56:44Z,pjhale,T2N1,x,T,87,1651021004,incomplete,man grep
+2022-04-27T01:00:32Z,2022-04-27T01:00:32Z,pjhale,T2N1,x,T,315,1651021232,incomplete,man grep
+2022-04-27T01:00:55Z,2022-04-27T01:00:55Z,pjhale,T2N1,x,T,338,1651021255,incomplete,ls
+2022-04-27T01:01:28Z,2022-04-27T01:01:28Z,pjhale,T2N1,x,T,371,1651021288,incomplete,man ls
+2022-04-27T01:01:30Z,2022-04-27T01:01:30Z,pjhale,T2N1,x,T,373,1651021290,incomplete,ls -R
+2022-04-27T01:02:29Z,2022-04-27T01:02:29Z,pjhale,T2N1,x,T,432,1651021349,incomplete,man egrep
+2022-04-27T01:03:14Z,2022-04-27T01:03:13Z,pjhale,T2N1,x,T,476,1651021393,incomplete,egrep -R ".*glyph.*"
+2022-04-27T01:03:45Z,2022-04-27T01:03:45Z,pjhale,T2N1,x,T,508,1651021425,incomplete,ls -r
+2022-04-27T01:04:02Z,2022-04-27T01:04:02Z,pjhale,T2N1,x,T,525,1651021442,incomplete,man ls
+2022-04-27T01:04:05Z,2022-04-27T01:04:05Z,pjhale,T2N1,x,T,528,1651021445,incomplete,ls -R
+2022-04-27T01:04:32Z,2022-04-27T01:04:32Z,pjhale,T2N1,x,T,555,1651021472,incomplete,man ls
+2022-04-27T01:04:35Z,2022-04-27T01:04:35Z,pjhale,T2N1,x,T,558,1651021475,incomplete,ls -Rl
+2022-04-27T01:05:55Z,2022-04-27T01:05:55Z,pjhale,T2N1,x,T,638,1651021555,incomplete,man find
+2022-04-27T01:06:43Z,2022-04-27T01:06:43Z,pjhale,T2N1,x,T,686,1651021603,incomplete,man find
+2022-04-27T01:06:53Z,2022-04-27T01:06:53Z,pjhale,T2N1,x,T,695,1651021612,incomplete,find -name ".*glyph.*" -type f -delete
+2022-04-27T01:07:17Z,2022-04-27T01:07:17Z,pjhale,T2N1,x,T,720,1651021637,incomplete,find -name ".*glyph.*" -type f
+2022-04-27T01:08:25Z,2022-04-27T01:08:25Z,pjhale,T2N1,x,T,788,1651021705,incomplete,find -name "*glyph*" -type f
+2022-04-27T01:08:32Z,2022-04-27T01:08:32Z,pjhale,T2N1,x,T,795,1651021712,success,find -name "*glyph*" -type f -delete
+2022-04-27T01:18:28Z,2022-04-27T01:18:28Z,pjhale,T2N1,y,T,0,1651021712,incomplete,start_task
+2022-04-27T01:20:19Z,2022-04-27T01:20:19Z,pjhale,T2N1,y,T,111,1651022419,incomplete,start_task
+2022-04-27T01:20:20Z,2022-04-27T01:20:19Z,pjhale,T2N1,y,T,111,1651022419,incomplete,rsync -a -v --exclude './content/tips.md' ./content/backup/
+2022-04-27T01:21:38Z,2022-04-27T01:21:38Z,pjhale,T2N1,y,T,190,1651022498,incomplete,rsync -a -v --exclude './content/tips.md' ./content/backup/
+2022-04-27T01:21:39Z,2022-04-27T01:21:39Z,pjhale,T2N1,y,T,191,1651022499,incomplete,cp
+2022-04-27T01:21:39Z,2022-04-27T01:21:39Z,pjhale,T2N1,y,T,191,1651022499,incomplete,cp: copy files
+2022-04-27T01:21:40Z,2022-04-27T01:21:40Z,pjhale,T2N1,y,T,191,1651022499,incomplete,cp: copy files
+2022-04-27T01:21:42Z,2022-04-27T01:21:42Z,pjhale,T2N1,y,T,194,1651022502,incomplete,-R ./content/tips.md ./content/backup/
+2022-04-27T01:22:17Z,2022-04-27T01:22:17Z,pjhale,T2N1,y,T,229,1651022537,incomplete,cp ./content/tips.md ./content/backup/
+2022-04-27T01:23:32Z,2022-04-27T01:23:32Z,pjhale,T2N1,y,T,304,1651022612,incomplete,cp ./content/tips.md ./content/backup/
+2022-04-27T01:23:33Z,2022-04-27T01:23:33Z,pjhale,T2N1,y,T,304,1651022612,incomplete,cp
+2022-04-27T01:23:33Z,2022-04-27T01:23:33Z,pjhale,T2N1,y,T,305,1651022613,incomplete,cp: copy files
+2022-04-27T01:23:34Z,2022-04-27T01:23:33Z,pjhale,T2N1,y,T,305,1651022613,incomplete,cp: copy files
+2022-04-27T01:23:36Z,2022-04-27T01:23:36Z,pjhale,T2N1,y,T,308,1651022616,incomplete,./content/tips.md ./content/backup/
+2022-04-27T01:23:37Z,2022-04-27T01:23:36Z,pjhale,T2N1,y,T,308,1651022616,incomplete,./content/tips.md ./content/backup/
+2022-04-27T01:23:37Z,2022-04-27T01:23:37Z,pjhale,T2N1,y,T,309,1651022617,incomplete,cp
+2022-04-27T01:23:37Z,2022-04-27T01:23:37Z,pjhale,T2N1,y,T,309,1651022617,incomplete,cp: copy files
+2022-04-27T01:23:38Z,2022-04-27T01:23:38Z,pjhale,T2N1,y,T,310,1651022618,incomplete,cp: copy files
+2022-04-27T01:23:40Z,2022-04-27T01:23:40Z,pjhale,T2N1,y,T,312,1651022620,incomplete,./content/tips.md ./content/backup/
+2022-04-27T01:25:32Z,2022-04-27T01:25:32Z,pjhale,T2N1,y,T,424,1651022732,incomplete,mkdir ./content/backup
+2022-04-27T01:26:14Z,2022-04-27T01:26:14Z,pjhale,T2N1,y,T,465,1651022773,incomplete,mkdir ./content/backup
+2022-04-27T01:27:11Z,2022-04-27T01:27:11Z,pjhale,T2N1,y,T,523,1651022831,success,mkdir ./content/backup
+2022-04-27T01:27:11Z,2022-04-27T01:27:11Z,pjhale,T2N1,z,T,0,1651022831,incomplete,start_task
+2022-04-27T01:28:02Z,2022-04-27T01:28:02Z,pjhale,T2N1,z,T,51,1651022882,success,cat ./content/syllabus.md | wc -l
+2022-04-27T01:28:39Z,2022-04-27T01:28:37Z,pjhale,T2N1,g,T,0,1651022882,incomplete,start_task
+2022-04-27T01:30:09Z,2022-04-27T01:30:09Z,pjhale,T2N1,g,T,92,92,incomplete,find . -name "*.md" -exec ls -R {} \;
+2022-04-27T01:33:09Z,2022-04-27T01:33:09Z,pjhale,T2N1,g,T,272,272,incomplete,find . -type f \( -name "*.html" -or -name "*.css" -or -name "*.md" -or -name "*.js" \) -exec ls -R {} \;
+2022-04-27T01:34:12Z,2022-04-27T01:34:12Z,pjhale,T2N1,g,T,335,335,incomplete,find . -type f \( -name "*.html" -or -name "*.css" -or -name "*.md" -or -name "*.js" \) -exec ls -R {} \;
+2022-04-27T01:36:22Z,2022-04-27T01:36:22Z,pjhale,T2N1,g,T,,465,timeout,find . -type f \( -not -name "*.md" \) -exec ls -R {} \;
+2022-04-27T01:36:22Z,2022-04-27T01:36:22Z,pjhale,T2N1,h,T,0,465,incomplete,start_task
+2022-04-27T01:39:55Z,2022-04-27T01:39:55Z,pjhale,T2N1,h,T,213,678,incomplete,find . -regex '^[0-9].*/.md' -exec rm {} \;
+2022-04-27T01:43:23Z,2022-04-27T01:43:23Z,pjhale,T2N1,h,T,,886,timeout,find . -regex '^[0-9].*md' -exec rm {} \;
+2022-04-27T01:43:23Z,2022-04-27T01:43:23Z,pjhale,T2N1,i,T,0,886,incomplete,start_task
+2022-04-27T01:45:13Z,2022-04-27T01:45:13Z,pjhale,T2N1,i,T,110,996,incomplete,man diff
+2022-04-27T01:45:50Z,2022-04-27T01:45:50Z,pjhale,T2N1,i,T,147,1033,success,diff -q -r ./content/labs/ ./content/lessons/
+2022-04-27T01:45:50Z,2022-04-27T01:45:50Z,pjhale,T2N1,j,T,0,1033,incomplete,start_task
+2022-04-27T01:46:36Z,2022-04-27T01:46:36Z,pjhale,T2N1,j,T,46,1079,success,find . -size  10k
+2022-04-27T01:46:36Z,2022-04-27T01:46:36Z,pjhale,T2N1,k,T,0,1079,incomplete,start_task
+2022-04-27T01:49:59Z,2022-04-27T01:49:59Z,pjhale,T2N1,k,T,203,1282,incomplete,find . -name '*review*' -exec grep -i 'why' {} \; -print 
+2022-04-27T01:50:31Z,2022-04-27T01:50:31Z,pjhale,T2N1,k,T,235,1314,incomplete,find . -name '*review*' -exec grep -i '*why*' {} \; -print 
+2022-04-27T01:51:17Z,2022-04-27T01:51:17Z,pjhale,T2N1,k,T,281,1360,incomplete,find . -name '*review*' -exec grep -i '*why*' {} \ 
+2022-04-27T01:51:59Z,2022-04-27T01:51:58Z,pjhale,T2N1,k,T,322,1401,incomplete,find . -name '*review*' | xargs -I {} grep
+2022-04-27T01:52:10Z,2022-04-27T01:52:10Z,pjhale,T2N1,k,T,333,1413,incomplete,'why' {}
+2022-04-27T01:52:55Z,2022-04-27T01:52:55Z,pjhale,T2N1,k,T,,1458,timeout,'why' {}
+2022-04-27T01:52:55Z,2022-04-27T01:52:55Z,pjhale,T2N1,l,T,0,1458,incomplete,start_task
+2022-04-27T01:52:56Z,2022-04-27T01:52:56Z,pjhale,T2N1,l,T,0,1458,incomplete,find . -name '*review*' -exec grep 'why' {} \; -print
+2022-04-27T01:54:56Z,2022-04-27T01:54:56Z,pjhale,T2N1,l,T,121,1579,set-timeout,du -s -h ./content/
+2022-04-27T01:55:36Z,2022-04-27T01:55:36Z,pjhale,T2N1,a,N,0,1579,incomplete,start_task
+2022-04-27T01:56:59Z,2022-04-27T01:56:58Z,pjhale,T2N1,a,N,82,82,incomplete,find . -empty -type -d exec rm -r {} \;
+2022-04-27T01:57:12Z,2022-04-27T01:57:12Z,pjhale,T2N1,a,N,95,95,incomplete,find . -empty -type d exec rm -r {} \;
+2022-04-27T01:57:30Z,2022-04-27T01:57:29Z,pjhale,T2N1,a,N,113,113,success,find . -empty -type d -exec rm -r {} \;
+2022-04-27T01:57:30Z,2022-04-27T01:57:30Z,pjhale,T2N1,b,N,0,113,incomplete,start_task
+2022-04-27T01:58:07Z,2022-04-27T01:58:07Z,pjhale,T2N1,b,N,37,151,incomplete,man diff
+2022-04-27T01:58:53Z,2022-04-27T01:58:53Z,pjhale,T2N1,b,N,82,196,incomplete,diff --supress-common-lines ./content/review/review2.md ./content/review/review1.md
+2022-04-27T01:59:03Z,2022-04-27T01:59:03Z,pjhale,T2N1,b,N,93,207,incomplete,man diff
+2022-04-27T01:59:12Z,2022-04-27T01:59:12Z,pjhale,T2N1,b,N,101,216,incomplete,diff --suppress-common-lines ./content/review/review2.md ./content/review/review1.md
+2022-04-27T02:00:23Z,2022-04-27T02:00:23Z,pjhale,T2N1,b,N,173,287,incomplete,man diff
+2022-04-27T02:00:34Z,2022-04-27T02:00:34Z,pjhale,T2N1,b,N,184,298,incomplete,diff --suppress-common-lines ./content/review/review1.md ./content/review/review2.md
+2022-04-27T02:01:32Z,2022-04-27T02:01:32Z,pjhale,T2N1,b,N,242,356,incomplete,man comm
+2022-04-27T02:01:53Z,2022-04-27T02:01:53Z,pjhale,T2N1,b,N,263,377,incomplete,comm -3 ./content/review/review1.md ./content/review/review2.md
+2022-04-27T02:02:31Z,2022-04-27T02:02:30Z,pjhale,T2N1,b,N,300,414,incomplete,comm -3 ./content/review/review1.md ./content/review/review2.md | xargs
+2022-04-27T02:03:45Z,2022-04-27T02:03:45Z,pjhale,T2N1,b,N,,489,timeout,comm -3 ./content/review/review1.md ./content/review/review2.md
+2022-04-27T02:03:45Z,2022-04-27T02:03:45Z,pjhale,T2N1,c,N,0,489,incomplete,start_task
+2022-04-27T02:04:31Z,2022-04-27T02:04:31Z,pjhale,T2N1,c,N,46,535,success,find ./content/labs -type f | wc -l
+2022-04-27T02:04:31Z,2022-04-27T02:04:31Z,pjhale,T2N1,d,N,0,535,incomplete,start_task
+2022-04-27T02:07:25Z,2022-04-27T02:07:25Z,pjhale,T2N1,d,N,174,709,incomplete,find ./content ! -name 'tips.md' -exec rm -f {}
+2022-04-27T02:07:36Z,2022-04-27T02:07:36Z,pjhale,T2N1,d,N,184,719,incomplete,find ./content ! -name 'tips.md' -exec rm -f {} \;
+2022-04-27T02:07:45Z,2022-04-27T02:07:45Z,pjhale,T2N1,d,N,194,729,incomplete,find ./content ! -name 'tips.md' -exec rm -r {} \;
+2022-04-27T02:07:57Z,2022-04-27T02:07:57Z,pjhale,T2N1,d,N,205,740,incomplete,find ./content/ ! -name 'tips.md' -exec rm -r {} \;
+2022-04-27T02:09:48Z,2022-04-27T02:09:47Z,pjhale,T2N1,d,N,316,851,incomplete,find ./content ! -name 'tips.md' -exec rm -r {} \;
+2022-04-27T02:10:29Z,2022-04-27T02:10:29Z,pjhale,T2N1,d,N,358,893,incomplete,find /content/ ! -name 'tips.md' -exec rm -r {} \;
+2022-04-27T02:11:16Z,2022-04-27T02:11:16Z,pjhale,T2N1,d,N,,940,timeout,find /content/ ! -maxdepth 1 -name 'tips.md' -exec rm -r {} \;
+2022-04-27T02:11:16Z,2022-04-27T02:11:16Z,pjhale,T2N1,e,N,0,940,incomplete,start_task
+2022-04-27T02:12:26Z,2022-04-27T02:12:26Z,pjhale,T2N1,e,N,70,1010,incomplete,rm -r ./css/
+2022-04-27T02:13:32Z,2022-04-27T02:13:32Z,pjhale,T2N1,e,N,136,1076,success,find ./css/ -type f -delete
+2022-04-27T02:13:32Z,2022-04-27T02:13:32Z,pjhale,T2N1,f,N,0,1076,incomplete,start_task
+2022-04-27T02:16:34Z,2022-04-27T02:16:34Z,pjhale,T2N1,f,N,182,1258,incomplete,start_task
+2022-04-27T02:16:49Z,2022-04-27T02:16:49Z,pjhale,T2N1,f,N,197,1273,incomplete,find ./content/ -type d -exec ls -d {} \;
+2022-04-27T02:18:02Z,2022-04-27T02:18:02Z,pjhale,T2N1,f,N,270,1346,incomplete,find ./content/ -mindepth 2 -type d
+2022-04-27T02:19:15Z,2022-04-27T02:19:15Z,pjhale,T2N1,f,N,343,1419,incomplete,find ./content/ -mindepth 2 -type d || egrep '/.*$'
+2022-04-27T02:20:00Z,2022-04-27T02:19:57Z,pjhale,T2N1,f,N,,1461,timeout,find ./content/ -mindepth 2 -type d -exec egrep '/.*$' {} \;
+2022-04-28T19:10:59Z,2022-04-28T19:10:59Z,kaedenb,T1N2,v,T,0,,incomplete,start_task
+2022-04-28T19:10:59Z,2022-04-28T19:10:59Z,kaedenb,T1N2,v,T,0,1651173059,incomplete,start_task
+2022-04-28T19:11:16Z,2022-04-28T19:11:16Z,kaedenb,T1N2,v,T,17,1651173076,success,mv ./README.md ./README.txt
+2022-04-28T19:11:17Z,2022-04-28T19:11:17Z,kaedenb,T1N2,w,T,0,1651173076,incomplete,start_task
+2022-04-28T19:11:26Z,2022-04-28T19:11:26Z,kaedenb,T1N2,w,T,9,1651173086,success,cat ./css/app.css
+2022-04-28T19:11:26Z,2022-04-28T19:11:26Z,kaedenb,T1N2,x,T,0,1651173086,incomplete,start_task
+2022-04-28T19:11:46Z,2022-04-28T19:11:46Z,kaedenb,T1N2,x,T,20,1651173106,incomplete,find glyph | xargs rm
+2022-04-28T19:13:45Z,2022-04-28T19:13:45Z,kaedenb,T1N2,x,T,139,1651173225,incomplete,rm *glyph* -r
+2022-04-28T19:14:50Z,2022-04-28T19:14:50Z,kaedenb,T1N2,x,T,204,1651173290,incomplete,find *glyph* | xargs rm -r
+2022-04-28T19:14:57Z,2022-04-28T19:14:56Z,kaedenb,T1N2,x,T,210,1651173296,incomplete,skip
+2022-04-28T19:15:10Z,2022-04-28T19:15:10Z,kaedenb,T1N2,x,T,224,1651173310,incomplete,ls
+2022-04-28T19:15:23Z,2022-04-28T19:15:22Z,kaedenb,T1N2,x,T,236,1651173322,incomplete,find glyph
+2022-04-28T19:15:29Z,2022-04-28T19:15:29Z,kaedenb,T1N2,x,T,243,1651173329,incomplete,find glyph
+2022-04-28T19:15:56Z,2022-04-28T19:15:56Z,kaedenb,T1N2,x,T,270,1651173356,incomplete,find . glyph
+2022-04-28T19:16:31Z,2022-04-28T19:16:31Z,kaedenb,T1N2,x,T,305,1651173391,incomplete,man find
+2022-04-28T19:17:08Z,2022-04-28T19:17:08Z,kaedenb,T1N2,x,T,342,1651173428,incomplete,find . -name *glyph*
+2022-04-28T19:17:17Z,2022-04-28T19:17:17Z,kaedenb,T1N2,x,T,351,1651173437,success,find . -name *glyph* | xargs rm
+2022-04-28T19:20:07Z,2022-04-28T19:20:07Z,kaedenb,T1N2,y,T,0,1651173437,incomplete,start_task
+2022-04-28T19:20:33Z,2022-04-28T19:20:33Z,kaedenb,T1N2,y,T,26,1651173633,incomplete,start_task
+2022-04-28T19:20:33Z,2022-04-28T19:20:33Z,kaedenb,T1N2,y,T,26,1651173633,incomplete,cp ./content/tips.md ./content/backup/
+2022-04-28T19:21:18Z,2022-04-28T19:21:18Z,kaedenb,T1N2,y,T,71,1651173678,incomplete,cp ./content/tips.md ./content/backup/
+2022-04-28T19:21:19Z,2022-04-28T19:21:19Z,kaedenb,T1N2,y,T,71,1651173678,incomplete,cp ./content/tips.md /content/backup/
+2022-04-28T19:21:32Z,2022-04-28T19:21:32Z,kaedenb,T1N2,y,T,85,1651173692,incomplete,cp ./content/tips.md /content/backup/
+2022-04-28T19:22:00Z,2022-04-28T19:22:00Z,kaedenb,T1N2,y,T,113,1651173720,incomplete,cp ./content/tips.md ./content/backup/
+2022-04-28T19:22:58Z,2022-04-28T19:22:58Z,kaedenb,T1N2,y,T,171,1651173778,incomplete,cp -r ./content/tips.md ./content/backup/
+2022-04-28T19:23:13Z,2022-04-28T19:23:13Z,kaedenb,T1N2,y,T,186,1651173793,incomplete,mkdir backup ,
+2022-04-28T19:23:26Z,2022-04-28T19:23:25Z,kaedenb,T1N2,y,T,198,1651173805,success,mkdir ./content/backup ,
+2022-04-28T19:23:26Z,2022-04-28T19:23:26Z,kaedenb,T1N2,z,T,0,1651173805,incomplete,start_task
+2022-04-28T19:23:47Z,2022-04-28T19:23:47Z,kaedenb,T1N2,z,T,21,1651173827,incomplete,start_task
+2022-04-28T19:23:47Z,2022-04-28T19:23:47Z,kaedenb,T1N2,z,T,21,1651173827,success,cat ./content/syllabus.md | wc -l
+2022-04-28T19:24:08Z,2022-04-28T19:24:08Z,kaedenb,T1N2,a,T,0,1651173827,incomplete,start_task
+2022-04-28T19:24:43Z,2022-04-28T19:24:43Z,kaedenb,T1N2,a,T,36,36,success, find . -type d -empty | xargs rm -r
+2022-04-28T19:24:44Z,2022-04-28T19:24:43Z,kaedenb,T1N2,b,T,0,36,incomplete,start_task
+2022-04-28T19:25:43Z,2022-04-28T19:25:43Z,kaedenb,T1N2,b,T,60,96,incomplete, cat ./content/review/review2.md | grep -v './content/review/review1.md'
+2022-04-28T19:26:07Z,2022-04-28T19:26:07Z,kaedenb,T1N2,b,T,84,120,incomplete,diff ./content/review/review2.md ./content/review/review1.md
+2022-04-28T19:26:30Z,2022-04-28T19:26:30Z,kaedenb,T1N2,b,T,107,143,incomplete,man diff
+2022-04-28T19:26:36Z,2022-04-28T19:26:36Z,kaedenb,T1N2,b,T,113,149,incomplete,diff -q ./content/review/review2.md ./content/review/review1.md
+2022-04-28T19:27:37Z,2022-04-28T19:27:37Z,kaedenb,T1N2,b,T,174,210,incomplete,man diff
+2022-04-28T19:27:54Z,2022-04-28T19:27:54Z,kaedenb,T1N2,b,T,191,227,incomplete,comm -23 /content/review/review2.md ./content/review/review1.md
+2022-04-28T19:28:54Z,2022-04-28T19:28:54Z,kaedenb,T1N2,b,T,251,287,incomplete,sdiff ./content/review/review2.md ./content/review/review1.md
+2022-04-28T19:29:10Z,2022-04-28T19:29:10Z,kaedenb,T1N2,b,T,267,303,incomplete,diff -y ./content/review/review2.md ./content/review/review1.md
+2022-04-28T19:29:18Z,2022-04-28T19:29:18Z,kaedenb,T1N2,b,T,275,311,incomplete,diff ./content/review/review2.md ./content/review/review1.md
+2022-04-28T19:30:09Z,2022-04-28T19:30:09Z,kaedenb,T1N2,b,T,326,362,incomplete,diff -c ./content/review/review2.md ./content/review/review1.md
+2022-04-28T19:30:37Z,2022-04-28T19:30:37Z,kaedenb,T1N2,b,T,354,390,incomplete, cat ./content/review/review2.md | grep -v './content/review/review1.md'
+2022-04-28T19:31:44Z,2022-04-28T19:31:44Z,kaedenb,T1N2,b,T,,457,timeout,man diff
+2022-04-28T19:31:44Z,2022-04-28T19:31:44Z,kaedenb,T1N2,c,T,0,457,incomplete,start_task
+2022-04-28T19:32:30Z,2022-04-28T19:32:30Z,kaedenb,T1N2,c,T,46,503,incomplete,find ./content/labs/
+2022-04-28T19:32:34Z,2022-04-28T19:32:34Z,kaedenb,T1N2,c,T,50,507,incomplete,find ./content/labs/ | wc -l
+2022-04-28T19:33:24Z,2022-04-28T19:33:24Z,kaedenb,T1N2,c,T,100,557,incomplete,man find
+2022-04-28T19:34:03Z,2022-04-28T19:34:03Z,kaedenb,T1N2,c,T,139,596,incomplete,ls -R | wc -l
+2022-04-28T19:34:17Z,2022-04-28T19:34:16Z,kaedenb,T1N2,c,T,152,609,incomplete,ls -R ,/content/labs | wc -l
+2022-04-28T19:34:26Z,2022-04-28T19:34:25Z,kaedenb,T1N2,c,T,161,618,incomplete,ls -R ./content/labs | wc -l
+2022-04-28T19:34:37Z,2022-04-28T19:34:37Z,kaedenb,T1N2,c,T,173,630,incomplete,find ./content/labs
+2022-04-28T19:35:00Z,2022-04-28T19:35:00Z,kaedenb,T1N2,c,T,196,653,incomplete,find -t F ./content/labs
+2022-04-28T19:35:45Z,2022-04-28T19:35:45Z,kaedenb,T1N2,c,T,241,698,incomplete,find ./content/labs | wc -l
+2022-04-28T19:36:03Z,2022-04-28T19:36:03Z,kaedenb,T1N2,c,T,259,716,success,find ./content/labs -type f | wc -l
+2022-04-28T19:36:04Z,2022-04-28T19:36:03Z,kaedenb,T1N2,d,T,0,716,incomplete,start_task
+2022-04-28T19:36:25Z,2022-04-28T19:36:25Z,kaedenb,T1N2,d,T,22,738,incomplete,rm -rf ./content/*
+2022-04-28T19:37:16Z,2022-04-28T19:37:16Z,kaedenb,T1N2,d,T,73,789,incomplete,man rm
+2022-04-28T19:38:00Z,2022-04-28T19:38:00Z,kaedenb,T1N2,d,T,117,833,incomplete,find ./content/ | grep tips.md
+2022-04-28T19:38:22Z,2022-04-28T19:38:22Z,kaedenb,T1N2,d,T,139,855,incomplete,man grep
+2022-04-28T19:38:30Z,2022-04-28T19:38:30Z,kaedenb,T1N2,d,T,147,863,incomplete,find ./content/ | grep -v tips.md | xargs rm
+2022-04-28T19:39:20Z,2022-04-28T19:39:20Z,kaedenb,T1N2,d,T,197,913,incomplete, find . ! -name "tips.md" -exec rm {} \;
+2022-04-28T19:39:54Z,2022-04-28T19:39:54Z,kaedenb,T1N2,d,T,231,947,incomplete,ls ./content/ | grep -v tips.md | xargs rm
+2022-04-28T19:40:11Z,2022-04-28T19:40:11Z,kaedenb,T1N2,d,T,248,964,incomplete,ls ./content/ | grep -v "tips.md" | xargs rm
+2022-04-28T19:40:43Z,2022-04-28T19:40:43Z,kaedenb,T1N2,d,T,280,996,incomplete,ls ./content/ | grep -v "tips.md"
+2022-04-28T19:40:56Z,2022-04-28T19:40:56Z,kaedenb,T1N2,d,T,293,1009,incomplete,ls ./content/ | grep -v "tips.md" | rm -r
+2022-04-28T19:41:14Z,2022-04-28T19:41:14Z,kaedenb,T1N2,d,T,311,1027,incomplete,find ./content/ -type f | grep -v "tips.md" | rm
+2022-04-28T19:41:30Z,2022-04-28T19:41:30Z,kaedenb,T1N2,d,T,327,1043,incomplete,find ./content/ -type f | grep -v "tips.md"
+2022-04-28T19:41:45Z,2022-04-28T19:41:44Z,kaedenb,T1N2,d,T,341,1057,incomplete,find ./content/ -type f | grep -v "tips.md" | xargs rm
+2022-04-28T19:42:00Z,2022-04-28T19:42:00Z,kaedenb,T1N2,d,T,357,1073,incomplete,ls ./content/ | grep -v "tips.md" | xargs rm
+2022-04-28T19:42:38Z,2022-04-28T19:42:38Z,kaedenb,T1N2,d,T,,1111,timeout,ls -a ./content/ | grep -v "tips.md" | xargs rm
+2022-04-28T19:42:38Z,2022-04-28T19:42:38Z,kaedenb,T1N2,e,T,0,1111,incomplete,start_task
+2022-04-28T19:42:42Z,2022-04-28T19:42:42Z,kaedenb,T1N2,e,T,4,1115,incomplete,start_task
+2022-04-28T19:42:55Z,2022-04-28T19:42:55Z,kaedenb,T1N2,e,T,17,1128,incomplete,rm -r ./css/
+2022-04-28T19:43:12Z,2022-04-28T19:43:11Z,kaedenb,T1N2,e,T,33,1144,success,find ./css/ -type f | xargs rm
+2022-04-28T19:43:12Z,2022-04-28T19:43:12Z,kaedenb,T1N2,f,T,0,1144,incomplete,start_task
+2022-04-28T19:43:53Z,2022-04-28T19:43:53Z,kaedenb,T1N2,f,T,41,1186,incomplete,find ./content/ type d -print
+2022-04-28T19:44:50Z,2022-04-28T19:44:50Z,kaedenb,T1N2,f,T,98,1243,incomplete,man ls
+2022-04-28T19:44:56Z,2022-04-28T19:44:56Z,kaedenb,T1N2,f,T,104,1249,incomplete,ls -d ./content/
+2022-04-28T19:45:08Z,2022-04-28T19:45:07Z,kaedenb,T1N2,f,T,115,1260,incomplete,ls ./content/
+2022-04-28T19:45:13Z,2022-04-28T19:45:13Z,kaedenb,T1N2,f,T,121,1266,incomplete,ls ./content/*
+2022-04-28T19:45:20Z,2022-04-28T19:45:19Z,kaedenb,T1N2,f,T,127,1272,incomplete,ls ./content/* -d
+2022-04-28T19:45:28Z,2022-04-28T19:45:28Z,kaedenb,T1N2,f,T,136,1281,incomplete,ls -d ./content/*
+2022-04-28T19:45:40Z,2022-04-28T19:45:40Z,kaedenb,T1N2,f,T,148,1293,incomplete,find ./content/ -type d
+2022-04-28T19:46:18Z,2022-04-28T19:46:18Z,kaedenb,T1N2,f,T,186,1331,incomplete,find ./content/ -type d
+2022-04-28T19:46:19Z,2022-04-28T19:46:18Z,kaedenb,T1N2,f,T,186,1331,incomplete,find ./content/ -mindepth 1 -maxdepth 1 -type d
+2022-04-28T19:46:28Z,2022-04-28T19:46:27Z,kaedenb,T1N2,f,T,195,1340,incomplete, find ./content/ -mindepth 1 -maxdepth 1 -type d
+2022-04-28T19:46:38Z,2022-04-28T19:46:38Z,kaedenb,T1N2,f,T,206,1351,incomplete,ls ./content/
+2022-04-28T19:46:43Z,2022-04-28T19:46:43Z,kaedenb,T1N2,f,T,211,1356,incomplete,ls ./content/lessons/
+2022-04-28T19:46:56Z,2022-04-28T19:46:56Z,kaedenb,T1N2,f,T,224,1369,incomplete, find ./content/ -mindepth 2 -maxdepth 2 -type d
+2022-04-28T19:47:54Z,2022-04-28T19:47:53Z,kaedenb,T1N2,f,T,281,1426,incomplete, find ./content/ -mindepth 2 -maxdepth 2 -type d -printf '%h\n'
+2022-04-28T19:48:13Z,2022-04-28T19:48:13Z,kaedenb,T1N2,f,T,301,1446,incomplete, find ./content/ -mindepth 2 -maxdepth 2 -type d -exec basename
+2022-04-28T19:48:21Z,2022-04-28T19:48:21Z,kaedenb,T1N2,f,T,309,1454,incomplete, find ./content/ -mindepth 2 -maxdepth 2 -type d -exec basename {}
+2022-04-28T19:48:30Z,2022-04-28T19:48:30Z,kaedenb,T1N2,f,T,318,1463,success, find ./content/ -mindepth 2 -maxdepth 2 -type d -exec basename {} \;
+2022-04-28T19:48:49Z,2022-04-28T19:48:49Z,kaedenb,T1N2,g,N,0,1463,incomplete,start_task
+2022-04-28T19:49:01Z,2022-04-28T19:49:01Z,kaedenb,T1N2,g,N,12,12,incomplete,ls -r *.md
+2022-04-28T19:49:11Z,2022-04-28T19:49:11Z,kaedenb,T1N2,g,N,22,22,incomplete,find -name *.md
+2022-04-28T19:49:28Z,2022-04-28T19:49:28Z,kaedenb,T1N2,g,N,39,39,success,find -type f | grep -v ".md"
+2022-04-28T19:49:28Z,2022-04-28T19:49:28Z,kaedenb,T1N2,h,N,0,39,incomplete,start_task
+2022-04-28T19:49:56Z,2022-04-28T19:49:56Z,kaedenb,T1N2,h,N,27,66,incomplete,rm [0-9]*.md
+2022-04-28T19:50:09Z,2022-04-28T19:50:09Z,kaedenb,T1N2,h,N,41,80,incomplete,find [0-9]*.md
+2022-04-28T19:50:49Z,2022-04-28T19:50:48Z,kaedenb,T1N2,h,N,80,119,incomplete,find . -name "*[0-9].md"
+2022-04-28T19:50:56Z,2022-04-28T19:50:56Z,kaedenb,T1N2,h,N,88,127,incomplete,find . -name "*[0-9].md" | xargs rm
+2022-04-28T19:51:09Z,2022-04-28T19:51:09Z,kaedenb,T1N2,h,N,101,140,incomplete,find . -name "[0-9].md" | xargs rm
+2022-04-28T19:51:16Z,2022-04-28T19:51:16Z,kaedenb,T1N2,h,N,108,147,incomplete,find . -name "*[0-9].md" | xargs rm
+2022-04-28T19:51:28Z,2022-04-28T19:51:28Z,kaedenb,T1N2,h,N,120,159,incomplete,find . -name "*[0-9]*.md" | xargs rm
+2022-04-28T19:51:56Z,2022-04-28T19:51:56Z,kaedenb,T1N2,h,N,148,187,incomplete,find . -name "*[0-9]*.md"
+2022-04-28T19:53:02Z,2022-04-28T19:53:02Z,kaedenb,T1N2,h,N,214,253,incomplete,find . -name "*[0-9].md"
+2022-04-28T19:53:19Z,2022-04-28T19:53:19Z,kaedenb,T1N2,h,N,231,270,incomplete,find . -name "*[0-9].md"
+2022-04-28T19:53:33Z,2022-04-28T19:53:33Z,kaedenb,T1N2,h,N,245,284,incomplete,find . -name "*[0-9].md" | xargs rm
+2022-04-28T19:54:35Z,2022-04-28T19:54:35Z,kaedenb,T1N2,h,N,307,346,incomplete,find . -regex "^[0-9].*\.md"
+2022-04-28T19:54:45Z,2022-04-28T19:54:45Z,kaedenb,T1N2,h,N,317,356,incomplete,find . -regex "^[0-9].*\.md" | xargs rm
+2022-04-28T19:55:05Z,2022-04-28T19:55:05Z,kaedenb,T1N2,h,N,337,376,incomplete,find . -regex "^[0-9]*\.md" | xargs rm
+2022-04-28T19:56:11Z,2022-04-28T19:56:11Z,kaedenb,T1N2,h,N,,442,timeout,find . -regex "[0-9]*\.md" | xargs rm
+2022-04-28T19:56:11Z,2022-04-28T19:56:11Z,kaedenb,T1N2,i,N,0,442,incomplete,start_task
+2022-04-28T19:56:52Z,2022-04-28T19:56:52Z,kaedenb,T1N2,i,N,41,483,incomplete,diff ./content/labs ./content/lessons/
+2022-04-28T19:57:05Z,2022-04-28T19:57:05Z,kaedenb,T1N2,i,N,54,496,incomplete,diff ./content/labs/* ./content/lessons/*
+2022-04-28T19:58:51Z,2022-04-28T19:58:51Z,kaedenb,T1N2,i,N,160,602,incomplete,diff -qr ./content/labs ./content/lessons/
+2022-04-28T19:59:08Z,2022-04-28T19:59:08Z,kaedenb,T1N2,i,N,177,619,success,diff -qr ./content/labs/ ./content/lessons/
+2022-04-28T19:59:08Z,2022-04-28T19:59:08Z,kaedenb,T1N2,j,N,0,619,incomplete,start_task
+2022-04-28T20:00:15Z,2022-04-28T20:00:15Z,kaedenb,T1N2,j,N,67,686,incomplete,man find
+2022-04-28T20:00:26Z,2022-04-28T20:00:26Z,kaedenb,T1N2,j,N,78,697,success,find . -size  10k
+2022-04-28T20:00:26Z,2022-04-28T20:00:26Z,kaedenb,T1N2,k,N,0,697,incomplete,start_task
+2022-04-28T20:01:07Z,2022-04-28T20:01:07Z,kaedenb,T1N2,k,N,41,738,incomplete,grep -r why
+2022-04-28T20:01:57Z,2022-04-28T20:01:57Z,kaedenb,T1N2,k,N,91,788,incomplete,find . -name "*review*"
+2022-04-28T20:02:09Z,2022-04-28T20:02:09Z,kaedenb,T1N2,k,N,103,800,incomplete,find . -name "*review*" | xargs grep why
+2022-04-28T20:02:28Z,2022-04-28T20:02:28Z,kaedenb,T1N2,k,N,122,819,incomplete,find . -name "*review*" | xargs grep
+2022-04-28T20:02:35Z,2022-04-28T20:02:35Z,kaedenb,T1N2,k,N,129,826,incomplete,find . -name "*review*"
+2022-04-28T20:03:40Z,2022-04-28T20:03:40Z,kaedenb,T1N2,k,N,194,891,incomplete,grep -r why "*review*"
+2022-04-28T20:03:55Z,2022-04-28T20:03:54Z,kaedenb,T1N2,k,N,208,905,incomplete,grep "*review*" -r
+2022-04-28T20:04:09Z,2022-04-28T20:04:09Z,kaedenb,T1N2,k,N,223,920,incomplete,grep *review* why
+2022-04-28T20:04:20Z,2022-04-28T20:04:20Z,kaedenb,T1N2,k,N,234,931,incomplete,grep -f why
+2022-04-28T20:04:34Z,2022-04-28T20:04:34Z,kaedenb,T1N2,k,N,248,945,incomplete,grep -r why
+2022-04-28T20:04:48Z,2022-04-28T20:04:48Z,kaedenb,T1N2,k,N,262,959,incomplete,pwd
+2022-04-28T20:04:53Z,2022-04-28T20:04:53Z,kaedenb,T1N2,k,N,267,964,incomplete,ls
+2022-04-28T20:05:10Z,2022-04-28T20:05:10Z,kaedenb,T1N2,k,N,284,981,incomplete,ls review
+2022-04-28T20:05:34Z,2022-04-28T20:05:34Z,kaedenb,T1N2,k,N,308,1005,incomplete,find -name "*review*" -type d
+2022-04-28T20:05:43Z,2022-04-28T20:05:43Z,kaedenb,T1N2,k,N,317,1014,incomplete,find -name "*review*" -type f | xargs grep
+2022-04-28T20:05:51Z,2022-04-28T20:05:51Z,kaedenb,T1N2,k,N,325,1022,incomplete,find -name "*review*" -type f
+2022-04-28T20:07:16Z,2022-04-28T20:07:16Z,kaedenb,T1N2,k,N,,1107,timeout,find -name "*review*" -type f | xargs grep -i why
+2022-04-28T20:07:17Z,2022-04-28T20:07:17Z,kaedenb,T1N2,l,N,0,1107,incomplete,start_task
+2022-04-28T20:07:45Z,2022-04-28T20:07:45Z,kaedenb,T1N2,l,N,29,1136,incomplete,du -sh *
+2022-04-28T20:08:05Z,2022-04-28T20:08:05Z,kaedenb,T1N2,l,N,49,1156,incomplete,man du
+2022-04-28T20:08:17Z,2022-04-28T20:08:17Z,kaedenb,T1N2,l,N,61,1168,incomplete,man du
+2022-04-28T20:08:20Z,2022-04-28T20:08:20Z,kaedenb,T1N2,l,N,64,1171,incomplete,du -sh *
+2022-04-28T20:08:32Z,2022-04-28T20:08:32Z,kaedenb,T1N2,l,N,76,1183,incomplete,du -sh * | sort -n
+2022-04-28T20:08:56Z,2022-04-28T20:08:56Z,kaedenb,T1N2,l,N,100,1207,incomplete,man sort
+2022-04-28T20:08:59Z,2022-04-28T20:08:59Z,kaedenb,T1N2,l,N,103,1210,incomplete,du -sh * | sort -h
+2022-04-28T20:09:23Z,2022-04-28T20:09:22Z,kaedenb,T1N2,l,N,126,1233,incomplete,du -sh content/ | sort -h
+2022-04-28T20:09:32Z,2022-04-28T20:09:32Z,kaedenb,T1N2,l,N,135,1242,incomplete,du -sh content/* | sort -h
+2022-04-28T20:09:43Z,2022-04-28T20:09:43Z,kaedenb,T1N2,l,N,147,1254,success,du -sh content/* | sort -rh
+2022-05-02T21:58:31Z,2022-05-02T21:58:31Z,allandao,T2N1,v,T,0,,incomplete,start_task
+2022-05-02T21:58:31Z,2022-05-02T21:58:31Z,allandao,T2N1,v,T,0,1651528711,incomplete,start_task
+2022-05-02T21:58:45Z,2022-05-02T21:58:44Z,allandao,T2N1,v,T,13,1651528724,incomplete,mkdir test
+2022-05-02T22:00:06Z,2022-05-02T22:00:06Z,allandao,T2N1,v,T,95,1651528806,success,mv README.md README.txt
+2022-05-02T22:00:06Z,2022-05-02T22:00:06Z,allandao,T2N1,w,T,0,1651528806,incomplete,start_task
+2022-05-02T22:00:17Z,2022-05-02T22:00:17Z,allandao,T2N1,w,T,11,1651528817,incomplete,cat ./css/app.css.
+2022-05-02T22:00:27Z,2022-05-02T22:00:27Z,allandao,T2N1,w,T,21,1651528827,success,cat ./css/app.css
+2022-05-02T22:00:27Z,2022-05-02T22:00:27Z,allandao,T2N1,x,T,0,1651528827,incomplete,start_task
+2022-05-02T22:00:44Z,2022-05-02T22:00:44Z,allandao,T2N1,x,T,17,1651528844,incomplete,rm --help
+2022-05-02T22:03:22Z,2022-05-02T22:03:21Z,allandao,T2N1,x,T,174,1651529001,incomplete,grep -R 'glyph' . | rm -R 
+2022-05-02T22:03:54Z,2022-05-02T22:03:54Z,allandao,T2N1,x,T,207,1651529034,incomplete,grep -R 'glyph' . > rm -R 
+2022-05-02T22:04:18Z,2022-05-02T22:04:18Z,allandao,T2N1,x,T,231,1651529058,incomplete,grep -R 'glyph' . | xargs rm -R 
+2022-05-02T22:04:30Z,2022-05-02T22:04:30Z,allandao,T2N1,x,T,242,1651529069,incomplete,grep -R 'glyph'| xargs rm -R 
+2022-05-02T22:04:38Z,2022-05-02T22:04:38Z,allandao,T2N1,x,T,251,1651529078,incomplete,grep -R . 'glyph'| xargs rm -R 
+2022-05-02T22:05:18Z,2022-05-02T22:05:18Z,allandao,T2N1,x,T,291,1651529118,success,find -name '*glyph*' | xargs rm -R
+2022-05-02T22:05:39Z,2022-05-02T22:05:39Z,allandao,T2N1,y,T,0,1651529118,incomplete,start_task
+2022-05-02T22:06:33Z,2022-05-02T22:06:33Z,allandao,T2N1,y,T,53,1651529192,incomplete,Make a new directory './content/backup/'
+2022-05-02T22:07:00Z,2022-05-02T22:07:00Z,allandao,T2N1,y,T,80,1651529219,incomplete,Make a new directory './content/backup/' then copy './content/tips.md' into './content/backup/'
+2022-05-02T22:09:27Z,2022-05-02T22:09:27Z,allandao,T2N1,y,T,228,1651529367,incomplete,Make a new directory ./content/backup/ then copy contents of ./content/tips.md into ./content/backup/
+2022-05-02T22:09:57Z,2022-05-02T22:09:57Z,allandao,T2N1,y,T,258,1651529397,incomplete,'Make a new directory content/backup'
+2022-05-02T22:10:36Z,2022-05-02T22:10:36Z,allandao,T2N1,y,T,297,1651529436,incomplete,http://kirin.cs.washington.edu:8888/
+2022-05-02T22:11:30Z,2022-05-02T22:11:30Z,allandao,T2N1,y,T,351,1651529490,incomplete, mkdir -p ./content/tips.md ./content/backup/
+2022-05-02T22:11:35Z,2022-05-02T22:11:35Z,allandao,T2N1,y,T,356,1651529495,incomplete, mkdir -p ./content/tips.md ./content/backup/
+2022-05-02T22:11:35Z,2022-05-02T22:11:35Z,allandao,T2N1,y,T,356,1651529495,incomplete,mkdir -p ./content/tips.md ./content/backup/
+2022-05-02T22:14:58Z,2022-05-02T22:14:58Z,allandao,T2N1,y,T,559,1651529698,incomplete,find . -name './content/tips.md' -exec cp {} './content/backup/' \; 
+2022-05-02T22:15:11Z,2022-05-02T22:15:11Z,allandao,T2N1,y,T,571,1651529710,incomplete,find . -name ./content/tips.md -exec cp {} './content/backup/' \; 
+2022-05-02T22:17:24Z,2022-05-02T22:17:24Z,allandao,T2N1,y,T,705,1651529844,incomplete,mkdir -p ./content/backup ./content/tips.md
+2022-05-02T22:17:52Z,2022-05-02T22:17:51Z,allandao,T2N1,y,T,732,1651529871,incomplete,mkdir -p ./content/tips.md ./content/backups
+2022-05-02T22:17:59Z,2022-05-02T22:17:58Z,allandao,T2N1,y,T,739,1651529878,incomplete,mkdir -p ./content/tips.md ./content/backup
+2022-05-02T22:18:09Z,2022-05-02T22:18:08Z,allandao,T2N1,y,T,749,1651529888,incomplete,mkdir -p ./content/backup
+2022-05-02T22:18:20Z,2022-05-02T22:18:20Z,allandao,T2N1,y,T,761,1651529900,incomplete,mkdir -p ./content/backup ./content/tips.md
+2022-05-02T22:19:38Z,2022-05-02T22:19:37Z,allandao,T2N1,y,T,838,1651529977,success,mkdir content/backup; cp ./content/tips.md content/backup
+2022-05-02T22:19:38Z,2022-05-02T22:19:38Z,allandao,T2N1,z,T,0,1651529977,incomplete,start_task
+2022-05-02T22:20:29Z,2022-05-02T22:20:29Z,allandao,T2N1,z,T,51,1651530029,success,cat ./content/syllabus.md | wc -l
+2022-05-02T22:20:44Z,2022-05-02T22:20:44Z,allandao,T2N1,g,T,0,1651530029,incomplete,start_task
+2022-05-02T22:21:25Z,2022-05-02T22:21:25Z,allandao,T2N1,g,T,41,41,incomplete,find . -name "*.markdown" -exec ls -l -d {} \; 
+2022-05-02T22:22:22Z,2022-05-02T22:22:21Z,allandao,T2N1,g,T,97,97,incomplete,find . -name "*.markdown" -exec ls -l -d {} \; 
+2022-05-02T22:22:23Z,2022-05-02T22:22:22Z,allandao,T2N1,g,T,98,98,incomplete,find . -name "*.md" -exec ls -l {} \;
+2022-05-02T22:23:18Z,2022-05-02T22:23:18Z,allandao,T2N1,g,T,154,154,incomplete,find . -name "^[*.md]" -exec ls -l {} \;
+2022-05-02T22:23:27Z,2022-05-02T22:23:27Z,allandao,T2N1,g,T,163,163,incomplete,find . -name "^*.md" -exec ls -l {} \;
+2022-05-02T22:24:22Z,2022-05-02T22:24:22Z,allandao,T2N1,g,T,217,217,incomplete,find . not -name "*.md" -exec ls -l {} \;
+2022-05-02T22:24:36Z,2022-05-02T22:24:36Z,allandao,T2N1,g,T,232,232,incomplete,find . not -name "*.md" -exec ls -l {} \;
+2022-05-02T22:24:47Z,2022-05-02T22:24:47Z,allandao,T2N1,g,T,243,243,incomplete,find . not -name "*.md" -exec ls {} \;
+2022-05-02T22:24:57Z,2022-05-02T22:24:57Z,allandao,T2N1,g,T,253,253,incomplete,find . not -name "*.md" -exec ls -r {} \;
+2022-05-02T22:25:20Z,2022-05-02T22:25:20Z,allandao,T2N1,g,T,276,276,incomplete,find . -type not -name "*.md" -exec ls -r {} \;
+2022-05-02T22:25:27Z,2022-05-02T22:25:26Z,allandao,T2N1,g,T,282,282,incomplete,find . -type f not -name "*.md" -exec ls -r {} \;
+2022-05-02T22:25:37Z,2022-05-02T22:25:37Z,allandao,T2N1,g,T,292,292,incomplete,find . ! -name "*.md" -exec ls -r {} \;
+2022-05-02T22:26:09Z,2022-05-02T22:26:09Z,allandao,T2N1,g,T,325,325,success,find . -type f ! -name "*.md" -exec ls -r {} \;
+2022-05-02T22:26:10Z,2022-05-02T22:26:09Z,allandao,T2N1,h,T,0,325,incomplete,start_task
+2022-05-02T22:27:12Z,2022-05-02T22:27:12Z,allandao,T2N1,h,T,63,388,success,find . -type f -name "[0-9]*.md" -exec rm -r {} \;
+2022-05-02T22:27:13Z,2022-05-02T22:27:12Z,allandao,T2N1,i,T,0,388,incomplete,start_task
+2022-05-02T22:30:45Z,2022-05-02T22:30:45Z,allandao,T2N1,i,T,213,601,incomplete,diff -br ./content/labs/ ./content/lessons/
+2022-05-02T22:30:57Z,2022-05-02T22:30:57Z,allandao,T2N1,i,T,225,613,incomplete,diff -r ./content/labs/ ./content/lessons/
+2022-05-02T22:31:19Z,2022-05-02T22:31:19Z,allandao,T2N1,i,T,247,635,incomplete,diff -br ./content/labs/ ./content/lessons/
+2022-05-02T22:31:48Z,2022-05-02T22:31:48Z,allandao,T2N1,i,T,276,664,success,diff -qbr ./content/labs/ ./content/lessons/
+2022-05-02T22:31:49Z,2022-05-02T22:31:48Z,allandao,T2N1,j,T,0,664,incomplete,start_task
+2022-05-02T22:32:08Z,2022-05-02T22:32:08Z,allandao,T2N1,j,T,20,684,incomplete,start_task
+2022-05-02T22:32:08Z,2022-05-02T22:32:08Z,allandao,T2N1,j,T,20,684,success,find . -size  10k
+2022-05-02T22:32:09Z,2022-05-02T22:32:08Z,allandao,T2N1,k,T,0,684,incomplete,start_task
+2022-05-02T22:32:43Z,2022-05-02T22:32:43Z,allandao,T2N1,k,T,35,719,incomplete,start_task
+2022-05-02T22:32:43Z,2022-05-02T22:32:43Z,allandao,T2N1,k,T,35,719,incomplete,find . -name '*review*' | xargs -I {} grep 'why' {}
+2022-05-02T22:32:54Z,2022-05-02T22:32:54Z,allandao,T2N1,k,T,46,730,incomplete,find . -name '*review*' | xargs -I {} grep -r 'why' {}
+2022-05-02T22:33:06Z,2022-05-02T22:33:06Z,allandao,T2N1,k,T,58,742,incomplete,find -r . -name '*review*' | xargs -I {} grep 'why' {}
+2022-05-02T22:33:38Z,2022-05-02T22:33:37Z,allandao,T2N1,k,T,89,773,incomplete,find -r . -name '*review*' | xargs -I {} grep 'why' {}
+2022-05-02T22:33:38Z,2022-05-02T22:33:38Z,allandao,T2N1,k,T,90,774,incomplete,find . -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:33:55Z,2022-05-02T22:33:55Z,allandao,T2N1,k,T,106,790,incomplete,find .-type f -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:34:18Z,2022-05-02T22:34:18Z,allandao,T2N1,k,T,129,813,incomplete,find . -type f -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:34:31Z,2022-05-02T22:34:31Z,allandao,T2N1,k,T,143,827,incomplete,find . -type f -name '*review*' -exec grep 'why' {} \ -print
+2022-05-02T22:34:44Z,2022-05-02T22:34:44Z,allandao,T2N1,k,T,156,840,incomplete,find . -type f -name '*review*' -exec grep 'why' {} 
+2022-05-02T22:35:00Z,2022-05-02T22:35:00Z,allandao,T2N1,k,T,171,855,incomplete,find . -type f -name '*review*' -exec grep 'why' {}
+2022-05-02T22:35:24Z,2022-05-02T22:35:24Z,allandao,T2N1,k,T,196,880,incomplete,find . -type f -name '*review*' -exec grep 'why' {}
+2022-05-02T22:35:25Z,2022-05-02T22:35:25Z,allandao,T2N1,k,T,197,881,incomplete,find . -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:35:33Z,2022-05-02T22:35:32Z,allandao,T2N1,k,T,204,888,incomplete,find . -type f -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:36:30Z,2022-05-02T22:36:30Z,allandao,T2N1,k,T,262,946,incomplete,find . -type f -name '*review* -r' -exec grep 'why' {} \; -print
+2022-05-02T22:36:39Z,2022-05-02T22:36:39Z,allandao,T2N1,k,T,271,955,incomplete,find . -type f -name '*review*' -r -exec grep 'why' {} \; -print
+2022-05-02T22:37:38Z,2022-05-02T22:37:38Z,allandao,T2N1,k,T,330,1014,incomplete,find . -type f -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:37:59Z,2022-05-02T22:37:58Z,allandao,T2N1,k,T,350,1034,incomplete,find . -type f -name '*review*' -exec grep 'why' {} \; -print
+2022-05-02T22:38:02Z,2022-05-02T22:38:02Z,allandao,T2N1,k,T,354,1038,incomplete,find . -type f -name '*review*'
+2022-05-02T22:38:10Z,2022-05-02T22:38:09Z,allandao,T2N1,k,T,,1045,timeout,find . -type f -name '*review*' | grep 'why'
+2022-05-02T22:38:10Z,2022-05-02T22:38:10Z,allandao,T2N1,l,T,0,1045,incomplete,start_task
+2022-05-02T22:38:43Z,2022-05-02T22:38:43Z,allandao,T2N1,l,T,33,1079,incomplete,start_task
+2022-05-02T22:38:43Z,2022-05-02T22:38:43Z,allandao,T2N1,l,T,33,1079,incomplete,du -s -h *
+2022-05-02T22:38:44Z,2022-05-02T22:38:44Z,allandao,T2N1,l,T,34,1080,incomplete,du -s -h *
+2022-05-02T22:39:24Z,2022-05-02T22:39:24Z,allandao,T2N1,l,T,74,1120,incomplete,du -s -h * | sort -n
+2022-05-02T22:39:44Z,2022-05-02T22:39:43Z,allandao,T2N1,l,T,93,1139,incomplete,du -s -h content | sort -nr
+2022-05-02T22:39:55Z,2022-05-02T22:39:55Z,allandao,T2N1,l,T,105,1151,incomplete,du -s -h * | sort -nr
+2022-05-02T22:42:08Z,2022-05-02T22:42:07Z,allandao,T2N1,l,T,237,1283,incomplete,du -s -h /content | sort -nr
+2022-05-02T22:42:11Z,2022-05-02T22:42:11Z,allandao,T2N1,l,T,241,1287,incomplete,ls
+2022-05-02T22:42:19Z,2022-05-02T22:42:19Z,allandao,T2N1,l,T,248,1294,incomplete,du -s -h /content/* | sort -nr
+2022-05-02T22:42:26Z,2022-05-02T22:42:26Z,allandao,T2N1,l,T,256,1302,incomplete,du -s -h */content/* | sort -nr
+2022-05-02T22:42:36Z,2022-05-02T22:42:36Z,allandao,T2N1,l,T,266,1312,incomplete,cd content; du -s -h * | sort -nr
+2022-05-02T22:42:48Z,2022-05-02T22:42:48Z,allandao,T2N1,l,T,278,1324,incomplete,ls content | du -s -h * | sort -nr
+2022-05-02T22:43:43Z,2022-05-02T22:43:43Z,allandao,T2N1,l,T,333,1379,incomplete,ls -d content | du -s -h * | sort -nr
+2022-05-02T22:45:05Z,2022-05-02T22:45:04Z,allandao,T2N1,l,T,,1460,timeout,du -s -h * | sort -nr
+2022-05-02T22:45:23Z,2022-05-02T22:45:23Z,allandao,T2N1,a,N,0,1460,incomplete,start_task
+2022-05-02T22:46:09Z,2022-05-02T22:46:09Z,allandao,T2N1,a,N,46,46,incomplete,find . -type d -empty -print
+2022-05-02T22:46:18Z,2022-05-02T22:46:18Z,allandao,T2N1,a,N,55,55,incomplete,find . -type d -empty
+2022-05-02T22:46:27Z,2022-05-02T22:46:27Z,allandao,T2N1,a,N,64,64,success,find . -type d -empty -delete
+2022-05-02T22:46:27Z,2022-05-02T22:46:27Z,allandao,T2N1,b,N,0,64,incomplete,start_task
+2022-05-02T22:46:47Z,2022-05-02T22:46:47Z,allandao,T2N1,b,N,20,84,incomplete,diff ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:46:56Z,2022-05-02T22:46:55Z,allandao,T2N1,b,N,28,92,incomplete,diff -h ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:47:21Z,2022-05-02T22:47:21Z,allandao,T2N1,b,N,54,118,incomplete,diff -c ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:48:03Z,2022-05-02T22:48:03Z,allandao,T2N1,b,N,96,160,incomplete,diff --side-by-side --suppress-common-lines ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:48:17Z,2022-05-02T22:48:17Z,allandao,T2N1,b,N,110,174,incomplete,diff --suppress-common-lines ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:48:28Z,2022-05-02T22:48:28Z,allandao,T2N1,b,N,121,185,incomplete,diff --side-by-side ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:48:31Z,2022-05-02T22:48:31Z,allandao,T2N1,b,N,124,188,incomplete,diff --suppress-common-lines ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:48:36Z,2022-05-02T22:48:36Z,allandao,T2N1,b,N,129,193,incomplete,diff --side-by-side --suppress-common-lines ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:49:42Z,2022-05-02T22:49:42Z,allandao,T2N1,b,N,195,259,incomplete,diff --changed-group-format='%>' --unchanged-group-format='' ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:50:19Z,2022-05-02T22:50:19Z,allandao,T2N1,b,N,232,296,incomplete,diff --changed-group-format='%>' --unchanged-group-format='' ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:50:38Z,2022-05-02T22:50:38Z,allandao,T2N1,b,N,251,315,incomplete,diff --changed-group-format='%>' --unchanged-group-format="" ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:51:09Z,2022-05-02T22:51:09Z,allandao,T2N1,b,N,282,346,incomplete,sdiff ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:52:09Z,2022-05-02T22:52:09Z,allandao,T2N1,b,N,342,406,incomplete,sdiff -s ./content/review/review2.md ./content/review/review1.md
+2022-05-02T22:53:21Z,2022-05-02T22:53:21Z,allandao,T2N1,b,N,,478,timeout,helpme
+2022-05-02T22:53:21Z,2022-05-02T22:53:21Z,allandao,T2N1,c,N,0,478,incomplete,start_task
+2022-05-02T22:53:56Z,2022-05-02T22:53:55Z,allandao,T2N1,c,N,34,512,incomplete,ls -r | wc -l
+2022-05-02T22:54:16Z,2022-05-02T22:54:16Z,allandao,T2N1,c,N,55,533,incomplete,ls -r | wc -l
+2022-05-02T22:54:21Z,2022-05-02T22:54:20Z,allandao,T2N1,c,N,59,537,incomplete,ls -r ./content/labs/ | wc -l
+2022-05-02T22:54:28Z,2022-05-02T22:54:28Z,allandao,T2N1,c,N,66,544,incomplete,ls -R ./content/labs/ | wc -l
+2022-05-02T22:54:42Z,2022-05-02T22:54:42Z,allandao,T2N1,c,N,81,559,incomplete,ls -R ./content/labs
+2022-05-02T22:54:54Z,2022-05-02T22:54:54Z,allandao,T2N1,c,N,92,570,incomplete,ls -r ./content/labs/ | wc -l
+2022-05-02T22:55:33Z,2022-05-02T22:55:33Z,allandao,T2N1,c,N,131,609,success,find ./content/labs -type f | wc -l
+2022-05-02T22:55:33Z,2022-05-02T22:55:33Z,allandao,T2N1,d,N,0,609,incomplete,start_task
+2022-05-02T22:57:30Z,2022-05-02T22:57:30Z,allandao,T2N1,d,N,117,727,incomplete,find . -type f -not -name 'tips.md' -delete ./content/
+2022-05-02T22:58:02Z,2022-05-02T22:58:02Z,allandao,T2N1,d,N,148,758,incomplete,find . -type f not -name 'tips.md' -delete ./content/
+2022-05-02T22:59:19Z,2022-05-02T22:59:18Z,allandao,T2N1,d,N,225,835,incomplete,cd content; find . -type f not -name 'tips.md' -delete
+2022-05-02T22:59:31Z,2022-05-02T22:59:31Z,allandao,T2N1,d,N,238,848,incomplete,cd content; find . -type f -not -name 'tips.md' -delete
+2022-05-02T23:00:05Z,2022-05-02T23:00:05Z,allandao,T2N1,d,N,272,882,incomplete,rm man
+2022-05-02T23:00:26Z,2022-05-02T23:00:26Z,allandao,T2N1,d,N,293,903,incomplete,man rm
+2022-05-02T23:00:31Z,2022-05-02T23:00:31Z,allandao,T2N1,d,N,297,907,incomplete,rm content/ *
+2022-05-02T23:01:12Z,2022-05-02T23:01:11Z,allandao,T2N1,d,N,338,948,incomplete,rm content/*
+2022-05-02T23:02:41Z,2022-05-02T23:02:41Z,allandao,T2N1,d,N,,1038,timeout,rm $(ls | grep -v tips.md)
+2022-05-02T23:02:43Z,2022-05-02T23:02:41Z,allandao,T2N1,e,N,0,1038,incomplete,start_task
+2022-05-02T23:02:52Z,2022-05-02T23:02:52Z,allandao,T2N1,e,N,11,1049,incomplete,rm -r ./css/
+2022-05-02T23:03:02Z,2022-05-02T23:03:02Z,allandao,T2N1,e,N,21,1059,incomplete,rm -r ./css/*
+2022-05-02T23:03:13Z,2022-05-02T23:03:13Z,allandao,T2N1,e,N,32,1070,incomplete,rm ./css/*
+2022-05-02T23:04:27Z,2022-05-02T23:04:27Z,allandao,T2N1,e,N,106,1144,incomplete,rm -f ./css/*
+2022-05-02T23:04:39Z,2022-05-02T23:04:39Z,allandao,T2N1,e,N,118,1156,incomplete,rm -rf ./css/*
+2022-05-02T23:06:43Z,2022-05-02T23:06:42Z,allandao,T2N1,e,N,241,1279,incomplete,find -maxdepth 1 -type f -delete ./css/
+2022-05-02T23:06:53Z,2022-05-02T23:06:53Z,allandao,T2N1,e,N,252,1290,incomplete,find -type f -delete ./css/
+2022-05-02T23:07:03Z,2022-05-02T23:07:03Z,allandao,T2N1,e,N,262,1300,success,find css -type f -delete 
+2022-05-02T23:07:03Z,2022-05-02T23:07:03Z,allandao,T2N1,f,N,0,1300,incomplete,start_task
+2022-05-02T23:07:27Z,2022-05-02T23:07:27Z,allandao,T2N1,f,N,24,1324,incomplete,find css -type FOLDER
+2022-05-02T23:07:35Z,2022-05-02T23:07:35Z,allandao,T2N1,f,N,32,1332,incomplete,find -type FOLDER
+2022-05-02T23:08:10Z,2022-05-02T23:08:10Z,allandao,T2N1,f,N,67,1367,incomplete,ls -d
+2022-05-02T23:08:17Z,2022-05-02T23:08:17Z,allandao,T2N1,f,N,74,1374,incomplete,ls
+2022-05-02T23:08:21Z,2022-05-02T23:08:21Z,allandao,T2N1,f,N,78,1378,incomplete,ls -d */
+2022-05-02T23:08:27Z,2022-05-02T23:08:27Z,allandao,T2N1,f,N,84,1384,incomplete,ls -d */*/
+2022-05-02T23:08:38Z,2022-05-02T23:08:38Z,allandao,T2N1,f,N,95,1395,incomplete,ls -d */*/ | prin
+2022-05-02T23:08:41Z,2022-05-02T23:08:41Z,allandao,T2N1,f,N,98,1398,incomplete,ls -d */*/ | print
+2022-05-02T23:09:11Z,2022-05-02T23:09:11Z,allandao,T2N1,f,N,128,1428,incomplete,ls -d content/*/* | cat
+2022-05-02T23:09:23Z,2022-05-02T23:09:23Z,allandao,T2N1,f,N,140,1440,incomplete,ls -d content/*/*
+2022-05-02T23:09:40Z,2022-05-02T23:09:40Z,allandao,T2N1,f,N,157,1457,incomplete,ls -d content/*/
+2022-05-02T23:09:43Z,2022-05-02T23:09:43Z,allandao,T2N1,f,N,160,1460,incomplete,ls -d content/*/*/
+2022-05-02T23:12:27Z,2022-05-02T23:12:27Z,allandao,T2N1,f,N,324,1624,set-timeout,ls -d content/*/*/ | xargs -n 1 basename
+2022-05-02T23:44:41Z,2022-05-02T23:44:41Z,andrebc,T2N1,v,T,0,,incomplete,start_task
+2022-05-02T23:44:41Z,2022-05-02T23:44:41Z,andrebc,T2N1,v,T,0,1651535081,incomplete,start_task
+2022-05-02T23:45:56Z,2022-05-02T23:45:56Z,andrebc,T2N1,v,T,74,1651535155,incomplete,mv /.README.md ./README.txt
+2022-05-02T23:46:24Z,2022-05-02T23:46:24Z,andrebc,T2N1,v,T,103,1651535184,success,mv README.md README.txt
+2022-05-02T23:46:24Z,2022-05-02T23:46:24Z,andrebc,T2N1,w,T,0,1651535184,incomplete,start_task
+2022-05-02T23:46:32Z,2022-05-02T23:46:32Z,andrebc,T2N1,w,T,8,1651535192,success,cat ./css/app.css
+2022-05-02T23:46:32Z,2022-05-02T23:46:32Z,andrebc,T2N1,x,T,0,1651535192,incomplete,start_task
+2022-05-02T23:48:54Z,2022-05-02T23:48:54Z,andrebc,T2N1,x,T,142,1651535334,incomplete,rm *glyph*
+2022-05-02T23:50:14Z,2022-05-02T23:50:14Z,andrebc,T2N1,x,T,222,1651535414,incomplete,find f -name '*glyph*' -delete
+2022-05-02T23:51:07Z,2022-05-02T23:51:07Z,andrebc,T2N1,x,T,275,1651535467,incomplete,rm *glyph*.*
+2022-05-02T23:51:35Z,2022-05-02T23:51:35Z,andrebc,T2N1,x,T,302,1651535494,incomplete,rm *glyph
+2022-05-02T23:52:27Z,2022-05-02T23:52:27Z,andrebc,T2N1,x,T,355,1651535547,incomplete,sudo rm *glyph*
+2022-05-02T23:53:00Z,2022-05-02T23:53:00Z,andrebc,T2N1,x,T,388,1651535580,success,find -type f -name '*glyph*' -delete
+2022-05-02T23:56:32Z,2022-05-02T23:56:32Z,andrebc,T2N1,y,T,0,1651535580,incomplete,start_task
+2022-05-02T23:57:21Z,2022-05-02T23:57:21Z,andrebc,T2N1,y,T,49,1651535841,incomplete,start_task
+2022-05-02T23:57:21Z,2022-05-02T23:57:21Z,andrebc,T2N1,y,T,49,1651535841,incomplete,cp ./content/tips.md ./content/backup/
+2022-05-02T23:57:59Z,2022-05-02T23:57:59Z,andrebc,T2N1,y,T,87,1651535879,incomplete,copy content/tips.md content/backup/
+2022-05-03T00:01:02Z,2022-05-03T00:01:02Z,andrebc,T2N1,y,T,270,1651536062,incomplete,cp content/tips.md content/backup
+2022-05-03T00:01:23Z,2022-05-03T00:01:22Z,andrebc,T2N1,y,T,290,1651536082,incomplete,cp content/tips.md content/backup/
+2022-05-03T00:02:43Z,2022-05-03T00:02:42Z,andrebc,T2N1,y,T,370,1651536162,incomplete,cp content/tips.md ./content/backup
+2022-05-03T00:03:42Z,2022-05-03T00:03:42Z,andrebc,T2N1,y,T,430,1651536222,incomplete,cp ./content/tips.mdn ./content/backup/
+2022-05-03T00:04:12Z,2022-05-03T00:04:12Z,andrebc,T2N1,y,T,460,1651536252,incomplete,cp content/tips.md content/backup
+2022-05-03T00:05:08Z,2022-05-03T00:05:08Z,andrebc,T2N1,y,T,516,1651536308,incomplete,cd content | cp tips.md backup/
+2022-05-03T00:05:33Z,2022-05-03T00:05:33Z,andrebc,T2N1,y,T,541,1651536333,incomplete,mv content/tips.md content/backup
+2022-05-03T00:06:30Z,2022-05-03T00:06:30Z,andrebc,T2N1,y,T,598,1651536390,incomplete,mv content/tips.md /content/backup
+2022-05-03T00:07:10Z,2022-05-03T00:07:10Z,andrebc,T2N1,y,T,638,1651536430,incomplete,cp conten/tips.md /content/backup
+2022-05-03T00:08:10Z,2022-05-03T00:08:10Z,andrebc,T2N1,y,T,698,1651536490,incomplete,cp conten/tips.md /content/backup
+2022-05-03T00:08:11Z,2022-05-03T00:08:10Z,andrebc,T2N1,y,T,698,1651536490,incomplete,cp ./content/tips.md .content/backup/
+2022-05-03T00:09:55Z,2022-05-03T00:09:55Z,andrebc,T2N1,y,T,802,1651536594,incomplete,cp ./content/tips.md .content/backup/
+2022-05-03T00:09:55Z,2022-05-03T00:09:55Z,andrebc,T2N1,y,T,803,1651536595,incomplete,cp ./content/tips.md
+2022-05-03T00:09:55Z,2022-05-03T00:09:55Z,andrebc,T2N1,y,T,803,1651536595,incomplete,cp [-R [-H | -L | -P]] [-fi | -n] [-apvX] source_file target_file
+2022-05-03T00:09:56Z,2022-05-03T00:09:56Z,andrebc,T2N1,y,T,803,1651536595,incomplete,cp [-R [-H | -L | -P]] [-fi | -n] [-apvX] source_file ...
+2022-05-03T00:09:56Z,2022-05-03T00:09:56Z,andrebc,T2N1,y,T,804,1651536596,incomplete,target_directory
+2022-05-03T00:09:56Z,2022-05-03T00:09:56Z,andrebc,T2N1,y,T,804,1651536596,incomplete,.content/backup.md
+2022-05-03T00:24:02Z,2022-05-03T00:24:02Z,andrebc,T2N1,y,T,1650,1651537442,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T00:24:41Z,2022-05-03T00:24:41Z,andrebc,T2N1,y,T,1688,1651537480,incomplete,cp ./content/tips.md ./content/backup/tips.md
+2022-05-03T00:25:12Z,2022-05-03T00:25:12Z,andrebc,T2N1,y,T,1720,1651537512,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T00:26:43Z,2022-05-03T00:26:43Z,andrebc,T2N1,y,T,1811,1651537603,incomplete,cp content/tips.md content/backup
+2022-05-03T00:27:06Z,2022-05-03T00:27:06Z,andrebc,T2N1,y,T,1834,1651537626,incomplete,mkdir content/backup
+2022-05-03T00:27:26Z,2022-05-03T00:27:26Z,andrebc,T2N1,y,T,1854,1651537646,incomplete,mkdir content/backup | cp content/tips.md
+2022-05-03T00:27:52Z,2022-05-03T00:27:52Z,andrebc,T2N1,y,T,1879,1651537671,incomplete,mkdir content/backup | cp content/tips.md
+2022-05-03T00:27:52Z,2022-05-03T00:27:52Z,andrebc,T2N1,y,T,1880,1651537672,incomplete,cp -r ./content/tips.md .content/backup/
+2022-05-03T00:28:00Z,2022-05-03T00:28:00Z,andrebc,T2N1,y,T,1888,1651537680,incomplete,cp -r ./content/tips.md .content/backup/
+2022-05-03T00:28:01Z,2022-05-03T00:28:01Z,andrebc,T2N1,y,T,1889,1651537681,incomplete,cp --parents ./content/tips.md .content/backup/
+2022-05-03T00:31:10Z,2022-05-03T00:31:10Z,andrebc,T2N1,y,T,2078,1651537870,incomplete,cp --parents ./content/tips.md .content/backup/
+2022-05-03T00:31:10Z,2022-05-03T00:31:10Z,andrebc,T2N1,y,T,2078,1651537870,incomplete,cp ./content/tips.md .content/backup.md
+2022-05-03T00:33:25Z,2022-05-03T00:33:25Z,andrebc,T2N1,y,T,2213,1651538005,incomplete,mkdir /content/backup ,
+2022-05-03T00:34:09Z,2022-05-03T00:34:09Z,andrebc,T2N1,y,T,2257,1651538049,success,mkdir content/backup ,
+2022-05-03T00:34:09Z,2022-05-03T00:34:09Z,andrebc,T2N1,z,T,0,1651538049,incomplete,start_task
+2022-05-03T00:35:22Z,2022-05-03T00:35:21Z,andrebc,T2N1,z,T,72,1651538121,incomplete,cat content/syllabus.md | wc -lines
+2022-05-03T00:37:21Z,2022-05-03T00:37:21Z,andrebc,T2N1,z,T,192,1651538241,incomplete,wc -l content/syllabus.md
+2022-05-03T00:37:58Z,2022-05-03T00:37:58Z,andrebc,T2N1,z,T,229,1651538278,incomplete,wc -l content/syllabus.md
+2022-05-03T00:38:44Z,2022-05-03T00:38:44Z,andrebc,T2N1,z,T,275,1651538324,incomplete,cat .content/syllabus.md | wc -l
+2022-05-03T00:38:59Z,2022-05-03T00:38:59Z,andrebc,T2N1,z,T,290,1651538339,success,cat content/syllabus.md | wc -l
+2022-05-03T00:39:07Z,2022-05-03T00:39:07Z,andrebc,T2N1,g,T,0,1651538339,incomplete,start_task
+2022-05-03T00:42:34Z,2022-05-03T00:42:34Z,andrebc,T2N1,g,T,207,207,incomplete,find ! -name *.md*
+2022-05-03T00:45:31Z,2022-05-03T00:45:31Z,andrebc,T2N1,g,T,,384,timeout,find * NOT *.md*
+2022-05-03T00:45:31Z,2022-05-03T00:45:31Z,andrebc,T2N1,h,T,0,384,incomplete,start_task
+2022-05-03T00:46:37Z,2022-05-03T00:46:37Z,andrebc,T2N1,h,T,66,450,incomplete,rm [0-9]*.md
+2022-05-03T00:48:20Z,2022-05-03T00:48:20Z,andrebc,T2N1,h,T,169,553,incomplete,rm find . -name "[0-9]*.md" -exec rn {} \;
+2022-05-03T00:50:07Z,2022-05-03T00:50:07Z,andrebc,T2N1,h,T,276,660,incomplete,rm [123456789]*.md
+2022-05-03T00:51:00Z,2022-05-03T00:51:00Z,andrebc,T2N1,h,T,329,713,incomplete,rm -v [0-9]*.md
+2022-05-03T00:53:10Z,2022-05-03T00:53:10Z,andrebc,T2N1,h,T,,843,timeout,find . -name "[1-9]*.md" -exec rm {} \;
+2022-05-03T00:53:10Z,2022-05-03T00:53:10Z,andrebc,T2N1,i,T,0,843,incomplete,start_task
+2022-05-03T00:55:42Z,2022-05-03T00:55:42Z,andrebc,T2N1,i,T,152,995,incomplete,diff -r content/labs/ content/lessons/
+2022-05-03T00:57:19Z,2022-05-03T00:57:19Z,andrebc,T2N1,i,T,249,1092,incomplete,diff -qr content/labs content/lessons
+2022-05-03T00:58:43Z,2022-05-03T00:58:42Z,andrebc,T2N1,i,T,332,1175,incomplete,diff -qr content/labs content/lessons
+2022-05-03T00:58:43Z,2022-05-03T00:58:43Z,andrebc,T2N1,i,T,333,1176,incomplete,curl ./content/labs/ ./content/labs/
+2022-05-03T00:59:16Z,2022-05-03T00:59:16Z,andrebc,T2N1,i,T,,1209,timeout,diff -qr content/labs/ content/lessons/
+2022-05-03T00:59:16Z,2022-05-03T00:59:16Z,andrebc,T2N1,j,T,0,1209,incomplete,start_task
+2022-05-03T01:00:29Z,2022-05-03T01:00:29Z,andrebc,T2N1,j,T,73,1282,success,find . -size  10k
+2022-05-03T01:00:29Z,2022-05-03T01:00:29Z,andrebc,T2N1,k,T,0,1282,incomplete,start_task
+2022-05-03T01:01:37Z,2022-05-03T01:01:37Z,andrebc,T2N1,k,T,68,1350,incomplete,find *review* | grep 'why'
+2022-05-03T01:03:38Z,2022-05-03T01:03:38Z,andrebc,T2N1,k,T,189,1471,incomplete,find . -maxdepth 1 -name "*review*" | grep 'why'
+2022-05-03T01:05:35Z,2022-05-03T01:05:35Z,andrebc,T2N1,k,T,306,1588,set-timeout,find . -name '*review*' | grep -i 'why'
+2022-05-03T01:06:52Z,2022-05-03T01:06:52Z,andrebc,T2N1,a,N,0,1588,incomplete,start_task
+2022-05-03T01:07:31Z,2022-05-03T01:07:31Z,andrebc,T2N1,a,N,39,39,success,find . -type d -empty -delete
+2022-05-03T01:07:31Z,2022-05-03T01:07:31Z,andrebc,T2N1,b,N,0,39,incomplete,start_task
+2022-05-03T01:07:59Z,2022-05-03T01:07:59Z,andrebc,T2N1,b,N,28,67,incomplete,diff content/review/review2,md content/review/review.md | wc -l
+2022-05-03T01:08:21Z,2022-05-03T01:08:21Z,andrebc,T2N1,b,N,49,88,incomplete,diff content/review/review2.md content/review/review.md
+2022-05-03T01:09:22Z,2022-05-03T01:09:22Z,andrebc,T2N1,b,N,111,150,incomplete,cat ./content/review/review22.md | grep -v './content/review/review2.md'
+2022-05-03T01:10:00Z,2022-05-03T01:10:00Z,andrebc,T2N1,b,N,149,188,incomplete,cat content/review/review2.md | grep content/review/review1.md
+2022-05-03T01:12:00Z,2022-05-03T01:12:00Z,andrebc,T2N1,b,N,268,307,success,comm -23 content/review/review2.md content/review/review1.md
+2022-05-03T01:12:00Z,2022-05-03T01:12:00Z,andrebc,T2N1,c,N,0,307,incomplete,start_task
+2022-05-03T01:13:30Z,2022-05-03T01:13:30Z,andrebc,T2N1,c,N,90,398,incomplete,ls content/labs | wc -l
+2022-05-03T01:16:18Z,2022-05-03T01:16:18Z,andrebc,T2N1,c,N,258,566,incomplete,find . -type f -print | wc -l
+2022-05-03T01:16:44Z,2022-05-03T01:16:44Z,andrebc,T2N1,c,N,284,592,incomplete,find -r  content/labs -type f -print | wc -l
+2022-05-03T01:17:01Z,2022-05-03T01:17:01Z,andrebc,T2N1,c,N,300,608,success,find content/labs -type f -print | wc -l
+2022-05-03T01:17:01Z,2022-05-03T01:17:01Z,andrebc,T2N1,d,N,0,608,incomplete,start_task
+2022-05-03T01:22:51Z,2022-05-03T01:22:51Z,andrebc,T2N1,d,N,350,959,incomplete,set  H
+2022-05-03T01:23:07Z,2022-05-03T01:23:07Z,andrebc,T2N1,d,N,,975,timeout,rm !tips.md
+2022-05-03T01:23:07Z,2022-05-03T01:23:07Z,andrebc,T2N1,e,N,0,975,incomplete,start_task
+2022-05-03T01:23:21Z,2022-05-03T01:23:21Z,andrebc,T2N1,e,N,14,989,incomplete,rm -r css/
+2022-05-03T01:25:06Z,2022-05-03T01:25:06Z,andrebc,T2N1,e,N,119,1094,incomplete,find ./css/ -type -f -exec rm {} \;
+2022-05-03T01:27:05Z,2022-05-03T01:27:05Z,andrebc,T2N1,e,N,238,1213,incomplete,find css type -f -exec rm {} \;
+2022-05-03T01:27:30Z,2022-05-03T01:27:30Z,andrebc,T2N1,e,N,262,1237,success,find css -type f -exec rm {} \;
+2022-05-03T01:27:30Z,2022-05-03T01:27:30Z,andrebc,T2N1,f,N,0,1237,incomplete,start_task
+2022-05-03T01:30:33Z,2022-05-03T01:30:33Z,andrebc,T2N1,f,N,183,1421,incomplete,find content -type d | find content -type d
+2022-05-03T01:31:05Z,2022-05-03T01:31:05Z,andrebc,T2N1,f,N,215,1453,incomplete,find content -type d > find content -type d
+2022-05-03T01:35:08Z,2022-05-03T01:35:08Z,andrebc,T2N1,f,N,458,1696,set-timeout,find content type -d | find type -d
+2022-05-03T17:17:30Z,2022-05-03T17:17:30Z,rc2002,T2N1,v,T,0,,incomplete,start_task
+2022-05-03T17:17:30Z,2022-05-03T17:17:30Z,rc2002,T2N1,v,T,0,1651598250,incomplete,start_task
+2022-05-03T17:18:08Z,2022-05-03T17:18:08Z,rc2002,T2N1,v,T,38,1651598288,success,mv ./README.md ./README.txt
+2022-05-03T17:18:08Z,2022-05-03T17:18:08Z,rc2002,T2N1,w,T,0,1651598288,incomplete,start_task
+2022-05-03T17:18:17Z,2022-05-03T17:18:17Z,rc2002,T2N1,w,T,8,1651598296,success,cat ./css/app.css
+2022-05-03T17:18:17Z,2022-05-03T17:18:17Z,rc2002,T2N1,x,T,0,1651598296,incomplete,start_task
+2022-05-03T17:18:33Z,2022-05-03T17:18:33Z,rc2002,T2N1,x,T,16,1651598313,incomplete,f
+2022-05-03T17:19:32Z,2022-05-03T17:19:32Z,rc2002,T2N1,x,T,75,1651598372,incomplete,rm -rf *glyph*
+2022-05-03T17:20:43Z,2022-05-03T17:20:43Z,rc2002,T2N1,x,T,146,1651598443,incomplete,ls | grep -P "glyph" | xargs -d"\n" rm
+2022-05-03T17:21:19Z,2022-05-03T17:21:19Z,rc2002,T2N1,x,T,182,1651598479,incomplete,ls | grep -P "glyph" | xargs -d"\n" rm -rf
+2022-05-03T17:21:53Z,2022-05-03T17:21:53Z,rc2002,T2N1,x,T,216,1651598513,incomplete,rm -rf glyph
+2022-05-03T17:22:00Z,2022-05-03T17:22:00Z,rc2002,T2N1,x,T,223,1651598520,incomplete,rm -rf "glyph"
+2022-05-03T17:22:08Z,2022-05-03T17:22:08Z,rc2002,T2N1,x,T,231,1651598528,incomplete,rm "glyph"
+2022-05-03T17:22:13Z,2022-05-03T17:22:13Z,rc2002,T2N1,x,T,235,1651598532,incomplete,ks
+2022-05-03T17:22:14Z,2022-05-03T17:22:13Z,rc2002,T2N1,x,T,236,1651598533,incomplete,ls
+2022-05-03T17:23:38Z,2022-05-03T17:23:38Z,rc2002,T2N1,x,T,321,1651598618,success,find / -name '*glyph*' -delete
+2022-05-03T17:24:13Z,2022-05-03T17:24:12Z,rc2002,T2N1,y,T,0,1651598618,incomplete,start_task
+2022-05-03T17:24:45Z,2022-05-03T17:24:45Z,rc2002,T2N1,y,T,32,1651598684,incomplete,start_task
+2022-05-03T17:25:02Z,2022-05-03T17:25:02Z,rc2002,T2N1,y,T,50,1651598702,incomplete,start_task
+2022-05-03T17:25:15Z,2022-05-03T17:25:14Z,rc2002,T2N1,y,T,62,1651598714,incomplete,cp ./content/tips.md ./content/backup/
+2022-05-03T17:25:42Z,2022-05-03T17:25:42Z,rc2002,T2N1,y,T,89,1651598741,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:25:58Z,2022-05-03T17:25:58Z,rc2002,T2N1,y,T,106,1651598758,incomplete,cp -r ./content/tips.md
+2022-05-03T17:26:18Z,2022-05-03T17:26:17Z,rc2002,T2N1,y,T,125,1651598777,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:26:52Z,2022-05-03T17:26:52Z,rc2002,T2N1,y,T,160,1651598812,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:26:53Z,2022-05-03T17:26:53Z,rc2002,T2N1,y,T,161,1651598813,incomplete,cp --parents ./content/tips.md ./content/backup
+2022-05-03T17:27:01Z,2022-05-03T17:27:01Z,rc2002,T2N1,y,T,169,1651598821,incomplete,cp --parents ./content/tips.md ./content/backup
+2022-05-03T17:27:02Z,2022-05-03T17:27:01Z,rc2002,T2N1,y,T,169,1651598821,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T17:27:02Z,2022-05-03T17:27:02Z,rc2002,T2N1,y,T,170,1651598822,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T17:27:17Z,2022-05-03T17:27:16Z,rc2002,T2N1,y,T,184,1651598836,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T17:27:17Z,2022-05-03T17:27:17Z,rc2002,T2N1,y,T,185,1651598837,incomplete,cp ../content.md ./content/backup
+2022-05-03T17:27:21Z,2022-05-03T17:27:20Z,rc2002,T2N1,y,T,188,1651598840,incomplete,cp ../content.md ./content/backup
+2022-05-03T17:27:21Z,2022-05-03T17:27:21Z,rc2002,T2N1,y,T,189,1651598841,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:27:27Z,2022-05-03T17:27:27Z,rc2002,T2N1,y,T,195,1651598847,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:27:28Z,2022-05-03T17:27:28Z,rc2002,T2N1,y,T,196,1651598848,incomplete,cp --parents ./content.md ./content/backup
+2022-05-03T17:27:28Z,2022-05-03T17:27:28Z,rc2002,T2N1,y,T,196,1651598848,incomplete,cp --parents ./content.md ./content/backup
+2022-05-03T17:27:37Z,2022-05-03T17:27:37Z,rc2002,T2N1,y,T,205,1651598857,incomplete,cp --parents ./content.md ./content/backup
+2022-05-03T17:27:37Z,2022-05-03T17:27:37Z,rc2002,T2N1,y,T,205,1651598857,incomplete,find ./content/tips.md -type d -name './content.md' -exec cp --parents {} ./content/backup \;
+2022-05-03T17:28:38Z,2022-05-03T17:28:38Z,rc2002,T2N1,y,T,266,1651598918,incomplete,find ./content/tips.md -type d -name './content.md' -exec cp --parents {} ./content/backup \;
+2022-05-03T17:28:39Z,2022-05-03T17:28:38Z,rc2002,T2N1,y,T,266,1651598918,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T17:28:51Z,2022-05-03T17:28:51Z,rc2002,T2N1,y,T,279,1651598931,incomplete,cp ./content/tips.md ./content/backup
+2022-05-03T17:28:52Z,2022-05-03T17:28:51Z,rc2002,T2N1,y,T,279,1651598931,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:29:12Z,2022-05-03T17:29:12Z,rc2002,T2N1,y,T,300,1651598952,incomplete,cp -r ./content/tips.md ./content/backup
+2022-05-03T17:29:43Z,2022-05-03T17:29:43Z,rc2002,T2N1,y,T,331,1651598983,incomplete,mv -r ./content/tips.md ./content/backup
+2022-05-03T17:29:54Z,2022-05-03T17:29:53Z,rc2002,T2N1,y,T,341,1651598993,incomplete,mv -r ./content/tips.md ./content/backup
+2022-05-03T17:30:02Z,2022-05-03T17:30:02Z,rc2002,T2N1,y,T,350,1651599002,incomplete,mv ./content/tips.md ./content/backup
+2022-05-03T17:30:19Z,2022-05-03T17:30:19Z,rc2002,T2N1,y,T,367,1651599019,incomplete,mv ./content/tips.md ./content/backup/tips.md
+2022-05-03T17:30:32Z,2022-05-03T17:30:32Z,rc2002,T2N1,y,T,380,1651599032,incomplete,skip
+2022-05-03T17:31:08Z,2022-05-03T17:31:08Z,rc2002,T2N1,y,T,416,1651599068,incomplete,skip
+2022-05-03T17:31:09Z,2022-05-03T17:31:09Z,rc2002,T2N1,y,T,417,1651599069,incomplete,slkip
+2022-05-03T17:31:22Z,2022-05-03T17:31:22Z,rc2002,T2N1,y,T,430,1651599082,incomplete,cp -fr
+2022-05-03T17:31:27Z,2022-05-03T17:31:27Z,rc2002,T2N1,y,T,435,1651599087,incomplete,cp --help
+2022-05-03T17:31:49Z,2022-05-03T17:31:49Z,rc2002,T2N1,y,T,457,1651599109,incomplete,cp -r ./content/backup/ ./content/tips.md
+2022-05-03T17:32:10Z,2022-05-03T17:32:10Z,rc2002,T2N1,y,T,478,1651599130,incomplete,cp -r ./content/tips.md ./content/backup/tips.md
+2022-05-03T17:32:24Z,2022-05-03T17:32:24Z,rc2002,T2N1,y,T,491,1651599143,incomplete,cp -r ./content/tips.md ./content/backup/
+2022-05-03T17:33:17Z,2022-05-03T17:33:17Z,rc2002,T2N1,y,T,545,1651599197,incomplete,cp -r ./content/tips.md ./content/backup/
+2022-05-03T17:34:23Z,2022-05-03T17:34:23Z,rc2002,T2N1,y,T,611,1651599263,incomplete,cp ./content/ ./content/backup/
+2022-05-03T17:35:25Z,2022-05-03T17:35:25Z,rc2002,T2N1,y,T,673,1651599325,incomplete,cp -r  ./content/ ./content/backup/
+2022-05-03T17:35:58Z,2022-05-03T17:35:57Z,rc2002,T2N1,y,T,705,1651599357,incomplete,cp -r  ./content/tips.md ./content/backup/
+2022-05-03T17:36:05Z,2022-05-03T17:36:05Z,rc2002,T2N1,y,T,713,1651599365,incomplete,cp -r  ./content/tips.md/ ./content/backup/
+2022-05-03T17:36:20Z,2022-05-03T17:36:20Z,rc2002,T2N1,y,T,728,1651599380,incomplete,cp -r  ./content/tips.md/ ./content/backup
+2022-05-03T17:37:03Z,2022-05-03T17:37:03Z,rc2002,T2N1,y,T,771,1651599423,incomplete,mkdir ./content/backup
+2022-05-03T17:37:17Z,2022-05-03T17:37:16Z,rc2002,T2N1,y,T,784,1651599436,incomplete,mkdir ./content/backup ,
+2022-05-03T17:38:09Z,2022-05-03T17:38:09Z,rc2002,T2N1,y,T,836,1651599488,incomplete,mkdir ./content/backup ,
+2022-05-03T17:38:09Z,2022-05-03T17:38:09Z,rc2002,T2N1,y,T,837,1651599489,incomplete,cp -R ./content/tips.md director./content/backup
+2022-05-03T17:38:10Z,2022-05-03T17:38:09Z,rc2002,T2N1,y,T,837,1651599489,incomplete,cp -R ./content/tips.md director./content/backup
+2022-05-03T17:38:22Z,2022-05-03T17:38:22Z,rc2002,T2N1,y,T,850,1651599502,incomplete,cp -R ./content/tips.md director./content/backup
+2022-05-03T17:38:22Z,2022-05-03T17:38:22Z,rc2002,T2N1,y,T,850,1651599502,incomplete,cp -R ./content/tips.md ./content/backup
+2022-05-03T17:38:31Z,2022-05-03T17:38:31Z,rc2002,T2N1,y,T,859,1651599511,incomplete,cp -R ./content/tips.md ./content/backup
+2022-05-03T17:38:32Z,2022-05-03T17:38:32Z,rc2002,T2N1,y,T,859,1651599512,incomplete,cp -R ./content/tips.md ./content/backup
+2022-05-03T17:39:11Z,2022-05-03T17:39:11Z,rc2002,T2N1,y,T,899,1651599551,incomplete,cp -R ./content/tips.md ./content/backup ,
+2022-05-03T17:41:21Z,2022-05-03T17:41:21Z,rc2002,T2N1,y,T,1028,1651599681,incomplete,cp -R ./content/tips.md ./content/backup ,
+2022-05-03T17:41:21Z,2022-05-03T17:41:21Z,rc2002,T2N1,y,T,1029,1651599681,incomplete,cp --parents ./content/backup ./content/tips.md
+2022-05-03T17:42:19Z,2022-05-03T17:42:19Z,rc2002,T2N1,y,T,1087,1651599739,incomplete,mkdir ./content/backup ,
+2022-05-03T17:42:53Z,2022-05-03T17:42:53Z,rc2002,T2N1,y,T,1121,1651599773,incomplete,cp --parents ./content/backup ./content/tips.md
+2022-05-03T17:43:16Z,2022-05-03T17:43:16Z,rc2002,T2N1,y,T,1144,1651599796,incomplete,mkdir ./content/backup ,
+2022-05-03T17:46:18Z,2022-05-03T17:46:18Z,rc2002,T2N1,v,T,0,,incomplete,start_task
+2022-05-03T17:46:18Z,2022-05-03T17:46:18Z,rc2002,T2N1,v,T,0,1651599978,incomplete,start_task
+2022-05-03T17:46:40Z,2022-05-03T17:46:40Z,rc2002,T2N1,v,T,22,1651600000,incomplete,skip
+2022-05-03T17:46:55Z,2022-05-03T17:46:55Z,rc2002,T2N1,v,T,36,1651600015,incomplete,mv ./readme.md ./readme.txt
+2022-05-03T17:47:08Z,2022-05-03T17:47:08Z,rc2002,T2N1,v,T,50,1651600028,incomplete,mv ./README.md ./README.txt
+2022-05-03T17:48:51Z,2022-05-03T17:48:50Z,rc2002,T2N1,v,T,152,1651600130,incomplete,clear
+2022-05-03T17:49:21Z,2022-05-03T17:49:20Z,rc2002,T2N1,v,T,0,,incomplete,start_task
+2022-05-03T17:49:21Z,2022-05-03T17:49:21Z,rc2002,T2N1,v,T,1,1651600161,incomplete,start_task
+2022-05-03T17:49:28Z,2022-05-03T17:49:28Z,rc2002,T2N1,v,T,7,1651600167,success,mv ./README.md ./README.txt
+2022-05-03T17:49:28Z,2022-05-03T17:49:28Z,rc2002,T2N1,w,T,0,1651600167,incomplete,start_task
+2022-05-03T17:49:33Z,2022-05-03T17:49:33Z,rc2002,T2N1,w,T,5,1651600173,success,cat ./css/app.css
+2022-05-03T17:49:34Z,2022-05-03T17:49:33Z,rc2002,T2N1,x,T,0,1651600173,incomplete,start_task
+2022-05-03T17:49:47Z,2022-05-03T17:49:47Z,rc2002,T2N1,x,T,14,1651600187,incomplete,rm -r '*glyph*'
+2022-05-03T17:50:02Z,2022-05-03T17:50:02Z,rc2002,T2N1,x,T,28,1651600201,incomplete,rm -rf '*glyph*'
+2022-05-03T17:50:37Z,2022-05-03T17:50:37Z,rc2002,T2N1,x,T,64,1651600237,incomplete,rm -rf '*glyph*'
+2022-05-03T17:50:38Z,2022-05-03T17:50:38Z,rc2002,T2N1,x,T,65,1651600238,success,find . -name "*glyph*" -exec rm {} \;
+2022-05-03T17:50:44Z,2022-05-03T17:50:44Z,rc2002,T2N1,y,T,0,1651600238,incomplete,start_task
+2022-05-03T17:50:50Z,2022-05-03T17:50:50Z,rc2002,T2N1,y,T,6,1651600250,success,mkdir ./content/backup ,
+2022-05-03T17:50:50Z,2022-05-03T17:50:50Z,rc2002,T2N1,z,T,0,1651600250,incomplete,start_task
+2022-05-03T17:51:11Z,2022-05-03T17:51:11Z,rc2002,T2N1,z,T,21,1651600271,incomplete,start_task
+2022-05-03T17:51:12Z,2022-05-03T17:51:12Z,rc2002,T2N1,z,T,22,1651600272,success,cat ./content/syllabus.md | wc -l
+2022-05-03T17:51:31Z,2022-05-03T17:51:31Z,rc2002,T2N1,g,T,0,1651600272,incomplete,start_task
+2022-05-03T17:51:47Z,2022-05-03T17:51:47Z,rc2002,T2N1,g,T,16,16,incomplete,start_task
+2022-05-03T17:51:48Z,2022-05-03T17:51:48Z,rc2002,T2N1,g,T,16,16,incomplete,find . -name "*.markdown" -exec ls -l -d {} \;
+2022-05-03T17:51:57Z,2022-05-03T17:51:57Z,rc2002,T2N1,g,T,26,26,incomplete,ls -r
+2022-05-03T17:52:03Z,2022-05-03T17:52:03Z,rc2002,T2N1,g,T,32,32,incomplete,ls -r *
+2022-05-03T17:53:08Z,2022-05-03T17:53:08Z,rc2002,T2N1,g,T,97,97,incomplete,ls -I "*.md" -R
+2022-05-03T17:53:16Z,2022-05-03T17:53:16Z,rc2002,T2N1,g,T,105,105,incomplete,ls -I "*.md" -R
+2022-05-03T17:53:32Z,2022-05-03T17:53:32Z,rc2002,T2N1,g,T,121,121,skip,skip
+2022-05-03T17:53:33Z,2022-05-03T17:53:32Z,rc2002,T2N1,h,T,0,121,incomplete,start_task
+2022-05-03T17:53:49Z,2022-05-03T17:53:49Z,rc2002,T2N1,h,T,17,138,incomplete,start_task
+2022-05-03T17:53:50Z,2022-05-03T17:53:50Z,rc2002,T2N1,h,T,18,139,incomplete,find . -type f -name '*.markdown' -exec rm {} \;
+2022-05-03T17:54:03Z,2022-05-03T17:54:03Z,rc2002,T2N1,h,T,31,152,incomplete,find . -type f -name '*.markdown' -exec rm {} \;
+2022-05-03T17:54:04Z,2022-05-03T17:54:04Z,rc2002,T2N1,h,T,32,153,incomplete,find . -type f -name '*.md' -exec rm {} \;
+2022-05-03T17:54:32Z,2022-05-03T17:54:32Z,rc2002,T2N1,h,T,60,181,incomplete,touch README.md
+2022-05-03T17:54:41Z,2022-05-03T17:54:41Z,rc2002,T2N1,h,T,69,190,incomplete,touch README.md
+2022-05-03T17:54:42Z,2022-05-03T17:54:42Z,rc2002,T2N1,h,T,70,191,incomplete,find . -type f -name '*.md' -exec rm {} \;
+2022-05-03T17:55:20Z,2022-05-03T17:55:19Z,rc2002,T2N1,h,T,107,228,success, find . -type f -name '[1-9]*.md' -exec rm {} \; 
+2022-05-03T17:55:20Z,2022-05-03T17:55:20Z,rc2002,T2N1,i,T,0,228,incomplete,start_task
+2022-05-03T17:55:34Z,2022-05-03T17:55:33Z,rc2002,T2N1,i,T,13,242,incomplete,start_task
+2022-05-03T17:55:34Z,2022-05-03T17:55:34Z,rc2002,T2N1,i,T,14,243,success,diff -q -r ./content/labs/ ./content/lessons/
+2022-05-03T17:55:34Z,2022-05-03T17:55:34Z,rc2002,T2N1,j,T,0,243,incomplete,start_task
+2022-05-03T17:55:51Z,2022-05-03T17:55:51Z,rc2002,T2N1,j,T,17,260,incomplete,start_task
+2022-05-03T17:55:52Z,2022-05-03T17:55:52Z,rc2002,T2N1,j,T,18,261,incomplete,find . -size  10k -exec ls -l {} \;
+2022-05-03T17:55:59Z,2022-05-03T17:55:59Z,rc2002,T2N1,j,T,25,268,incomplete,find . -size  10k -exec ls -l {} \;
+2022-05-03T17:56:00Z,2022-05-03T17:55:59Z,rc2002,T2N1,j,T,25,268,success,find . -size  10k
+2022-05-03T17:56:00Z,2022-05-03T17:56:00Z,rc2002,T2N1,k,T,0,268,incomplete,start_task
+2022-05-03T17:56:13Z,2022-05-03T17:56:13Z,rc2002,T2N1,k,T,13,282,incomplete,start_task
+2022-05-03T17:56:14Z,2022-05-03T17:56:14Z,rc2002,T2N1,k,T,13,282,incomplete,find . -name '*review*' -print0 | xargs -0 -I {} grep 'why' {}
+2022-05-03T17:56:21Z,2022-05-03T17:56:21Z,rc2002,T2N1,k,T,20,289,incomplete,find . -name '*review*' -print0 | xargs -0 -I {} grep 'why' {}
+2022-05-03T17:56:21Z,2022-05-03T17:56:21Z,rc2002,T2N1,k,T,21,290,incomplete,find . | grep why | xargs -I {} grep 'why' {}
+2022-05-03T17:56:41Z,2022-05-03T17:56:41Z,rc2002,T2N1,k,T,41,310,incomplete,find . | grep why | xargs -I {} grep 'why' {}
+2022-05-03T17:56:42Z,2022-05-03T17:56:41Z,rc2002,T2N1,k,T,41,310,incomplete,find . -name '*review*' | xargs -I {} grep 'why' {}
+2022-05-03T17:56:53Z,2022-05-03T17:56:52Z,rc2002,T2N1,k,T,52,321,incomplete, find . -i -name '*review*' | xargs -I {} grep 'why' {} 
+2022-05-03T17:57:02Z,2022-05-03T17:57:02Z,rc2002,T2N1,k,T,62,331,incomplete, find . -I -name '*review*' | xargs -I {} grep 'why' {} 
+2022-05-03T17:57:42Z,2022-05-03T17:57:42Z,rc2002,T2N1,k,T,101,370,incomplete, find . -iname '*review*' | xargs -I {} grep 'why' {} 
+2022-05-03T17:58:34Z,2022-05-03T17:58:34Z,rc2002,T2N1,k,T,154,423,incomplete, find . -iname '*review*' | xargs -I {} grep 'why' {} 
+2022-05-03T17:58:34Z,2022-05-03T17:58:34Z,rc2002,T2N1,k,T,154,423,incomplete,find . | grep why | xargs -I {} grep 'why' {}
+2022-05-03T17:58:50Z,2022-05-03T17:58:50Z,rc2002,T2N1,k,T,170,439,skip,skip
+2022-05-03T17:58:50Z,2022-05-03T17:58:50Z,rc2002,T2N1,l,T,0,439,incomplete,start_task
+2022-05-03T17:59:07Z,2022-05-03T17:59:07Z,rc2002,T2N1,l,T,17,456,incomplete,start_task
+2022-05-03T17:59:08Z,2022-05-03T17:59:07Z,rc2002,T2N1,l,T,17,456,incomplete,du -s -h *
+2022-05-03T17:59:18Z,2022-05-03T17:59:18Z,rc2002,T2N1,l,T,28,467,incomplete,du -s -h *
+2022-05-03T17:59:18Z,2022-05-03T17:59:18Z,rc2002,T2N1,l,T,28,467,incomplete,du -a content/ | cut -d ' ' -f 1
+2022-05-03T17:59:34Z,2022-05-03T17:59:34Z,rc2002,T2N1,l,T,43,482,incomplete,du -a content/ | cut -d ' ' -f 1
+2022-05-03T17:59:34Z,2022-05-03T17:59:34Z,rc2002,T2N1,l,T,44,483,incomplete,du -s -h *
+2022-05-03T17:59:47Z,2022-05-03T17:59:47Z,rc2002,T2N1,l,T,57,496,incomplete, du -s -h /content
+2022-05-03T18:00:00Z,2022-05-03T18:00:00Z,rc2002,T2N1,l,T,70,509,incomplete, du -s -h ./content
+2022-05-03T18:00:10Z,2022-05-03T18:00:10Z,rc2002,T2N1,l,T,80,519,incomplete, du -s -h /content/
+2022-05-03T18:00:15Z,2022-05-03T18:00:15Z,rc2002,T2N1,l,T,85,524,skip,skip
+2022-05-03T18:00:19Z,2022-05-03T18:00:19Z,rc2002,T2N1,a,N,0,524,incomplete,start_task
+2022-05-03T18:00:26Z,2022-05-03T18:00:26Z,rc2002,T2N1,a,N,7,7,incomplete,rm -rf *
+2022-05-03T18:00:52Z,2022-05-03T18:00:52Z,rc2002,T2N1,a,N,32,32,incomplete,rm -rf *
+2022-05-03T18:00:52Z,2022-05-03T18:00:52Z,rc2002,T2N1,a,N,33,33,success,find . -type d -empty -delete
+2022-05-03T18:00:52Z,2022-05-03T18:00:52Z,rc2002,T2N1,b,N,0,33,incomplete,start_task
+2022-05-03T18:01:28Z,2022-05-03T18:01:27Z,rc2002,T2N1,b,N,35,68,incomplete,diff ./content/review/review2.md ./content/review/review1.md
+2022-05-03T18:02:12Z,2022-05-03T18:02:12Z,rc2002,T2N1,b,N,80,113,incomplete,man diff
+2022-05-03T18:03:19Z,2022-05-03T18:03:19Z,rc2002,T2N1,b,N,147,180,incomplete,diff ./content/review/review2.md ./content/review/review1.md | grep -v "^---" | grep -v "^[0-9c0-9]"
+2022-05-03T18:03:59Z,2022-05-03T18:03:58Z,rc2002,T2N1,b,N,186,219,incomplete,diff ./content/review/review2.md ./content/review/review1.md | grep -v "^---" | grep -v "^[0-9c0-9]" | grep -v ">"
+2022-05-03T18:04:21Z,2022-05-03T18:04:21Z,rc2002,T2N1,b,N,208,241,incomplete,diff ./content/review/review2.md ./content/review/review1.md | grep -v "^---" | grep -v "^[0-9c0-9]" | grep -v "<"
+2022-05-03T18:05:13Z,2022-05-03T18:05:12Z,rc2002,T2N1,b,N,260,293,incomplete,diff ./content/review/review2.md ./content/review/review1.md | grep -v "^---" | grep -v "^[0-9c0-9]" | tr -d "<"
+2022-05-03T18:05:22Z,2022-05-03T18:05:22Z,rc2002,T2N1,b,N,270,303,incomplete,diff ./content/review/review2.md ./content/review/review1.md | grep -v "^---" | grep -v "^[0-9c0-9]" | tr -d "< "
+2022-05-03T18:05:54Z,2022-05-03T18:05:53Z,rc2002,T2N1,b,N,301,334,success,diff ./content/review/review2.md ./content/review/review1.md | grep -v "^---" | grep -v "^[0-9c0-9]" | tr -d "<" | sed 's/^ *//'
+2022-05-03T18:05:54Z,2022-05-03T18:05:54Z,rc2002,T2N1,c,N,0,334,incomplete,start_task
+2022-05-03T18:07:17Z,2022-05-03T18:07:17Z,rc2002,T2N1,c,N,83,418,success,find ./content/labs/ -type f | wc -l
+2022-05-03T18:07:17Z,2022-05-03T18:07:17Z,rc2002,T2N1,d,N,0,418,incomplete,start_task
+2022-05-03T18:08:22Z,2022-05-03T18:08:22Z,rc2002,T2N1,d,N,65,483,incomplete,start_task
+2022-05-03T18:08:35Z,2022-05-03T18:08:35Z,rc2002,T2N1,d,N,78,496,incomplete,start_task
+2022-05-03T18:09:30Z,2022-05-03T18:09:30Z,rc2002,T2N1,d,N,133,551,incomplete,find ./content/ -type f \! -name "*tips.md*" 
+2022-05-03T18:09:36Z,2022-05-03T18:09:36Z,rc2002,T2N1,d,N,139,557,incomplete,find ./content/ -type f \! -name "*tips.md*" -delete
+2022-05-03T18:11:20Z,2022-05-03T18:11:20Z,rc2002,T2N1,d,N,243,661,skip,skip
+2022-05-03T18:11:20Z,2022-05-03T18:11:20Z,rc2002,T2N1,e,N,0,661,incomplete,start_task
+2022-05-03T18:11:29Z,2022-05-03T18:11:29Z,rc2002,T2N1,e,N,8,669,incomplete,rm -rf ./css/
+2022-05-03T18:12:11Z,2022-05-03T18:12:11Z,rc2002,T2N1,e,N,51,712,incomplete,find PATH -maxdepth 1 -type f -delete
+2022-05-03T18:12:21Z,2022-05-03T18:12:20Z,rc2002,T2N1,e,N,60,721,incomplete,find ./css/  -maxdepth 1 -type f -delete
+2022-05-03T18:12:53Z,2022-05-03T18:12:53Z,rc2002,T2N1,e,N,93,754,incomplete,rm $./css/*
+2022-05-03T18:13:25Z,2022-05-03T18:13:25Z,rc2002,T2N1,e,N,124,785,incomplete,rm -f ./css/*
+2022-05-03T18:14:29Z,2022-05-03T18:14:29Z,rc2002,T2N1,e,N,189,850,incomplete,ind . ! -name '.*' ! -type d -exec rm -- {}  
+2022-05-03T18:14:37Z,2022-05-03T18:14:37Z,rc2002,T2N1,e,N,197,858,incomplete,find . ! -name '.*' ! -type d -exec rm -- {}  
+2022-05-03T18:14:50Z,2022-05-03T18:14:49Z,rc2002,T2N1,e,N,209,870,incomplete,ind ./css/ ! -name '.*' ! -type d -exec rm -- {}  
+2022-05-03T18:15:00Z,2022-05-03T18:15:00Z,rc2002,T2N1,e,N,220,881,success,find ./css/ ! -name '.*' ! -type d -exec rm -- {}  
+2022-05-03T18:15:00Z,2022-05-03T18:15:00Z,rc2002,T2N1,f,N,0,881,incomplete,start_task
+2022-05-03T18:15:54Z,2022-05-03T18:15:54Z,rc2002,T2N1,f,N,54,935,incomplete,find ./content/ -type d -maxdepth 1 -mindepth 1
+2022-05-03T18:16:05Z,2022-05-03T18:16:05Z,rc2002,T2N1,f,N,65,946,incomplete,find ./content/ -type d -maxdepth 2 -mindepth 2
+2022-05-03T18:16:44Z,2022-05-03T18:16:44Z,rc2002,T2N1,f,N,104,985,incomplete,find ./content/ -type d -maxdepth 2 -mindepth 2 | grep -h
+2022-05-03T18:17:37Z,2022-05-03T18:17:37Z,rc2002,T2N1,f,N,157,1038,incomplete,find ./content/ -type d -maxdepth 2 -mindepth 2 | grep -h
+2022-05-03T18:17:45Z,2022-05-03T18:17:45Z,rc2002,T2N1,f,N,165,1046,incomplete,find ./content/ -type d -maxdepth 2 -mindepth 2
+2022-05-03T18:18:35Z,2022-05-03T18:18:35Z,rc2002,T2N1,f,N,215,1096,incomplete,find ./content/ -type d -maxdepth 2 -mindepth 2 | basename
+2022-05-03T18:21:58Z,2022-05-03T18:21:58Z,rc2002,T2N1,f,N,,1299,timeout,find ./content/ -type d -maxdepth 2 -mindepth 2 | basenameds
+2022-05-07T00:22:22Z,2022-05-07T00:22:22Z,yyodahe,N1T2,v,N,0,,incomplete,start_task
+2022-05-07T00:22:22Z,2022-05-07T00:22:22Z,yyodahe,N1T2,v,N,0,1651882942,incomplete,start_task
+2022-05-07T00:23:05Z,2022-05-07T00:23:04Z,yyodahe,N1T2,v,N,42,1651882984,success,mv ./README.md ./README.txt
+2022-05-07T00:23:05Z,2022-05-07T00:23:05Z,yyodahe,N1T2,w,N,0,1651882984,incomplete,start_task
+2022-05-07T00:23:13Z,2022-05-07T00:23:13Z,yyodahe,N1T2,w,N,8,1651882993,success,cat ./css/app.css 
+2022-05-07T00:23:13Z,2022-05-07T00:23:13Z,yyodahe,N1T2,x,N,0,1651882993,incomplete,start_task
+2022-05-07T00:25:25Z,2022-05-07T00:25:25Z,yyodahe,N1T2,x,N,132,1651883125,incomplete,find . -name '*glyph*' 
+2022-05-07T00:25:50Z,2022-05-07T00:25:50Z,yyodahe,N1T2,x,N,156,1651883149,incomplete,find . -name '*glyph*' > rm
+2022-05-07T00:26:41Z,2022-05-07T00:26:41Z,yyodahe,N1T2,x,N,208,1651883201,incomplete,rm < find . -name '*glyph*'
+2022-05-07T00:27:05Z,2022-05-07T00:27:05Z,yyodahe,N1T2,x,N,232,1651883225,incomplete,find . -name '*glyph*' 
+2022-05-07T00:27:11Z,2022-05-07T00:27:11Z,yyodahe,N1T2,x,N,238,1651883231,incomplete,find . -name '*glyph*'  | rm
+2022-05-07T00:28:55Z,2022-05-07T00:28:55Z,yyodahe,N1T2,x,N,342,1651883335,incomplete,rm "glyph"
+2022-05-07T00:29:07Z,2022-05-07T00:29:07Z,yyodahe,N1T2,x,N,354,1651883347,incomplete,rm "-glyph"
+2022-05-07T00:31:00Z,2022-05-07T00:31:00Z,yyodahe,N1T2,x,N,467,1651883460,incomplete,find . -name '*glyph*' -exec rm
+2022-05-07T00:31:08Z,2022-05-07T00:31:08Z,yyodahe,N1T2,x,N,475,1651883468,incomplete,find . -name '*glyph*' -exec rm;
+2022-05-07T00:31:43Z,2022-05-07T00:31:43Z,yyodahe,N1T2,x,N,510,1651883503,incomplete,find . -name '*glyph*' -exec rm {};
+2022-05-07T00:32:11Z,2022-05-07T00:32:11Z,yyodahe,N1T2,x,N,538,1651883531,incomplete,find -exec rm  . -name '*glyph*'
+2022-05-07T00:32:58Z,2022-05-07T00:32:58Z,yyodahe,N1T2,x,N,585,1651883578,incomplete,find . -name '*glyph*' -exec rm \;
+2022-05-07T00:33:08Z,2022-05-07T00:33:08Z,yyodahe,N1T2,x,N,595,1651883588,success,find . -name '*glyph*' -exec rm {} \;
+2022-05-07T00:33:29Z,2022-05-07T00:33:29Z,yyodahe,N1T2,a,N,0,1651883588,incomplete,start_task
+2022-05-07T00:35:34Z,2022-05-07T00:35:34Z,yyodahe,N1T2,a,N,125,125,incomplete,find -type d -empty
+2022-05-07T00:35:50Z,2022-05-07T00:35:50Z,yyodahe,N1T2,a,N,141,141,incomplete,find -type d -empty exec rm -rf {} \;
+2022-05-07T00:36:00Z,2022-05-07T00:36:00Z,yyodahe,N1T2,a,N,151,151,incomplete,find -type d -empty exec rm -rf {} /;
+2022-05-07T00:36:31Z,2022-05-07T00:36:31Z,yyodahe,N1T2,a,N,182,182,success,find -type d -empty -exec rm -rf {} \;
+2022-05-07T00:36:31Z,2022-05-07T00:36:31Z,yyodahe,N1T2,b,N,0,182,incomplete,start_task
+2022-05-07T00:36:44Z,2022-05-07T00:36:43Z,yyodahe,N1T2,b,N,12,194,incomplete,difff
+2022-05-07T00:37:15Z,2022-05-07T00:37:15Z,yyodahe,N1T2,b,N,44,226,incomplete,diff ./content/review/review2.md ./content/review1.md
+2022-05-07T00:37:44Z,2022-05-07T00:37:44Z,yyodahe,N1T2,b,N,73,255,incomplete,diff ./content/review/review2.md ./content/review/review1.md 
+2022-05-07T00:39:19Z,2022-05-07T00:39:19Z,yyodahe,N1T2,b,N,168,350,incomplete,diff ./content/review/review2.md ./content/review/review1.md  --normal
+2022-05-07T00:39:51Z,2022-05-07T00:39:51Z,yyodahe,N1T2,b,N,200,382,incomplete,diff ./content/review/review2.md ./content/review/review1.md  -n
+2022-05-07T00:41:59Z,2022-05-07T00:41:59Z,yyodahe,N1T2,b,N,328,510,incomplete,diff ./content/review/review2.md ./content/review/review1.md  -
+2022-05-07T00:42:04Z,2022-05-07T00:42:04Z,yyodahe,N1T2,b,N,333,515,incomplete,diff ./content/review/review2.md ./content/review/review1.md  
+2022-05-07T00:42:40Z,2022-05-07T00:42:40Z,yyodahe,N1T2,b,N,,551,timeout,diff ./content/review/review2.md ./content/review/review1.md  --left-column
+2022-05-07T00:42:41Z,2022-05-07T00:42:40Z,yyodahe,N1T2,c,N,0,551,incomplete,start_task
+2022-05-07T00:43:37Z,2022-05-07T00:43:36Z,yyodahe,N1T2,c,N,56,607,incomplete,ls *
+2022-05-07T00:43:51Z,2022-05-07T00:43:50Z,yyodahe,N1T2,c,N,70,621,incomplete,find .
+2022-05-07T00:44:08Z,2022-05-07T00:44:08Z,yyodahe,N1T2,c,N,88,639,incomplete,find ./content/labs/ | wc -l
+2022-05-07T00:44:21Z,2022-05-07T00:44:21Z,yyodahe,N1T2,c,N,100,651,incomplete,find -type f ./content/labs/ | wc -l
+2022-05-07T00:44:47Z,2022-05-07T00:44:47Z,yyodahe,N1T2,c,N,127,678,success,find ./content/labs/ -type f | wc -l
+2022-05-07T00:44:48Z,2022-05-07T00:44:48Z,yyodahe,N1T2,d,N,0,678,incomplete,start_task
+2022-05-07T00:47:14Z,2022-05-07T00:47:13Z,yyodahe,N1T2,d,N,146,824,incomplete,find ./content/ "tips.md"
+2022-05-07T00:47:31Z,2022-05-07T00:47:30Z,yyodahe,N1T2,d,N,163,841,incomplete,find ./content/ -name "tips.md"
+2022-05-07T00:49:10Z,2022-05-07T00:49:10Z,yyodahe,N1T2,d,N,263,941,incomplete,find ./content/ ! -name "tips.md"
+2022-05-07T00:49:25Z,2022-05-07T00:49:25Z,yyodahe,N1T2,d,N,277,955,incomplete,find ./content/ ! -name "tips.md" -exec rm -rf {} \;
+2022-05-07T00:50:33Z,2022-05-07T00:50:33Z,yyodahe,N1T2,d,N,346,1024,incomplete,find ./content/ ! -name "tips.md" -exec rm  {} \;
+2022-05-07T00:50:56Z,2022-05-07T00:50:55Z,yyodahe,N1T2,d,N,,1046,timeout,find ./content/ ! -name "tips.md" -type f -exec rm {} \;
+2022-05-07T00:50:56Z,2022-05-07T00:50:56Z,yyodahe,N1T2,e,N,0,1046,incomplete,start_task
+2022-05-07T00:51:18Z,2022-05-07T00:51:18Z,yyodahe,N1T2,e,N,22,1069,incomplete,rm -rf ./css/
+2022-05-07T00:51:41Z,2022-05-07T00:51:41Z,yyodahe,N1T2,e,N,45,1092,incomplete,rm  ./css/*
+2022-05-07T00:52:09Z,2022-05-07T00:52:09Z,yyodahe,N1T2,e,N,73,1120,incomplete,ls ./css/
+2022-05-07T00:52:44Z,2022-05-07T00:52:44Z,yyodahe,N1T2,e,N,108,1155,incomplete,find ./css -type f -exec rm -f {}/;
+2022-05-07T00:53:17Z,2022-05-07T00:53:17Z,yyodahe,N1T2,e,N,141,1188,incomplete,find ./css/ -type f -exec rm -f {}\;
+2022-05-07T00:53:30Z,2022-05-07T00:53:30Z,yyodahe,N1T2,e,N,153,1200,success,find ./css/ -type f -exec rm -f {} \;
+2022-05-07T00:53:30Z,2022-05-07T00:53:30Z,yyodahe,N1T2,f,N,0,1200,incomplete,start_task
+2022-05-07T00:54:06Z,2022-05-07T00:54:06Z,yyodahe,N1T2,f,N,36,1237,incomplete,find ./content/*/
+2022-05-07T00:54:15Z,2022-05-07T00:54:15Z,yyodahe,N1T2,f,N,45,1246,incomplete,find ./content/*/ -type d
+2022-05-07T00:54:27Z,2022-05-07T00:54:27Z,yyodahe,N1T2,f,N,57,1258,incomplete,find ./content/*/*/ -type d
+2022-05-07T00:56:32Z,2022-05-07T00:56:32Z,yyodahe,N1T2,f,N,182,1383,incomplete,find ./content/*/*/ -type d -printf "%f\n"
+2022-05-07T00:57:23Z,2022-05-07T00:57:23Z,yyodahe,N1T2,f,N,233,1434,incomplete,find ./content/*/*/ -type d -exec basename {} \;
+2022-05-07T00:58:06Z,2022-05-07T00:58:06Z,yyodahe,N1T2,f,N,276,1477,incomplete,find ./content/*/*/ -type d -mindepth 2 -exec basename {} \;
+2022-05-07T00:58:13Z,2022-05-07T00:58:13Z,yyodahe,N1T2,f,N,283,1484,incomplete,find ./content/*/*/ -type d -mindepth 1 -exec basename {} \;
+2022-05-07T00:58:30Z,2022-05-07T00:58:30Z,yyodahe,N1T2,f,N,300,1501,set-timeout,find ./content -type d -mindepth 2 -exec basename {} \;
+2022-05-07T00:59:31Z,2022-05-07T00:59:31Z,yyodahe,N1T2,y,T,0,1501,incomplete,start_task
+2022-05-07T01:00:08Z,2022-05-07T01:00:08Z,yyodahe,N1T2,y,T,37,1651885208,incomplete,copy ./content/tips.md to ./content/backup
+2022-05-07T01:01:35Z,2022-05-07T01:01:35Z,yyodahe,N1T2,y,T,124,1651885295,incomplete,copy ./content/tips.md to ./content/backup
+2022-05-07T01:01:36Z,2022-05-07T01:01:36Z,yyodahe,N1T2,y,T,124,1651885295,incomplete,copy ./content/tips.md to ./content/backup
+2022-05-07T01:01:43Z,2022-05-07T01:01:43Z,yyodahe,N1T2,y,T,132,1651885303,incomplete,cp ./content/tips.md ./content/backup
+2022-05-07T01:02:10Z,2022-05-07T01:02:10Z,yyodahe,N1T2,y,T,159,1651885330,incomplete,cp ./content/tips.md ./content/backup
+2022-05-07T01:02:51Z,2022-05-07T01:02:51Z,yyodahe,N1T2,y,T,200,1651885371,incomplete,ls
+2022-05-07T01:02:54Z,2022-05-07T01:02:54Z,yyodahe,N1T2,y,T,203,1651885374,incomplete,cd content/
+2022-05-07T01:02:55Z,2022-05-07T01:02:55Z,yyodahe,N1T2,y,T,204,1651885375,incomplete,ls
+2022-05-07T01:03:06Z,2022-05-07T01:03:06Z,yyodahe,N1T2,y,T,214,1651885385,incomplete,cd content/
+2022-05-07T01:03:10Z,2022-05-07T01:03:10Z,yyodahe,N1T2,y,T,219,1651885390,incomplete,ls
+2022-05-07T01:03:20Z,2022-05-07T01:03:20Z,yyodahe,N1T2,y,T,229,1651885400,incomplete,cd content/backup
+2022-05-07T01:03:34Z,2022-05-07T01:03:34Z,yyodahe,N1T2,y,T,243,1651885414,incomplete,cp ./content/tips.md ./content/backup
+2022-05-07T01:03:53Z,2022-05-07T01:03:53Z,yyodahe,N1T2,y,T,262,1651885433,incomplete,cp --parents ./content/tips.md ./content/backup
+2022-05-07T01:04:05Z,2022-05-07T01:04:05Z,yyodahe,N1T2,y,T,274,1651885445,incomplete,cp ./content/tips.md ./content/backup
+2022-05-07T01:04:34Z,2022-05-07T01:04:34Z,yyodahe,N1T2,y,T,303,1651885474,incomplete,cp ./content/tips.md ./content/backup
+2022-05-07T01:06:36Z,2022-05-07T01:06:36Z,yyodahe,N1T2,y,T,425,1651885596,incomplete,cp ./content/tips.md ./content/backup/
+2022-05-07T01:06:49Z,2022-05-07T01:06:49Z,yyodahe,N1T2,y,T,438,1651885609,incomplete,cp ./content/tips.md ./content/backup/*
+2022-05-07T01:08:44Z,2022-05-07T01:08:44Z,yyodahe,N1T2,y,T,552,1651885723,incomplete,cp ./content/tips.md ./content/backup/tips.md*
+2022-05-07T01:08:51Z,2022-05-07T01:08:51Z,yyodahe,N1T2,y,T,560,1651885731,incomplete,cp ./content/tips.md ./content/backup/tips.md
+2022-05-07T01:10:10Z,2022-05-07T01:10:10Z,yyodahe,N1T2,y,T,638,1651885809,incomplete,cp ./content/tips.md ./content/backup/tips.md -f
+2022-05-07T01:10:19Z,2022-05-07T01:10:19Z,yyodahe,N1T2,y,T,648,1651885819,incomplete,cp -f ./content/tips.md ./content/backup/tips.md 
+2022-05-07T01:13:32Z,2022-05-07T01:13:32Z,yyodahe,N1T2,y,T,840,1651886011,incomplete,cp -f ./content/tips.md ./conte
+2022-05-07T01:14:12Z,2022-05-07T01:14:12Z,yyodahe,N1T2,y,T,881,1651886052,success,mkdir ./content/backup ,
+2022-05-07T01:14:13Z,2022-05-07T01:14:12Z,yyodahe,N1T2,z,T,0,1651886052,incomplete,start_task
+2022-05-07T01:14:41Z,2022-05-07T01:14:41Z,yyodahe,N1T2,z,T,29,1651886081,success,cat ./content/syllabus.md | wc -l
+2022-05-07T01:14:51Z,2022-05-07T01:14:51Z,yyodahe,N1T2,g,T,0,1651886081,incomplete,start_task
+2022-05-07T01:15:23Z,2022-05-07T01:15:23Z,yyodahe,N1T2,g,T,33,33,incomplete,find . -type f ! -name "*.md" -exec ls -l {} \;
+2022-05-07T01:15:33Z,2022-05-07T01:15:33Z,yyodahe,N1T2,g,T,43,43,success,find . -type f ! -name "*.md" -exec ls  {} \;
+2022-05-07T01:15:33Z,2022-05-07T01:15:33Z,yyodahe,N1T2,h,T,0,43,incomplete,start_task
+2022-05-07T01:16:45Z,2022-05-07T01:16:45Z,yyodahe,N1T2,h,T,72,115,incomplete,find . -type f -inum \( -name "*.md" -or -name "*.md" -delete
+2022-05-07T01:18:03Z,2022-05-07T01:18:03Z,yyodahe,N1T2,h,T,149,192,incomplete,find . -type f -inum \( -name "*.md" -or -name "*.md" -delete
+2022-05-07T01:18:18Z,2022-05-07T01:18:18Z,yyodahe,N1T2,h,T,165,208,incomplete,find . -name "[d]*.md" -exec rm {} \;
+2022-05-07T01:18:34Z,2022-05-07T01:18:34Z,yyodahe,N1T2,h,T,181,224,incomplete,find . -name "[d]*.md"
+2022-05-07T01:18:44Z,2022-05-07T01:18:44Z,yyodahe,N1T2,h,T,191,234,incomplete,find . -name "*.md"
+2022-05-07T01:18:51Z,2022-05-07T01:18:51Z,yyodahe,N1T2,h,T,198,241,incomplete,find . -name "[ch]*.md"
+2022-05-07T01:19:31Z,2022-05-07T01:19:31Z,yyodahe,N1T2,h,T,238,281,incomplete,find . -name "[0-9]*.md"
+2022-05-07T01:19:40Z,2022-05-07T01:19:40Z,yyodahe,N1T2,h,T,247,290,success,find . -name "[0-9]*.md" -exec rm {} \;
+2022-05-07T01:19:40Z,2022-05-07T01:19:40Z,yyodahe,N1T2,i,T,0,290,incomplete,start_task
+2022-05-07T01:20:38Z,2022-05-07T01:20:38Z,yyodahe,N1T2,i,T,57,347,incomplete,find . -path './content/labs/and/' -prune -or -print | xargs -I {} file {}
+2022-05-07T01:21:11Z,2022-05-07T01:21:11Z,yyodahe,N1T2,i,T,90,380,incomplete,diff -r ./content/labs/ ./content/lessons/
+2022-05-07T01:21:34Z,2022-05-07T01:21:34Z,yyodahe,N1T2,i,T,114,404,incomplete,ls ./content/labs/
+2022-05-07T01:21:42Z,2022-05-07T01:21:42Z,yyodahe,N1T2,i,T,122,412,incomplete,ls ./content/lessons/
+2022-05-07T01:22:46Z,2022-05-07T01:22:46Z,yyodahe,N1T2,i,T,186,476,incomplete,help
+2022-05-07T01:22:52Z,2022-05-07T01:22:51Z,yyodahe,N1T2,i,T,191,481,incomplete,helpme
+2022-05-07T01:22:54Z,2022-05-07T01:22:54Z,yyodahe,N1T2,i,T,194,484,skip,skip
+2022-05-07T01:22:55Z,2022-05-07T01:22:54Z,yyodahe,N1T2,j,T,0,484,incomplete,start_task
+2022-05-07T01:23:14Z,2022-05-07T01:23:14Z,yyodahe,N1T2,j,T,20,504,success,find . -size  10k
+2022-05-07T01:23:14Z,2022-05-07T01:23:14Z,yyodahe,N1T2,k,T,0,504,incomplete,start_task
+2022-05-07T01:26:30Z,2022-05-07T01:26:30Z,yyodahe,N1T2,k,T,196,700,incomplete,find . -name '*review*' -exec cat y | xargs -I {} grep -H -n 'y' {} {}\;
+2022-05-07T01:26:46Z,2022-05-07T01:26:46Z,yyodahe,N1T2,k,T,212,716,incomplete,find . -name '*review*' -exec cat y | xargs -I {} grep -H -n 'y' {}\;
+2022-05-07T01:26:52Z,2022-05-07T01:26:51Z,yyodahe,N1T2,k,T,217,721,incomplete,find . -name '*review*' -exec cat y | xargs -I {} grep -H -n 'y' {} \;
+2022-05-07T01:28:28Z,2022-05-07T01:28:27Z,yyodahe,N1T2,k,T,313,817,incomplete,find . -name '*review*' -exec grep "why" {} \;
+2022-05-07T01:28:43Z,2022-05-07T01:28:43Z,yyodahe,N1T2,k,T,329,833,incomplete,find . -type f -name '*review*' -exec grep "why" {} \;
+2022-05-07T01:29:08Z,2022-05-07T01:29:08Z,yyodahe,N1T2,k,T,354,858,incomplete,grep "why" .
+2022-05-07T01:29:35Z,2022-05-07T01:29:34Z,yyodahe,N1T2,k,T,,884,timeout,grep "why"
+2022-05-07T01:29:35Z,2022-05-07T01:29:35Z,yyodahe,N1T2,l,T,0,884,incomplete,start_task
+2022-05-07T01:30:59Z,2022-05-07T01:30:59Z,yyodahe,N1T2,l,T,84,969,incomplete,du -s -h *
+2022-05-07T01:31:31Z,2022-05-07T01:31:31Z,yyodahe,N1T2,l,T,116,1001,incomplete,du ./content/ -s -h *
+2022-05-07T01:32:37Z,2022-05-07T01:32:37Z,yyodahe,N1T2,l,T,182,1067,incomplete,du ./content/ -s -h *
+2022-05-07T01:32:46Z,2022-05-07T01:32:46Z,yyodahe,N1T2,l,T,191,1076,incomplete,ls -s
+2022-05-07T01:33:04Z,2022-05-07T01:33:03Z,yyodahe,N1T2,l,T,208,1093,incomplete,ls -s | sort -n 
+2022-05-07T01:33:33Z,2022-05-07T01:33:33Z,yyodahe,N1T2,l,T,238,1123,incomplete,ls -s -h | sort -n 
+2022-05-07T01:33:50Z,2022-05-07T01:33:50Z,yyodahe,N1T2,l,T,255,1140,incomplete,ls ./content/ -s -h | sort -n 
+2022-05-07T01:34:12Z,2022-05-07T01:34:12Z,yyodahe,N1T2,l,T,277,1162,incomplete,ls ./content/* -s -h | sort -n 
+2022-05-07T01:34:30Z,2022-05-07T01:34:30Z,yyodahe,N1T2,l,T,295,1180,incomplete,ls ./content/
+2022-05-07T01:34:38Z,2022-05-07T01:34:38Z,yyodahe,N1T2,l,T,303,1188,incomplete,ls -d ./content/
+2022-05-07T01:36:05Z,2022-05-07T01:36:05Z,yyodahe,N1T2,l,T,,1275,timeout,ls /content/
+2022-05-10T18:44:13Z,2022-05-10T18:44:13Z,kjy5,T1N2,v,T,0,,incomplete,start_task
+2022-05-10T18:44:13Z,2022-05-10T18:44:13Z,kjy5,T1N2,v,T,0,1652208253,incomplete,start_task
+2022-05-10T18:44:30Z,2022-05-10T18:44:30Z,kjy5,T1N2,v,T,17,1652208270,success,mv ./README.md ./README.txt
+2022-05-10T18:44:30Z,2022-05-10T18:44:30Z,kjy5,T1N2,w,T,0,1652208270,incomplete,start_task
+2022-05-10T18:44:37Z,2022-05-10T18:44:37Z,kjy5,T1N2,w,T,7,1652208277,success,cat ./css/app.css 
+2022-05-10T18:44:37Z,2022-05-10T18:44:37Z,kjy5,T1N2,x,T,0,1652208277,incomplete,start_task
+2022-05-10T18:45:11Z,2022-05-10T18:45:11Z,kjy5,T1N2,x,T,34,1652208311,incomplete,man rm
+2022-05-10T18:45:14Z,2022-05-10T18:45:14Z,kjy5,T1N2,x,T,37,1652208314,incomplete,man rm
+2022-05-10T18:45:34Z,2022-05-10T18:45:34Z,kjy5,T1N2,x,T,57,1652208334,incomplete,rm -r *glyph*
+2022-05-10T18:47:23Z,2022-05-10T18:47:23Z,kjy5,T1N2,x,T,166,1652208443,incomplete,find . -type -f -name 'glyph'
+2022-05-10T18:47:44Z,2022-05-10T18:47:44Z,kjy5,T1N2,x,T,186,1652208463,incomplete,find . -type f -name 'glyph'
+2022-05-10T18:48:54Z,2022-05-10T18:48:54Z,kjy5,T1N2,x,T,257,1652208534,success,find -type f -name '*glyph*' -delete
+2022-05-10T18:51:03Z,2022-05-10T18:51:03Z,kjy5,T1N2,y,T,0,1652208534,incomplete,start_task
+2022-05-10T18:51:26Z,2022-05-10T18:51:25Z,kjy5,T1N2,y,T,22,1652208685,incomplete,start_task
+2022-05-10T18:51:26Z,2022-05-10T18:51:26Z,kjy5,T1N2,y,T,23,1652208686,incomplete,cp ./content/tips.md ./content/backup/
+2022-05-10T18:52:42Z,2022-05-10T18:52:40Z,kjy5,T1N2,y,T,96,1652208759,incomplete,cp ./content/tips.md ./content/backup/
+2022-05-10T18:52:42Z,2022-05-10T18:52:42Z,kjy5,T1N2,y,T,99,1652208762,incomplete,cp ./content/tips.md ./content/backup/
+2022-05-10T18:54:46Z,2022-05-10T18:54:46Z,kjy5,T1N2,y,T,223,1652208886,success,mkdir ./content/backup ,
+2022-05-10T18:54:46Z,2022-05-10T18:54:46Z,kjy5,T1N2,z,T,0,1652208886,incomplete,start_task
+2022-05-10T18:55:31Z,2022-05-10T18:55:31Z,kjy5,T1N2,z,T,45,1652208931,incomplete,start_task
+2022-05-10T18:55:31Z,2022-05-10T18:55:31Z,kjy5,T1N2,z,T,45,1652208931,success,cat ./content/syllabus.md | wc -l
+2022-05-10T18:55:47Z,2022-05-10T18:55:47Z,kjy5,T1N2,a,T,0,1652208931,incomplete,start_task
+2022-05-10T18:56:06Z,2022-05-10T18:56:06Z,kjy5,T1N2,a,T,19,19,incomplete,start_task
+2022-05-10T18:56:06Z,2022-05-10T18:56:06Z,kjy5,T1N2,a,T,19,19,incomplete,find . -type d -empty
+2022-05-10T18:56:46Z,2022-05-10T18:56:46Z,kjy5,T1N2,a,T,59,59,incomplete,find . -type d -empty
+2022-05-10T18:56:47Z,2022-05-10T18:56:46Z,kjy5,T1N2,a,T,59,59,success,find . -type d -empty -delete
+2022-05-10T18:56:47Z,2022-05-10T18:56:47Z,kjy5,T1N2,b,T,0,59,incomplete,start_task
+2022-05-10T18:57:08Z,2022-05-10T18:57:08Z,kjy5,T1N2,b,T,21,81,incomplete,start_task
+2022-05-10T18:57:09Z,2022-05-10T18:57:08Z,kjy5,T1N2,b,T,21,81,incomplete,cat ./content/review/review22.md | grep -v './content/review/review2.md'
+2022-05-10T18:57:32Z,2022-05-10T18:57:32Z,kjy5,T1N2,b,T,45,105,incomplete,man grep
+2022-05-10T18:58:18Z,2022-05-10T18:58:18Z,kjy5,T1N2,b,T,91,151,incomplete,cat ./content/review/review2.md | grep -v ./content/review/review1.md 
+2022-05-10T18:59:01Z,2022-05-10T18:59:01Z,kjy5,T1N2,b,T,134,194,incomplete,cat ./content/review/review2.md | grep -v './content/review/review1.md'
+2022-05-10T19:00:21Z,2022-05-10T19:00:21Z,kjy5,T1N2,b,T,214,274,incomplete,cat ./content/review/review2.md | grep -v './content/review/review1.md'
+2022-05-10T19:04:01Z,2022-05-10T19:04:01Z,kjy5,T1N2,b,T,,494,timeout,man grep
+2022-05-10T19:04:01Z,2022-05-10T19:04:01Z,kjy5,T1N2,c,T,0,494,incomplete,start_task
+2022-05-10T19:04:08Z,2022-05-10T19:04:08Z,kjy5,T1N2,c,T,7,501,incomplete,cat ./content/review/review2.md | grep -vf './content/review/review1.md'
+2022-05-10T19:04:59Z,2022-05-10T19:04:58Z,kjy5,T1N2,c,T,57,551,incomplete,cat ./content/review/review2.md | grep -vf './content/review/review1.md'
+2022-05-10T19:04:59Z,2022-05-10T19:04:59Z,kjy5,T1N2,c,T,58,552,incomplete,cat ./content/labs/* | wc -l
+2022-05-10T19:05:23Z,2022-05-10T19:05:23Z,kjy5,T1N2,c,T,82,576,incomplete,cat ./content/labs/* | wc -l
+2022-05-10T19:05:23Z,2022-05-10T19:05:23Z,kjy5,T1N2,c,T,82,576,incomplete,wc -l ./content/labs/ | wc -l
+2022-05-10T19:06:15Z,2022-05-10T19:06:15Z,kjy5,T1N2,c,T,134,628,success,find ./content/labs/ -type f | wc -l
+2022-05-10T19:06:15Z,2022-05-10T19:06:15Z,kjy5,T1N2,d,T,0,628,incomplete,start_task
+2022-05-10T19:06:40Z,2022-05-10T19:06:40Z,kjy5,T1N2,d,T,25,653,incomplete,start_task
+2022-05-10T19:06:40Z,2022-05-10T19:06:40Z,kjy5,T1N2,d,T,25,653,success,find ./content/ -maxdepth 1 -not -name "tips.md" -exec rm {} \;
+2022-05-10T19:06:40Z,2022-05-10T19:06:40Z,kjy5,T1N2,e,T,0,653,incomplete,start_task
+2022-05-10T19:07:01Z,2022-05-10T19:07:01Z,kjy5,T1N2,e,T,21,674,incomplete,start_task
+2022-05-10T19:07:01Z,2022-05-10T19:07:01Z,kjy5,T1N2,e,T,21,674,success,find ./css/ -type f -exec rm {} \;
+2022-05-10T19:07:01Z,2022-05-10T19:07:01Z,kjy5,T1N2,f,T,0,674,incomplete,start_task
+2022-05-10T19:07:17Z,2022-05-10T19:07:17Z,kjy5,T1N2,f,T,16,690,incomplete,start_task
+2022-05-10T19:07:18Z,2022-05-10T19:07:18Z,kjy5,T1N2,f,T,16,690,incomplete,find ./content/ -mindepth 1 -maxdepth 1 -type d
+2022-05-10T19:08:37Z,2022-05-10T19:08:37Z,kjy5,T1N2,f,T,96,770,incomplete,find ./content/ -mindepth 1 -maxdepth 1 -type d
+2022-05-10T19:08:37Z,2022-05-10T19:08:37Z,kjy5,T1N2,f,T,96,770,incomplete,find . -type d -exec ls -l -d {} \;
+2022-05-10T19:09:05Z,2022-05-10T19:09:05Z,kjy5,T1N2,f,T,124,798,incomplete,find . -type d -exec ls -l -d {} \;
+2022-05-10T19:09:05Z,2022-05-10T19:09:05Z,kjy5,T1N2,f,T,124,798,incomplete,find . -type d -links 2
+2022-05-10T19:09:48Z,2022-05-10T19:09:48Z,kjy5,T1N2,f,T,167,841,incomplete,find . -type d -links 2
+2022-05-10T19:09:48Z,2022-05-10T19:09:48Z,kjy5,T1N2,f,T,167,841,incomplete,find . -type d -exec ls -l -d {} \;
+2022-05-10T19:09:59Z,2022-05-10T19:09:58Z,kjy5,T1N2,f,T,177,851,incomplete,find . -type d -exec ls -d {} \;
+2022-05-10T19:10:19Z,2022-05-10T19:10:19Z,kjy5,T1N2,f,T,197,871,incomplete,find . -type d -exec ls -d {} \;
+2022-05-10T19:10:19Z,2022-05-10T19:10:19Z,kjy5,T1N2,f,T,198,872,incomplete,find . -maxdepth 1 -type d -exec ls -l -d {} \;
+2022-05-10T19:10:32Z,2022-05-10T19:10:32Z,kjy5,T1N2,f,T,211,885,incomplete,find . -maxdepth 2 -type d -exec ls -d {} \;
+2022-05-10T19:11:56Z,2022-05-10T19:11:56Z,kjy5,T1N2,f,T,294,968,incomplete,find ./content/ -type d -maxdepth 1
+2022-05-10T19:12:16Z,2022-05-10T19:12:16Z,kjy5,T1N2,f,T,315,989,incomplete,find ./content/ -type d -links 2
+2022-05-10T19:12:57Z,2022-05-10T19:12:57Z,kjy5,T1N2,f,T,355,1029,incomplete,find ./content/ -type d -exec ls -d {} \;
+2022-05-10T19:13:14Z,2022-05-10T19:13:14Z,kjy5,T1N2,f,T,,1047,timeout,find ./content/ -maxdepth 1 -type d
+2022-05-10T19:13:26Z,2022-05-10T19:13:26Z,kjy5,T1N2,g,N,0,1047,incomplete,start_task
+2022-05-10T19:14:31Z,2022-05-10T19:14:31Z,kjy5,T1N2,g,N,65,65,incomplete,ls | grep -v '*md'
+2022-05-10T19:14:44Z,2022-05-10T19:14:44Z,kjy5,T1N2,g,N,78,78,incomplete,ls -r | grep -v '*md'
+2022-05-10T19:15:05Z,2022-05-10T19:15:05Z,kjy5,T1N2,g,N,99,99,incomplete,ls -R . | grep -v '*.md'
+2022-05-10T19:16:03Z,2022-05-10T19:16:03Z,kjy5,T1N2,g,N,156,156,incomplete,ls -R . | grep -v "*.md"
+2022-05-10T19:17:06Z,2022-05-10T19:17:05Z,kjy5,T1N2,g,N,219,219,incomplete,find . -not -name "*.md"
+2022-05-10T19:17:28Z,2022-05-10T19:17:28Z,kjy5,T1N2,g,N,242,242,success,find . -type f -not -name "*.md"
+2022-05-10T19:17:28Z,2022-05-10T19:17:28Z,kjy5,T1N2,h,N,0,242,incomplete,start_task
+2022-05-10T19:17:40Z,2022-05-10T19:17:40Z,kjy5,T1N2,h,N,12,254,incomplete,ls
+2022-05-10T19:18:17Z,2022-05-10T19:18:17Z,kjy5,T1N2,h,N,48,290,incomplete,find . -type f -name "^[0-9]" -delete
+2022-05-10T19:21:05Z,2022-05-10T19:21:05Z,kjy5,T1N2,h,N,217,459,incomplete,find . -type f -regex '^[0-9]' -delete
+2022-05-10T19:21:18Z,2022-05-10T19:21:18Z,kjy5,T1N2,h,N,230,472,incomplete,find . -type f -regex '^[0-9]'
+2022-05-10T19:21:51Z,2022-05-10T19:21:51Z,kjy5,T1N2,h,N,262,504,incomplete,find . -type f -regex '^[0-9]*.md'
+2022-05-10T19:21:57Z,2022-05-10T19:21:57Z,kjy5,T1N2,h,N,269,511,incomplete,find . -type f -regex '^[0-9]*.md' -delete
+2022-05-10T19:22:41Z,2022-05-10T19:22:41Z,kjy5,T1N2,h,N,313,555,incomplete,find . -type f -name "*.md" -delete
+2022-05-10T19:23:05Z,2022-05-10T19:23:05Z,kjy5,T1N2,h,N,337,579,incomplete,find . -type f -name "*.md" | grep -r '^[0-9]'
+2022-05-10T19:23:23Z,2022-05-10T19:23:23Z,kjy5,T1N2,h,N,354,596,incomplete,find . -type f -name "*.md" | grep -D '^[0-9]'
+2022-05-10T19:23:33Z,2022-05-10T19:23:32Z,kjy5,T1N2,h,N,,606,timeout,find . -type f -name "*.md" | grep -E '^[0-9]'
+2022-05-10T19:23:33Z,2022-05-10T19:23:33Z,kjy5,T1N2,i,N,0,606,incomplete,start_task
+2022-05-10T19:24:50Z,2022-05-10T19:24:50Z,kjy5,T1N2,i,N,77,684,success,diff -qr ./content/labs/ ./content/lessons/
+2022-05-10T19:24:51Z,2022-05-10T19:24:51Z,kjy5,T1N2,j,N,0,684,incomplete,start_task
+2022-05-10T19:25:28Z,2022-05-10T19:25:28Z,kjy5,T1N2,j,N,36,721,incomplete,find . -type f -size  10kb
+2022-05-10T19:25:40Z,2022-05-10T19:25:40Z,kjy5,T1N2,j,N,49,734,incomplete,find . -type f -size  10K
+2022-05-10T19:27:20Z,2022-05-10T19:27:20Z,kjy5,T1N2,j,N,149,834,incomplete,find . -type f -size  0.01M
+2022-05-10T19:27:52Z,2022-05-10T19:27:52Z,kjy5,T1N2,j,N,180,865,incomplete,find . -type f -size  1M
+2022-05-10T19:27:58Z,2022-05-10T19:27:58Z,kjy5,T1N2,j,N,187,872,incomplete,find . -type f -size  1K
+2022-05-10T19:28:07Z,2022-05-10T19:28:07Z,kjy5,T1N2,j,N,196,881,incomplete,find . -type f -size  10000B
+2022-05-10T19:28:13Z,2022-05-10T19:28:13Z,kjy5,T1N2,j,N,202,887,incomplete,find . -type f -size  10000b
+2022-05-10T19:29:36Z,2022-05-10T19:29:36Z,kjy5,T1N2,j,N,285,970,incomplete,find . type f -size  0.01M
+2022-05-10T19:29:45Z,2022-05-10T19:29:45Z,kjy5,T1N2,j,N,294,979,incomplete,find . type f -size  1M
+2022-05-10T19:29:58Z,2022-05-10T19:29:58Z,kjy5,T1N2,j,N,307,992,incomplete,man find
+2022-05-10T19:30:02Z,2022-05-10T19:30:02Z,kjy5,T1N2,j,N,311,996,success,find . type f -size  10k
+2022-05-10T19:30:02Z,2022-05-10T19:30:02Z,kjy5,T1N2,k,N,0,996,incomplete,start_task
+2022-05-10T19:30:36Z,2022-05-10T19:30:36Z,kjy5,T1N2,k,N,34,1030,incomplete,find . -type f -name "*review*" | grep why
+2022-05-10T19:30:56Z,2022-05-10T19:30:56Z,kjy5,T1N2,k,N,54,1050,incomplete,man grep
+2022-05-10T19:30:59Z,2022-05-10T19:30:59Z,kjy5,T1N2,k,N,57,1053,incomplete,find . -type f -name "*review*" | grep -i why
+2022-05-10T19:31:11Z,2022-05-10T19:31:11Z,kjy5,T1N2,k,N,69,1065,incomplete,find . -type -f -name "*review*"
+2022-05-10T19:31:21Z,2022-05-10T19:31:21Z,kjy5,T1N2,k,N,79,1075,incomplete,find . -type f -name "*review*"
+2022-05-10T19:31:35Z,2022-05-10T19:31:35Z,kjy5,T1N2,k,N,93,1089,incomplete,find . -type f -name "*review*" | grep -i "why"
+2022-05-10T19:32:33Z,2022-05-10T19:32:33Z,kjy5,T1N2,k,N,150,1146,incomplete,find . -type f -name "*review*" | xargs grep -i "why"
+2022-05-10T19:32:53Z,2022-05-10T19:32:53Z,kjy5,T1N2,k,N,171,1167,incomplete,find . -type f -name "*review*" | xargs grep -i "why"
+2022-05-10T19:33:47Z,2022-05-10T19:33:47Z,kjy5,T1N2,k,N,225,1221,success,find . -type f -name "*review*" | xargs grep -in "why"
+2022-05-10T19:33:47Z,2022-05-10T19:33:47Z,kjy5,T1N2,l,N,0,1221,incomplete,start_task
+2022-05-10T19:34:20Z,2022-05-10T19:34:20Z,kjy5,T1N2,l,N,33,1254,incomplete,ls -lS content/
+2022-05-10T19:36:46Z,2022-05-10T19:36:46Z,kjy5,T1N2,l,N,179,1400,incomplete,man stat
+2022-05-10T19:36:55Z,2022-05-10T19:36:55Z,kjy5,T1N2,l,N,188,1409,incomplete,stat -c %c content/
+2022-05-10T19:37:16Z,2022-05-10T19:37:16Z,kjy5,T1N2,l,N,208,1429,incomplete,ls -R content/
+2022-05-10T19:37:32Z,2022-05-10T19:37:32Z,kjy5,T1N2,l,N,225,1446,incomplete,ls -R content/ | xargs stat -c %s
+2022-05-10T19:37:50Z,2022-05-10T19:37:50Z,kjy5,T1N2,l,N,243,1464,incomplete,ls
+2022-05-10T19:38:00Z,2022-05-10T19:38:00Z,kjy5,T1N2,l,N,253,1474,incomplete,stat -c %s README.md 
+2022-05-10T19:38:40Z,2022-05-10T19:38:40Z,kjy5,T1N2,l,N,293,1514,set-timeout,ls -laSh content/
