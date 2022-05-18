@@ -15,37 +15,50 @@
     Instructions
   </h1>
   <p><strong>Prerequisites:</strong></p>
-  <ol>
+  <ul>
     <li>
-    Boot up a <a href="https://www.cs.washington.edu/lab/software/linuxhomevm" target="_blank" rel="noopener noreferrer">CSE Linux Home VM</a>. 
-    Any version of the CSE Linux Home VM is adequate.
-    <div style="font-size: 80%; font-style: italic; margin-bottom: 0.5em;"><span class="notice">Notice:</span> If you have an <a href="https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/" target="_blank" rel="noopener noreferrer">M1 Mac</a>, you need to install the <a href="https://www.vmware.com/go/get-fusion-m1" target="_blank" rel="noopener noreferrer">preview version</a> of VMWare fusion.</div>
+      <p>Option 1 - On campus</p>
+      <ol type="a">
+        <li>Go to one of the <a href="https://www.cs.washington.edu/lab/facilities/instr-labs" target="_blank" rel="noopener noreferrer">CSE lab spaces</a>.</li>
+        <li>Login on a <b>Linux</b> machine in the lab with your CSE id.</li>
+      </ol>
     </li>
-    <li>Open a web browser in the VM and continue reading this webpage there.</li>
-    <li>Resize the VM to be fullscreen. You will need space for the terminal and a GUI.</li>
+
     <li>
-      Install <a href="https://meldmerge.org/" target="_blank" rel="noopener noreferrer">Meld</a> in the VM.
-      <ol>
-        <li>Start a command shell by clicking on <em>Activities</em> and selecting <em>Terminal</em>.</li>
-        <li>Run the command <code>sudo yum -qy install meld</code></li>
+      <p>Option 2 - Remote</p>
+      <ol type="a">
         <li>
-          Run the command <code>meld --version</code> in your VM's terminal. You should get something like <code>meld 3.20.2</code>.
-          <small>If you get an error, please contact tschweiz AT cs.washington.edu to fix the issue.</small>
+        Boot up a <a href="https://www.cs.washington.edu/lab/software/linuxhomevm" target="_blank" rel="noopener noreferrer">CSE Linux Home VM</a>. 
+        Any version of the CSE Linux Home VM is adequate.
+        <div style="font-size: 80%; font-style: italic; margin-bottom: 0.5em;"><span class="notice">Notice:</span> If you have an <a href="https://www.howtogeek.com/706226/how-to-check-if-your-mac-is-using-an-intel-or-apple-silicon-processor/" target="_blank" rel="noopener noreferrer">M1 Mac</a>, you need to install the <a href="https://www.vmware.com/go/get-fusion-m1" target="_blank" rel="noopener noreferrer">preview version</a> of VMWare fusion.</div>
+        </li>
+        <li>Open a web browser in the VM and continue reading this webpage there.</li>
+        <li>Resize the VM to be fullscreen. You will need space for the terminal and a GUI.</li>
+        <li>
+          Install <a href="https://meldmerge.org/" target="_blank" rel="noopener noreferrer">Meld</a> in the VM.
+          <ol>
+            <li>Start a command shell by clicking on <em>Activities</em> and selecting <em>Terminal</em>.</li>
+            <li>Run the command <code>sudo yum -qy install meld</code></li>
+            <li>
+              Run the command <code>meld --version</code> in your VM's terminal. You should get something like <code>meld 3.20.2</code>.
+              <small>If you get an error, please contact tschweiz AT cs.washington.edu to fix the issue.</small>
+            </li>
+          </ol>
         </li>
       </ol>
     </li>
-  </ol>
+  </ul>
 
   <p><strong>Demographics:</strong></p>
-  <ol start="5">
+  <ol start="1">
     <li>Complete the <a href="https://forms.gle/Nifk44z9NvjufCpGA" target="_blank" rel="noopener noreferrer">demographic questionnaire</a>. We use your email from the survey to send the gift card.</li>
   </ol>
 
   <p><strong>Experiment:</strong></p>
 
-  <ol start="6">
+  <ol start="2">
     <li>
-      Paste in the snippet below in the terminal you just created to download and install the experiment.
+      Paste in the snippet below in an existing or new terminal to download and install the experiment.
       </br>The experiment won't change anything in your system; it is entirely self-contained in the `en2bash` folder.
       <pre><code>mkdir ~/en2bash
 cd ~/en2bash
@@ -62,7 +75,7 @@ source experiment/configure
 </code></pre>
     </li>
     <li>
-      Please maximize the height of experiment client's terminal within the VM.
+      Please maximize the height of experiment client's terminal.
       You might also want to move the terminal to the right side of the screen so that the Meld window doesn't cover it.
     </li>
     <li>
@@ -76,7 +89,7 @@ source experiment/configure
       <p>
         If you get interrupted (or you type <code>Ctrl+C</code> or <code>exit</code> ), 
         start a new terminal and 
-        follow the instructions from step 8 to resume the experiment where you left off.
+        follow the instructions from step 3 to resume the experiment where you left off.
       </p>
 
       <p>In case your command hangs, try to type <code>Ctrl+D</code> terminate it.</p>
@@ -84,7 +97,7 @@ source experiment/configure
   </ol>
 
     <p><strong>Survey:</strong></p>
-    <ol start="10">
+    <ol start="6">
       <li>
         When you have finished the experiment, please complete this <a href="https://forms.gle/QieZPezcLSYoX2k26" target="_blank" rel="noopener noreferrer"> short survey</a> (5 minutes).
         We use your email from the survey to send the gift card.
@@ -92,13 +105,13 @@ source experiment/configure
     </ol>
 
     <p><strong>Clean-up:</strong> (optional)</p>
-    <ol start="11">
+    <ol start="7">
       <li>Remove the experiment files from your Home VM:<code>cd && rm -rf ~/en2bash</code>.</li>
     </ol>
 
   <p>You're all done! Thank you for your participation. We will send you the gift card soon at the address you provided in the survey.</p>
   
-  <p>If you have any questions or concerns, feel free to contact us via the UW CSE Slack (@Thomas Schweizer) or by email (tschweiz AT cs.washington.edu).</p>
+  <p>If you have any questions or concerns, feel free to contact by email (tschweiz AT cs.washington.edu).</p>
 </body>
 
 </html>

@@ -85,7 +85,7 @@ general_training() {
   echo "- If your command hangs, please use Ctrl+D terminate it."
   echo ""
   echo "- If this experiment terminal crashes or is exited by accident, please restart"
-  echo "  the experiment by following step 7's instructions on the experiment website:"
+  echo "  the experiment by following step 3's instructions on the experiment website:"
   echo "     ${INSTRUCTION_WEBSITE}"
   echo "  Your session will resume at your current task."
   echo ""
