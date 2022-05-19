@@ -227,10 +227,11 @@ precmd_func() {
   fi
 
   task_set_time_elapsed=$(( taskset_timestamp_end - taskset_timestamp_start))
-  
+
   # Checks if the participant hasn't ran out of time for the current taskset
   if [ ! -z ${taskset_timestamp_start+x} ] && (( task_set_time_elapsed >= TASK_SET_TIME_LIMIT )) ; then
-    echo $SLINE
+    verify_task "${command_dir}" "disable-meld";
+    echo ""
     echo "The time allocated for half ${experiment_half} of the experiment is over."
     echo "Please follow the new instructions below."
     echo ""
@@ -247,6 +248,8 @@ precmd_func() {
 
   # Checks if the user has run out of time.
   elif (( time_elapsed >= TASK_TIME_LIMIT )) && [[ "${INF_TRAINING:-false}" == "false" && "${TEL_TRAINING:-false}" == "false" ]] ; then
+    verify_task "${command_dir}" "disable-meld";
+
     echo "You have run out of time for task ${task_num}."
 
     status="timeout"
