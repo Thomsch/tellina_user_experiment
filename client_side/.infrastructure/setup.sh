@@ -141,25 +141,31 @@ echo "${SLINE}"
 if (( is_recovery == 1 )); then
   echo "Welcome back!"
   echo "The experiment will resume where you left."
+  UW_NETID="$(cat "${INFRA_DIR}/.netid")"
+  TASK_ORDER="$(cat "${INFRA_DIR}/.task_order")"
 else
   echo "Welcome to the user study! Thank you for choosing to participate!"
   echo ""
   echo "This terminal will be the main interface for the experiment."
-fi
-echo ""
+  echo ""
 
-# Read non-empty UW NETID.
-while read -p "Please enter your UW NetID: " UW_NETID; do
+  # Read non-empty UW NETID.
+  while read -p "Please enter your UW NetID: " UW_NETID; do
     if [ ! -z $UW_NETID ]; then
         break
     fi
-done
+  done
+
+  # Determine the task order based on a truncated md5sum hash of the username.
+  # The has will return a number from 0 to 3.
+  #TASK_ORDER=${TASK_ORDERS_CODES[$((0x$(md5sum <<<${UW_NETID} | cut -c1) % 4))]}
+  TASK_ORDER=${TASK_ORDERS_CODES[$((RANDOM % 4))]}
+
+  echo "${UW_NETID}" > "${INFRA_DIR}/.netid"
+  echo "${TASK_ORDER}" > "${INFRA_DIR}/.task_order"
+fi
 
 echo ""
-
-# Determine the task order based on a truncated md5sum hash of the username.
-# The has will return a number from 0 to 3.
-TASK_ORDER=${TASK_ORDERS_CODES[$((0x$(md5sum <<<${UW_NETID} | cut -c1) % 4))]}
 
 ################################################################################
 #                                  BASH PREEXEC                                #
