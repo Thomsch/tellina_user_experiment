@@ -278,7 +278,7 @@ next_task() {
   # Check if we need to switch the task set and the treatment
   if (( task_num == TASKS_SIZE / 2 )) && [[ "${TEL_TRAINING:-false}" == "false" ]] && [[ "${task_code}" != $(get_training_code ${TELLINA_START_CODE} ${TELLINA_TRAINING_SIZE}) ]] && (( is_recovery != 1 )); then
     echo ${SLINE}
-    echo "Way to go! You have finished the first half of the experiment!"
+    echo "The first half of the experiment is complete!"
     echo ""
     begin_treatment 2
   fi
@@ -413,7 +413,12 @@ verify_task() {
       ;;
     1)
       echo ""
-      echo "File system does not match expected. A diff has been shown."
+      echo "File system does not match expected."
+      
+      if [ "$2" != "disable-meld" ]; then
+        echo "A diff has been shown."
+      fi
+
       reset_fs
       ;;
     2)
@@ -421,7 +426,11 @@ verify_task() {
       reset_fs
       ;;
     3)
-      echo "Command output does not match expected output. A diff has been shown."
+      echo "Command output does not match expected output."
+
+      if [ "$2" != "disable-meld" ]; then
+        echo "A diff has been shown."
+      fi
       ;;
   esac
 
