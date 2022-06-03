@@ -4,7 +4,7 @@ from csv import DictWriter
 import os 
 import copy
 
-MAX_TIME =360
+MAX_TIME=360
 
 def missing_tasks(task, group, treatment, row):
     new_rows = []
@@ -12,6 +12,7 @@ def missing_tasks(task, group, treatment, row):
         new_row = copy.deepcopy(row)
         new_row['task_code'] = group[index]
         new_row['time_elapsed'] = MAX_TIME
+        new_row['command'] = "NA"
         print("Copy: ")
         print(new_row)
         print(f"-> missing task {group[index]}")

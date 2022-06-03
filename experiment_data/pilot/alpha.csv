@@ -1,0 +1,244 @@
+server_time_stamp,client_time_stamp,user_id,task_order,task_code,treatment,time_elapsed,time_elapsed_task_set,status,command
+2022-03-08T16:52:09Z,2022-03-08T16:52:09Z,PA,T2N1,,T,288,incomplete,
+2022-03-08T16:52:37Z,2022-03-08T16:52:37Z,PA,T2N1,,T,316,incomplete,
+2022-03-08T17:10:03Z,2022-03-08T17:10:03Z,PA,T2N1,v,T,0,incomplete,start_task
+2022-03-08T17:10:03Z,2022-03-08T17:10:03Z,PA,T2N1,v,T,0,incomplete,start_task
+2022-03-08T17:10:15Z,2022-03-08T17:10:15Z,PA,T2N1,v,T,12,success,mv README.md README.txt
+2022-03-08T17:10:15Z,2022-03-08T17:10:15Z,PA,T2N1,w,T,0,incomplete,start_task
+2022-03-08T17:10:22Z,2022-03-08T17:10:22Z,PA,T2N1,w,T,7,incomplete,expected
+2022-03-08T17:10:47Z,2022-03-08T17:10:47Z,PA,T2N1,w,T,31,success,cat css/*.css
+2022-03-08T17:10:47Z,2022-03-08T17:10:47Z,PA,T2N1,x,T,0,incomplete,start_task
+2022-03-08T17:11:14Z,2022-03-08T17:11:14Z,PA,T2N1,x,T,27,incomplete,find . -name '*glyph'
+2022-03-08T17:12:11Z,2022-03-08T17:12:11Z,PA,T2N1,x,T,83,incomplete,ls
+2022-03-08T17:12:19Z,2022-03-08T17:12:19Z,PA,T2N1,x,T,92,incomplete,find . -name '*glyph*'
+2022-03-08T17:13:19Z,2022-03-08T17:13:19Z,PA,T2N1,x,T,152,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:26Z,2022-03-11T18:55:26Z,PA,T2N1,x,T,265479,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:29Z,2022-03-11T18:55:29Z,PA,T2N1,x,T,265482,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:30Z,2022-03-11T18:55:30Z,PA,T2N1,x,T,265483,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:30Z,2022-03-11T18:55:30Z,PA,T2N1,x,T,265483,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:31Z,2022-03-11T18:55:31Z,PA,T2N1,x,T,265483,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:31Z,2022-03-11T18:55:31Z,PA,T2N1,x,T,265484,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:31Z,2022-03-11T18:55:31Z,PA,T2N1,x,T,265484,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:31Z,2022-03-11T18:55:31Z,PA,T2N1,x,T,265484,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:31Z,2022-03-11T18:55:31Z,PA,T2N1,x,T,265484,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:32Z,2022-03-11T18:55:32Z,PA,T2N1,x,T,265484,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:32Z,2022-03-11T18:55:32Z,PA,T2N1,x,T,265485,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:32Z,2022-03-11T18:55:32Z,PA,T2N1,x,T,265485,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:32Z,2022-03-11T18:55:32Z,PA,T2N1,x,T,265485,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:32Z,2022-03-11T18:55:32Z,PA,T2N1,x,T,265485,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:33Z,2022-03-11T18:55:32Z,PA,T2N1,x,T,265485,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:33Z,2022-03-11T18:55:33Z,PA,T2N1,x,T,265486,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:33Z,2022-03-11T18:55:33Z,PA,T2N1,x,T,265486,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:34Z,2022-03-11T18:55:34Z,PA,T2N1,x,T,265487,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T18:55:34Z,2022-03-11T18:55:34Z,PA,T2N1,x,T,265487,success,find . -name '*glyph*' | xargs rm 
+2022-03-11T19:07:43Z,2022-03-11T19:07:43Z,PA,T2N1,v,T,0,incomplete,start_task
+2022-03-11T19:07:43Z,2022-03-11T19:07:43Z,PA,T2N1,v,T,0,incomplete,start_task
+2022-03-11T19:07:49Z,2022-03-11T19:07:49Z,PA,T2N1,v,T,6,incomplete,expected
+2022-03-11T19:08:09Z,2022-03-11T19:08:09Z,PA,T2N1,v,T,26,incomplete,mv README.md README.txtfoo
+2022-03-11T19:08:20Z,2022-03-11T19:08:19Z,PA,T2N1,v,T,36,incomplete,ls
+2022-03-11T19:08:30Z,2022-03-11T19:08:30Z,PA,T2N1,v,T,47,incomplete,expected
+2022-03-11T19:08:41Z,2022-03-11T19:08:41Z,PA,T2N1,v,T,58,incomplete,mv README.md README.txtfoo
+2022-03-11T19:08:47Z,2022-03-11T19:08:47Z,PA,T2N1,v,T,64,incomplete,expected
+2022-03-11T19:13:20Z,2022-03-11T19:13:20Z,PA,T2N1,v,T,337,incomplete,pwd
+2022-03-11T19:14:02Z,2022-03-11T19:14:02Z,PA,T2N1,v,T,379,incomplete,cd
+2022-03-11T19:14:11Z,2022-03-11T19:14:11Z,PA,T2N1,v,T,388,incomplete,pwd
+2022-03-11T19:17:41Z,2022-03-11T19:17:41Z,PA,T2N1,v,T,598,incomplete,heplme
+2022-03-11T19:17:49Z,2022-03-11T19:17:49Z,PA,T2N1,v,T,606,incomplete,helpme
+2022-03-11T19:17:54Z,2022-03-11T19:17:54Z,PA,T2N1,v,T,611,incomplete,task
+2022-03-11T19:18:04Z,2022-03-11T19:18:04Z,PA,T2N1,v,T,621,incomplete,pwd
+2022-03-11T19:18:19Z,2022-03-11T19:18:19Z,PA,T2N1,v,T,636,incomplete,lis
+2022-03-11T19:18:28Z,2022-03-11T19:18:28Z,PA,T2N1,v,T,645,incomplete,ls
+2022-03-11T19:18:43Z,2022-03-11T19:18:43Z,PA,T2N1,v,T,660,incomplete,foobar
+2022-03-11T19:19:31Z,2022-03-11T19:19:31Z,PA,T2N1,v,T,708,incomplete,ls
+2022-03-11T19:19:35Z,2022-03-11T19:19:35Z,PA,T2N1,v,T,712,incomplete,cd en2bash/
+2022-03-11T19:19:42Z,2022-03-11T19:19:42Z,PA,T2N1,v,T,719,incomplete,cd experiment/file_system/
+2022-03-11T19:19:53Z,2022-03-11T19:19:53Z,PA,T2N1,v,T,730,success,mv README.md README.txt
+2022-03-11T19:19:54Z,2022-03-11T19:19:54Z,PA,T2N1,w,T,0,incomplete,start_task
+2022-03-11T19:20:08Z,2022-03-11T19:20:08Z,PA,T2N1,w,T,15,success,cat ./css/*.css
+2022-03-11T19:20:08Z,2022-03-11T19:20:08Z,PA,T2N1,x,T,0,incomplete,start_task
+2022-03-11T19:20:32Z,2022-03-11T19:20:32Z,PA,T2N1,x,T,24,incomplete,find glyph
+2022-03-11T19:20:57Z,2022-03-11T19:20:57Z,PA,T2N1,x,T,49,incomplete,find . -name "*glyph*"
+2022-03-11T19:21:08Z,2022-03-11T19:21:07Z,PA,T2N1,x,T,59,incomplete,rm -rf `$$`
+2022-03-11T19:21:18Z,2022-03-11T19:21:18Z,PA,T2N1,x,T,70,success,rm -rf `find . -name "*glyph*"`
+2022-03-11T19:26:01Z,2022-03-11T19:26:01Z,PA,T2N1,y,T,0,incomplete,start_task
+2022-03-11T19:42:24Z,2022-03-11T19:42:24Z,PA,T2N1,y,T,984,incomplete,start_task
+2022-03-11T19:42:59Z,2022-03-11T19:42:58Z,PA,T2N1,y,T,1018,incomplete,start_task
+2022-03-11T19:42:59Z,2022-03-11T19:42:59Z,PA,T2N1,y,T,1019,incomplete,cp ./content/tips.md ./content/backup/
+2022-03-11T19:43:44Z,2022-03-11T19:43:43Z,PA,T2N1,y,T,1063,incomplete,cp ./content/tips.md ./content/backup/
+2022-03-11T19:44:03Z,2022-03-11T19:44:03Z,PA,T2N1,y,T,1083,incomplete,cp ./content/tips.md ./content/backup/tips.md
+2022-03-11T19:44:36Z,2022-03-11T19:44:36Z,PA,T2N1,y,T,1116,success,mkdir content/backup ,
+2022-03-11T19:44:36Z,2022-03-11T19:44:36Z,PA,T2N1,z,T,0,incomplete,start_task
+2022-03-11T19:48:12Z,2022-03-11T19:48:12Z,PA,T2N1,z,T,216,incomplete,start_task
+2022-03-11T19:48:12Z,2022-03-11T19:48:12Z,PA,T2N1,z,T,216,incomplete,cat ./content/syllabus.md
+2022-03-11T19:48:13Z,2022-03-11T19:48:13Z,PA,T2N1,z,T,217,incomplete,cat [-benstuv] [file ...]
+2022-03-11T19:48:13Z,2022-03-11T19:48:13Z,PA,T2N1,z,T,217,incomplete,cat [-benstuv] [file ...]
+2022-03-11T19:48:26Z,2022-03-11T19:48:26Z,PA,T2N1,z,T,230,incomplete,cat [-benstuv] [file ...]
+2022-03-11T19:49:02Z,2022-03-11T19:49:02Z,PA,T2N1,z,T,266,incomplete,cat [-benstuv] [file ...]
+2022-03-11T19:49:02Z,2022-03-11T19:49:02Z,PA,T2N1,z,T,266,incomplete,cat ./content/syllabus.md | wc
+2022-03-11T19:49:02Z,2022-03-11T19:49:02Z,PA,T2N1,z,T,266,incomplete,wc: word, line, character, and byte count
+2022-03-11T19:49:03Z,2022-03-11T19:49:03Z,PA,T2N1,z,T,267,incomplete,wc: word, line, character, and byte count
+2022-03-11T19:49:03Z,2022-03-11T19:49:03Z,PA,T2N1,z,T,267,incomplete,   The wc utility displays the number of lines, words, and bytes contained
+2022-03-11T19:49:03Z,2022-03-11T19:49:03Z,PA,T2N1,z,T,267,incomplete,   The wc utility displays the number of lines, words, and bytes contained
+2022-03-11T19:49:04Z,2022-03-11T19:49:04Z,PA,T2N1,z,T,267,incomplete,   standard output.  A line is defined as a string of characters delimited
+2022-03-11T19:49:04Z,2022-03-11T19:49:04Z,PA,T2N1,z,T,268,incomplete,   by a <newline> character.  Characters beyond the final <newline> charac-
+2022-03-11T19:49:04Z,2022-03-11T19:49:04Z,PA,T2N1,z,T,268,incomplete,   ter will not be included in the line count.
+2022-03-11T19:49:05Z,2022-03-11T19:49:05Z,PA,T2N1,z,T,268,incomplete,   ter will not be included in the line count.
+2022-03-11T19:49:05Z,2022-03-11T19:49:05Z,PA,T2N1,z,T,269,incomplete,   A word is defined as a string of characters delimited by white space
+2022-03-11T19:49:06Z,2022-03-11T19:49:05Z,PA,T2N1,z,T,269,incomplete,   characters.  White space characters are the set of characters for which
+2022-03-11T19:49:06Z,2022-03-11T19:49:06Z,PA,T2N1,z,T,270,incomplete,   characters.  White space characters are the set of characters for which
+2022-03-11T19:49:06Z,2022-03-11T19:49:06Z,PA,T2N1,z,T,270,incomplete,   specified, a line of cumulative counts for all the files is displayed on
+2022-03-11T19:49:07Z,2022-03-11T19:49:07Z,PA,T2N1,z,T,271,incomplete,   a separate line after the output for the last file.
+2022-03-11T19:49:07Z,2022-03-11T19:49:07Z,PA,T2N1,z,T,271,incomplete,-l
+2022-03-11T19:49:23Z,2022-03-11T19:49:23Z,PA,T2N1,z,T,287,incomplete,-l
+2022-03-11T19:49:24Z,2022-03-11T19:49:23Z,PA,T2N1,z,T,287,incomplete,cat ./content/syllabus.md | wc -l
+2022-03-11T19:51:20Z,2022-03-11T19:51:20Z,PA,T2N1,z,T,404,success,wc -l content/syllabus.md 
+2022-03-11T19:51:25Z,2022-03-11T19:51:25Z,PA,T2N1,g,T,0,incomplete,start_task
+2022-03-11T19:53:03Z,2022-03-11T19:53:03Z,PA,T2N1,g,T,98,incomplete,start_task
+2022-03-11T19:54:15Z,2022-03-11T19:54:15Z,PA,T2N1,g,T,170,incomplete,It i
+2022-03-11T19:54:30Z,2022-03-11T19:54:30Z,PA,T2N1,g,T,185,incomplete,It i
+2022-03-11T19:54:31Z,2022-03-11T19:54:30Z,PA,T2N1,g,T,185,incomplete,find . -name "*.markdown" -exec ls -l -d {} \;
+2022-03-11T19:54:49Z,2022-03-11T19:54:49Z,PA,T2N1,g,T,204,incomplete,find . -name "*.markdown" -exec ls -l -d {} \;
+2022-03-11T19:54:50Z,2022-03-11T19:54:50Z,PA,T2N1,g,T,205,incomplete,find . -name "*.markdown" -exec ls -l -d {} \;
+2022-03-11T19:55:55Z,2022-03-11T19:55:55Z,PA,T2N1,g,T,270,incomplete,ls `find . -name "*.md" -prune`
+2022-03-11T19:56:49Z,2022-03-11T19:56:49Z,PA,T2N1,g,T,324,incomplete,find . ! -name ".md" -exec ls -l {} \; 
+2022-03-11T19:57:17Z,2022-03-11T19:57:17Z,PA,T2N1,g,T,351,incomplete,find . ! -name ".md" -exec ls {} \; 
+2022-03-11T19:57:25Z,2022-03-11T19:57:25Z,PA,T2N1,g,T,,timeout,pwd
+2022-03-11T19:57:25Z,2022-03-11T19:57:25Z,PA,T2N1,h,T,0,incomplete,start_task
+2022-03-11T19:58:13Z,2022-03-11T19:58:13Z,PA,T2N1,h,T,48,incomplete,find . -name "[0-9]*.md"
+2022-03-11T19:58:25Z,2022-03-11T19:58:25Z,PA,T2N1,h,T,60,success,rm -f `find . -name "[0-9]*.md"`
+2022-03-11T19:58:25Z,2022-03-11T19:58:25Z,PA,T2N1,i,T,0,incomplete,start_task
+2022-03-11T19:59:05Z,2022-03-11T19:59:04Z,PA,T2N1,i,T,39,incomplete,start_task
+2022-03-11T19:59:05Z,2022-03-11T19:59:05Z,PA,T2N1,i,T,40,incomplete,diff -q -r ./content/labs/ ./content/lessons/
+2022-03-11T20:00:45Z,2022-03-11T20:00:45Z,PA,T2N1,i,T,140,success,diff -q -r content/labs/ content/lessons/
+2022-03-11T20:00:45Z,2022-03-11T20:00:45Z,PA,T2N1,j,T,0,incomplete,start_task
+2022-03-11T20:01:54Z,2022-03-11T20:01:54Z,PA,T2N1,j,T,68,incomplete,find . -size  10k -exec ls -l {} \; 
+2022-03-11T20:02:02Z,2022-03-11T20:02:02Z,PA,T2N1,j,T,77,success,find . -size  10k -exec ls {} \; 
+2022-03-11T20:02:02Z,2022-03-11T20:02:02Z,PA,T2N1,k,T,0,incomplete,start_task
+2022-03-11T20:06:03Z,2022-03-11T20:06:03Z,PA,T2N1,k,T,241,incomplete,find . -size  10k -exec ls {} \; 
+2022-03-11T20:08:21Z,2022-03-11T20:08:21Z,PA,T2N1,k,T,,timeout,find . -size  10k -exec ls {} \; 
+2022-03-11T20:08:21Z,2022-03-11T20:08:21Z,PA,T2N1,l,T,0,incomplete,start_task
+2022-03-11T20:08:21Z,2022-03-11T20:08:21Z,PA,T2N1,l,T,0,incomplete,find . -name '*review*' -exec grep 'why' {} \; -print
+2022-03-11T20:13:28Z,2022-03-11T20:13:28Z,PA,T2N1,l,T,307,incomplete,find . -name '*review*' -exec grep 'why' {} \; -print
+2022-03-11T20:13:29Z,2022-03-11T20:13:28Z,PA,T2N1,l,T,307,incomplete,du -s -h * | sort -h -r
+2022-03-11T20:13:43Z,2022-03-11T20:13:43Z,PA,T2N1,l,T,322,incomplete,du -s -h content | sort -h -r
+2022-03-11T20:14:09Z,2022-03-11T20:14:09Z,PA,T2N1,l,T,348,incomplete,du -s -h -x content | sort -h -r
+2022-03-11T20:15:34Z,2022-03-11T20:15:33Z,PA,T2N1,l,T,,timeout,du -s -h -x --all content | sort -h -r
+2022-03-11T20:16:47Z,2022-03-11T20:16:47Z,PA,T2N1,a,N,0,incomplete,start_task
+2022-03-11T20:17:49Z,2022-03-11T20:17:49Z,PA,T2N1,a,N,62,success,find . -type d -empty -delete
+2022-03-11T20:17:50Z,2022-03-11T20:17:49Z,PA,T2N1,b,N,0,incomplete,start_task
+2022-03-11T20:19:08Z,2022-03-11T20:19:08Z,PA,T2N1,b,N,79,incomplete,diff content/review/review2.md content/review/review1.md 
+2022-03-11T20:20:43Z,2022-03-11T20:20:43Z,PA,T2N1,b,N,174,incomplete,diff content/review/review2.md content/review/review1.md  --output-inicator-new= --output-indicator-old=
+2022-03-11T20:20:53Z,2022-03-11T20:20:53Z,PA,T2N1,b,N,184,incomplete,diff --version
+2022-03-11T20:21:09Z,2022-03-11T20:21:09Z,PA,T2N1,b,N,199,incomplete,helpme
+2022-03-11T20:26:49Z,2022-03-11T20:26:49Z,PA,T2N1,b,N,,timeout,task
+2022-03-11T20:26:49Z,2022-03-11T20:26:49Z,PA,T2N1,c,N,0,incomplete,start_task
+2022-03-11T20:27:45Z,2022-03-11T20:27:45Z,PA,T2N1,c,N,56,incomplete,find content/labs/ -type d | wc -l
+2022-03-11T20:28:01Z,2022-03-11T20:28:01Z,PA,T2N1,c,N,72,incomplete,ls
+2022-03-11T20:28:08Z,2022-03-11T20:28:08Z,PA,T2N1,c,N,79,incomplete,task
+2022-03-11T20:28:10Z,2022-03-11T20:28:10Z,PA,T2N1,c,N,81,incomplete,helpme
+2022-03-11T20:28:17Z,2022-03-11T20:28:17Z,PA,T2N1,c,N,88,incomplete,expected
+2022-03-11T20:28:38Z,2022-03-11T20:28:38Z,PA,T2N1,c,N,109,success,find content/labs/ -type f | wc -l
+2022-03-11T20:28:38Z,2022-03-11T20:28:38Z,PA,T2N1,d,N,0,incomplete,start_task
+2022-03-11T20:29:25Z,2022-03-11T20:29:25Z,PA,T2N1,d,N,46,incomplete,mv content/tips.md . ; rm -rf content/* ; mv tips.md content/
+2022-03-11T20:30:07Z,2022-03-11T20:30:07Z,PA,T2N1,d,N,89,incomplete,mv content/tips.md . ; rm -rf `find content` ; mv tips.md content/
+2022-03-11T20:30:38Z,2022-03-11T20:30:37Z,PA,T2N1,d,N,119,incomplete,mv content/tips.md . ; rm -rf content; mkdir content ; mv tips.md content/
+2022-03-11T20:31:01Z,2022-03-11T20:31:01Z,PA,T2N1,d,N,142,incomplete,mv content/tips.md . ; rm -rf content; mkdir content ; mv tips.md content/
+2022-03-11T20:31:15Z,2022-03-11T20:31:15Z,PA,T2N1,d,N,157,incomplete,ls content
+2022-03-11T20:31:41Z,2022-03-11T20:31:41Z,PA,T2N1,d,N,183,incomplete,mv content/tips.md . ; rm -rf `find content` ; mv tips.md content/
+2022-03-11T20:32:05Z,2022-03-11T20:32:05Z,PA,T2N1,d,N,207,success,mv content/tips.md . ; rm content/* ; mv tips.md content/
+2022-03-11T20:32:05Z,2022-03-11T20:32:05Z,PA,T2N1,e,N,0,incomplete,start_task
+2022-03-11T20:32:33Z,2022-03-11T20:32:33Z,PA,T2N1,e,N,27,incomplete,rm -rf ./css/*
+2022-03-11T20:32:46Z,2022-03-11T20:32:46Z,PA,T2N1,e,N,41,incomplete,ls ./css/*
+2022-03-11T20:32:56Z,2022-03-11T20:32:56Z,PA,T2N1,e,N,51,incomplete,ls -l ./css/*
+2022-03-11T20:33:03Z,2022-03-11T20:33:03Z,PA,T2N1,e,N,58,incomplete,ls ./css/
+2022-03-11T20:33:18Z,2022-03-11T20:33:18Z,PA,T2N1,e,N,72,incomplete,echo ./css/*
+2022-03-11T20:33:29Z,2022-03-11T20:33:29Z,PA,T2N1,e,N,84,incomplete,ls ./css/*
+2022-03-11T20:33:49Z,2022-03-11T20:33:49Z,PA,T2N1,e,N,104,incomplete,rm  -rf css ; mkdir css
+2022-03-11T20:34:01Z,2022-03-11T20:34:01Z,PA,T2N1,e,N,116,incomplete,rm -rf css
+2022-03-11T20:34:33Z,2022-03-11T20:34:33Z,PA,T2N1,e,N,147,incomplete,rm `find -type f`
+2022-03-11T20:34:52Z,2022-03-11T20:34:51Z,PA,T2N1,e,N,166,success,rm `find css -type f`
+2022-03-11T20:34:52Z,2022-03-11T20:34:52Z,PA,T2N1,f,N,0,incomplete,start_task
+2022-03-11T20:37:35Z,2022-03-11T20:37:33Z,PA,T2N1,f,N,161,incomplete,du content
+2022-03-11T20:38:14Z,2022-03-11T20:38:14Z,PA,T2N1,f,N,202,incomplete,find content | grep '*/*/*'
+2022-03-11T20:38:21Z,2022-03-11T20:38:21Z,PA,T2N1,f,N,209,incomplete,find content
+2022-03-11T20:38:30Z,2022-03-11T20:38:30Z,PA,T2N1,f,N,218,incomplete,find content | grep -e '*/*/*'
+2022-03-11T20:38:46Z,2022-03-11T20:38:46Z,PA,T2N1,f,N,233,incomplete,find content | grep -e '.*/.*/.*'
+2022-03-11T20:39:05Z,2022-03-11T20:39:05Z,PA,T2N1,f,N,253,incomplete,find content -type d
+2022-03-11T20:39:36Z,2022-03-11T20:39:36Z,PA,T2N1,f,N,284,incomplete,find content -type d | grep -e '/'
+2022-03-11T20:39:50Z,2022-03-11T20:39:50Z,PA,T2N1,f,N,298,incomplete,find content -type d | grep -e '/.*/'
+2022-03-11T20:40:19Z,2022-03-11T20:40:19Z,PA,T2N1,f,N,327,incomplete,find content -type d | grep -e '/.*/' | sed ":.*/.*/::"
+2022-03-11T20:41:40Z,2022-03-11T20:41:40Z,PA,T2N1,f,N,,timeout,find content -type d | grep -e '/.*/' | sed ":.*/.*/::" | xargs -n 1 basename
+2022-03-22T12:50:21Z,2022-03-22T12:50:21Z,PB,T2N1,,T,239,incomplete,
+2022-03-22T12:51:59Z,2022-03-22T12:51:59Z,PB,T2N1,,T,337,incomplete,
+2022-03-22T12:56:18Z,2022-03-22T12:56:18Z,PB,T2N1,v,T,0,incomplete,start_task
+2022-03-22T12:56:18Z,2022-03-22T12:56:18Z,PB,T2N1,v,T,0,incomplete,start_task
+2022-03-22T12:56:46Z,2022-03-22T12:56:46Z,PB,T2N1,v,T,28,incomplete,mkdir test
+2022-03-22T12:57:17Z,2022-03-22T12:57:17Z,PB,T2N1,v,T,59,success,mv README.md README.txt
+2022-03-22T12:57:17Z,2022-03-22T12:57:17Z,PB,T2N1,w,T,0,incomplete,start_task
+2022-03-22T12:57:39Z,2022-03-22T12:57:39Z,PB,T2N1,w,T,22,success,cat ./css/app.css 
+2022-03-22T12:57:39Z,2022-03-22T12:57:39Z,PB,T2N1,x,T,0,incomplete,start_task
+2022-03-22T12:58:18Z,2022-03-22T12:58:18Z,PB,T2N1,x,T,39,incomplete,ls
+2022-03-22T12:58:59Z,2022-03-22T12:58:58Z,PB,T2N1,x,T,79,incomplete,find . -name "*glyph*"
+2022-03-22T12:59:23Z,2022-03-22T12:59:23Z,PB,T2N1,x,T,104,incomplete,find . -name "*glyph*"
+2022-03-22T12:59:38Z,2022-03-22T12:59:38Z,PB,T2N1,x,T,119,incomplete,find . -name "*glyph*"
+2022-03-22T13:01:12Z,2022-03-22T13:01:12Z,PB,T2N1,x,T,213,incomplete,find . -name "*glyph*" -exec rm {} ]
+2022-03-22T13:01:22Z,2022-03-22T13:01:22Z,PB,T2N1,x,T,223,success,find . -name "*glyph*" -exec rm {}  
+2022-03-22T13:03:58Z,2022-03-22T13:03:58Z,PB,T2N1,y,T,0,incomplete,start_task
+2022-03-22T13:05:56Z,2022-03-22T13:05:56Z,PB,T2N1,y,T,118,success,mkdir content/backup ; cp content/tips.md content/backup
+2022-03-22T13:05:56Z,2022-03-22T13:05:56Z,PB,T2N1,z,T,0,incomplete,start_task
+2022-03-22T13:06:38Z,2022-03-22T13:06:38Z,PB,T2N1,z,T,42,success,cat content/syllabus.md | wc -l
+2022-03-22T13:07:49Z,2022-03-22T13:07:48Z,PB,T2N1,g,T,0,incomplete,start_task
+2022-03-22T13:11:26Z,2022-03-22T13:11:26Z,PB,T2N1,g,T,218,incomplete,man find
+2022-03-22T13:11:56Z,2022-03-22T13:11:56Z,PB,T2N1,g,T,248,incomplete,find . -not -name "*.md"
+2022-03-22T13:12:14Z,2022-03-22T13:12:14Z,PB,T2N1,g,T,266,success,find . -type f -not -name "*.md"
+2022-03-22T13:12:15Z,2022-03-22T13:12:15Z,PB,T2N1,h,T,0,incomplete,start_task
+2022-03-22T13:14:09Z,2022-03-22T13:14:09Z,PB,T2N1,h,T,114,incomplete,find . -name "[0-9]*"
+2022-03-22T13:14:42Z,2022-03-22T13:14:42Z,PB,T2N1,h,T,147,success,find . -type f -name "[0-9]*.md" -exec rm {}  
+2022-03-22T13:14:43Z,2022-03-22T13:14:42Z,PB,T2N1,i,T,0,incomplete,start_task
+2022-03-22T13:16:33Z,2022-03-22T13:16:33Z,PB,T2N1,i,T,111,incomplete,ls content/labs
+2022-03-22T13:16:37Z,2022-03-22T13:16:37Z,PB,T2N1,i,T,115,incomplete,ls content/lessons/
+2022-03-22T13:17:04Z,2022-03-22T13:17:04Z,PB,T2N1,i,T,142,incomplete,ls content/lessons/2016-2/
+2022-03-22T13:17:09Z,2022-03-22T13:17:09Z,PB,T2N1,i,T,147,incomplete,ls content/lessons/2016-1
+2022-03-22T13:17:23Z,2022-03-22T13:17:23Z,PB,T2N1,i,T,161,incomplete,find content/lessons/ -type f
+2022-03-22T13:18:37Z,2022-03-22T13:18:37Z,PB,T2N1,i,T,235,incomplete,diff -r content/labs/ content/lessons/
+2022-03-22T13:18:54Z,2022-03-22T13:18:54Z,PB,T2N1,i,T,252,success,diff -r content/labs/ content/lessons/ -q
+2022-03-22T13:18:54Z,2022-03-22T13:18:54Z,PB,T2N1,j,T,0,incomplete,start_task
+2022-03-22T13:19:54Z,2022-03-22T13:19:53Z,PB,T2N1,j,T,59,success,find . -type f -size  10k
+2022-03-22T13:19:54Z,2022-03-22T13:19:54Z,PB,T2N1,k,T,0,incomplete,start_task
+2022-03-22T13:21:08Z,2022-03-22T13:21:08Z,PB,T2N1,k,T,71,incomplete,expect
+2022-03-22T13:21:19Z,2022-03-22T13:21:19Z,PB,T2N1,k,T,85,incomplete,helpme
+2022-03-22T13:21:22Z,2022-03-22T13:21:22Z,PB,T2N1,k,T,87,incomplete,expected
+2022-03-22T13:22:50Z,2022-03-22T13:22:50Z,PB,T2N1,k,T,176,incomplete,find . -type f -name "*review*" -exec grep "[Ww]hy" {}  
+2022-03-22T13:24:14Z,2022-03-22T13:24:13Z,PB,T2N1,k,T,259,success,find . -type f -name "*review*" -exec grep -n "[Ww]hy" {}  
+2022-03-22T13:24:14Z,2022-03-22T13:24:14Z,PB,T2N1,l,T,0,incomplete,start_task
+2022-03-22T13:24:30Z,2022-03-22T13:24:30Z,PB,T2N1,l,T,15,incomplete,expected
+2022-03-22T13:25:15Z,2022-03-22T13:25:15Z,PB,T2N1,l,T,61,incomplete,man ls
+2022-03-22T13:25:46Z,2022-03-22T13:25:46Z,PB,T2N1,l,T,92,incomplete,ls content/ -S -h
+2022-03-22T13:25:54Z,2022-03-22T13:25:54Z,PB,T2N1,l,T,100,incomplete,ll content/ -S -h
+2022-03-22T13:26:58Z,2022-03-22T13:26:58Z,PB,T2N1,l,T,164,incomplete,du -h content/
+2022-03-22T13:28:26Z,2022-03-22T13:28:26Z,PB,T2N1,l,T,252,incomplete,man du
+2022-03-22T13:28:31Z,2022-03-22T13:28:31Z,PB,T2N1,l,T,257,incomplete,du -hs content/
+2022-03-22T13:28:41Z,2022-03-22T13:28:41Z,PB,T2N1,l,T,267,incomplete,du -hs content/*
+2022-03-22T13:28:56Z,2022-03-22T13:28:56Z,PB,T2N1,l,T,281,incomplete,du -hs content/* | sort
+2022-03-22T13:29:14Z,2022-03-22T13:29:14Z,PB,T2N1,l,T,299,incomplete,du -hs content/* | sort -h
+2022-03-22T13:29:43Z,2022-03-22T13:29:43Z,PB,T2N1,l,T,329,success,du -hs content/* | sort -hr
+2022-03-22T13:29:59Z,2022-03-22T13:29:59Z,PB,T2N1,a,N,0,incomplete,start_task
+2022-03-22T13:30:47Z,2022-03-22T13:30:46Z,PB,T2N1,a,N,47,incomplete,find . -type d -empty
+2022-03-22T13:31:02Z,2022-03-22T13:31:02Z,PB,T2N1,a,N,63,success,find . -type d -empty -exec rm -r {}  
+2022-03-22T13:31:02Z,2022-03-22T13:31:02Z,PB,T2N1,b,N,0,incomplete,start_task
+2022-03-22T13:31:28Z,2022-03-22T13:31:28Z,PB,T2N1,b,N,26,incomplete,diff content/review/review2.md content/review/review1.md 
+2022-03-22T13:31:50Z,2022-03-22T13:31:50Z,PB,T2N1,b,N,48,incomplete,diff -u content/review/review2.md content/review/review1.md 
+2022-03-22T13:33:06Z,2022-03-22T13:33:06Z,PB,T2N1,b,N,123,success,diff -u content/review/review2.md content/review/review1.md | grep "\-\*" | tr -d '-'
+2022-03-22T13:33:06Z,2022-03-22T13:33:06Z,PB,T2N1,c,N,0,incomplete,start_task
+2022-03-22T13:33:33Z,2022-03-22T13:33:33Z,PB,T2N1,c,N,26,success,find content/labs/ -type f | wc -l
+2022-03-22T13:33:33Z,2022-03-22T13:33:33Z,PB,T2N1,d,N,0,incomplete,start_task
+2022-03-22T13:34:08Z,2022-03-22T13:34:08Z,PB,T2N1,d,N,35,incomplete,find content/ -type f -not -name "tips.md" -exec rm {}  
+2022-03-22T13:35:46Z,2022-03-22T13:35:46Z,PB,T2N1,d,N,133,incomplete,find content/ -maxdepth 0 -type f -not -name "tips.md" -exec rm {}  
+2022-03-22T13:36:06Z,2022-03-22T13:36:05Z,PB,T2N1,d,N,152,success,find content/ -maxdepth 1 -type f -not -name "tips.md" -exec rm {}  
+2022-03-22T13:36:06Z,2022-03-22T13:36:06Z,PB,T2N1,e,N,0,incomplete,start_task
+2022-03-22T13:36:30Z,2022-03-22T13:36:30Z,PB,T2N1,e,N,24,success,find css -type f -exec rm {}  
+2022-03-22T13:36:30Z,2022-03-22T13:36:30Z,PB,T2N1,f,N,0,incomplete,start_task
+2022-03-22T13:36:55Z,2022-03-22T13:36:55Z,PB,T2N1,f,N,25,incomplete,ls content/*/*/
+2022-03-22T13:37:30Z,2022-03-22T13:37:30Z,PB,T2N1,f,N,60,incomplete,man find
+2022-03-22T13:37:57Z,2022-03-22T13:37:57Z,PB,T2N1,f,N,87,incomplete,find content -type d -mindepth 2 -maxdepth 2 
+2022-03-22T13:38:42Z,2022-03-22T13:38:41Z,PB,T2N1,f,N,131,success,find content -type d -mindepth 2 -maxdepth 2 | cut -f3 -d'/'
