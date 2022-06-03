@@ -4,7 +4,7 @@
     - Usually participants names like `a`, `b`, `test`, `<PI Name>`, etc.
 2. Replace user_id by their participant id in the private key (Google Sheet) to anonymize results
 3. Remove trailing commas at the end of the line when present
-4. Run `./add_missing_tasks_from_timeout.py` to add tasks missed by taskset timeout. [automatic]
+4. Run `./clean_timeouts.py` to add tasks missed by taskset timeout. [automatic]
 5. You have a dataset.
 
 ## Appending new data
