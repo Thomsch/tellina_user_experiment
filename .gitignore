@@ -25,3 +25,7 @@ logs/
 
 # Ignore VSCode settings
 .vscode/settings.json
+
+experiment_data/data/.RData
+
+experiment_data/data/.Rhistory
