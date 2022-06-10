@@ -1,5 +1,4 @@
 # Procedure to clean-up data
-
 1. Remove tests made by PIs [manual]
     - Usually participants names like `a`, `b`, `test`, `<PI Name>`, etc.
 2. Replace user_id by their participant id in the private key (Google Sheet) to anonymize results
