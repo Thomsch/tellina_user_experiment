@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.png">
+
+  <title>English to Bash Study - Attu</title>
+</head>
+
+<body>
+  <h1>
+    Prerequisites for attu
+  </h1>
+  <p>To enable GUIs on attu we'll use a X client that allows to redirect the GUIs from attu to our computer.</p>
+  <h2>
+    Instructions
+  </h2>
+  <ol>
+    <li>
+      Download and install an X client on your laptop (<a href="https://www.xquartz.org/" target="_blank" rel="noopener noreferrer">macOS</a>,
+        <a href="https://sourceforge.net/projects/vcxsrv/" target="_blank" rel="noopener noreferrer">Windows</a>).
+    </li>
+    <li>
+      Start the X client.
+    </li>
+    <li>
+      Open a new terminal.
+    </li>
+    <li>
+      Connect to attu using the <code>-XY</code> flagd to enable trusted GUI redirection. For example: 
+      <pre><code>ssh -XY -l <em>your-netid </em> attu.cs.washington.edu</code></pre>
+    </li>
+    <li>
+      Type <code>meld</code> in the terminal. You should see this window appear:
+      <img src="meld-attu.png" alt="Meld utility's empty comparison UI" width="800">
+
+      <div style="margin-bottom: 0.5em;"><span class="notice">Notice:</span> The terminal will probably also complain about two libGL errors <code>libGL error: No matching fbConfigs or visuals found</code> and <code>libGL error: failed to load driver: swrast</code>. This is normal.
+      </div>
+    </li>
+    <li>
+      Follow the remaining instructions on the <a href="instructions.html">instructions page.</a> 
+    </li>
+  </ol>
+  
+  <p>If you have any questions or concerns, feel free to contact by email (tschweiz AT cs.washington.edu).</p>
+</body>
+
+</html>
